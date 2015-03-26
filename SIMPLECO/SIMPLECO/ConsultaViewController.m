@@ -31,23 +31,40 @@
     [self.calendar setMenuMonthsView:self.calendarMenuView];
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
+    
+   
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self viewDidLoad];
     [self.view addSubview:self.calendarContentView];
     [self.view addSubview:self.calendarMenuView];
+    [self.view reloadInputViews];
     [self.calendar reloadData]; // Must be call in viewDidAppear
+    [self.view setNeedsDisplay];
+    
+    
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self viewDidLoad];
+    [self.view addSubview:self.calendarContentView];
+    [self.view addSubview:self.calendarMenuView];
+    [self.view reloadInputViews];
+
+    [self.view setNeedsDisplay];
+    
+}
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     
-    [self.calendarContentView removeFromSuperview];
-    [self.calendarMenuView removeFromSuperview];
+    //[self.calendarContentView removeFromSuperview];
+   // [self.calendarMenuView removeFromSuperview];
 }
 
 

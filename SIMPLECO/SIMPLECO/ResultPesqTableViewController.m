@@ -18,6 +18,8 @@ static ResultPesqTableViewController *SINGLETON = nil;
 
 static bool isFirstAccess = YES;
 
+
+
 + (id)sharedInstance
 {
     static dispatch_once_t onceToken;
@@ -77,6 +79,18 @@ static bool isFirstAccess = YES;
     return cell;
 }
 
+- (IBAction)BConsulta:(id)sender {
+    ResultPesqTableViewController *novaView = [[ResultPesqTableViewController alloc]init];
+    ConsultaViewController *proximaView = [[ConsultaViewController alloc]init];
+    
+   // [self presentViewController:proximaView animated:YES completion:nil];
+    [self.navigationController pushViewController:proximaView animated:YES];
+    
+    
+   // [self.vie]
+   
+
+}
 
 
 /*

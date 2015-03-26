@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ResultPesqTableViewCell.h"
+#import "ConsultaViewController.h"
 
 @interface ResultPesqTableViewController : UITableViewController
 
+- (IBAction)BConsulta:(id)sender;
 + (ResultPesqTableViewController*)sharedInstance;
 @end
