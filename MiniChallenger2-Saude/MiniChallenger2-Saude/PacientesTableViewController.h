@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PacientesTableViewController : UITableViewController
-- (IBAction)Sair:(id)sender;
 
 @end

@@ -1,18 +1,18 @@
 //
-//  PacientesTableViewController.m
+//  MoreTableViewController.m
 //  MiniChallenger2-Saude
 //
-//  Created by Evandro Remon Pulz Viva on 3/24/15.
+//  Created by Evandro Remon Pulz Viva on 26/03/15.
 //  Copyright (c) 2015 Evandro Remon Pulz Viva. All rights reserved.
 //
 
-#import "PacientesTableViewController.h"
+#import "MoreTableViewController.h"
 
-@interface PacientesTableViewController ()
+@interface MoreTableViewController ()
 
 @end
 
-@implementation PacientesTableViewController
+@implementation MoreTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,17 +31,9 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
+
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,10 +89,7 @@
 }
 */
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-   // [self ]
+- (IBAction)Logout:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 @end
