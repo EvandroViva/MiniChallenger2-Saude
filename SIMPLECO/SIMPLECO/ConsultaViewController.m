@@ -31,13 +31,37 @@
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
     
+    [self replace_BackButtonNavigationController];
+    
+    [self.calendar reloadData];
+    
    
 }
+
+#pragma mark ReplaceBackButtonNavigation
+
+- (void)replace_BackButtonNavigationController {
+    
+    UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:
+                                UIBarButtonSystemItemRewind
+                                target:self
+                                action:@selector(OnClick_btnBack:)];
+    self.navigationItem.leftBarButtonItem = btnBack;
+    
+}
+
+-(IBAction)OnClick_btnBack:(id)sender  {
+    
+    [self.navigationController popViewControllerAnimated:NO];
+    
+}
+
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self viewDidLoad];
     [self.view addSubview:self.calendarContentView];
     [self.view addSubview:self.calendarMenuView];
     [self.view reloadInputViews];
@@ -46,24 +70,6 @@
     
     
 
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [self viewDidLoad];
-    [self.view addSubview:self.calendarContentView];
-    [self.view addSubview:self.calendarMenuView];
-    [self.view reloadInputViews];
-
-    [self.view setNeedsDisplay];
-    
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    
-   [self.calendarContentView removeFromSuperview];
-   [self.calendarMenuView removeFromSuperview];
 }
 
 
