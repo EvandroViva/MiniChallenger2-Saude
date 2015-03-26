@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RegiaoTableViewCell.h"
+#import "ViewController.h"
 
 @interface RegiaoTableViewController : UITableViewController
 
 
 + (RegiaoTableViewController*)sharedInstance;
+@property NSString* regiao;
 
 @end
