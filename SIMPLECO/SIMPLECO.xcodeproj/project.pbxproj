@@ -43,6 +43,7 @@
 		11A127E01AC4535F00A57D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A127DF1AC4535F00A57D2A /* UIKit.framework */; };
 		11A127E21AC4536600A57D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A127E11AC4536600A57D2A /* Foundation.framework */; };
 		11A127E41AC4536E00A57D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A127E31AC4536E00A57D2A /* CoreGraphics.framework */; };
+		11BA6B7A1AC49042002A311D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA6B791AC49042002A311D /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		11A127DF1AC4535F00A57D2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		11A127E11AC4536600A57D2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		11A127E31AC4536E00A57D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		11BA6B781AC49042002A311D /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		11BA6B791AC49042002A311D /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 				119BC7341AC1E2EC002B97B0 /* ConsultaViewController.h */,
 				119BC7351AC1E2EC002B97B0 /* ConsultaViewController.m */,
 				1147A8A11AC1A3FA00651289 /* Images.xcassets */,
+				11BA6B781AC49042002A311D /* TabBarController.h */,
+				11BA6B791AC49042002A311D /* TabBarController.m */,
 				1147A8A31AC1A3FA00651289 /* LaunchScreen.xib */,
 				1147A8941AC1A3FA00651289 /* Supporting Files */,
 			);
@@ -422,6 +427,7 @@
 				1147A89A1AC1A3FA00651289 /* AppDelegate.m in Sources */,
 				1147A8971AC1A3FA00651289 /* main.m in Sources */,
 				119BC7201AC1CD91002B97B0 /* EspecialidadesTableViewController.m in Sources */,
+				11BA6B7A1AC49042002A311D /* TabBarController.m in Sources */,
 				119BC7361AC1E2EC002B97B0 /* ConsultaViewController.m in Sources */,
 				11A127C61AC4188C00A57D2A /* JTCalendarWeekView.m in Sources */,
 				119BC7321AC1D807002B97B0 /* ResultPesqTableViewCell.m in Sources */,
