@@ -38,13 +38,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simpleco Clinical" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW4-0e-yVc">
-                                <rect key="frame" x="172" y="28" width="255" height="38.5"/>
+                                <rect key="frame" x="172" y="28" width="255" height="39"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="33"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se você ainda não é cadastrado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlQ-ya-zPf">
-                                <rect key="frame" x="176" y="344" width="247.5" height="20.5"/>
+                                <rect key="frame" x="176" y="344" width="248" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -211,11 +211,15 @@
             </objects>
             <point key="canvasLocation" x="3260" y="2622"/>
         </scene>
-        <!--Médicos-->
+        <!--Medico-->
         <scene sceneID="1Hw-XD-p6r">
             <objects>
                 <navigationController id="aCi-Bg-Zad" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Médicos" id="WM5-l6-ym1"/>
+                    <tabBarItem key="tabBarItem" title="Medico" selectedImage="Image" id="WM5-l6-ym1">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="keyPath" value="EAD8F3B0-647D-4357-9371-CAA63DF2EE6B"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n9W-p6-3Aq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -246,7 +250,7 @@
             </objects>
             <point key="canvasLocation" x="2343" y="-976"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Paciente-->
         <scene sceneID="hzi-Ke-m2D">
             <objects>
                 <tableViewController id="f89-Lp-SUY" customClass="PacientesTableViewController" sceneMemberID="viewController">
@@ -270,7 +274,7 @@
                             <outlet property="delegate" destination="f89-Lp-SUY" id="M4g-g3-Mg0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="k0Y-uQ-nu6">
+                    <navigationItem key="navigationItem" title="Paciente" id="k0Y-uQ-nu6">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="ecg-vz-Ny2">
                             <connections>
                                 <action selector="Sair:" destination="f89-Lp-SUY" id="2Vl-bK-wYg"/>
@@ -325,7 +329,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="uNO-MG-8Oj">
             <objects>
-                <tabBarController id="Dqu-i4-wkg" sceneMemberID="viewController">
+                <tabBarController id="Dqu-i4-wkg" customClass="TabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="dFy-Q7-pVW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -335,6 +339,7 @@
                     <connections>
                         <segue destination="BId-Zf-s4A" kind="relationship" relationship="viewControllers" id="YBS-ZR-xJf"/>
                         <segue destination="aCi-Bg-Zad" kind="relationship" relationship="viewControllers" id="8ss-6y-cOr"/>
+                        <segue destination="Z5x-Hv-pLW" kind="relationship" relationship="viewControllers" id="X07-fo-SSg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFj-D3-PvW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -413,11 +418,11 @@
             </objects>
             <point key="canvasLocation" x="3211" y="1274"/>
         </scene>
-        <!--Serviços-->
+        <!--Navigation Controller-->
         <scene sceneID="AXe-Oh-SJH">
             <objects>
                 <navigationController id="Z5x-Hv-pLW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Serviços" id="ExV-CR-IcM"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="ExV-CR-IcM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eDb-aJ-8WI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -484,4 +489,7 @@
             <point key="canvasLocation" x="127" y="1269"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="40" height="40"/>
+    </resources>
 </document>

@@ -18,6 +18,7 @@
 		90016F311AC1F8A0002D8BF6 /* CadastroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F301AC1F8A0002D8BF6 /* CadastroViewController.m */; };
 		90016F341AC1FD88002D8BF6 /* PacientesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F331AC1FD88002D8BF6 /* PacientesTableViewController.m */; };
 		90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */; };
+		90DD5F7F1AC4396B00791FAF /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DD5F7E1AC4396B00791FAF /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		90016F331AC1FD88002D8BF6 /* PacientesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacientesTableViewController.m; sourceTree = "<group>"; };
 		90016F351AC1FDA6002D8BF6 /* PacientesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacientesTableViewCell.h; sourceTree = "<group>"; };
 		90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacientesTableViewCell.m; sourceTree = "<group>"; };
+		90DD5F7D1AC4396B00791FAF /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		90DD5F7E1AC4396B00791FAF /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				90016F0D1AC176BC002D8BF6 /* ViewController.h */,
 				90016F0E1AC176BC002D8BF6 /* ViewController.m */,
 				90016F101AC176BC002D8BF6 /* Main.storyboard */,
+				90DD5F7D1AC4396B00791FAF /* TabBarController.h */,
+				90DD5F7E1AC4396B00791FAF /* TabBarController.m */,
 				90016F321AC1FD88002D8BF6 /* PacientesTableViewController.h */,
 				90016F351AC1FDA6002D8BF6 /* PacientesTableViewCell.h */,
 				90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */,
@@ -244,6 +249,7 @@
 				90016F0C1AC176BC002D8BF6 /* AppDelegate.m in Sources */,
 				90016F091AC176BC002D8BF6 /* main.m in Sources */,
 				90016F341AC1FD88002D8BF6 /* PacientesTableViewController.m in Sources */,
+				90DD5F7F1AC4396B00791FAF /* TabBarController.m in Sources */,
 				90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */,
 				90016F311AC1F8A0002D8BF6 /* CadastroViewController.m in Sources */,
 			);
@@ -438,6 +444,7 @@
 				90016F281AC176BC002D8BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90016F291AC176BC002D8BF6 /* Build configuration list for PBXNativeTarget "MiniChallenger2-SaudeTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +453,7 @@
 				90016F2B1AC176BC002D8BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
