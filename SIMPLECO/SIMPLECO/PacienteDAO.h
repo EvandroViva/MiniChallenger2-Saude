@@ -7,7 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Paciente.h"
 
 @interface PacienteDAO : NSObject
+
+// SINGLETON
++ (PacienteDAO*)sharedInstance;
+
+// CRUD
+// create
+-(void)cadastrarPaciente:(Paciente*)pac;
+
+// read
+-(void)selecionarPaciente:(NSString*)id_pac;
+
+// update
+-(void)alterarPaciente:(Paciente*)pac;
+
+// delete
+-(void)excluirPaciente:(NSString*)id_pac;
 
 @end

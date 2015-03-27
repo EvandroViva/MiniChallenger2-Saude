@@ -7,7 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Consulta.h"
 
 @interface ConsultaDAO : NSObject
+
+// SINGLETON
++ (ConsultaDAO*)sharedInstance;
+
+// CRUD
+// create
+-(void)cadastrarConsulta:(Consulta*)cons;
+
+// read
+-(void)selecionarConsulta:(NSString*)id_cons;
+
+// update
+-(void)alterarConsulta:(Consulta*)cons;
+
+// delete
+-(void)excluirConsulta:(NSString*)id_cons;
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "RegiaoTableViewController.h"
 
 @interface ViewController ()
+
 
 @end
 
@@ -38,6 +40,15 @@
     [BBuscar setBackgroundColor:[UIColor whiteColor]];
     
    // _LRegiao.text = _regiao;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+//    RegiaoTableViewController* nomeRegiao;
+//    nomeRegiao = [RegiaoTableViewController sharedInstance];
+//    _LRegiao.text = nomeRegiao.bairro;
+    _LRegiao.text = [[RegiaoTableViewController sharedInstance]bairro];
+    
 }
 
 

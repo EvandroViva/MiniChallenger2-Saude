@@ -12,8 +12,15 @@
 
 @interface RegiaoTableViewController : UITableViewController
 
-
+// SINGLETON
 + (RegiaoTableViewController*)sharedInstance;
+
+@property NSArray* bairrosNorte;
+@property NSArray* bairrosSul;
+@property NSArray* bairrosLeste;
+@property NSArray* bairrosOeste;
+
 @property NSString* regiao;
+@property NSString* bairro;
 
 @end
