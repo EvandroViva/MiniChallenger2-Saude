@@ -31,6 +31,11 @@
     [patientItem setImage:[UIImage imageNamed:@"notification"]];
     [patientItem setTitle:@"Notificações"];
     
+    UITabBarItem* HorariotItem = [self.tabBar.items objectAtIndex:2];
+    
+    [HorariotItem setSelectedImage:[UIImage imageNamed:@"doctor"]];
+    [HorariotItem setImage:[UIImage imageNamed:@"doctor"]];
+    [HorariotItem setTitle:@"Horarios"];
     
     
 }

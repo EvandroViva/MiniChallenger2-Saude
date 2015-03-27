@@ -190,7 +190,6 @@
         <!--Calendário-->
         <scene sceneID="1Hw-XD-p6r">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NXG-LP-Csh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="aCi-Bg-Zad" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendário" selectedImage="Image" id="WM5-l6-ym1">
                         <userDefinedRuntimeAttributes>
@@ -205,6 +204,7 @@
                         <segue destination="07Y-68-ujG" kind="relationship" relationship="rootViewController" id="To3-bw-2Wz"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXG-LP-Csh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1531" y="2000"/>
         </scene>
@@ -321,7 +321,7 @@
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="h8g-Sa-S1w">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" tag="9" contentMode="center" tableViewCell="h8g-Sa-S1w" id="AzS-wj-Tnj">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="9" contentMode="center" tableViewCell="h8g-Sa-S1w" id="AzS-wj-Tnj">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBQ-ew-xkF">
@@ -485,7 +485,7 @@
         <scene sceneID="BN0-ow-hcW">
             <objects>
                 <navigationController id="0Ld-AP-qCA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Horários" id="UBm-ZZ-wm3"/>
+                    <tabBarItem key="tabBarItem" title="Horários" selectedImage="doctor" id="UBm-ZZ-wm3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IC3-bT-tFl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -502,5 +502,6 @@
     <resources>
         <image name="913A7E03-430A-4E97-BD4A-CC457F3F808A" width="40" height="40"/>
         <image name="Image" width="40" height="40"/>
+        <image name="doctor" width="29" height="29"/>
     </resources>
 </document>

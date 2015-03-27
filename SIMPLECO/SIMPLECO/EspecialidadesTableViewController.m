@@ -19,17 +19,11 @@
 
 static EspecialidadesTableViewController *SINGLETON = nil;
 
-static bool isFirstAccess = YES;
 
 + (id)sharedInstance
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        isFirstAccess = NO;
-        SINGLETON = [[super allocWithZone:NULL] init];
-    });
-    
     return SINGLETON;
+
 }
 
 
@@ -42,7 +36,15 @@ static bool isFirstAccess = YES;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     listaEspecialidade = @[@"Cardiologista",@"Clínico Geral",@"Dentista/Ortodentista",@"Dermatologista",@"Endocrionologista",@"Endoscopia",@"Fisioterapeuta",@"Fonoaudiólogista",@"Ginecologista",@"Neurologista",@"Nutricionista",@"Nutrólogo",@"Obstetra",@"Oftamologista",@"Ortopedista",@"Otorrinolaringologista",@"Pediatra",@"Pneumologista",@"Psicólogo",@"Psiquiatra",@"Radiologista",@"Urologista"];
+    
+
+        SINGLETON = self;
+
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,13 +55,11 @@ static bool isFirstAccess = YES;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return listaEspecialidade.count;
 }
@@ -128,8 +128,14 @@ static bool isFirstAccess = YES;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    especialidade =listaEspecialidade[indexPath.row];
+    
+
+    self.especialidade =listaEspecialidade[indexPath.row];
+    
+    
     [self.navigationController popViewControllerAnimated:YES];
+    
+    
 }
 
 

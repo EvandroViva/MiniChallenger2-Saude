@@ -9,6 +9,10 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+{
+    NSString *nome;
+    EspecialidadesTableViewController *NomeEspecialidade;
+}
 
 @end
 
@@ -17,7 +21,6 @@
 @synthesize Bregiao;
 @synthesize BBuscar;
 @synthesize especialidade;
-@synthesize NomeEspecialidade;
 
 
 - (void)viewDidLoad {
@@ -38,14 +41,22 @@
     [BBuscar.layer setBorderWidth:2];
     [BBuscar.layer setBorderColor:[UIColor blackColor].CGColor];
     [BBuscar setBackgroundColor:[UIColor whiteColor]];
+   
     
-    NomeEspecialidade = [[EspecialidadesTableViewController alloc]init];
     
     
-    _LEspecialidade.text = NomeEspecialidade.especialidade;
+    
     
     
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NomeEspecialidade  = [EspecialidadesTableViewController sharedInstance];
+    _LEspecialidade.text = NomeEspecialidade.especialidade;
+    
+}
+
 
 //-(BOOL)prefersStatusBarHidden // Esconde a data e hora
 //{
