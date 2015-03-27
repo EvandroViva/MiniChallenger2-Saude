@@ -44,6 +44,7 @@
 		11A127E21AC4536600A57D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A127E11AC4536600A57D2A /* Foundation.framework */; };
 		11A127E41AC4536E00A57D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A127E31AC4536E00A57D2A /* CoreGraphics.framework */; };
 		11BA6B7A1AC49042002A311D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA6B791AC49042002A311D /* TabBarController.m */; };
+		11BB764F1AC57CFC00A85147 /* ConsultaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB764E1AC57CFC00A85147 /* ConsultaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		11A127E31AC4536E00A57D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		11BA6B781AC49042002A311D /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		11BA6B791AC49042002A311D /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		11BB764D1AC57CFC00A85147 /* ConsultaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultaTableViewCell.h; sourceTree = "<group>"; };
+		11BB764E1AC57CFC00A85147 /* ConsultaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,7 @@
 		1147A8931AC1A3FA00651289 /* SIMPLECO */ = {
 			isa = PBXGroup;
 			children = (
+				11BB76501AC5816700A85147 /* Consulta */,
 				11BB76461AC56ACE00A85147 /* Login */,
 				119BC7331AC1E1F9002B97B0 /* ResultadoPesquisa */,
 				119BC72C1AC1D3EE002B97B0 /* Regiao */,
@@ -181,8 +185,6 @@
 				1147A8991AC1A3FA00651289 /* AppDelegate.m */,
 				1147A89B1AC1A3FA00651289 /* ViewController.h */,
 				1147A89C1AC1A3FA00651289 /* ViewController.m */,
-				119BC7341AC1E2EC002B97B0 /* ConsultaViewController.h */,
-				119BC7351AC1E2EC002B97B0 /* ConsultaViewController.m */,
 				11BA6B781AC49042002A311D /* TabBarController.h */,
 				11BA6B791AC49042002A311D /* TabBarController.m */,
 				1147A8A11AC1A3FA00651289 /* Images.xcassets */,
@@ -316,6 +318,17 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		11BB76501AC5816700A85147 /* Consulta */ = {
+			isa = PBXGroup;
+			children = (
+				119BC7341AC1E2EC002B97B0 /* ConsultaViewController.h */,
+				119BC7351AC1E2EC002B97B0 /* ConsultaViewController.m */,
+				11BB764D1AC57CFC00A85147 /* ConsultaTableViewCell.h */,
+				11BB764E1AC57CFC00A85147 /* ConsultaTableViewCell.m */,
+			);
+			name = Consulta;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,6 +453,7 @@
 				11A127C61AC4188C00A57D2A /* JTCalendarWeekView.m in Sources */,
 				119BC7321AC1D807002B97B0 /* ResultPesqTableViewCell.m in Sources */,
 				11A127C51AC4188C00A57D2A /* JTCalendarMonthWeekDaysView.m in Sources */,
+				11BB764F1AC57CFC00A85147 /* ConsultaTableViewCell.m in Sources */,
 				11A127C31AC4188C00A57D2A /* JTCalendarMenuView.m in Sources */,
 				119BC72B1AC1D3E6002B97B0 /* RegiaoTableViewController.m in Sources */,
 				119BC7231AC1CE33002B97B0 /* EspecialidadesTableViewCell.m in Sources */,

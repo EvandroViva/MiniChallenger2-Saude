@@ -14,6 +14,8 @@
 
 @implementation EspecialidadesTableViewController
 
+@synthesize listaEspecialidade;
+
 static EspecialidadesTableViewController *SINGLETON = nil;
 
 static bool isFirstAccess = YES;
@@ -39,6 +41,7 @@ static bool isFirstAccess = YES;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    listaEspecialidade = @[@"Cardiologista",@"Clínico Geral",@"Dentista/Ortodentista",@"Dermatologista",@"Endocrionologista",@"Endoscopia",@"Fisioterapeuta",@"Fonoaudiólogista",@"Ginecologista",@"Neurologista",@"Nutricionista",@"Nutrólogo",@"Obstetra",@"Oftamologista",@"Ortopedista",@"Otorrinolaringologista",@"Pediatra",@"Pneumologista",@"Psicólogo",@"Psiquiatra",@"Radiologista",@"Urologista"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +60,7 @@ static bool isFirstAccess = YES;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return listaEspecialidade.count;
 }
 
 
@@ -65,7 +68,7 @@ static bool isFirstAccess = YES;
     EspecialidadesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaEspecialidades" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.Label_Especialidades.text = @"Dentista";
+    cell.Label_Especialidades.text = listaEspecialidade[indexPath.row];
     return cell;
 }
 
@@ -113,7 +116,9 @@ static bool isFirstAccess = YES;
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     ViewController *proximaView = segue.destinationViewController;
+    //proximaView.especialidade =
     
     
     // Get the new view controller using [segue destinationViewController].

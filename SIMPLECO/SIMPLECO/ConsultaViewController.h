@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JTCalendar.h"
 #import "LoginViewController.h"
+#import "ConsultaTableViewCell.h"
 
 
 @interface ConsultaViewController : UIViewController <JTCalendarDataSource,UITableViewDataSource,UITableViewDelegate>
