@@ -17,7 +17,7 @@
 #pragma mark - SINGLETON
 //============================================================
 static RegiaoTableViewController *SINGLETON = nil;
-static bool isFirstAccess = YES;
+
 
 + (id)sharedInstance
 {
@@ -37,11 +37,8 @@ static bool isFirstAccess = YES;
     _bairrosLeste = @[@"Itaquera", @"Brás", @"Mooca"];
     _bairrosOeste = @[@"Barra Funda", @"Lapa"];
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        isFirstAccess = NO;
         SINGLETON = self;
-    });
+
 }
 
 - (void)didReceiveMemoryWarning {

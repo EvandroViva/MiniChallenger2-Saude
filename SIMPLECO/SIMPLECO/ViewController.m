@@ -54,6 +54,10 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    RegiaoTableViewController* nomeRegiao;
+    nomeRegiao = [RegiaoTableViewController sharedInstance];
+    _LRegiao.text = nomeRegiao.bairro;
+    _LRegiao.text = [[RegiaoTableViewController sharedInstance]bairro];
     NomeEspecialidade  = [EspecialidadesTableViewController sharedInstance];
     _LEspecialidade.text = NomeEspecialidade.especialidade;
     
