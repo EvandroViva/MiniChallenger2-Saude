@@ -20,6 +20,7 @@
 
 @property NSString* regiao;
 @property NSString* especialidade;
+@property EspecialidadesTableViewCell *NomeEspecialidade;
 
 @end
 

@@ -16,6 +16,8 @@
 @synthesize Bespecialidade;
 @synthesize Bregiao;
 @synthesize BBuscar;
+@synthesize especialidade;
+@synthesize NomeEspecialidade;
 
 
 - (void)viewDidLoad {
@@ -37,9 +39,18 @@
     [BBuscar.layer setBorderColor:[UIColor blackColor].CGColor];
     [BBuscar setBackgroundColor:[UIColor whiteColor]];
     
-   // _LRegiao.text = _regiao;
+    NomeEspecialidade = [[EspecialidadesTableViewController alloc]init];
+    
+    
+    _LEspecialidade.text = NomeEspecialidade.especialidade;
+    
+    
 }
 
+//-(BOOL)prefersStatusBarHidden // Esconde a data e hora
+//{
+//    return YES;
+//}
 
 
 - (void)didReceiveMemoryWarning {

@@ -15,6 +15,7 @@
 @implementation EspecialidadesTableViewController
 
 @synthesize listaEspecialidade;
+@synthesize especialidade;
 
 static EspecialidadesTableViewController *SINGLETON = nil;
 
@@ -118,7 +119,7 @@ static bool isFirstAccess = YES;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     ViewController *proximaView = segue.destinationViewController;
-    //proximaView.especialidade =
+    proximaView.especialidade = especialidade;
     
     
     // Get the new view controller using [segue destinationViewController].
@@ -127,7 +128,7 @@ static bool isFirstAccess = YES;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    especialidade =listaEspecialidade[indexPath.row];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
