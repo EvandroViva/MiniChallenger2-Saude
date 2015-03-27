@@ -15,4 +15,6 @@
 
 + (EspecialidadesTableViewController*)sharedInstance;
 
+@property NSArray *listaEspecialidade;
+
 @end

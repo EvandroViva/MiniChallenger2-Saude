@@ -13,6 +13,7 @@
 @end
 
 @implementation RegiaoTableViewController
+@synthesize regiao;
 
 static RegiaoTableViewController *SINGLETON = nil;
 
@@ -68,7 +69,7 @@ static bool isFirstAccess = YES;
     {
         cell = [[RegiaoTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaRegiaoo"];
     }
-    
+    regiao = cell.LabelRegiao.text;
     cell.LabelRegiao.text = @"Caieiras";
     // Configure the cell...
     

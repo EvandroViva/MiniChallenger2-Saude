@@ -1,18 +1,19 @@
 //
-//  ConsultaViewController.m
+//  ConsultaTableViewController.m
 //  SIMPLECO
 //
-//  Created by Liliane Bezerra Lima on 24/03/15.
+//  Created by Liliane Bezerra Lima on 26/03/15.
 //  Copyright (c) 2015 Liliane Bezerra Lima. All rights reserved.
 //
 
-#import "ConsultaViewController.h"
+#import "ConsultaTableViewController.h"
 
-@interface ConsultaViewController ()
+@interface ConsultaTableViewController ()
 
 @end
-@implementation ConsultaViewController
-//@synthesize tableView;
+
+@implementation ConsultaTableViewController
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,40 +33,12 @@
     [self.calendar setDataSource:self];
     
     
-    
-    [self replace_BackButtonNavigationController];
-    
-    [self.calendar reloadData];
-    
-   
 }
-
-#pragma mark ReplaceBackButtonNavigation
-
-- (void)replace_BackButtonNavigationController {
-    
-    UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]
-                                initWithBarButtonSystemItem:
-                                UIBarButtonSystemItemRewind
-                                target:self
-                                action:@selector(OnClick_btnBack:)];
-    self.navigationItem.leftBarButtonItem = btnBack;
-    
-}
-
--(IBAction)OnClick_btnBack:(id)sender  {
-    
-    [self.navigationController popViewControllerAnimated:NO];
-    
-}
-
-
-
-
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self viewDidLoad];
     [self.view addSubview:self.calendarContentView];
     [self.view addSubview:self.calendarMenuView];
     [self.view reloadInputViews];
@@ -73,7 +46,25 @@
     [self.view setNeedsDisplay];
     
     
+    
+}
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self viewDidLoad];
+    [self.view addSubview:self.calendarContentView];
+    [self.view addSubview:self.calendarMenuView];
+    [self.view reloadInputViews];
+    
+    [self.view setNeedsDisplay];
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    
+    [self.calendarContentView removeFromSuperview];
+    [self.calendarMenuView removeFromSuperview];
 }
 
 
@@ -132,41 +123,64 @@
                      }];
     
 }
+//#pragma mark - Table view data source
 
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ConsultaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaMConsulta" forIndexPath:indexPath];
-    
-    if (cell == nil)
-    {
-        cell = [[ConsultaTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaMConsulta"];
-    }
-    
-    cell.LData.text = @"09:00";
-    cell.LConteudo.text = @"Consulta";
+    // Configure the cell...
     
     return cell;
 }
+*/
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    [self performSegueWithIdentifier:@"showLogin" sender:self] ;
-
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
 }
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
 /*
 #pragma mark - Navigation
 

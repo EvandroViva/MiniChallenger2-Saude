@@ -18,6 +18,8 @@ static ResultPesqTableViewController *SINGLETON = nil;
 
 static bool isFirstAccess = YES;
 
+
+
 + (id)sharedInstance
 {
     static dispatch_once_t onceToken;
@@ -77,6 +79,11 @@ static bool isFirstAccess = YES;
     return cell;
 }
 
+- (IBAction)BConsulta:(id)sender {
+    
+    [self performSegueWithIdentifier:@"showConsulta" sender:self] ;
+
+}
 
 
 /*
