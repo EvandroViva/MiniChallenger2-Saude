@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "RegiaoTableViewController.h"
 
 @interface ViewController ()
 {
     NSString *nome;
     EspecialidadesTableViewController *NomeEspecialidade;
 }
+
 
 @end
 

@@ -7,7 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Endereco.h"
 
 @interface EnderecoDAO : NSObject
+
+// SINGLETON
++ (EnderecoDAO*)sharedInstance;
+
+// CRUD
+// create
+-(void)cadastrarEndereco:(Endereco*)end;
+
+// read
+-(void)selecionarEndereco:(NSString*)id_end;
+
+// update
+-(void)alterarEndereco:(Endereco*)end;
+
+// delete
+-(void)excluirEndereco:(NSString*)id_end;
 
 @end

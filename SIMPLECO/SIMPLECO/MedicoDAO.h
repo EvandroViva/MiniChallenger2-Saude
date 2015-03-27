@@ -7,7 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Medico.h"
 
 @interface MedicoDAO : NSObject
+
+// SINGLETON
++ (MedicoDAO*)sharedInstance;
+
+// CRUD
+// create
+-(void)cadastrarMedico:(Medico*)med;
+
+// read
+-(void)selecionarMedico:(NSString*)id_med;
+
+// update
+-(void)alterarMedico:(Medico*)med;
+
+// delete
+-(void)excluirMedico:(NSString*)id_med;
 
 @end

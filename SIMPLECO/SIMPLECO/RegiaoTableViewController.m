@@ -13,118 +13,166 @@
 @end
 
 @implementation RegiaoTableViewController
-@synthesize regiao;
 
+#pragma mark - SINGLETON
+//============================================================
 static RegiaoTableViewController *SINGLETON = nil;
-
 static bool isFirstAccess = YES;
 
 + (id)sharedInstance
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        isFirstAccess = NO;
-        SINGLETON = [[super allocWithZone:NULL] init];
-    });
-    
     return SINGLETON;
 }
+//============================================================
 
 
-
+#pragma mark - didLoad
+//============================================================
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // teste
+    _bairrosNorte = @[@"Santana", @"Casa Verde", @"Tucuruvi", @"Carandiru"];
+    _bairrosSul = @[@"Morumbi", @"Berrini", @"Granja Julieta"];
+    _bairrosLeste = @[@"Itaquera", @"Brás", @"Mooca"];
+    _bairrosOeste = @[@"Barra Funda", @"Lapa"];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess = NO;
+        SINGLETON = self;
+    });
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+-(BOOL) prefersStatusBarHidden
+{
+    return YES;
+}
+//============================================================
 
+
+#pragma mark - SECOES
+//============================================================
+// numero de secoes
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
+    return 4;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+// numero de celulas por secao
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSInteger count;
+    switch (section) {
+        case 0:
+            count=[_bairrosNorte count];
+            break;
+        case 1:
+            count=[_bairrosSul count];
+            break;
+        case 2:
+            count=[_bairrosLeste count];
+            break;
+        case 3:
+            count=[_bairrosOeste count];
+            break;
+        default:
+            break;
+    }
+    return count;
 }
 
+// titulo das secoes
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    NSString *title;
+    switch (section) {
+        case 0:
+            title=@"Norte";
+            break;
+        case 1:
+            title=@"Sul";
+            break;
+        case 2:
+            title=@"Leste";
+            break;
+        case 3:
+            title=@"Oeste";
+            break;
+        default:
+            break;
+    }
+    return title;
+}
+//============================================================
 
+
+#pragma mark - PREENCHER TABLE
+//============================================================
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegiaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaRegiaoo" forIndexPath:indexPath];
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = [_bairrosNorte objectAtIndex:indexPath.row];
+            break;
+            
+        case 1:
+            cell.textLabel.text = [_bairrosSul objectAtIndex:indexPath.row];
+            break;
+            
+        case 2:
+            cell.textLabel.text = [_bairrosLeste objectAtIndex:indexPath.row];
+            break;
+            
+        case 3:
+            cell.textLabel.text = [_bairrosOeste objectAtIndex:indexPath.row];
+            break;
     
-    if (cell == nil)
-    {
-        cell = [[RegiaoTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaRegiaoo"];
+        default:
+            break;
     }
-    regiao = cell.LabelRegiao.text;
-    cell.LabelRegiao.text = @"Caieiras";
-    // Configure the cell...
-    
     return cell;
 }
+//============================================================
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
 }
 
+
+#pragma mark - CELULA SELECIONADA
+//============================================================
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    switch (indexPath.section) {
+        case 0:
+            _bairro = [_bairrosNorte objectAtIndex:indexPath.row];
+            _regiao = @"Norte";
+            break;
+            
+        case 1:
+            _bairro = [_bairrosSul objectAtIndex:indexPath.row];
+            _regiao = @"Sul";
+            break;
+            
+        case 2:
+            _bairro = [_bairrosLeste objectAtIndex:indexPath.row];
+            _regiao = @"Leste";
+            break;
+            
+        case 3:
+            _bairro = [_bairrosOeste objectAtIndex:indexPath.row];
+            _regiao = @"Oeste";
+            break;
+            
+        default:
+            break;
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
+//============================================================
 
 
 @end
