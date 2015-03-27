@@ -19,17 +19,18 @@
 //    UITabBarItem *item = [[UITabBarItem alloc] init];
 //    [item setImage:[UIImage imageNamed:@"Image"]];
     
-    UITabBarItem* doctorItem = [self.tabBar.items objectAtIndex:1];
+    UITabBarItem* doctorItem = [self.tabBar.items objectAtIndex:0];
     
-    [doctorItem setSelectedImage:[UIImage imageNamed:@"Doctor"]];
-    [doctorItem setImage:[UIImage imageNamed:@"Doctor"]];
-    [doctorItem setTitle:@"Médico"];
+    [doctorItem setSelectedImage:[UIImage imageNamed:@"calendar"]];
+    [doctorItem setImage:[UIImage imageNamed:@"calendar"]];
+    [doctorItem setTitle:@"Calendário"];
     
-    UITabBarItem* patientItem = [self.tabBar.items objectAtIndex:0];
+    UITabBarItem* patientItem = [self.tabBar.items objectAtIndex:1];
     
-    [patientItem setSelectedImage:[UIImage imageNamed:@"Patient"]];
-    [patientItem setImage:[UIImage imageNamed:@"Patient"]];
-    [patientItem setTitle:@"Paciente"];
+    [patientItem setSelectedImage:[UIImage imageNamed:@"notification"]];
+    [patientItem setImage:[UIImage imageNamed:@"notification"]];
+    [patientItem setTitle:@"Notificações"];
+    
     
     
 }
