@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UITabBarItem *tBItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMore tag:0];
+    self.tabBarItem = tBItem;
+    
+    MoreTableViewController *tableVC = [[MoreTableViewController alloc] initWithNibName:@"MoreTableViewController" bundle:nil];
+    [self setViewControllers:@[tableVC]];
 }
 
 - (void)didReceiveMemoryWarning {

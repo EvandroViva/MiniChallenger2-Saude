@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MoreTableViewController.h"
 
 @interface MoreTableViewController : UITableViewController
 

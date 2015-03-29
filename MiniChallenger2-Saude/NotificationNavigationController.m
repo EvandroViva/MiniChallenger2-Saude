@@ -16,8 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    //Configurações do Botão do tabBar
+    NSString *title = @"Notificações";
+    UITabBarItem* tBItem = [[UITabBarItem alloc] initWithTitle:title image:[UIImage imageNamed:@"notification"] selectedImage:[UIImage imageNamed:@"notification"]];
+    self.tabBarItem = tBItem;
+    
+    //Configurações da RootViewControler
+    NotificationTableViewController *tableVC = [[NotificationTableViewController alloc] initWithNibName:@"NotificationTableViewController" bundle:nil];
+    [self setViewControllers:@[tableVC]];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

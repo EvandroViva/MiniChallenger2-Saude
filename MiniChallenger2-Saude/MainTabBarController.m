@@ -16,7 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NotificationNavigationController *navNotif = [[NotificationNavigationController alloc] init];
+    MoreNavigationController *navMore = [[MoreNavigationController alloc] init];
+    [self setViewControllers:@[navNotif,navMore]];
+    
+    
+//    UITabBarItem* patientItem = [self.tabBar.items objectAtIndex:1];
+//    
+//    [patientItem setSelectedImage:[UIImage imageNamed:@"notification"]];
+//    [patientItem setImage:[UIImage imageNamed:@"notification"]];
+//    [patientItem setTitle:@"Notificações"];
+//    
+//    UITabBarItem* HorariotItem = [self.tabBar.items objectAtIndex:2];
+//    
+//    [HorariotItem setSelectedImage:[UIImage imageNamed:@"doctor"]];
+//    [HorariotItem setImage:[UIImage imageNamed:@"doctor"]];
+//    [HorariotItem setTitle:@"Horarios"];
 }
 
 - (void)didReceiveMemoryWarning {

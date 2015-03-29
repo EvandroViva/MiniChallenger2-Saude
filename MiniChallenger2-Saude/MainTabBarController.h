@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NotificationNavigationController.h"
+#import "MoreNavigationController.h"
 
 @interface MainTabBarController : UITabBarController
 

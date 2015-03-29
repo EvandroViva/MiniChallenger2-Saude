@@ -10,4 +10,18 @@
 
 @implementation Medico
 
+-(instancetype)initWithPFObject: (PFObject*) object
+{
+    self = [super init];
+    if (self) {
+        self.id_medico          = object[@"nome"];
+        self.email              = object[@"email"];
+        self.especialidade      = object[@"especialidade"];
+        self.id_Endereco        = object[@"id_Edereco"];
+        self.id_tipoConsulta    = object[@"id_tipoConsulta"];
+        self.codTrabalho        = object[@"codTrabalho"];
+    }
+    return self;
+}
+
 @end
