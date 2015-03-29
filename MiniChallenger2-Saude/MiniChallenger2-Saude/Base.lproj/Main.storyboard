@@ -27,8 +27,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-uo-SHc">
-                                <rect key="frame" x="226" y="214" width="136" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-uo-SHc">
+                                <rect key="frame" x="266" y="214" width="68" height="30"/>
                                 <state key="normal" title="   Entrar   ">
                                     <color key="titleColor" red="0.47450980390000003" green="0.054361031320000003" blue="0.098978230020000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,15 +59,22 @@
                                     <segue destination="f95-Vi-U4I" kind="show" identifier="SignIn" id="Jes-u4-4nl"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="npa-ht-NiP">
+                                <rect key="frame" x="344" y="210.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.20392158627510071" green="0.68627452850341797" blue="0.92156869173049927" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="Z68-uo-SHc" firstAttribute="centerY" secondItem="npa-ht-NiP" secondAttribute="centerY" id="0GI-DF-Wnf"/>
                             <constraint firstAttribute="centerX" secondItem="it7-DL-79x" secondAttribute="centerX" id="1vB-tb-kk1"/>
                             <constraint firstAttribute="centerX" secondItem="IW4-0e-yVc" secondAttribute="centerX" id="3gD-kS-dEV"/>
                             <constraint firstAttribute="centerX" secondItem="PtB-fL-8jw" secondAttribute="centerX" id="49t-JU-xeC"/>
                             <constraint firstItem="PtB-fL-8jw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="5Kz-oN-3PN"/>
+                            <constraint firstItem="npa-ht-NiP" firstAttribute="leading" secondItem="Z68-uo-SHc" secondAttribute="trailing" constant="10" id="5bL-ME-GSQ"/>
                             <constraint firstItem="PtB-fL-8jw" firstAttribute="top" secondItem="jDj-FK-pk7" secondAttribute="bottom" constant="8" id="6U9-0f-gKA"/>
                             <constraint firstItem="IW4-0e-yVc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="9yf-vf-fgA"/>
+                            <constraint firstItem="Z68-uo-SHc" firstAttribute="centerY" secondItem="npa-ht-NiP" secondAttribute="centerY" id="HQu-vf-weh"/>
                             <constraint firstItem="Z68-uo-SHc" firstAttribute="top" secondItem="PtB-fL-8jw" secondAttribute="bottom" constant="40" id="Krt-NT-7h7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PtB-fL-8jw" secondAttribute="trailing" constant="10" id="Lk8-1O-Hnf"/>
                             <constraint firstAttribute="centerX" secondItem="Z68-uo-SHc" secondAttribute="centerX" id="QeL-pv-Vli"/>
@@ -79,12 +86,18 @@
                             <constraint firstItem="jDj-FK-pk7" firstAttribute="top" secondItem="IW4-0e-yVc" secondAttribute="bottom" constant="40" id="pc8-0D-3qa"/>
                             <constraint firstAttribute="centerX" secondItem="jDj-FK-pk7" secondAttribute="centerX" id="vTR-Pa-h3p"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HQu-vf-weh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="ButtonLogin" destination="Z68-uo-SHc" id="UEF-3w-6Mf"/>
                         <outlet property="ButtonSignIn" destination="it7-DL-79x" id="eHC-eI-uBw"/>
                         <outlet property="TextFieldEmail" destination="jDj-FK-pk7" id="udo-l1-8uF"/>
                         <outlet property="TextFieldPassword" destination="PtB-fL-8jw" id="1vF-E4-5Jk"/>
+                        <outlet property="loginActivityIndicator" destination="npa-ht-NiP" id="dA6-xu-CV8"/>
                         <segue destination="Dqu-i4-wkg" kind="show" identifier="login" id="4lc-4e-NGH"/>
                     </connections>
                 </viewController>
@@ -196,7 +209,6 @@
         <!--Calendário-->
         <scene sceneID="1Hw-XD-p6r">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NXG-LP-Csh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="aCi-Bg-Zad" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendário" selectedImage="Image" id="WM5-l6-ym1">
                         <userDefinedRuntimeAttributes>
@@ -211,6 +223,7 @@
                         <segue destination="07Y-68-ujG" kind="relationship" relationship="rootViewController" id="To3-bw-2Wz"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXG-LP-Csh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1531" y="2000"/>
         </scene>

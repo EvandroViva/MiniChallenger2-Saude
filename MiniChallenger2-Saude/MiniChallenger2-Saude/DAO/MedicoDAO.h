@@ -22,7 +22,7 @@
 +(Medico*)getMedico:(NSString*)id_med;
 +(NSArray*)getMedicosByName:(NSString*)name_med;
 +(Medico*)getMedicoByEmail:(NSString*)email_med;
-+(Medico*)getMedicoByEmail:(NSString*)email_med AndPassword: (NSString*) password;
++(void)getMedicoByEmail:(NSString *)email_med AndPassword:(NSString *)password AndComplete: (void(^)(Medico*)) callback;
 
 // update
 +(void)updateMedico:(Medico*)med;

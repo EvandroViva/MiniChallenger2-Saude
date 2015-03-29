@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldEmail;
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldPassword;
 - (IBAction)ButtonLoginClick:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loginActivityIndicator;
 
 
 @end

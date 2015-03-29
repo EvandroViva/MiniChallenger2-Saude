@@ -93,10 +93,9 @@ static bool isFirstAccess = YES;
     }];
     return doctor;
 }
-+(Medico*)getMedicoByEmail:(NSString *)email_med AndPassword:(NSString *)password
++(void)getMedicoByEmail:(NSString *)email_med AndPassword:(NSString *)password AndComplete: (void(^)(Medico*)) callback;
 {
-    __block Medico *doctor = [[Medico alloc] init];
-    __block bool flag = false;
+    __block Medico *doctor = nil;
     PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
     [query whereKey:@"email" equalTo:email_med];
     [query whereKey:@"password" equalTo:password];
@@ -114,10 +113,8 @@ static bool isFirstAccess = YES;
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-        flag = true;
+        callback(doctor);
     }];
-    while (flag == false);
-    return doctor;
 }
 
 #pragma mark UPDATE

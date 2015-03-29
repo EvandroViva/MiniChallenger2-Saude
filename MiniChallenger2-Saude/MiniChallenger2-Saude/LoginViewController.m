@@ -28,7 +28,7 @@
     
     [ButtonLogin setTintColor: self.view.backgroundColor];
     [ButtonLogin setBackgroundColor:[UIColor whiteColor]];
-    
+    [self.loginActivityIndicator setHidden:YES];
 
 }
 
@@ -48,8 +48,18 @@
 
 
 - (IBAction)ButtonLoginClick:(UIButton *)sender {
-//    Medico *m =[MedicoDAO getMedicoByEmail:[TextFieldEmail text] AndPassword:[TextFieldPassword text]];
+   [self.loginActivityIndicator setHidden:NO];
     MainTabBarController *main = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
-    [self.view.window setRootViewController:main];
+    [MedicoDAO getMedicoByEmail:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(Medico *m){
+        if (m != nil) {
+            [self.loginActivityIndicator setHidden:YES];
+            [self.view.window setRootViewController:main];
+        } else {
+            [self.loginActivityIndicator setHidden:YES];
+            [[[UIAlertView alloc] initWithTitle:@"Usuário Inválido" message:@"E-mail e/ou senha estão inválidos." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        }
+    }];
 }
+
+
 @end
