@@ -83,6 +83,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Botao Buscar/ verificacao de preenchimento
 
 - (IBAction)BotaoBuscar:(id)sender {
     
@@ -91,6 +92,41 @@
         NSLog(@"Erro");
         [Bespecialidade.layer setBorderColor:[UIColor redColor].CGColor];
         bit = true;
+        
+        
+        
+        [UIView animateWithDuration:0.1
+                              delay:0.1
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             Bespecialidade.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
+                         }completion:^(BOOL finished){
+                         }];
+        [UIView animateWithDuration:0.1
+                              delay:0.2
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             Bespecialidade.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x-20, 0);
+                         }completion:^(BOOL finished){
+                         }];
+        [UIView animateWithDuration:0.1
+                              delay:0.3
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             Bespecialidade.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
+                         }completion:^(BOOL finished){
+                         }];
+        [UIView animateWithDuration:0.1
+                              delay:0.4
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             Bespecialidade.transform =CGAffineTransformMakeTranslation(0, 0);
+                         }completion:^(BOOL finished){
+                         }];
+        
+        
+        
+        
                 
     }
     
@@ -98,6 +134,36 @@
     {
         [Bregiao.layer setBorderColor:[UIColor redColor].CGColor];
         bit = true;
+        
+        [UIView animateWithDuration:0.1
+                              delay:0.1
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             Bregiao.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
+                         }completion:^(BOOL finished){
+                         }];
+        [UIView animateWithDuration:0.1
+                              delay:0.2
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             Bregiao.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x-20, 0);
+                         }completion:^(BOOL finished){
+                         }];
+        [UIView animateWithDuration:0.1
+                              delay:0.3
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             Bregiao.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
+                         }completion:^(BOOL finished){
+                         }];
+        [UIView animateWithDuration:0.1
+                              delay:0.4
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             Bregiao.transform =CGAffineTransformMakeTranslation(0, 0);
+                         }completion:^(BOOL finished){
+                         }];
+        
 
     }
     if(NomeEspecialidade.especialidade != nil && nomeRegiao.bairro != nil)
