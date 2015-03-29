@@ -32,7 +32,20 @@ static bool isFirstAccess = YES;
 // create
 -(void)cadastrarTipoConsulta:(TipoConsulta*)tc
 {
-    
+    PFObject *tipoConsulta = [PFObject objectWithClassName:@"TipoConsulta"];
+    tipoConsulta[@"diaSemana"] = tc.diaSemana;
+    tipoConsulta[@"horarioInicial"] = tc.horarioInicial;
+    tipoConsulta[@"horarioFinal"] = tc.horarioFinal;
+    // estrangeiras
+    tipoConsulta[@"id_medico"] = tc.id_medico;
+    tipoConsulta[@"id_consulta"] = tc.id_consulta;
+    [tipoConsulta saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"TipoConsulta Cadastrado!");
+        } else {
+            NSLog(@"Erro ao cadastrar TipoConsulta");
+        }
+    }];
 }
 
 // read

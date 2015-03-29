@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Consulta.h"
+#import <Parse/Parse.h>
 
 @interface ConsultaDAO : NSObject
 

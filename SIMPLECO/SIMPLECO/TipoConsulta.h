@@ -10,9 +10,12 @@
 
 @interface TipoConsulta : NSObject
 
-@property NSString* id_tipoConsulta;
 @property NSString* diaSemana;
-@property int horarioInicial;
-@property int horarioFinal;
+@property NSNumber* horarioInicial;
+@property NSNumber* horarioFinal;
+
+// estrangeiras
+@property NSString* id_medico;
+@property NSString* id_consulta;
 
 @end

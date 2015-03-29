@@ -32,7 +32,20 @@ static bool isFirstAccess = YES;
 // create
 -(void)cadastrarConsulta:(Consulta*)cons
 {
-    
+    PFObject *consulta = [PFObject objectWithClassName:@"Consulta"];
+    consulta[@"data"] = cons.data;
+    // estrangeiras
+    consulta[@"id_tipoConsulta"] = cons.id_tipoConsulta;
+    consulta[@"id_medico"] = cons.id_medico;
+    consulta[@"id_paciente"] = cons.id_paciente;
+    consulta[@"id_endereco"] = cons.id_endereco;
+    [consulta saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Consulta Cadastrado!");
+        } else {
+            NSLog(@"Erro ao cadastrar Consulta");
+        }
+    }];
 }
 
 // read

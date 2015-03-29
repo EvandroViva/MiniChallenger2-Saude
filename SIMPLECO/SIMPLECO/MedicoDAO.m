@@ -8,6 +8,7 @@
 
 #import "MedicoDAO.h"
 
+
 @implementation MedicoDAO
 
 // SINGLETON
@@ -32,7 +33,21 @@ static bool isFirstAccess = YES;
 // create
 -(void)cadastrarMedico:(Medico*)med
 {
-    
+    PFObject *medico = [PFObject objectWithClassName:@"Medico"];
+    medico[@"nome"] = med.nome;
+    medico[@"email"] = med.email;
+    medico[@"codTrabalho"] = med.codTrabalho;
+    medico[@"especialidade"] = med.especialidade;
+    // estrangeiras
+    medico[@"id_tipoConsulta"] = med.id_tipoConsulta;
+    medico[@"id_endereco"] = med.id_endereco;
+    [medico saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Medico Cadastrado!");
+        } else {
+            NSLog(@"Erro ao cadastrar Medico");
+        }
+    }];
 }
 
 // read

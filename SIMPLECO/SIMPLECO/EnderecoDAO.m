@@ -32,7 +32,23 @@ static bool isFirstAccess = YES;
 // create
 -(void)cadastrarEndereco:(Endereco*)end
 {
-    
+    PFObject *endereco = [PFObject objectWithClassName:@"Endereco"];
+    endereco[@"endereco"] = end.endereco;
+    endereco[@"numero"] = end.numero;
+    endereco[@"complemento"] = end.complemento;
+    endereco[@"referencia"] = end.referencia;
+    endereco[@"bairro"] = end.bairro;
+    endereco[@"CEP"] = end.CEP;
+    endereco[@"regiao"] = end.regiao;
+    // estrangeira
+    endereco[@"id_medico"] = end.id_medico;
+    [endereco saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Endereco Cadastrado!");
+        } else {
+            NSLog(@"Erro ao cadastrar Endereco");
+        }
+    }];
 }
 
 // read

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Endereco.h"
+#import <Parse/Parse.h>
 
 @interface EnderecoDAO : NSObject
 
