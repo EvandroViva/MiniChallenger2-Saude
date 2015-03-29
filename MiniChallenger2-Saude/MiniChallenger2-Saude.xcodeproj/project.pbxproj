@@ -42,7 +42,6 @@
 		908884151AC793B5006E7BE9 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908884131AC793B5006E7BE9 /* MoreTableViewController.m */; };
 		908884161AC793B5006E7BE9 /* MoreTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908884141AC793B5006E7BE9 /* MoreTableViewController.xib */; };
 		90DD5F7F1AC4396B00791FAF /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DD5F7E1AC4396B00791FAF /* TabBarController.m */; };
-		90DD5F821AC44AEC00791FAF /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DD5F811AC44AEC00791FAF /* MoreTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,8 +108,6 @@
 		908884141AC793B5006E7BE9 /* MoreTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreTableViewController.xib; sourceTree = "<group>"; };
 		90DD5F7D1AC4396B00791FAF /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		90DD5F7E1AC4396B00791FAF /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
-		90DD5F801AC44AEC00791FAF /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
-		90DD5F811AC44AEC00791FAF /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +191,6 @@
 				90016F0B1AC176BC002D8BF6 /* AppDelegate.m */,
 				90016F0D1AC176BC002D8BF6 /* ViewController.h */,
 				90016F0E1AC176BC002D8BF6 /* ViewController.m */,
-				90DD5F801AC44AEC00791FAF /* MoreTableViewController.h */,
-				90DD5F811AC44AEC00791FAF /* MoreTableViewController.m */,
 				90DD5F7D1AC4396B00791FAF /* TabBarController.h */,
 				90DD5F7E1AC4396B00791FAF /* TabBarController.m */,
 				90016F321AC1FD88002D8BF6 /* PacientesTableViewController.h */,
@@ -495,7 +490,6 @@
 				90016F341AC1FD88002D8BF6 /* PacientesTableViewController.m in Sources */,
 				90DD5F7F1AC4396B00791FAF /* TabBarController.m in Sources */,
 				90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */,
-				90DD5F821AC44AEC00791FAF /* MoreTableViewController.m in Sources */,
 				9088840D1AC7923D006E7BE9 /* MoreNavigationController.m in Sources */,
 				908883E71AC7645E006E7BE9 /* Medico.m in Sources */,
 				908884151AC793B5006E7BE9 /* MoreTableViewController.m in Sources */,
@@ -625,7 +619,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Frameworks",
+					../Frameworks,
 				);
 				INFOPLIST_FILE = "MiniChallenger2-Saude/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -639,7 +633,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Frameworks",
+					../Frameworks,
 				);
 				INFOPLIST_FILE = "MiniChallenger2-Saude/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

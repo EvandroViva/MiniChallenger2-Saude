@@ -18,6 +18,7 @@
     [super viewDidLoad];
     NotificationNavigationController *navNotif = [[NotificationNavigationController alloc] init];
     MoreNavigationController *navMore = [[MoreNavigationController alloc] init];
+    
     [self setViewControllers:@[navNotif,navMore]];
     
     
