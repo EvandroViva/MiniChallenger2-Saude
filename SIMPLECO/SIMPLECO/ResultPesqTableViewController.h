@@ -12,6 +12,8 @@
 
 @interface ResultPesqTableViewController : UITableViewController
 
-- (IBAction)BConsulta:(id)sender;
+
 + (ResultPesqTableViewController*)sharedInstance;
+
+
 @end

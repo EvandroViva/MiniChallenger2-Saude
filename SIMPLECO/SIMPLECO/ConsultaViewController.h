@@ -10,6 +10,7 @@
 #import "JTCalendar.h"
 #import "LoginViewController.h"
 #import "ConsultaTableViewCell.h"
+#import "ResultPesqTableViewController.h"
 
 
 @interface ConsultaViewController : UIViewController <JTCalendarDataSource,UITableViewDataSource,UITableViewDelegate>
@@ -21,5 +22,6 @@
 
 @property (strong, nonatomic) JTCalendar *calendar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end

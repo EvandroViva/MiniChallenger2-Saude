@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *Bespecialidade;
 @property (weak, nonatomic) IBOutlet UILabel *LEspecialidade;
 @property (weak, nonatomic) IBOutlet UILabel *LRegiao;
+- (IBAction)BotaoBuscar:(id)sender;
 
 @property NSString* regiao;
 @property NSString* especialidade;
