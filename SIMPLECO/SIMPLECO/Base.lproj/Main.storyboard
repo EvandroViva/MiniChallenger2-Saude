@@ -600,6 +600,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="sZ5-Zb-Rft"/>
                     <connections>
+                        <outlet property="TFLogin" destination="MeG-N6-Ud0" id="Uc0-MU-Aha"/>
+                        <outlet property="TFSenha" destination="hBn-IV-nBx" id="cSs-Be-u3H"/>
                         <outlet property="login" destination="bre-6c-DgC" id="gd5-V9-PzT"/>
                     </connections>
                 </viewController>

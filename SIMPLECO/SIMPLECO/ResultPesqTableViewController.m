@@ -10,10 +10,12 @@
 
 @interface ResultPesqTableViewController ()
 
+
 @end
 
 @implementation ResultPesqTableViewController
-
+@synthesize index;
+@synthesize ArrayTeste;
 
 static ResultPesqTableViewController *SINGLETON = nil;
 
@@ -34,8 +36,8 @@ static ResultPesqTableViewController *SINGLETON = nil;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    //arrayteste = @[@"09:00",@"10:00",@"11:00"];
-
+ 
+    ArrayTeste = @[@"Clinica X", @"Clinica Y", @"Clinica Z", @"Clinica W"];
      SINGLETON = self;
 }
 
@@ -47,15 +49,11 @@ static ResultPesqTableViewController *SINGLETON = nil;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+    return ArrayTeste.count;
 }
 
 
@@ -68,7 +66,7 @@ static ResultPesqTableViewController *SINGLETON = nil;
         cell = [[ResultPesqTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaResultPesq"];
     }
     
-    cell.LabelMedico.text = @"Clinica X";
+    cell.LabelMedico.text = ArrayTeste[indexPath.row];
     cell.LabelEndereco.text = @"Rua Itambé";
     cell.LabelDetalhes.text = @"Clinica no ramo a 5 anos ";
     
@@ -79,7 +77,7 @@ static ResultPesqTableViewController *SINGLETON = nil;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    index = indexPath.row;
     [self performSegueWithIdentifier:@"showConsulta" sender:self] ;
 }
 

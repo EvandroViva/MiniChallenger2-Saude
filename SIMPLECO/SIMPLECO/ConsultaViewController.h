@@ -23,5 +23,8 @@
 @property (strong, nonatomic) JTCalendar *calendar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property NSInteger index;
+
+
 
 @end

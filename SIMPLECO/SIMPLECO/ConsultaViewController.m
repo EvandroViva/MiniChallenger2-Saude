@@ -15,6 +15,8 @@
 
 @end
 @implementation ConsultaViewController
+@synthesize index;
+
 
 //@synthesize tableView;
 - (void)viewDidLoad
@@ -34,13 +36,12 @@
     [self.calendar setMenuMonthsView:self.calendarMenuView];
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
-    
-    
- 
-
-    [self replace_BackButtonNavigationController];
-        
     [self.calendar reloadData];
+    [self replace_BackButtonNavigationController];
+    
+    singleton = [ResultPesqTableViewController sharedInstance];
+    index = singleton.index;
+    NSLog(@"index= %ld",(long)index);
     
    
 }
@@ -163,6 +164,9 @@
     NSLog(@"singleton =%ld", (long)index);
     cell.LData.text = @"09:00";
     cell.LConteudo.text = @"Consulta";
+    
+    
+    
     
     return cell;
 }

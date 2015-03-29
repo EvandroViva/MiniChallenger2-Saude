@@ -92,77 +92,16 @@
         NSLog(@"Erro");
         [Bespecialidade.layer setBorderColor:[UIColor redColor].CGColor];
         bit = true;
-        
-        
-        
-        [UIView animateWithDuration:0.1
-                              delay:0.1
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             Bespecialidade.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
-                         }completion:^(BOOL finished){
-                         }];
-        [UIView animateWithDuration:0.1
-                              delay:0.2
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             Bespecialidade.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x-20, 0);
-                         }completion:^(BOOL finished){
-                         }];
-        [UIView animateWithDuration:0.1
-                              delay:0.3
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             Bespecialidade.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
-                         }completion:^(BOOL finished){
-                         }];
-        [UIView animateWithDuration:0.1
-                              delay:0.4
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             Bespecialidade.transform =CGAffineTransformMakeTranslation(0, 0);
-                         }completion:^(BOOL finished){
-                         }];
-        
-        
-        
-        
-                
+        [self Animacao:Bespecialidade];
+ 
     }
     
     if (nomeRegiao.bairro == nil)
     {
         [Bregiao.layer setBorderColor:[UIColor redColor].CGColor];
         bit = true;
+        [self Animacao:Bregiao];
         
-        [UIView animateWithDuration:0.1
-                              delay:0.1
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             Bregiao.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
-                         }completion:^(BOOL finished){
-                         }];
-        [UIView animateWithDuration:0.1
-                              delay:0.2
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             Bregiao.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x-20, 0);
-                         }completion:^(BOOL finished){
-                         }];
-        [UIView animateWithDuration:0.1
-                              delay:0.3
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             Bregiao.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
-                         }completion:^(BOOL finished){
-                         }];
-        [UIView animateWithDuration:0.1
-                              delay:0.4
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             Bregiao.transform =CGAffineTransformMakeTranslation(0, 0);
-                         }completion:^(BOOL finished){
-                         }];
         
 
     }
@@ -173,5 +112,39 @@
         nomeRegiao.bairro = nil;
         bit = false;
     }
+}
+
+#pragma mark - Animacao
+-(void)Animacao:(UIButton *)button
+{
+    [UIView animateWithDuration:0.1
+                          delay:0.1
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         button.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
+                     }completion:^(BOOL finished){
+                     }];
+    [UIView animateWithDuration:0.1
+                          delay:0.2
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         button.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x-20, 0);
+                     }completion:^(BOOL finished){
+                     }];
+    [UIView animateWithDuration:0.1
+                          delay:0.3
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         button.transform =CGAffineTransformMakeTranslation(self.view.frame.origin.x+20, 0);
+                     }completion:^(BOOL finished){
+                     }];
+    [UIView animateWithDuration:0.1
+                          delay:0.4
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         button.transform =CGAffineTransformMakeTranslation(0, 0);
+                     }completion:^(BOOL finished){
+                     }];
+    
 }
 @end
