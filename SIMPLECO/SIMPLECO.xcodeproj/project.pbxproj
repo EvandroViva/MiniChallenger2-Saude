@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BE3F4591AC84D09004F2753 /* GoogleOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BE3F4581AC84D09004F2753 /* GoogleOAuth.m */; };
 		1147A8971AC1A3FA00651289 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1147A8961AC1A3FA00651289 /* main.m */; };
 		1147A89A1AC1A3FA00651289 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1147A8991AC1A3FA00651289 /* AppDelegate.m */; };
 		1147A89D1AC1A3FA00651289 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1147A89C1AC1A3FA00651289 /* ViewController.m */; };
@@ -85,6 +86,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BE3F4571AC84D09004F2753 /* GoogleOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleOAuth.h; sourceTree = "<group>"; };
+		0BE3F4581AC84D09004F2753 /* GoogleOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleOAuth.m; sourceTree = "<group>"; };
 		1147A8911AC1A3FA00651289 /* SIMPLECO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIMPLECO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1147A8951AC1A3FA00651289 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1147A8961AC1A3FA00651289 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -193,8 +196,8 @@
 		5C9A133D1AC732D800DCE10E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5C9A133F1AC732E400DCE10E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5C9A13411AC732F500DCE10E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		5CBA3F661AC72D7400B9EB02 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../Frameworks/Bolts.framework"; sourceTree = "<group>"; };
-		5CBA3F671AC72D7400B9EB02 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../Frameworks/Parse.framework"; sourceTree = "<group>"; };
+		5CBA3F661AC72D7400B9EB02 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		5CBA3F671AC72D7400B9EB02 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Frameworks/Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,9 +233,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BE3F4561AC84CCD004F2753 /* GoogleOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				0BE3F4571AC84D09004F2753 /* GoogleOAuth.h */,
+				0BE3F4581AC84D09004F2753 /* GoogleOAuth.m */,
+			);
+			name = GoogleOAuth;
+			sourceTree = "<group>";
+		};
 		1147A8881AC1A3FA00651289 = {
 			isa = PBXGroup;
 			children = (
+				0BE3F4561AC84CCD004F2753 /* GoogleOAuth */,
 				11A127C81AC4189900A57D2A /* Pods */,
 				11A127A81AC4188C00A57D2A /* JTCalendar */,
 				1147A8931AC1A3FA00651289 /* SIMPLECO */,
@@ -752,6 +765,7 @@
 				119BC7201AC1CD91002B97B0 /* EspecialidadesTableViewController.m in Sources */,
 				11BA6B7A1AC49042002A311D /* TabBarController.m in Sources */,
 				119BC7361AC1E2EC002B97B0 /* ConsultaViewController.m in Sources */,
+				0BE3F4591AC84D09004F2753 /* GoogleOAuth.m in Sources */,
 				11A127C61AC4188C00A57D2A /* JTCalendarWeekView.m in Sources */,
 				119BC7321AC1D807002B97B0 /* ResultPesqTableViewCell.m in Sources */,
 				11A127C51AC4188C00A57D2A /* JTCalendarMonthWeekDaysView.m in Sources */,
@@ -891,7 +905,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Frameworks",
+					../Frameworks,
 				);
 				INFOPLIST_FILE = SIMPLECO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -905,7 +919,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Frameworks",
+					../Frameworks,
 				);
 				INFOPLIST_FILE = SIMPLECO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
