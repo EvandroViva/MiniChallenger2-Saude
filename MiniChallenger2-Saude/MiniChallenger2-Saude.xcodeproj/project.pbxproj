@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11EAEF481AC7907D008498A9 /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF341AC7907D008498A9 /* JTCalendar.m */; };
+		11EAEF491AC7907D008498A9 /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF361AC7907D008498A9 /* JTCalendarAppearance.m */; };
+		11EAEF4A1AC7907D008498A9 /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF381AC7907D008498A9 /* JTCalendarContentView.m */; };
+		11EAEF4B1AC7907D008498A9 /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF3A1AC7907D008498A9 /* JTCalendarDayView.m */; };
+		11EAEF4C1AC7907D008498A9 /* JTCalendarMenuMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF3C1AC7907D008498A9 /* JTCalendarMenuMonthView.m */; };
+		11EAEF4D1AC7907D008498A9 /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF3E1AC7907D008498A9 /* JTCalendarMenuView.m */; };
+		11EAEF4E1AC7907D008498A9 /* JTCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF401AC7907D008498A9 /* JTCalendarMonthView.m */; };
+		11EAEF4F1AC7907D008498A9 /* JTCalendarMonthWeekDaysView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF421AC7907D008498A9 /* JTCalendarMonthWeekDaysView.m */; };
+		11EAEF501AC7907D008498A9 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF451AC7907D008498A9 /* JTCalendarWeekView.m */; };
+		11EAEF511AC7907D008498A9 /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF471AC7907D008498A9 /* JTCircleView.m */; };
+		11EAEF5A1AC790A4008498A9 /* Pods-acknowledgements.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF531AC790A4008498A9 /* Pods-acknowledgements.markdown */; };
+		11EAEF5B1AC790A4008498A9 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11EAEF541AC790A4008498A9 /* Pods-acknowledgements.plist */; };
+		11EAEF5C1AC790A4008498A9 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF551AC790A4008498A9 /* Pods-dummy.m */; };
+		11EAEF5D1AC790A4008498A9 /* Pods-resources.sh in Resources */ = {isa = PBXBuildFile; fileRef = 11EAEF571AC790A4008498A9 /* Pods-resources.sh */; };
+		11EAEF5E1AC790A4008498A9 /* Pods.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 11EAEF581AC790A4008498A9 /* Pods.debug.xcconfig */; };
+		11EAEF5F1AC790A4008498A9 /* Pods.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 11EAEF591AC790A4008498A9 /* Pods.release.xcconfig */; };
+		11EAEF621AC790C1008498A9 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11EAEF611AC790C1008498A9 /* CalendarViewController.m */; };
 		5C9A13461AC734C100DCE10E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9A13441AC734C100DCE10E /* Bolts.framework */; };
 		5C9A13471AC734C100DCE10E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9A13451AC734C100DCE10E /* Parse.framework */; };
 		5C9A13491AC7353200DCE10E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9A13481AC7353200DCE10E /* libz.dylib */; };
@@ -46,8 +63,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C9A13441AC734C100DCE10E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../Frameworks/Bolts.framework"; sourceTree = "<group>"; };
-		5C9A13451AC734C100DCE10E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../Frameworks/Parse.framework"; sourceTree = "<group>"; };
+		11EAEF331AC7907D008498A9 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
+		11EAEF341AC7907D008498A9 /* JTCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendar.m; sourceTree = "<group>"; };
+		11EAEF351AC7907D008498A9 /* JTCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarAppearance.h; sourceTree = "<group>"; };
+		11EAEF361AC7907D008498A9 /* JTCalendarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarAppearance.m; sourceTree = "<group>"; };
+		11EAEF371AC7907D008498A9 /* JTCalendarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarContentView.h; sourceTree = "<group>"; };
+		11EAEF381AC7907D008498A9 /* JTCalendarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarContentView.m; sourceTree = "<group>"; };
+		11EAEF391AC7907D008498A9 /* JTCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDayView.h; sourceTree = "<group>"; };
+		11EAEF3A1AC7907D008498A9 /* JTCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDayView.m; sourceTree = "<group>"; };
+		11EAEF3B1AC7907D008498A9 /* JTCalendarMenuMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuMonthView.h; sourceTree = "<group>"; };
+		11EAEF3C1AC7907D008498A9 /* JTCalendarMenuMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuMonthView.m; sourceTree = "<group>"; };
+		11EAEF3D1AC7907D008498A9 /* JTCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuView.h; sourceTree = "<group>"; };
+		11EAEF3E1AC7907D008498A9 /* JTCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuView.m; sourceTree = "<group>"; };
+		11EAEF3F1AC7907D008498A9 /* JTCalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMonthView.h; sourceTree = "<group>"; };
+		11EAEF401AC7907D008498A9 /* JTCalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMonthView.m; sourceTree = "<group>"; };
+		11EAEF411AC7907D008498A9 /* JTCalendarMonthWeekDaysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMonthWeekDaysView.h; sourceTree = "<group>"; };
+		11EAEF421AC7907D008498A9 /* JTCalendarMonthWeekDaysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMonthWeekDaysView.m; sourceTree = "<group>"; };
+		11EAEF431AC7907D008498A9 /* JTCalendarViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarViewDataSource.h; sourceTree = "<group>"; };
+		11EAEF441AC7907D008498A9 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekView.h; sourceTree = "<group>"; };
+		11EAEF451AC7907D008498A9 /* JTCalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarWeekView.m; sourceTree = "<group>"; };
+		11EAEF461AC7907D008498A9 /* JTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCircleView.h; sourceTree = "<group>"; };
+		11EAEF471AC7907D008498A9 /* JTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCircleView.m; sourceTree = "<group>"; };
+		11EAEF531AC790A4008498A9 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		11EAEF541AC790A4008498A9 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		11EAEF551AC790A4008498A9 /* Pods-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		11EAEF561AC790A4008498A9 /* Pods-environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		11EAEF571AC790A4008498A9 /* Pods-resources.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		11EAEF581AC790A4008498A9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		11EAEF591AC790A4008498A9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		11EAEF601AC790C1008498A9 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		11EAEF611AC790C1008498A9 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		5C9A13441AC734C100DCE10E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		5C9A13451AC734C100DCE10E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Frameworks/Parse.framework; sourceTree = "<group>"; };
 		5C9A13481AC7353200DCE10E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5C9A134A1AC7355C00DCE10E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5C9A134C1AC735FD00DCE10E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -117,6 +164,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11EAEF321AC7907D008498A9 /* JTCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				11EAEF331AC7907D008498A9 /* JTCalendar.h */,
+				11EAEF341AC7907D008498A9 /* JTCalendar.m */,
+				11EAEF351AC7907D008498A9 /* JTCalendarAppearance.h */,
+				11EAEF361AC7907D008498A9 /* JTCalendarAppearance.m */,
+				11EAEF371AC7907D008498A9 /* JTCalendarContentView.h */,
+				11EAEF381AC7907D008498A9 /* JTCalendarContentView.m */,
+				11EAEF391AC7907D008498A9 /* JTCalendarDayView.h */,
+				11EAEF3A1AC7907D008498A9 /* JTCalendarDayView.m */,
+				11EAEF3B1AC7907D008498A9 /* JTCalendarMenuMonthView.h */,
+				11EAEF3C1AC7907D008498A9 /* JTCalendarMenuMonthView.m */,
+				11EAEF3D1AC7907D008498A9 /* JTCalendarMenuView.h */,
+				11EAEF3E1AC7907D008498A9 /* JTCalendarMenuView.m */,
+				11EAEF3F1AC7907D008498A9 /* JTCalendarMonthView.h */,
+				11EAEF401AC7907D008498A9 /* JTCalendarMonthView.m */,
+				11EAEF411AC7907D008498A9 /* JTCalendarMonthWeekDaysView.h */,
+				11EAEF421AC7907D008498A9 /* JTCalendarMonthWeekDaysView.m */,
+				11EAEF431AC7907D008498A9 /* JTCalendarViewDataSource.h */,
+				11EAEF441AC7907D008498A9 /* JTCalendarWeekView.h */,
+				11EAEF451AC7907D008498A9 /* JTCalendarWeekView.m */,
+				11EAEF461AC7907D008498A9 /* JTCircleView.h */,
+				11EAEF471AC7907D008498A9 /* JTCircleView.m */,
+			);
+			path = JTCalendar;
+			sourceTree = "<group>";
+		};
+		11EAEF521AC790A4008498A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11EAEF531AC790A4008498A9 /* Pods-acknowledgements.markdown */,
+				11EAEF541AC790A4008498A9 /* Pods-acknowledgements.plist */,
+				11EAEF551AC790A4008498A9 /* Pods-dummy.m */,
+				11EAEF561AC790A4008498A9 /* Pods-environment.h */,
+				11EAEF571AC790A4008498A9 /* Pods-resources.sh */,
+				11EAEF581AC790A4008498A9 /* Pods.debug.xcconfig */,
+				11EAEF591AC790A4008498A9 /* Pods.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5C9A13431AC7342100DCE10E /* FrameWorks */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +266,10 @@
 				90016F2D1AC1A928002D8BF6 /* LoginViewController.m */,
 				90016F131AC176BC002D8BF6 /* Images.xcassets */,
 				90016F101AC176BC002D8BF6 /* Main.storyboard */,
+				11EAEF601AC790C1008498A9 /* CalendarViewController.h */,
+				11EAEF611AC790C1008498A9 /* CalendarViewController.m */,
+				11EAEF521AC790A4008498A9 /* Pods */,
+				11EAEF321AC7907D008498A9 /* JTCalendar */,
 				90016F151AC176BC002D8BF6 /* LaunchScreen.xib */,
 				90016F061AC176BC002D8BF6 /* Supporting Files */,
 			);
@@ -289,9 +382,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11EAEF5D1AC790A4008498A9 /* Pods-resources.sh in Resources */,
+				11EAEF5F1AC790A4008498A9 /* Pods.release.xcconfig in Resources */,
 				90016F121AC176BC002D8BF6 /* Main.storyboard in Resources */,
 				90016F171AC176BC002D8BF6 /* LaunchScreen.xib in Resources */,
+				11EAEF5E1AC790A4008498A9 /* Pods.debug.xcconfig in Resources */,
 				90016F141AC176BC002D8BF6 /* Images.xcassets in Resources */,
+				11EAEF5B1AC790A4008498A9 /* Pods-acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,15 +406,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11EAEF4A1AC7907D008498A9 /* JTCalendarContentView.m in Sources */,
+				11EAEF5A1AC790A4008498A9 /* Pods-acknowledgements.markdown in Sources */,
 				90016F2E1AC1A928002D8BF6 /* LoginViewController.m in Sources */,
+				11EAEF4C1AC7907D008498A9 /* JTCalendarMenuMonthView.m in Sources */,
+				11EAEF5C1AC790A4008498A9 /* Pods-dummy.m in Sources */,
 				90016F0F1AC176BC002D8BF6 /* ViewController.m in Sources */,
 				90016F0C1AC176BC002D8BF6 /* AppDelegate.m in Sources */,
 				90016F091AC176BC002D8BF6 /* main.m in Sources */,
+				11EAEF4F1AC7907D008498A9 /* JTCalendarMonthWeekDaysView.m in Sources */,
+				11EAEF511AC7907D008498A9 /* JTCircleView.m in Sources */,
+				11EAEF621AC790C1008498A9 /* CalendarViewController.m in Sources */,
 				90016F341AC1FD88002D8BF6 /* PacientesTableViewController.m in Sources */,
+				11EAEF481AC7907D008498A9 /* JTCalendar.m in Sources */,
 				90DD5F7F1AC4396B00791FAF /* TabBarController.m in Sources */,
+				11EAEF501AC7907D008498A9 /* JTCalendarWeekView.m in Sources */,
+				11EAEF4E1AC7907D008498A9 /* JTCalendarMonthView.m in Sources */,
 				90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */,
+				11EAEF4D1AC7907D008498A9 /* JTCalendarMenuView.m in Sources */,
 				90DD5F821AC44AEC00791FAF /* MoreTableViewController.m in Sources */,
 				90016F311AC1F8A0002D8BF6 /* CadastroViewController.m in Sources */,
+				11EAEF491AC7907D008498A9 /* JTCalendarAppearance.m in Sources */,
+				11EAEF4B1AC7907D008498A9 /* JTCalendarDayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Frameworks",
+					../Frameworks,
 				);
 				INFOPLIST_FILE = "MiniChallenger2-Saude/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -457,7 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Frameworks",
+					../Frameworks,
 				);
 				INFOPLIST_FILE = "MiniChallenger2-Saude/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
