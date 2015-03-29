@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -29,6 +30,10 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     // Override point for customization after application launch.
+    
+     
+    
+    
 
     return YES;
 }

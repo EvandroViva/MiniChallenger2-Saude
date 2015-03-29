@@ -538,6 +538,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="275" y="496" width="68" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="BConfirma:" destination="TmQ-8a-Oix" eventType="touchUpInside" id="CSf-4w-Iss"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULT-dF-EZI">
                                 <rect key="frame" x="141" y="452" width="68" height="30"/>

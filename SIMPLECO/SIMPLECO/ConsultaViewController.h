@@ -24,7 +24,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSInteger index;
+@property NSDate *dataSelecionada;
 
++ (ConsultaViewController*)sharedInstance;
 
 
 @end

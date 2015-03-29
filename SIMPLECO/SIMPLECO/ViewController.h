@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "RegiaoTableViewController.h"
 #import "EspecialidadesTableViewController.h"
+#import <EventKit/EventKit.h>
+
 @interface ViewController : UIViewController
 
++ (ViewController*)sharedInstance;
 
 @property (weak, nonatomic) IBOutlet UIButton *BBuscar;
 @property (weak, nonatomic) IBOutlet UIButton *Bregiao;
@@ -21,6 +24,8 @@
 
 @property NSString* regiao;
 @property NSString* especialidade;
+@property BOOL permissaoEvento;
+@property EKEventStore *eventStore;
 
 
 @end

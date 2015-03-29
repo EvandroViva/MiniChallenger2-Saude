@@ -25,12 +25,25 @@
 @synthesize Bregiao;
 @synthesize BBuscar;
 @synthesize especialidade;
+@synthesize permissaoEvento;
+@synthesize eventStore;
 
+
+static ViewController *SINGLETON = nil;
+
+
++ (id)sharedInstance
+{
+    return SINGLETON;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self Bordas];
     bit = false;
+    [self Evento];
+    SINGLETON = self;
 
     
 }
@@ -64,6 +77,7 @@
     nomeRegiao = [RegiaoTableViewController sharedInstance];
     _LRegiao.text = nomeRegiao.bairro;
     _LRegiao.text = [[RegiaoTableViewController sharedInstance]bairro];
+    
     NomeEspecialidade  = [EspecialidadesTableViewController sharedInstance];
     _LEspecialidade.text = NomeEspecialidade.especialidade;
     
@@ -146,5 +160,19 @@
                      }completion:^(BOOL finished){
                      }];
     
+}
+
+-(void)Evento
+{
+    eventStore = [[EKEventStore alloc]init];
+    
+    //Check if iOS6 or later is installed on user's device *******************
+    if([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)]) {
+        
+        //Request the access to the Calendar
+        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted,NSError* error){
+            permissaoEvento = granted;
+        }
+         ];}
 }
 @end

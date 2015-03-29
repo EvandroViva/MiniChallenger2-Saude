@@ -16,8 +16,16 @@
 @end
 @implementation ConsultaViewController
 @synthesize index;
+@synthesize dataSelecionada;
+
+static ConsultaViewController *SINGLETON = nil;
 
 
++ (id)sharedInstance
+{
+    return SINGLETON;
+    
+}
 //@synthesize tableView;
 - (void)viewDidLoad
 {
@@ -42,7 +50,7 @@
     singleton = [ResultPesqTableViewController sharedInstance];
     index = singleton.index;
     NSLog(@"index= %ld",(long)index);
-    
+    SINGLETON = self;
    
 }
 
@@ -106,6 +114,7 @@
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
+    dataSelecionada = date;
     NSLog(@"Date: %@", date);
 }
 
