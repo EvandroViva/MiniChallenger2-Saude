@@ -13,6 +13,8 @@
 {
     NSString *nome;
     EspecialidadesTableViewController *NomeEspecialidade;
+    RegiaoTableViewController* nomeRegiao;
+    BOOL bit, bitEspecialidade, bitRegiao;
 }
 
 
@@ -27,8 +29,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self Bordas];
+    bit = false;
+
     
+}
+
+#pragma mark - Layout dos Botões
+
+-(void)Bordas
+{
     [Bregiao.layer setCornerRadius:5];
     [Bregiao.layer setBorderWidth:2];
     [Bregiao.layer setBorderColor:[UIColor blackColor].CGColor];
@@ -38,36 +48,34 @@
     [Bespecialidade.layer setBorderWidth:2];
     [Bespecialidade.layer setBorderColor:[UIColor blackColor].CGColor];
     [Bespecialidade setBackgroundColor:[UIColor whiteColor]];
-
+    
     [BBuscar.layer setCornerRadius:5];
     [BBuscar.layer setBorderWidth:2];
     [BBuscar.layer setBorderColor:[UIColor blackColor].CGColor];
     [BBuscar setBackgroundColor:[UIColor whiteColor]];
-   
-    
-    
-    
-    
-    
     
 }
 
+#pragma mark - Labels de pesquisa
+
 -(void)viewWillAppear:(BOOL)animated
 {
-    RegiaoTableViewController* nomeRegiao;
+    
     nomeRegiao = [RegiaoTableViewController sharedInstance];
     _LRegiao.text = nomeRegiao.bairro;
     _LRegiao.text = [[RegiaoTableViewController sharedInstance]bairro];
     NomeEspecialidade  = [EspecialidadesTableViewController sharedInstance];
     _LEspecialidade.text = NomeEspecialidade.especialidade;
     
+    if (bit == true && NomeEspecialidade.especialidade != nil) {
+        [Bespecialidade.layer setBorderColor:[UIColor blackColor].CGColor];
+    }
+    
+    if (bit == true && nomeRegiao.bairro != nil) {
+        [Bregiao.layer setBorderColor:[UIColor blackColor].CGColor];
+    }
+    
 }
-
-
-//-(BOOL)prefersStatusBarHidden // Esconde a data e hora
-//{
-//    return YES;
-//}
 
 
 - (void)didReceiveMemoryWarning {
@@ -76,4 +84,28 @@
 }
 
 
+- (IBAction)BotaoBuscar:(id)sender {
+    
+    if (NomeEspecialidade.especialidade == nil)
+    {
+        NSLog(@"Erro");
+        [Bespecialidade.layer setBorderColor:[UIColor redColor].CGColor];
+        bit = true;
+                
+    }
+    
+    if (nomeRegiao.bairro == nil)
+    {
+        [Bregiao.layer setBorderColor:[UIColor redColor].CGColor];
+        bit = true;
+
+    }
+    if(NomeEspecialidade.especialidade != nil && nomeRegiao.bairro != nil)
+    {
+        [self performSegueWithIdentifier:@"showResultPesq" sender:self];
+        NomeEspecialidade.especialidade = nil;
+        nomeRegiao.bairro = nil;
+        bit = false;
+    }
+}
 @end

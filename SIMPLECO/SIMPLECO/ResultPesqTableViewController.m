@@ -14,20 +14,15 @@
 
 @implementation ResultPesqTableViewController
 
+
 static ResultPesqTableViewController *SINGLETON = nil;
 
-static bool isFirstAccess = YES;
 
 
 
 + (id)sharedInstance
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        isFirstAccess = NO;
-        SINGLETON = [[super allocWithZone:NULL] init];
-    });
-    
+
     return SINGLETON;
 }
 
@@ -39,6 +34,9 @@ static bool isFirstAccess = YES;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //arrayteste = @[@"09:00",@"10:00",@"11:00"];
+
+     SINGLETON = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,11 +77,12 @@ static bool isFirstAccess = YES;
     return cell;
 }
 
-- (IBAction)BConsulta:(id)sender {
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     [self performSegueWithIdentifier:@"showConsulta" sender:self] ;
-
 }
+
 
 
 /*

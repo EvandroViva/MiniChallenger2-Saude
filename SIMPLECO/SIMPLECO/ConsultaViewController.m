@@ -9,9 +9,13 @@
 #import "ConsultaViewController.h"
 
 @interface ConsultaViewController ()
+{
+    ResultPesqTableViewController *singleton;
+}
 
 @end
 @implementation ConsultaViewController
+
 //@synthesize tableView;
 - (void)viewDidLoad
 {
@@ -32,9 +36,10 @@
     [self.calendar setDataSource:self];
     
     
-    
+ 
+
     [self replace_BackButtonNavigationController];
-    
+        
     [self.calendar reloadData];
     
    
@@ -154,7 +159,8 @@
     {
         cell = [[ConsultaTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaMConsulta"];
     }
-    
+
+    NSLog(@"singleton =%ld", (long)index);
     cell.LData.text = @"09:00";
     cell.LConteudo.text = @"Consulta";
     

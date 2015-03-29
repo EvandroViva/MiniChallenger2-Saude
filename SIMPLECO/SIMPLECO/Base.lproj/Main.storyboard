@@ -82,7 +82,7 @@
                                     <rect key="frame" x="248" y="427" width="97" height="34"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="0b1-Eq-tTY" kind="show" id="0qq-ep-v9q"/>
+                                    <action selector="BotaoBuscar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tWF-3Z-CMQ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8Q-Ho-ZxL">
@@ -150,11 +150,12 @@
                         <outlet property="Bregiao" destination="XSo-Y2-Erf" id="gAD-Sj-wUn"/>
                         <outlet property="LEspecialidade" destination="tg6-zA-Uxg" id="Khu-wW-3Lg"/>
                         <outlet property="LRegiao" destination="OmM-9R-Wgq" id="pLI-L0-73e"/>
+                        <segue destination="0b1-Eq-tTY" kind="show" identifier="showResultPesq" id="cO6-IX-w4j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2178" y="195"/>
+            <point key="canvasLocation" x="2139" y="172"/>
         </scene>
         <!--Minhas Consultas Table View Controller-->
         <scene sceneID="XfT-c2-Mli">
@@ -388,36 +389,22 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-sC-emL">
-                                            <rect key="frame" x="462" y="19" width="22" height="22"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPe-sC-emL">
+                                            <rect key="frame" x="457" y="42" width="22" height="22"/>
                                             <connections>
                                                 <segue destination="MrB-gd-q8n" kind="show" id="i7z-sg-6kh"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMr-L6-Dnq">
-                                            <rect key="frame" x="423" y="51" width="61" height="30"/>
-                                            <state key="normal" title="Consulta">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="BConsulta:" destination="0b1-Eq-tTY" eventType="touchUpInside" id="o1a-s6-Jcx"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="PPe-sC-emL" firstAttribute="baseline" secondItem="X7W-wg-mRo" secondAttribute="baseline" id="2tf-6r-unz"/>
-                                        <constraint firstItem="dMr-L6-Dnq" firstAttribute="centerX" secondItem="PPe-sC-emL" secondAttribute="centerX" id="4NO-wZ-JdJ"/>
                                         <constraint firstItem="X7W-wg-mRo" firstAttribute="leading" secondItem="tj9-2m-AUb" secondAttribute="leadingMargin" constant="15" id="6XG-dY-Uw1"/>
                                         <constraint firstItem="aX1-M2-YJI" firstAttribute="top" secondItem="X7W-wg-mRo" secondAttribute="bottom" constant="15" id="FDl-e0-Gzi"/>
                                         <constraint firstItem="aX1-M2-YJI" firstAttribute="trailing" secondItem="X7W-wg-mRo" secondAttribute="trailing" id="NUp-cm-7r8"/>
                                         <constraint firstItem="X7W-wg-mRo" firstAttribute="leading" secondItem="aX1-M2-YJI" secondAttribute="leading" id="OMX-o4-kr0"/>
-                                        <constraint firstItem="dMr-L6-Dnq" firstAttribute="baseline" secondItem="aX1-M2-YJI" secondAttribute="baseline" id="epG-vd-Rcm"/>
                                         <constraint firstItem="X7W-wg-mRo" firstAttribute="top" secondItem="tj9-2m-AUb" secondAttribute="topMargin" constant="11" id="eqT-wa-c9A"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="aX1-M2-YJI" secondAttribute="bottom" constant="21.5" id="f2U-PB-xTQ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="PPe-sC-emL" secondAttribute="trailing" constant="39" id="uZU-mC-p6U"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PPe-sC-emL" secondAttribute="trailing" constant="80" id="i7g-ay-Wth"/>
+                                        <constraint firstItem="PPe-sC-emL" firstAttribute="top" secondItem="tj9-2m-AUb" secondAttribute="topMargin" constant="26" id="k30-1B-rUx"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -427,10 +414,8 @@
                                             <exclude reference="FDl-e0-Gzi"/>
                                             <exclude reference="NUp-cm-7r8"/>
                                             <exclude reference="f2U-PB-xTQ"/>
-                                            <exclude reference="4NO-wZ-JdJ"/>
-                                            <exclude reference="epG-vd-Rcm"/>
-                                            <exclude reference="2tf-6r-unz"/>
-                                            <exclude reference="uZU-mC-p6U"/>
+                                            <exclude reference="i7g-ay-Wth"/>
+                                            <exclude reference="k30-1B-rUx"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -441,10 +426,8 @@
                                             <include reference="FDl-e0-Gzi"/>
                                             <include reference="NUp-cm-7r8"/>
                                             <include reference="f2U-PB-xTQ"/>
-                                            <include reference="4NO-wZ-JdJ"/>
-                                            <include reference="epG-vd-Rcm"/>
-                                            <include reference="2tf-6r-unz"/>
-                                            <include reference="uZU-mC-p6U"/>
+                                            <include reference="i7g-ay-Wth"/>
+                                            <include reference="k30-1B-rUx"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

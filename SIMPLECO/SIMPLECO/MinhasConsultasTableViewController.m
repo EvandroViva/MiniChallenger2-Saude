@@ -10,6 +10,7 @@
 
 @interface MinhasConsultasTableViewController ()
 
+
 @end
 
 @implementation MinhasConsultasTableViewController
@@ -22,6 +23,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,8 +60,7 @@
     }
     
     // Configure the cell...
-    
-   
+
     cell.LabelData.text= @"24/03";
     cell.LabelHora.text=@"14:00";
     cell.LabelConsulta.text = @"Dentista";
