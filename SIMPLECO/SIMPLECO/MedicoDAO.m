@@ -36,6 +36,7 @@ static bool isFirstAccess = YES;
     PFObject *medico = [PFObject objectWithClassName:@"Medico"];
     medico[@"nome"] = med.nome;
     medico[@"email"] = med.email;
+    medico[@"senha"] = med.senha;
     medico[@"codTrabalho"] = med.codTrabalho;
     medico[@"especialidade"] = med.especialidade;
     // estrangeiras

@@ -12,6 +12,7 @@
 
 @property NSString* nome;
 @property NSString* email;
+@property NSString* senha;
 @property NSString* codTrabalho;
 @property NSString* especialidade;
 
