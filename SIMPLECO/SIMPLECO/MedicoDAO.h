@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Medico.h"
+#import <Parse/Parse.h>
 
 @interface MedicoDAO : NSObject
 

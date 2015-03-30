@@ -32,7 +32,20 @@ static bool isFirstAccess = YES;
 // create
 -(void)cadastrarPaciente:(Paciente*)pac
 {
-    
+    PFObject *paciente = [PFObject objectWithClassName:@"Paciente"];
+    paciente[@"nome"] = pac.nome;
+    paciente[@"telefone"] = pac.telefone;
+    paciente[@"email"] = pac.email;
+    paciente[@"senha"] = pac.senha;
+    // estrangeiras
+    paciente[@"id_consulta"] = pac.id_consulta;
+    [paciente saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Paciente Cadastrado!");
+        } else {
+            NSLog(@"Erro ao cadastrar Paciente");
+        }
+    }];
 }
 
 // read
