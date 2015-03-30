@@ -31,6 +31,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark Clicar na tela e sair teclado
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [_TFLogin resignFirstResponder];
@@ -46,14 +48,42 @@
 }
 */
 
+#pragma mark - Botão Confirma/ Confirmar Login e Senha
+
 - (IBAction)BConfirma:(id)sender {
-    viewController = [ViewController sharedInstance];
-    dataConsulta = [ConsultaViewController sharedInstance];
-    [self PermissaoEvento];
-    [self CriarEvento:viewController.eventStore];
+    
+    
+    
+    //Confirmação de Login
+
+    [PFUser logInWithUsernameInBackground:[self.TFLogin text] password:[self.TFSenha text]
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            NSString *message = @"Sim";
+                                            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Sucesso" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+                                            [alertView show];
+                                            
+                                            //Criar Evento no Calendário
+                                            
+                                            viewController = [ViewController sharedInstance];
+                                            dataConsulta = [ConsultaViewController sharedInstance];
+                                            [self PermissaoEvento];
+                                            [self CriarEvento:viewController.eventStore];
+                                            
+                                            
+                                            // Do stuff after successful login.
+                                        } else {
+                                            NSString *message = @"Não ";
+                                            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Erro" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+                                            [alertView show];
+                                            // The login failed. Check error to see why.
+                                        }
+                                    }];
 }
 
-#pragma mark Permissao para salvar evento Calendario
+
+#pragma mark - Permissao para salvar evento Calendario
+
 -(void)PermissaoEvento
 {
     
@@ -71,8 +101,12 @@
         [alertView show];
         }
 }
+
+
 #pragma mark criando evento
--(BOOL)CriarEvento:(EKEventStore*)eventStore{
+
+-(BOOL)CriarEvento:(EKEventStore*)eventStore
+{
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
     event.title = @"Eu fiz o evento dia 31!";
     event.startDate = dataConsulta.dataSelecionada;

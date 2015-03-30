@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Usuario.h"
+#import "UsuarioDAO.h"
 
 @interface CadastroViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *TextFielEmail;
+@property (weak, nonatomic) IBOutlet UITextField *TextFieldUsuario;
+@property (weak, nonatomic) IBOutlet UITextField *TextFieldSenha;
+- (IBAction)Save:(id)sender;
 
 @end

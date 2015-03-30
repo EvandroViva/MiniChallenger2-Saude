@@ -683,8 +683,17 @@
                         <color key="backgroundColor" red="0.91464532259999998" green="0.99245641650000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="bax-fS-bJb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MKF-k7-eyd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MKF-k7-eyd">
+                            <connections>
+                                <action selector="Save:" destination="FBl-Aa-g1w" id="XYm-3T-S6A"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="TextFielEmail" destination="cgc-Lc-j5B" id="luv-il-isr"/>
+                        <outlet property="TextFieldSenha" destination="Z9j-s2-dZR" id="zd6-zC-yW3"/>
+                        <outlet property="TextFieldUsuario" destination="CzA-qk-uT3" id="4nT-re-P0a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKH-Vg-V2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

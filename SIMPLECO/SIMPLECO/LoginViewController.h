@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 #import "ConsultaViewController.h"
+#import "UsuarioDAO.h"
 
 @interface LoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *login;
