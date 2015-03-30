@@ -44,6 +44,9 @@
 		11A127E01AC4535F00A57D2A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A127DF1AC4535F00A57D2A /* UIKit.framework */; };
 		11A127E21AC4536600A57D2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A127E11AC4536600A57D2A /* Foundation.framework */; };
 		11A127E41AC4536E00A57D2A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A127E31AC4536E00A57D2A /* CoreGraphics.framework */; };
+		11B4C4E01AC971950006D22E /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B4C4DF1AC971950006D22E /* Usuario.m */; };
+		11B4C4E31AC971CB0006D22E /* UsuarioDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B4C4E21AC971CB0006D22E /* UsuarioDAO.m */; };
+		11B4C4E61AC975E60006D22E /* CadastroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B4C4E51AC975E60006D22E /* CadastroViewController.m */; };
 		11BA6B7A1AC49042002A311D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BA6B791AC49042002A311D /* TabBarController.m */; };
 		11BB764F1AC57CFC00A85147 /* ConsultaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB764E1AC57CFC00A85147 /* ConsultaTableViewCell.m */; };
 		11BB76561AC5903800A85147 /* Medico.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB76551AC5903800A85147 /* Medico.m */; };
@@ -153,6 +156,12 @@
 		11A127DF1AC4535F00A57D2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		11A127E11AC4536600A57D2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		11A127E31AC4536E00A57D2A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		11B4C4DE1AC971950006D22E /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Usuario.h; sourceTree = "<group>"; };
+		11B4C4DF1AC971950006D22E /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
+		11B4C4E11AC971CB0006D22E /* UsuarioDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsuarioDAO.h; sourceTree = "<group>"; };
+		11B4C4E21AC971CB0006D22E /* UsuarioDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsuarioDAO.m; sourceTree = "<group>"; };
+		11B4C4E41AC975E60006D22E /* CadastroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroViewController.h; sourceTree = "<group>"; };
+		11B4C4E51AC975E60006D22E /* CadastroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroViewController.m; sourceTree = "<group>"; };
 		11BA6B781AC49042002A311D /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		11BA6B791AC49042002A311D /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		11BB764D1AC57CFC00A85147 /* ConsultaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultaTableViewCell.h; sourceTree = "<group>"; };
@@ -400,6 +409,33 @@
 			path = SIMPLECO/Pods;
 			sourceTree = "<group>";
 		};
+		11B4C4D91AC970AF0006D22E /* Usuario */ = {
+			isa = PBXGroup;
+			children = (
+				11B4C4DE1AC971950006D22E /* Usuario.h */,
+				11B4C4DF1AC971950006D22E /* Usuario.m */,
+			);
+			name = Usuario;
+			sourceTree = "<group>";
+		};
+		11B4C4DD1AC971480006D22E /* UsuarioDAO */ = {
+			isa = PBXGroup;
+			children = (
+				11B4C4E11AC971CB0006D22E /* UsuarioDAO.h */,
+				11B4C4E21AC971CB0006D22E /* UsuarioDAO.m */,
+			);
+			name = UsuarioDAO;
+			sourceTree = "<group>";
+		};
+		11B4C4E71AC975EC0006D22E /* Cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				11B4C4E41AC975E60006D22E /* CadastroViewController.h */,
+				11B4C4E51AC975E60006D22E /* CadastroViewController.m */,
+			);
+			name = Cadastro;
+			sourceTree = "<group>";
+		};
 		11BB76461AC56ACE00A85147 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +459,7 @@
 		11BB76511AC58FA300A85147 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11B4C4E71AC975EC0006D22E /* Cadastro */,
 				11BB76501AC5816700A85147 /* Consulta */,
 				11BB76461AC56ACE00A85147 /* Login */,
 				119BC7331AC1E1F9002B97B0 /* ResultadoPesquisa */,
@@ -446,6 +483,7 @@
 		11BB76531AC5900C00A85147 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				11B4C4D91AC970AF0006D22E /* Usuario */,
 				11BB76681AC5924200A85147 /* Consulta */,
 				11BB76661AC5921D00A85147 /* Endereco */,
 				11BB76651AC5921200A85147 /* Medico */,
@@ -470,6 +508,7 @@
 		11BB76641AC591B700A85147 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				11B4C4DD1AC971480006D22E /* UsuarioDAO */,
 				11BB766D1AC592B000A85147 /* ConsultaDAO */,
 				11BB766B1AC5928700A85147 /* EnderecoDAO */,
 				11BB766A1AC5927900A85147 /* MedicoDAO */,
@@ -741,6 +780,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B4C4E31AC971CB0006D22E /* UsuarioDAO.m in Sources */,
 				1147A8BF1AC1B36B00651289 /* MinhasConsultasTableViewController.m in Sources */,
 				11BB76841AC5954400A85147 /* EnderecoController.m in Sources */,
 				11BB767A1AC5942100A85147 /* PacienteDAO.m in Sources */,
@@ -761,6 +801,7 @@
 				11A127C01AC4188C00A57D2A /* JTCalendarContentView.m in Sources */,
 				11A127C41AC4188C00A57D2A /* JTCalendarMonthView.m in Sources */,
 				11BB76561AC5903800A85147 /* Medico.m in Sources */,
+				11B4C4E61AC975E60006D22E /* CadastroViewController.m in Sources */,
 				1147A89A1AC1A3FA00651289 /* AppDelegate.m in Sources */,
 				11BB76771AC593C200A85147 /* ConsultaDAO.m in Sources */,
 				11BB76621AC590A400A85147 /* TipoConsulta.m in Sources */,
@@ -769,6 +810,7 @@
 				119BC7201AC1CD91002B97B0 /* EspecialidadesTableViewController.m in Sources */,
 				11BA6B7A1AC49042002A311D /* TabBarController.m in Sources */,
 				119BC7361AC1E2EC002B97B0 /* ConsultaViewController.m in Sources */,
+				11B4C4E01AC971950006D22E /* Usuario.m in Sources */,
 				0BE3F4591AC84D09004F2753 /* GoogleOAuth.m in Sources */,
 				11A127C61AC4188C00A57D2A /* JTCalendarWeekView.m in Sources */,
 				119BC7321AC1D807002B97B0 /* ResultPesqTableViewCell.m in Sources */,

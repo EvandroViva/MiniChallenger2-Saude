@@ -612,10 +612,10 @@
             </objects>
             <point key="canvasLocation" x="4777" y="216"/>
         </scene>
-        <!--View Controller-->
+        <!--Cadastro View Controller-->
         <scene sceneID="cee-WF-weu">
             <objects>
-                <viewController id="FBl-Aa-g1w" sceneMemberID="viewController">
+                <viewController id="FBl-Aa-g1w" customClass="CadastroViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TeG-Tb-P5I"/>
                         <viewControllerLayoutGuide type="bottom" id="w8B-GI-Hn3"/>
