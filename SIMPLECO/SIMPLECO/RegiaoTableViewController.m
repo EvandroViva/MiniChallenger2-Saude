@@ -32,10 +32,7 @@ static RegiaoTableViewController *SINGLETON = nil;
     [super viewDidLoad];
     
     // teste
-    _bairrosNorte = @[@"Santana", @"Casa Verde", @"Tucuruvi", @"Carandiru"];
-    _bairrosSul = @[@"Morumbi", @"Berrini", @"Granja Julieta"];
-    _bairrosLeste = @[@"Itaquera", @"Brás", @"Mooca"];
-    _bairrosOeste = @[@"Barra Funda", @"Lapa"];
+    _bairros = @[@"Norte", @"Sul", @"Leste", @"Oeste"];
     
         SINGLETON = self;
 
@@ -55,52 +52,20 @@ static RegiaoTableViewController *SINGLETON = nil;
 #pragma mark - SECOES
 //============================================================
 // numero de secoes
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
 // numero de celulas por secao
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger count;
-    switch (section) {
-        case 0:
-            count=[_bairrosNorte count];
-            break;
-        case 1:
-            count=[_bairrosSul count];
-            break;
-        case 2:
-            count=[_bairrosLeste count];
-            break;
-        case 3:
-            count=[_bairrosOeste count];
-            break;
-        default:
-            break;
-    }
-    return count;
+    return _bairros.count;
 }
 
 // titulo das secoes
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSString *title;
-    switch (section) {
-        case 0:
-            title=@"Norte";
-            break;
-        case 1:
-            title=@"Sul";
-            break;
-        case 2:
-            title=@"Leste";
-            break;
-        case 3:
-            title=@"Oeste";
-            break;
-        default:
-            break;
-    }
-    return title;
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Regiões";
 }
 //============================================================
 
@@ -109,26 +74,7 @@ static RegiaoTableViewController *SINGLETON = nil;
 //============================================================
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegiaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaRegiaoo" forIndexPath:indexPath];
-    switch (indexPath.section) {
-        case 0:
-            cell.textLabel.text = [_bairrosNorte objectAtIndex:indexPath.row];
-            break;
-            
-        case 1:
-            cell.textLabel.text = [_bairrosSul objectAtIndex:indexPath.row];
-            break;
-            
-        case 2:
-            cell.textLabel.text = [_bairrosLeste objectAtIndex:indexPath.row];
-            break;
-            
-        case 3:
-            cell.textLabel.text = [_bairrosOeste objectAtIndex:indexPath.row];
-            break;
-    
-        default:
-            break;
-    }
+    cell.textLabel.text = [_bairros objectAtIndex:indexPath.row];
     return cell;
 }
 //============================================================
@@ -141,32 +87,9 @@ static RegiaoTableViewController *SINGLETON = nil;
 
 #pragma mark - CELULA SELECIONADA
 //============================================================
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    switch (indexPath.section) {
-        case 0:
-            _bairro = [_bairrosNorte objectAtIndex:indexPath.row];
-            _regiao = @"Norte";
-            break;
-            
-        case 1:
-            _bairro = [_bairrosSul objectAtIndex:indexPath.row];
-            _regiao = @"Sul";
-            break;
-            
-        case 2:
-            _bairro = [_bairrosLeste objectAtIndex:indexPath.row];
-            _regiao = @"Leste";
-            break;
-            
-        case 3:
-            _bairro = [_bairrosOeste objectAtIndex:indexPath.row];
-            _regiao = @"Oeste";
-            break;
-            
-        default:
-            break;
-    }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _bairro = [_bairros objectAtIndex:indexPath.row];
     [self.navigationController popViewControllerAnimated:YES];
 }
 //============================================================

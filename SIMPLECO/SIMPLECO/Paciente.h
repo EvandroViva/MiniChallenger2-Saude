@@ -10,10 +10,12 @@
 
 @interface Paciente : NSObject
 
+// ID
+@property NSString* objectID;
+
+// atributos
 @property NSString* nome;
 @property NSString* telefone;
-@property NSString* email;
-@property NSString* senha;
 
 // estrangeira
 @property NSString* id_consulta;

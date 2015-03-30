@@ -10,14 +10,22 @@
 
 @interface Medico : NSObject
 
+// ID
+@property NSString* objectID;
+
+// atributos Medico
 @property NSString* nome;
-@property NSString* email;
-@property NSString* senha;
 @property NSString* codTrabalho;
 @property NSString* especialidade;
 
+// atributos Endereco
+@property NSString* endereco;
+@property NSNumber* numero;
+@property NSString* CEP;
+@property NSString* bairro;
+@property NSString* regiao;
+
 // estrangeira
 @property NSString* id_tipoConsulta;
-@property NSString* id_endereco;
 
 @end

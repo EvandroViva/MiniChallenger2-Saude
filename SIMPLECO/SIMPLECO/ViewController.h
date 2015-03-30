@@ -10,6 +10,8 @@
 #import "RegiaoTableViewController.h"
 #import "EspecialidadesTableViewController.h"
 #import <EventKit/EventKit.h>
+#import "MedicoController.h"
+#import "ResultPesqTableViewController.h"
 
 @interface ViewController : UIViewController
 

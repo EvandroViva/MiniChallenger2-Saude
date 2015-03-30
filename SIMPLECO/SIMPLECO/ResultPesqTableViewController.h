@@ -12,7 +12,7 @@
 
 @interface ResultPesqTableViewController : UITableViewController
 @property NSInteger index;
-@property NSArray *ArrayTeste;
+@property NSMutableArray *medicos;
 
 + (ResultPesqTableViewController*)sharedInstance;
 
