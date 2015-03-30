@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DAO/MedicoDAO.h"
+#import "MedicoDAO.h"
+#import "UserDAO.h"
 #import "MainTabBarController.h"
 
 @interface LoginViewController : UIViewController

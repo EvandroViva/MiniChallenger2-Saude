@@ -1,22 +1,22 @@
 //
-//  CadastroViewController.m
+//  CompleteRegisterViewController.m
 //  MiniChallenger2-Saude
 //
-//  Created by Evandro Remon Pulz Viva on 3/24/15.
+//  Created by Evandro Remon Pulz Viva on 29/03/15.
 //  Copyright (c) 2015 Evandro Remon Pulz Viva. All rights reserved.
 //
 
-#import "CadastroViewController.h"
+#import "CompleteRegisterViewController.h"
 
-@interface CadastroViewController ()
+@interface CompleteRegisterViewController ()
 
 @end
 
-@implementation CadastroViewController
+@implementation CompleteRegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,15 +34,4 @@
 }
 */
 
-
-- (IBAction)Cancelar:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-- (IBAction)Cadastrar:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-
-}
 @end

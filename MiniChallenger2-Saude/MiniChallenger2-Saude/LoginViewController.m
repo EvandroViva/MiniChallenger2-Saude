@@ -49,10 +49,14 @@
 
 - (IBAction)ButtonLoginClick:(UIButton *)sender {
    [self.loginActivityIndicator setHidden:NO];
+    
     MainTabBarController *main = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
-    [MedicoDAO getMedicoByEmail:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(Medico *m){
-        if (m != nil) {
+    [UserDAO loginWithUsername:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(PFUser *pfuser, NSError *error){
+        if (!error) {
             [self.loginActivityIndicator setHidden:YES];
+            [MedicoDAO getMedicoByPFUser:pfuser AndComplete:^(Medico *m, NSError *error){
+                
+            }];
             [self.view.window setRootViewController:main];
         } else {
             [self.loginActivityIndicator setHidden:YES];

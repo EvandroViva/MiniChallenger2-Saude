@@ -9,7 +9,6 @@
 //
 
 #import "MedicoDAO.h"
-#import <Parse/Parse.h>
 
 @implementation MedicoDAO
 
@@ -39,81 +38,19 @@ static bool isFirstAccess = YES;
 }
 
 
-#pragma mark FIND
+#pragma mark GET
 
-+(Medico*)getMedico:(NSString*)id_med
++(void)getMedicoByPFUser:(PFUser*) pfuser AndComplete: (void(^)(Medico*, NSError*)) callback;
 {
-    Medico *doctor = [[Medico alloc] init];
-    return doctor;
-}
-
-+(NSArray*)getMedicosByName:(NSString*)name_med
-{
-    __block NSMutableArray *doctors = [[NSMutableArray alloc] init];
-    PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
-    [query whereKey:@"nome" equalTo:name_med];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSString *n = object[@"nome"];
-                NSLog(@"%@", n);
-                Medico *doctor = [[Medico alloc] initWithPFObject:object];
-                [doctors addObject:doctor];
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+    PFRelation *relation = [pfuser relationForKey:@"doctor"];
+    [[relation query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"%lu", (unsigned long)[objects count]);
+        Medico *medico = nil;
+        if ([objects count] > 0) {
+            medico = [[Medico alloc] initWithPFObject:objects[0]];
         }
-    }];
-    return doctors;
-}
-
-+(Medico*)getMedicoByEmail:(NSString *)email_med
-{
-    __block Medico *doctor = [[Medico alloc] init];
-    PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
-    [query whereKey:@"nome" equalTo:email_med];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSString *n = object[@"nome"];
-                NSLog(@"%@", n);
-                doctor = [[Medico alloc] initWithPFObject:object];
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-    return doctor;
-}
-+(void)getMedicoByEmail:(NSString *)email_med AndPassword:(NSString *)password AndComplete: (void(^)(Medico*)) callback;
-{
-    __block Medico *doctor = nil;
-    PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
-    [query whereKey:@"email" equalTo:email_med];
-    [query whereKey:@"password" equalTo:password];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSString *n = object[@"nome"];
-                NSLog(@"%@", n);
-                doctor = [[Medico alloc] initWithPFObject:object];
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-        callback(doctor);
+        
+        callback(medico, error);
     }];
 }
 

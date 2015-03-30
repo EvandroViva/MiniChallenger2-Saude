@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "User.h"
 
-@interface Medico : NSObject
+@interface Medico : User
 
 -(instancetype)initWithPFObject: (PFObject*) object;
 

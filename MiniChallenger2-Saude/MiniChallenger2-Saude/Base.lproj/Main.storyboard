@@ -17,11 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vivaerp@gmail.com" borderStyle="roundedRect" placeholder="Nome de usuário ou e-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDj-FK-pk7">
-                                <rect key="frame" x="26" y="106" width="548" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="senha" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PtB-fL-8jw">
                                 <rect key="frame" x="26" y="144" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -63,6 +58,11 @@
                                 <rect key="frame" x="344" y="210.5" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Evandro Viva" borderStyle="roundedRect" placeholder="Nome de usuário ou e-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDj-FK-pk7">
+                                <rect key="frame" x="26" y="106" width="548" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.20392158627510071" green="0.68627452850341797" blue="0.92156869173049927" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -394,10 +394,10 @@
             </objects>
             <point key="canvasLocation" x="1531" y="1269"/>
         </scene>
-        <!--Cadastro View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="auV-F7-8NW">
             <objects>
-                <viewController id="f95-Vi-U4I" customClass="CadastroViewController" sceneMemberID="viewController">
+                <viewController id="f95-Vi-U4I" customClass="SignInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tGH-QE-gI4"/>
                         <viewControllerLayoutGuide type="bottom" id="qoC-h7-Izo"/>
@@ -406,20 +406,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Completo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iM-kE-COM">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Evandro Viva" borderStyle="roundedRect" placeholder="Nome de Usuário" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iM-kE-COM">
                                 <rect key="frame" x="135" y="74" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-vu-gbY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vivaerp@gmail.com" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-vu-gbY">
                                 <rect key="frame" x="135" y="129" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endereço" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sm9-KI-Jx5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="senha" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sm9-KI-Jx5">
                                 <rect key="frame" x="135" y="184" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wx9-Tf-J99">
                                 <rect key="frame" x="142" y="270" width="83" height="30"/>
@@ -427,7 +427,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Cadastrar:" destination="f95-Vi-U4I" eventType="touchUpInside" id="jJy-Mb-9vz"/>
+                                    <action selector="SignInButtonClick:" destination="f95-Vi-U4I" eventType="touchUpInside" id="FoA-eS-AYv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhu-PT-820">
@@ -436,12 +436,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Cancelar:" destination="f95-Vi-U4I" eventType="touchUpInside" id="RIb-Rv-cDM"/>
+                                    <action selector="CancelButtonClick:" destination="f95-Vi-U4I" eventType="touchUpInside" id="h6s-YF-BbZ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="EmailTextField" destination="E1f-vu-gbY" id="0rG-gI-co8"/>
+                        <outlet property="PasswordTextField" destination="Sm9-KI-Jx5" id="5c2-pL-vj8"/>
+                        <outlet property="UserNameTextField" destination="4iM-kE-COM" id="yzJ-Xb-kkp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oii-8E-EUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

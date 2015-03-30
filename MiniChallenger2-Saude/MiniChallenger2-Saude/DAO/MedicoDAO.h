@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 #import "Medico.h"
 
 @interface MedicoDAO : NSObject
@@ -19,10 +20,8 @@
 +(void)addMedico:(Medico*)med;
 
 // read
-+(Medico*)getMedico:(NSString*)id_med;
-+(NSArray*)getMedicosByName:(NSString*)name_med;
-+(Medico*)getMedicoByEmail:(NSString*)email_med;
-+(void)getMedicoByEmail:(NSString *)email_med AndPassword:(NSString *)password AndComplete: (void(^)(Medico*)) callback;
++(void)getMedicoByPFUser:(PFUser*) pfuser AndComplete: (void(^)(Medico*, NSError*)) callback;
+
 
 // update
 +(void)updateMedico:(Medico*)med;
