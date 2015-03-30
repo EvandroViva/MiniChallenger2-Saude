@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TipoConsulta.h"
+#import <Parse/Parse.h>
 
 @interface TipoConsultaDAO : NSObject
 

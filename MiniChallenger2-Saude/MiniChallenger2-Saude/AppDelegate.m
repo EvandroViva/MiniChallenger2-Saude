@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "MainTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -51,6 +52,7 @@
         }
     }];
     
+    MainTabBarController *main = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
 
     return YES;
 }

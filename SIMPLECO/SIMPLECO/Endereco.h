@@ -10,13 +10,15 @@
 
 @interface Endereco : NSObject
 
-@property NSString* id_endereco;
 @property NSString* endereco;
-@property int numero;
+@property NSNumber* numero;
 @property NSString* complemento;
-@property NSString* bairro;
-@property NSString* regiao;
-@property NSString* CEP;
 @property NSString* referencia;
+@property NSString* bairro;
+@property NSString* CEP;
+@property NSString* regiao;
+
+// estrangeira
+@property NSString* id_medico;
 
 @end

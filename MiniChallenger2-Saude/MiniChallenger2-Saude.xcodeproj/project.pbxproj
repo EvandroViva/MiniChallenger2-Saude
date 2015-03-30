@@ -20,6 +20,12 @@
 		5C9A13591AC7364400DCE10E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9A13581AC7364400DCE10E /* CoreLocation.framework */; };
 		5C9A135B1AC7365000DCE10E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9A135A1AC7365000DCE10E /* CFNetwork.framework */; };
 		5C9A135D1AC7365D00DCE10E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9A135C1AC7365D00DCE10E /* AudioToolbox.framework */; };
+		90014A711AC858BD00AD7292 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90014A6F1AC858BD00AD7292 /* SignInViewController.m */; };
+		90014A721AC858BD00AD7292 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90014A701AC858BD00AD7292 /* SignInViewController.xib */; };
+		90014A761AC865F900AD7292 /* UserDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 90014A751AC865F900AD7292 /* UserDAO.m */; };
+		90014A7A1AC86AD100AD7292 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 90014A791AC86AD100AD7292 /* User.m */; };
+		90014A811AC87A6700AD7292 /* CompleteRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90014A7F1AC87A6700AD7292 /* CompleteRegisterViewController.m */; };
+		90014A821AC87A6700AD7292 /* CompleteRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90014A801AC87A6700AD7292 /* CompleteRegisterViewController.xib */; };
 		90016F091AC176BC002D8BF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F081AC176BC002D8BF6 /* main.m */; };
 		90016F0C1AC176BC002D8BF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F0B1AC176BC002D8BF6 /* AppDelegate.m */; };
 		90016F0F1AC176BC002D8BF6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F0E1AC176BC002D8BF6 /* ViewController.m */; };
@@ -28,11 +34,19 @@
 		90016F171AC176BC002D8BF6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90016F151AC176BC002D8BF6 /* LaunchScreen.xib */; };
 		90016F231AC176BC002D8BF6 /* MiniChallenger2_SaudeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F221AC176BC002D8BF6 /* MiniChallenger2_SaudeTests.m */; };
 		90016F2E1AC1A928002D8BF6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F2D1AC1A928002D8BF6 /* LoginViewController.m */; };
-		90016F311AC1F8A0002D8BF6 /* CadastroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F301AC1F8A0002D8BF6 /* CadastroViewController.m */; };
 		90016F341AC1FD88002D8BF6 /* PacientesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F331AC1FD88002D8BF6 /* PacientesTableViewController.m */; };
 		90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */; };
+		908883E71AC7645E006E7BE9 /* Medico.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883E61AC7645E006E7BE9 /* Medico.m */; };
+		908883EB1AC764E4006E7BE9 /* MedicoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883EA1AC764E4006E7BE9 /* MedicoDAO.m */; };
+		908883F31AC78748006E7BE9 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883F11AC78748006E7BE9 /* MainTabBarController.m */; };
+		908883F41AC78748006E7BE9 /* MainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908883F21AC78748006E7BE9 /* MainTabBarController.xib */; };
+		908883F91AC78A2C006E7BE9 /* NotificationNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883F71AC78A2C006E7BE9 /* NotificationNavigationController.m */; };
+		908884031AC78AD5006E7BE9 /* NotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908884011AC78AD5006E7BE9 /* NotificationTableViewController.m */; };
+		908884041AC78AD5006E7BE9 /* NotificationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908884021AC78AD5006E7BE9 /* NotificationTableViewController.xib */; };
+		9088840D1AC7923D006E7BE9 /* MoreNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088840C1AC7923D006E7BE9 /* MoreNavigationController.m */; };
+		908884151AC793B5006E7BE9 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908884131AC793B5006E7BE9 /* MoreTableViewController.m */; };
+		908884161AC793B5006E7BE9 /* MoreTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908884141AC793B5006E7BE9 /* MoreTableViewController.xib */; };
 		90DD5F7F1AC4396B00791FAF /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DD5F7E1AC4396B00791FAF /* TabBarController.m */; };
-		90DD5F821AC44AEC00791FAF /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DD5F811AC44AEC00791FAF /* MoreTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +73,16 @@
 		5C9A13581AC7364400DCE10E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5C9A135A1AC7365000DCE10E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5C9A135C1AC7365D00DCE10E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		90014A6E1AC858BD00AD7292 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		90014A6F1AC858BD00AD7292 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		90014A701AC858BD00AD7292 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		90014A741AC865F900AD7292 /* UserDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDAO.h; sourceTree = "<group>"; };
+		90014A751AC865F900AD7292 /* UserDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDAO.m; sourceTree = "<group>"; };
+		90014A781AC86AD100AD7292 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		90014A791AC86AD100AD7292 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		90014A7E1AC87A6700AD7292 /* CompleteRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteRegisterViewController.h; sourceTree = "<group>"; };
+		90014A7F1AC87A6700AD7292 /* CompleteRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteRegisterViewController.m; sourceTree = "<group>"; };
+		90014A801AC87A6700AD7292 /* CompleteRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompleteRegisterViewController.xib; sourceTree = "<group>"; };
 		90016F031AC176BC002D8BF6 /* MiniChallenger2-Saude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiniChallenger2-Saude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90016F071AC176BC002D8BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90016F081AC176BC002D8BF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -72,18 +96,31 @@
 		90016F1C1AC176BC002D8BF6 /* MiniChallenger2-SaudeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MiniChallenger2-SaudeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90016F211AC176BC002D8BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90016F221AC176BC002D8BF6 /* MiniChallenger2_SaudeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniChallenger2_SaudeTests.m; sourceTree = "<group>"; };
-		90016F2C1AC1A928002D8BF6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		90016F2D1AC1A928002D8BF6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		90016F2F1AC1F8A0002D8BF6 /* CadastroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroViewController.h; sourceTree = "<group>"; };
-		90016F301AC1F8A0002D8BF6 /* CadastroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroViewController.m; sourceTree = "<group>"; };
+		90016F2C1AC1A928002D8BF6 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "MiniChallenger2-Saude/LoginViewController.h"; sourceTree = "<group>"; };
+		90016F2D1AC1A928002D8BF6 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "MiniChallenger2-Saude/LoginViewController.m"; sourceTree = "<group>"; };
 		90016F321AC1FD88002D8BF6 /* PacientesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacientesTableViewController.h; sourceTree = "<group>"; };
 		90016F331AC1FD88002D8BF6 /* PacientesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacientesTableViewController.m; sourceTree = "<group>"; };
 		90016F351AC1FDA6002D8BF6 /* PacientesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacientesTableViewCell.h; sourceTree = "<group>"; };
 		90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacientesTableViewCell.m; sourceTree = "<group>"; };
+		908883E51AC7645E006E7BE9 /* Medico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Medico.h; path = "MiniChallenger2-Saude/Model/Medico.h"; sourceTree = "<group>"; };
+		908883E61AC7645E006E7BE9 /* Medico.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Medico.m; path = "MiniChallenger2-Saude/Model/Medico.m"; sourceTree = "<group>"; };
+		908883E91AC764E4006E7BE9 /* MedicoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MedicoDAO.h; path = "MiniChallenger2-Saude/DAO/MedicoDAO.h"; sourceTree = "<group>"; };
+		908883EA1AC764E4006E7BE9 /* MedicoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MedicoDAO.m; path = "MiniChallenger2-Saude/DAO/MedicoDAO.m"; sourceTree = "<group>"; };
+		908883F01AC78748006E7BE9 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		908883F11AC78748006E7BE9 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		908883F21AC78748006E7BE9 /* MainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTabBarController.xib; sourceTree = "<group>"; };
+		908883F61AC78A2C006E7BE9 /* NotificationNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationNavigationController.h; sourceTree = "<group>"; };
+		908883F71AC78A2C006E7BE9 /* NotificationNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationNavigationController.m; sourceTree = "<group>"; };
+		908884001AC78AD5006E7BE9 /* NotificationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationTableViewController.h; path = "MiniChallenger2-Saude/NotificationTableViewController.h"; sourceTree = "<group>"; };
+		908884011AC78AD5006E7BE9 /* NotificationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationTableViewController.m; path = "MiniChallenger2-Saude/NotificationTableViewController.m"; sourceTree = "<group>"; };
+		908884021AC78AD5006E7BE9 /* NotificationTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NotificationTableViewController.xib; path = "MiniChallenger2-Saude/NotificationTableViewController.xib"; sourceTree = "<group>"; };
+		9088840B1AC7923D006E7BE9 /* MoreNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreNavigationController.h; sourceTree = "<group>"; };
+		9088840C1AC7923D006E7BE9 /* MoreNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreNavigationController.m; sourceTree = "<group>"; };
+		908884121AC793B5006E7BE9 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
+		908884131AC793B5006E7BE9 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
+		908884141AC793B5006E7BE9 /* MoreTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreTableViewController.xib; sourceTree = "<group>"; };
 		90DD5F7D1AC4396B00791FAF /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		90DD5F7E1AC4396B00791FAF /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
-		90DD5F801AC44AEC00791FAF /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
-		90DD5F811AC44AEC00791FAF /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +174,49 @@
 			name = FrameWorks;
 			sourceTree = "<group>";
 		};
+		90014A6D1AC857EB00AD7292 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				90014A6E1AC858BD00AD7292 /* SignInViewController.h */,
+				90014A6F1AC858BD00AD7292 /* SignInViewController.m */,
+			);
+			name = SignIn;
+			sourceTree = "<group>";
+		};
+		90014A731AC865D900AD7292 /* UserDAO */ = {
+			isa = PBXGroup;
+			children = (
+				90014A741AC865F900AD7292 /* UserDAO.h */,
+				90014A751AC865F900AD7292 /* UserDAO.m */,
+			);
+			name = UserDAO;
+			sourceTree = "<group>";
+		};
+		90014A771AC86ABD00AD7292 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				90014A781AC86AD100AD7292 /* User.h */,
+				90014A791AC86AD100AD7292 /* User.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		90014A831AC87A7A00AD7292 /* CompleteRegister */ = {
+			isa = PBXGroup;
+			children = (
+				90014A7E1AC87A6700AD7292 /* CompleteRegisterViewController.h */,
+				90014A7F1AC87A6700AD7292 /* CompleteRegisterViewController.m */,
+			);
+			name = CompleteRegister;
+			sourceTree = "<group>";
+		};
 		90016EFA1AC176BC002D8BF6 = {
 			isa = PBXGroup;
 			children = (
+				908883F51AC78751006E7BE9 /* Views */,
+				908883EF1AC7852D006E7BE9 /* Controllers */,
+				908883E81AC764BA006E7BE9 /* DAO */,
+				908883E41AC763DE006E7BE9 /* Model */,
 				90016F051AC176BC002D8BF6 /* MiniChallenger2-Saude */,
 				90016F1F1AC176BC002D8BF6 /* MiniChallenger2-SaudeTests */,
 				90016F041AC176BC002D8BF6 /* Products */,
@@ -163,18 +240,12 @@
 				90016F0B1AC176BC002D8BF6 /* AppDelegate.m */,
 				90016F0D1AC176BC002D8BF6 /* ViewController.h */,
 				90016F0E1AC176BC002D8BF6 /* ViewController.m */,
-				90DD5F801AC44AEC00791FAF /* MoreTableViewController.h */,
-				90DD5F811AC44AEC00791FAF /* MoreTableViewController.m */,
 				90DD5F7D1AC4396B00791FAF /* TabBarController.h */,
 				90DD5F7E1AC4396B00791FAF /* TabBarController.m */,
 				90016F321AC1FD88002D8BF6 /* PacientesTableViewController.h */,
 				90016F351AC1FDA6002D8BF6 /* PacientesTableViewCell.h */,
 				90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */,
 				90016F331AC1FD88002D8BF6 /* PacientesTableViewController.m */,
-				90016F2F1AC1F8A0002D8BF6 /* CadastroViewController.h */,
-				90016F301AC1F8A0002D8BF6 /* CadastroViewController.m */,
-				90016F2C1AC1A928002D8BF6 /* LoginViewController.h */,
-				90016F2D1AC1A928002D8BF6 /* LoginViewController.m */,
 				90016F131AC176BC002D8BF6 /* Images.xcassets */,
 				90016F101AC176BC002D8BF6 /* Main.storyboard */,
 				90016F151AC176BC002D8BF6 /* LaunchScreen.xib */,
@@ -207,6 +278,155 @@
 				90016F211AC176BC002D8BF6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		908883E41AC763DE006E7BE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90014A771AC86ABD00AD7292 /* User */,
+				908883EE1AC7650C006E7BE9 /* Medico */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		908883E81AC764BA006E7BE9 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				90014A731AC865D900AD7292 /* UserDAO */,
+				908883ED1AC764FD006E7BE9 /* MedicoDAO */,
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
+		908883ED1AC764FD006E7BE9 /* MedicoDAO */ = {
+			isa = PBXGroup;
+			children = (
+				908883E91AC764E4006E7BE9 /* MedicoDAO.h */,
+				908883EA1AC764E4006E7BE9 /* MedicoDAO.m */,
+			);
+			name = MedicoDAO;
+			sourceTree = "<group>";
+		};
+		908883EE1AC7650C006E7BE9 /* Medico */ = {
+			isa = PBXGroup;
+			children = (
+				908883E51AC7645E006E7BE9 /* Medico.h */,
+				908883E61AC7645E006E7BE9 /* Medico.m */,
+			);
+			name = Medico;
+			sourceTree = "<group>";
+		};
+		908883EF1AC7852D006E7BE9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				908884071AC78B04006E7BE9 /* Table */,
+				908883FC1AC78A50006E7BE9 /* View */,
+				908883FE1AC78A5D006E7BE9 /* TabBar */,
+				908883FF1AC78A68006E7BE9 /* Navigation */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		908883F51AC78751006E7BE9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				908883F21AC78748006E7BE9 /* MainTabBarController.xib */,
+				908884021AC78AD5006E7BE9 /* NotificationTableViewController.xib */,
+				908884141AC793B5006E7BE9 /* MoreTableViewController.xib */,
+				90014A701AC858BD00AD7292 /* SignInViewController.xib */,
+				90014A801AC87A6700AD7292 /* CompleteRegisterViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		908883FC1AC78A50006E7BE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90014A831AC87A7A00AD7292 /* CompleteRegister */,
+				90014A6D1AC857EB00AD7292 /* SignIn */,
+				908884081AC78B25006E7BE9 /* Login */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		908883FE1AC78A5D006E7BE9 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				908884051AC78AEB006E7BE9 /* Main */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		908883FF1AC78A68006E7BE9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				9088840A1AC79213006E7BE9 /* More */,
+				908884091AC78B32006E7BE9 /* Notification */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		908884051AC78AEB006E7BE9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				908883F01AC78748006E7BE9 /* MainTabBarController.h */,
+				908883F11AC78748006E7BE9 /* MainTabBarController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		908884061AC78AF1006E7BE9 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				908884001AC78AD5006E7BE9 /* NotificationTableViewController.h */,
+				908884011AC78AD5006E7BE9 /* NotificationTableViewController.m */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		908884071AC78B04006E7BE9 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				9088840E1AC792D4006E7BE9 /* More */,
+				908884061AC78AF1006E7BE9 /* Notification */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
+		908884081AC78B25006E7BE9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				90016F2C1AC1A928002D8BF6 /* LoginViewController.h */,
+				90016F2D1AC1A928002D8BF6 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		908884091AC78B32006E7BE9 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				908883F61AC78A2C006E7BE9 /* NotificationNavigationController.h */,
+				908883F71AC78A2C006E7BE9 /* NotificationNavigationController.m */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		9088840A1AC79213006E7BE9 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				9088840B1AC7923D006E7BE9 /* MoreNavigationController.h */,
+				9088840C1AC7923D006E7BE9 /* MoreNavigationController.m */,
+			);
+			name = More;
+			sourceTree = "<group>";
+		};
+		9088840E1AC792D4006E7BE9 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				908884121AC793B5006E7BE9 /* MoreTableViewController.h */,
+				908884131AC793B5006E7BE9 /* MoreTableViewController.m */,
+			);
+			name = More;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,8 +509,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90014A821AC87A6700AD7292 /* CompleteRegisterViewController.xib in Resources */,
 				90016F121AC176BC002D8BF6 /* Main.storyboard in Resources */,
+				908884041AC78AD5006E7BE9 /* NotificationTableViewController.xib in Resources */,
 				90016F171AC176BC002D8BF6 /* LaunchScreen.xib in Resources */,
+				908883F41AC78748006E7BE9 /* MainTabBarController.xib in Resources */,
+				90014A721AC858BD00AD7292 /* SignInViewController.xib in Resources */,
+				908884161AC793B5006E7BE9 /* MoreTableViewController.xib in Resources */,
 				90016F141AC176BC002D8BF6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,15 +534,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908883EB1AC764E4006E7BE9 /* MedicoDAO.m in Sources */,
 				90016F2E1AC1A928002D8BF6 /* LoginViewController.m in Sources */,
+				908883F91AC78A2C006E7BE9 /* NotificationNavigationController.m in Sources */,
+				908883F31AC78748006E7BE9 /* MainTabBarController.m in Sources */,
+				90014A7A1AC86AD100AD7292 /* User.m in Sources */,
 				90016F0F1AC176BC002D8BF6 /* ViewController.m in Sources */,
 				90016F0C1AC176BC002D8BF6 /* AppDelegate.m in Sources */,
+				908884031AC78AD5006E7BE9 /* NotificationTableViewController.m in Sources */,
+				90014A761AC865F900AD7292 /* UserDAO.m in Sources */,
 				90016F091AC176BC002D8BF6 /* main.m in Sources */,
 				90016F341AC1FD88002D8BF6 /* PacientesTableViewController.m in Sources */,
 				90DD5F7F1AC4396B00791FAF /* TabBarController.m in Sources */,
+				90014A711AC858BD00AD7292 /* SignInViewController.m in Sources */,
 				90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */,
-				90DD5F821AC44AEC00791FAF /* MoreTableViewController.m in Sources */,
-				90016F311AC1F8A0002D8BF6 /* CadastroViewController.m in Sources */,
+				90014A811AC87A6700AD7292 /* CompleteRegisterViewController.m in Sources */,
+				9088840D1AC7923D006E7BE9 /* MoreNavigationController.m in Sources */,
+				908883E71AC7645E006E7BE9 /* Medico.m in Sources */,
+				908884151AC793B5006E7BE9 /* MoreTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

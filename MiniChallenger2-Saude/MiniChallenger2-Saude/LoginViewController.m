@@ -28,7 +28,7 @@
     
     [ButtonLogin setTintColor: self.view.backgroundColor];
     [ButtonLogin setBackgroundColor:[UIColor whiteColor]];
-    
+    [self.loginActivityIndicator setHidden:YES];
 
 }
 
@@ -37,7 +37,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -45,6 +45,25 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+
+- (IBAction)ButtonLoginClick:(UIButton *)sender {
+   [self.loginActivityIndicator setHidden:NO];
+    
+    MainTabBarController *main = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+    [UserDAO loginWithUsername:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(PFUser *pfuser, NSError *error){
+        if (!error) {
+            [self.loginActivityIndicator setHidden:YES];
+            [MedicoDAO getMedicoByPFUser:pfuser AndComplete:^(Medico *m, NSError *error){
+                
+            }];
+            [self.view.window setRootViewController:main];
+        } else {
+            [self.loginActivityIndicator setHidden:YES];
+            [[[UIAlertView alloc] initWithTitle:@"Usuário Inválido" message:@"E-mail e/ou senha estão inválidos." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        }
+    }];
+}
+
 
 @end

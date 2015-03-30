@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MedicoDAO.h"
+#import "UserDAO.h"
+#import "MainTabBarController.h"
 
 @interface LoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *ButtonLogin;
 @property (weak, nonatomic) IBOutlet UIButton *ButtonSignIn;
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldEmail;
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldPassword;
+- (IBAction)ButtonLoginClick:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loginActivityIndicator;
 
 
 @end

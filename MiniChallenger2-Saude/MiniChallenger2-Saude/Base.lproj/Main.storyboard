@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,34 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome de usuário ou e-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDj-FK-pk7">
-                                <rect key="frame" x="26" y="106" width="548" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PtB-fL-8jw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="senha" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PtB-fL-8jw">
                                 <rect key="frame" x="26" y="144" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-uo-SHc">
-                                <rect key="frame" x="226" y="214" width="136" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z68-uo-SHc">
+                                <rect key="frame" x="266" y="214" width="68" height="30"/>
                                 <state key="normal" title="   Entrar   ">
                                     <color key="titleColor" red="0.47450980390000003" green="0.054361031320000003" blue="0.098978230020000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Dqu-i4-wkg" kind="show" id="Kqb-3V-XuW"/>
+                                    <action selector="ButtonLoginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oMJ-LO-Fzy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simpleco Clinical" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW4-0e-yVc">
-                                <rect key="frame" x="172" y="28" width="255" height="39"/>
+                                <rect key="frame" x="172" y="28" width="254.5" height="38.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="33"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se você ainda não é cadastrado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlQ-ya-zPf">
-                                <rect key="frame" x="176" y="344" width="248" height="21"/>
+                                <rect key="frame" x="176" y="344" width="247.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -59,15 +54,27 @@
                                     <segue destination="f95-Vi-U4I" kind="show" identifier="SignIn" id="Jes-u4-4nl"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="npa-ht-NiP">
+                                <rect key="frame" x="344" y="210.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Evandro Viva" borderStyle="roundedRect" placeholder="Nome de usuário ou e-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDj-FK-pk7">
+                                <rect key="frame" x="26" y="106" width="548" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.20392158627510071" green="0.68627452850341797" blue="0.92156869173049927" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="Z68-uo-SHc" firstAttribute="centerY" secondItem="npa-ht-NiP" secondAttribute="centerY" id="0GI-DF-Wnf"/>
                             <constraint firstAttribute="centerX" secondItem="it7-DL-79x" secondAttribute="centerX" id="1vB-tb-kk1"/>
                             <constraint firstAttribute="centerX" secondItem="IW4-0e-yVc" secondAttribute="centerX" id="3gD-kS-dEV"/>
                             <constraint firstAttribute="centerX" secondItem="PtB-fL-8jw" secondAttribute="centerX" id="49t-JU-xeC"/>
                             <constraint firstItem="PtB-fL-8jw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="5Kz-oN-3PN"/>
+                            <constraint firstItem="npa-ht-NiP" firstAttribute="leading" secondItem="Z68-uo-SHc" secondAttribute="trailing" constant="10" id="5bL-ME-GSQ"/>
                             <constraint firstItem="PtB-fL-8jw" firstAttribute="top" secondItem="jDj-FK-pk7" secondAttribute="bottom" constant="8" id="6U9-0f-gKA"/>
                             <constraint firstItem="IW4-0e-yVc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="9yf-vf-fgA"/>
+                            <constraint firstItem="Z68-uo-SHc" firstAttribute="centerY" secondItem="npa-ht-NiP" secondAttribute="centerY" id="HQu-vf-weh"/>
                             <constraint firstItem="Z68-uo-SHc" firstAttribute="top" secondItem="PtB-fL-8jw" secondAttribute="bottom" constant="40" id="Krt-NT-7h7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PtB-fL-8jw" secondAttribute="trailing" constant="10" id="Lk8-1O-Hnf"/>
                             <constraint firstAttribute="centerX" secondItem="Z68-uo-SHc" secondAttribute="centerX" id="QeL-pv-Vli"/>
@@ -79,12 +86,19 @@
                             <constraint firstItem="jDj-FK-pk7" firstAttribute="top" secondItem="IW4-0e-yVc" secondAttribute="bottom" constant="40" id="pc8-0D-3qa"/>
                             <constraint firstAttribute="centerX" secondItem="jDj-FK-pk7" secondAttribute="centerX" id="vTR-Pa-h3p"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HQu-vf-weh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="ButtonLogin" destination="Z68-uo-SHc" id="UEF-3w-6Mf"/>
                         <outlet property="ButtonSignIn" destination="it7-DL-79x" id="eHC-eI-uBw"/>
                         <outlet property="TextFieldEmail" destination="jDj-FK-pk7" id="udo-l1-8uF"/>
                         <outlet property="TextFieldPassword" destination="PtB-fL-8jw" id="1vF-E4-5Jk"/>
+                        <outlet property="loginActivityIndicator" destination="npa-ht-NiP" id="dA6-xu-CV8"/>
+                        <segue destination="Dqu-i4-wkg" kind="show" identifier="login" id="4lc-4e-NGH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -375,10 +389,10 @@
             </objects>
             <point key="canvasLocation" x="1531" y="1269"/>
         </scene>
-        <!--Cadastro View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="auV-F7-8NW">
             <objects>
-                <viewController id="f95-Vi-U4I" customClass="CadastroViewController" sceneMemberID="viewController">
+                <viewController id="f95-Vi-U4I" customClass="SignInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tGH-QE-gI4"/>
                         <viewControllerLayoutGuide type="bottom" id="qoC-h7-Izo"/>
@@ -387,20 +401,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Completo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iM-kE-COM">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Evandro Viva" borderStyle="roundedRect" placeholder="Nome de Usuário" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iM-kE-COM">
                                 <rect key="frame" x="135" y="74" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-vu-gbY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vivaerp@gmail.com" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E1f-vu-gbY">
                                 <rect key="frame" x="135" y="129" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endereço" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sm9-KI-Jx5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="senha" borderStyle="roundedRect" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sm9-KI-Jx5">
                                 <rect key="frame" x="135" y="184" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wx9-Tf-J99">
                                 <rect key="frame" x="142" y="270" width="83" height="30"/>
@@ -408,7 +422,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Cadastrar:" destination="f95-Vi-U4I" eventType="touchUpInside" id="jJy-Mb-9vz"/>
+                                    <action selector="SignInButtonClick:" destination="f95-Vi-U4I" eventType="touchUpInside" id="FoA-eS-AYv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhu-PT-820">
@@ -417,12 +431,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Cancelar:" destination="f95-Vi-U4I" eventType="touchUpInside" id="RIb-Rv-cDM"/>
+                                    <action selector="CancelButtonClick:" destination="f95-Vi-U4I" eventType="touchUpInside" id="h6s-YF-BbZ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="EmailTextField" destination="E1f-vu-gbY" id="0rG-gI-co8"/>
+                        <outlet property="PasswordTextField" destination="Sm9-KI-Jx5" id="5c2-pL-vj8"/>
+                        <outlet property="UserNameTextField" destination="4iM-kE-COM" id="yzJ-Xb-kkp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oii-8E-EUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
