@@ -21,7 +21,8 @@
 
 // read
 +(void)getMedicoByPFUser:(PFUser*) pfuser AndComplete: (void(^)(Medico*, NSError*)) callback;
-
+// especial read
+//+(void)getMedicoByEspecializacao:(NSString *) pfuser AndRegiao:(NSString*) AndComplete: (void(^)(Medico*, NSError*)) callback;
 
 // update
 +(void)updateMedico:(Medico*)med;

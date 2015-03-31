@@ -50,8 +50,15 @@
 - (IBAction)ButtonLoginClick:(UIButton *)sender {
    [self.loginActivityIndicator setHidden:NO];
     
+    
+    
     MainTabBarController *main = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
     [UserDAO loginWithUsername:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(PFUser *pfuser, NSError *error){
+//        if (![[pfuser objectForKey:@"emailVerified"] boolValue]) {
+//            // Refresh to make sure the user did not recently verify
+//            [pfuser refresh];
+//            if (![[pfuser objectForKey:@"emailVerified"] boolValue]) {
+//                
         if (!error) {
             [self.loginActivityIndicator setHidden:YES];
             [MedicoDAO getMedicoByPFUser:pfuser AndComplete:^(Medico *m, NSError *error){
@@ -62,6 +69,7 @@
             [self.loginActivityIndicator setHidden:YES];
             [[[UIAlertView alloc] initWithTitle:@"Usuário Inválido" message:@"E-mail e/ou senha estão inválidos." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
         }
+//            }}
     }];
 }
 

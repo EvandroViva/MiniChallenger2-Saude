@@ -47,6 +47,7 @@
 */
 
 - (IBAction)BConfirma:(id)sender {
+    
     viewController = [ViewController sharedInstance];
     dataConsulta = [ConsultaViewController sharedInstance];
     [self PermissaoEvento];
