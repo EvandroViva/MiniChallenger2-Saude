@@ -85,27 +85,29 @@
                                         if (user) {
                                             [self.Carregando setHidden:YES];
                                             
-                                            
-                                            if ([[user objectForKey:@"emailVerification"] boolValue] == NO) {
+                                            NSLog(@"Resp?%@",[user objectForKey:@"emailVerified"]);
+                                            if ([[user objectForKey:@"emailVerified"] boolValue]) {
+                                               
+                                                _UltimoCadastro = [self.TFLogin text];
+                                                [defaults setObject:_UltimoCadastro forKey:@"SalvarDados"];
                                                 
-                                                NSString *message = @"Por Favor olhar sua caixa de email!";
-                                                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Email não Confirmado." message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
-                                                [alertView show];
+                                                _UltimaSenha =[self.TFSenha text];
+                                                [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
+                                                
+                                                //Criar Evento no Calendário
+                                                viewController = [ViewController sharedInstance];
+                                                dataConsulta = [ConsultaViewController sharedInstance];
+                                                [self PermissaoEvento];
+                                                [self CriarEvento:viewController.eventStore];
+                                                [self.tabBarController setSelectedIndex:1];
+                                                [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
+                                                
+                                                
                                             }
                                             else{
-                                             _UltimoCadastro = [self.TFLogin text];
-                                            [defaults setObject:_UltimoCadastro forKey:@"SalvarDados"];
-                                            
-                                            _UltimaSenha =[self.TFSenha text];
-                                            [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
-                                            
-                                            //Criar Evento no Calendário
-                                            viewController = [ViewController sharedInstance];
-                                            dataConsulta = [ConsultaViewController sharedInstance];
-                                            [self PermissaoEvento];
-                                            [self CriarEvento:viewController.eventStore];
-                                            [self.tabBarController setSelectedIndex:1];
-                                            [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
+                                                 NSString *message = @"Por Favor olhar sua caixa de email!";
+                                                 UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Email não Confirmado." message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+                                                [alertView show];
                                             }
                                             
                                         } else {
