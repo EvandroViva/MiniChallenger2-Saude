@@ -9,6 +9,9 @@
 #import "InfosMedicoViewController.h"
 
 @interface InfosMedicoViewController ()
+{
+    ResultPesqTableViewController *medSelecionado;
+}
 
 @end
 
@@ -16,7 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    medSelecionado = [ResultPesqTableViewController sharedInstance];
+    NSLog(@"Nome = %@",medSelecionado.medicoSelecionado.nome);
+    _lblEndereco.text = medSelecionado.medicoSelecionado.endereco;
+    _lblBairro.text = medSelecionado.medicoSelecionado.bairro;
+    _lblEspecialidade.text = medSelecionado.medicoSelecionado.especialidade;
+    _lblRegiao.text = medSelecionado.medicoSelecionado.regiao;
+    _lblNome.text = medSelecionado.medicoSelecionado.nome;
+    _lblCodTrabalho.text = medSelecionado.medicoSelecionado.codTrabalho;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,7 +39,7 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {R
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }

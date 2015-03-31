@@ -8,6 +8,10 @@
 
 #import "LoginViewController.h"
 
+static NSMutableArray *EventoSalvo;
+
+static bool isFirstAccess = YES;
+
 @interface LoginViewController ()
 {
     ViewController *viewController;
@@ -22,11 +26,33 @@
 
 @synthesize login;
 
+static LoginViewController *SINGLETON = nil;
+
+
++ (id)sharedInstance
+{
+    return SINGLETON;
+    
+}
+
++ (NSMutableArray*)sharedEventos
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess = NO;
+        EventoSalvo = [[NSMutableArray alloc]init];
+    });
+    
+    return EventoSalvo;
+}
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self.Carregando setHidden:YES];
-
+    
     [self Default];
+    SINGLETON = self;
 
 
 }
@@ -155,6 +181,7 @@
     event.endDate = [event.startDate dateByAddingTimeInterval:3600];
     event.calendar = [eventStore defaultCalendarForNewEvents];
     
+    [[LoginViewController sharedEventos] addObject:event];
     NSError *error;
     [eventStore saveEvent:event span:EKSpanThisEvent error:&error];
     

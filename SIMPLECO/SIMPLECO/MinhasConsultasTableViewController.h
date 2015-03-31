@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MinhasConsultasTableViewCell.h"
+#import "LoginViewController.h"
+#import "ViewController.h"
+#import "ResultPesqTableViewController.h"
 
 @interface MinhasConsultasTableViewController : UITableViewController
 
-@property NSArray* teste;
+@property NSMutableArray* teste;
+@property EKEvent *evento;
 
 @end

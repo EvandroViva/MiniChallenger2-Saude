@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ResultPesqTableViewController.h"
 
 @interface InfosMedicoViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *lblNome;
@@ -14,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblEndereco;
 @property (weak, nonatomic) IBOutlet UILabel *lblBairro;
 @property (weak, nonatomic) IBOutlet UILabel *lblRegiao;
+@property (weak, nonatomic) IBOutlet UILabel *lblCodTrabalho;
 
 @end
