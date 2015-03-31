@@ -10,6 +10,7 @@
 #import "MedicoDAO.h"
 #import "UserDAO.h"
 #import "MainTabBarController.h"
+#import "CompleteRegisterViewController.h"
 
 @interface LoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *ButtonLogin;

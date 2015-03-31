@@ -40,6 +40,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    [MedicoDAO getMedicoByPFUser:[PFUser currentUser] AndComplete:^(NSError *error){
+        Medico *m = [Medico sharedDoctor];
+        if ([m nome] == nil) {
+        
+                CompleteRegisterViewController *completeregister = [[CompleteRegisterViewController alloc] initWithNibName:@"CompleteRegisterViewController" bundle:nil];
+//                completeregister set
+                [self presentViewController:completeregister animated:true completion:nil];
+        }
+    }];
+
+}
+
 /*
 #pragma mark - Navigation
 

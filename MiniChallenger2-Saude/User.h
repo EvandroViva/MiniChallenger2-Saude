@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface User : NSObject
 
 @property NSString* username;
 @property NSString* email;
 @property NSString* password;
+
+//-(instancetype)initWithPFUser:(PFUser*) pfuser;
 
 @end

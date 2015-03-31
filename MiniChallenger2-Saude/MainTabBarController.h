@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "NotificationNavigationController.h"
 #import "MoreNavigationController.h"
+#import "MedicoDAO.h"
+#import "CompleteRegisterViewController.h"
 
 @interface MainTabBarController : UITabBarController
 

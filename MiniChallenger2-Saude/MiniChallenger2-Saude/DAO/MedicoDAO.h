@@ -20,7 +20,7 @@
 +(void)addMedico:(Medico*)med;
 
 // read
-+(void)getMedicoByPFUser:(PFUser*) pfuser AndComplete: (void(^)(Medico*, NSError*)) callback;
++(void)getMedicoByPFUser:(PFUser*) pfuser AndComplete: (void(^)(NSError*)) callback;
 
 
 // update

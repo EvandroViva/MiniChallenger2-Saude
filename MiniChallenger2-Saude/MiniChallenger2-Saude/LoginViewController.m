@@ -49,15 +49,14 @@
 
 - (IBAction)ButtonLoginClick:(UIButton *)sender {
    [self.loginActivityIndicator setHidden:NO];
-    
     MainTabBarController *main = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
     [UserDAO loginWithUsername:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(PFUser *pfuser, NSError *error){
         if (!error) {
             [self.loginActivityIndicator setHidden:YES];
-            [MedicoDAO getMedicoByPFUser:pfuser AndComplete:^(Medico *m, NSError *error){
-                
+            [self presentViewController:main animated:true completion:^{
+                CompleteRegisterViewController *completeregister = [[CompleteRegisterViewController alloc] initWithNibName:@"CompleteRegisterViewController" bundle:nil];
+                [self presentViewController:completeregister animated:true completion:nil];
             }];
-            [self.view.window setRootViewController:main];
         } else {
             [self.loginActivityIndicator setHidden:YES];
             [[[UIAlertView alloc] initWithTitle:@"Usuário Inválido" message:@"E-mail e/ou senha estão inválidos." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];

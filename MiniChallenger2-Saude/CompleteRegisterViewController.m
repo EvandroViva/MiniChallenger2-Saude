@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    Medico *m1 = [Medico sharedDoctor];
+    [self.NameTextFiled setText:[m1 nome]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +36,15 @@
 }
 */
 
+- (IBAction)FinishRegisterButton:(UIButton *)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)RememberLaterClick:(UIButton *)sender {
+    Medico *m1 = [Medico sharedDoctor];
+    [m1 setRemember_later:true];
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+- (IBAction)InsertSpecialtyClick:(UIButton *)sender {
+}
 @end
