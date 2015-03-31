@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Medico.h"
+#import "SpecialtyTableViewController.h"
+#import "SpecialtyTableViewCell.h"
 
 @interface CompleteRegisterViewController : UIViewController
 

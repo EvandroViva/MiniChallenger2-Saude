@@ -40,6 +40,9 @@
                     <state key="normal" title="Inserir endereço do seu consultório">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="InsertAddressClick:" destination="-1" eventType="touchUpInside" id="YzJ-MY-akU"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrX-a7-JmR">
                     <rect key="frame" x="20" y="560" width="134" height="30"/>

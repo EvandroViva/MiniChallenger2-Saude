@@ -11,6 +11,7 @@
 #import "MoreNavigationController.h"
 #import "MedicoDAO.h"
 #import "CompleteRegisterViewController.h"
+#import "CalendarNavigationViewController.h"
 
 @interface MainTabBarController : UITabBarController
 
