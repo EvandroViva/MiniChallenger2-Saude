@@ -10,12 +10,15 @@
 
 @interface Consulta : NSObject
 
-@property NSDate* data;
+// ID
+@property NSString* objectID;
 
+// atributos
+@property NSDate* data;
+    
 // estrangeiras
 @property NSString* id_tipoConsulta;
 @property NSString* id_medico;
 @property NSString* id_paciente;
-@property NSString* id_endereco;
 
 @end

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompleteRegisterViewController">
             <connections>
+                <outlet property="NameTextFiled" destination="Swn-kL-Vgt" id="MVL-kd-XjM"/>
+                <outlet property="docTextFiled" destination="7lV-iA-NbI" id="FAD-WP-Uq7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +15,132 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Inserir nome Completo" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Swn-kL-Vgt">
+                    <rect key="frame" x="20" y="148" width="560" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Inserir o documento de Trabalho (CRM)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7lV-iA-NbI">
+                    <rect key="frame" x="20" y="213" width="560" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hR-dO-9CJ">
+                    <rect key="frame" x="20" y="279" width="560" height="30"/>
+                    <state key="normal" title="Inserir sua especialidade">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="InsertSpecialtyClick:" destination="-1" eventType="touchUpInside" id="tYZ-4I-y2b"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeK-vi-NvH">
+                    <rect key="frame" x="20" y="344" width="560" height="30"/>
+                    <state key="normal" title="Inserir endereço do seu consultório">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrX-a7-JmR">
+                    <rect key="frame" x="20" y="560" width="134" height="30"/>
+                    <state key="normal" title="Lembrar mais tarde">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="RememberLaterClick:" destination="-1" eventType="touchUpInside" id="Ryc-mO-evh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhD-ef-Ygo">
+                    <rect key="frame" x="534" y="560" width="46" height="30"/>
+                    <state key="normal" title="Pronto">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="FinishRegisterButton:" destination="-1" eventType="touchUpInside" id="mgw-QV-yUT"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completar Cadastro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhE-gl-cHu">
+                    <rect key="frame" x="211" y="30" width="179" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyJ-vW-lhd">
+                    <rect key="frame" x="20" y="74" width="560" height="40"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Para você ter seu cadastro efetuado como médico é necessário incluir as informações abaixo.">
+                            <attributes>
+                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Documento de Trabalho" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umG-vP-0fv">
+                    <rect key="frame" x="208" y="188" width="184" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Especialidade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ha-Yn-D8d">
+                    <rect key="frame" x="247" y="253" width="107" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lwj-tz-FhM">
+                    <rect key="frame" x="264" y="319" width="73" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Completo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TN-EZ-fm7">
+                    <rect key="frame" x="237" y="122" width="126" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yeK-vi-NvH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="1oR-00-pEW"/>
+                <constraint firstAttribute="trailing" secondItem="7lV-iA-NbI" secondAttribute="trailing" constant="20" id="276-5c-PnA"/>
+                <constraint firstItem="YyJ-vW-lhd" firstAttribute="top" secondItem="qhE-gl-cHu" secondAttribute="bottom" constant="20" id="4yN-dh-cPd"/>
+                <constraint firstItem="1hR-dO-9CJ" firstAttribute="top" secondItem="5ha-Yn-D8d" secondAttribute="bottom" constant="5" id="5dc-gE-8pf"/>
+                <constraint firstItem="yeK-vi-NvH" firstAttribute="top" secondItem="Lwj-tz-FhM" secondAttribute="bottom" constant="5" id="9AB-Cl-KAP"/>
+                <constraint firstItem="Swn-kL-Vgt" firstAttribute="top" secondItem="1TN-EZ-fm7" secondAttribute="bottom" constant="5" id="9PJ-9H-Hyx"/>
+                <constraint firstItem="7lV-iA-NbI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Ax9-d4-ZGZ"/>
+                <constraint firstItem="qhE-gl-cHu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="BSD-Bn-NMe"/>
+                <constraint firstAttribute="trailing" secondItem="yeK-vi-NvH" secondAttribute="trailing" constant="20" id="Gje-Ro-BZv"/>
+                <constraint firstAttribute="trailing" secondItem="YyJ-vW-lhd" secondAttribute="trailing" constant="20" id="I65-8R-D6h"/>
+                <constraint firstItem="1TN-EZ-fm7" firstAttribute="top" secondItem="YyJ-vW-lhd" secondAttribute="bottom" constant="8" id="KK6-iO-ZLy"/>
+                <constraint firstAttribute="bottom" secondItem="OrX-a7-JmR" secondAttribute="bottom" constant="10" id="Oom-ne-LwU"/>
+                <constraint firstItem="YyJ-vW-lhd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="X6J-ma-NXd"/>
+                <constraint firstItem="7lV-iA-NbI" firstAttribute="top" secondItem="umG-vP-0fv" secondAttribute="bottom" constant="5" id="air-Mg-2sD"/>
+                <constraint firstAttribute="centerX" secondItem="5ha-Yn-D8d" secondAttribute="centerX" id="cFh-SB-1SK"/>
+                <constraint firstItem="Swn-kL-Vgt" firstAttribute="top" secondItem="1TN-EZ-fm7" secondAttribute="bottom" constant="8" id="dKt-gU-ijW"/>
+                <constraint firstAttribute="centerX" secondItem="1TN-EZ-fm7" secondAttribute="centerX" id="gnr-KE-ahz"/>
+                <constraint firstItem="OrX-a7-JmR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="goA-Jy-tX0"/>
+                <constraint firstItem="Lwj-tz-FhM" firstAttribute="top" secondItem="1hR-dO-9CJ" secondAttribute="bottom" constant="10" id="kwn-xc-7OF"/>
+                <constraint firstAttribute="trailing" secondItem="yhD-ef-Ygo" secondAttribute="trailing" constant="20" id="mWF-js-hct"/>
+                <constraint firstAttribute="trailing" secondItem="1hR-dO-9CJ" secondAttribute="trailing" constant="20" id="mr7-dk-edt"/>
+                <constraint firstItem="Swn-kL-Vgt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="odx-sZ-d4K"/>
+                <constraint firstAttribute="centerX" secondItem="Lwj-tz-FhM" secondAttribute="centerX" id="pNj-O6-83n"/>
+                <constraint firstItem="umG-vP-0fv" firstAttribute="top" secondItem="Swn-kL-Vgt" secondAttribute="bottom" constant="10" id="qlG-Tg-4Mb"/>
+                <constraint firstItem="1hR-dO-9CJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="rXK-dk-U0B"/>
+                <constraint firstAttribute="bottom" secondItem="yhD-ef-Ygo" secondAttribute="bottom" constant="10" id="sXo-91-Qdt"/>
+                <constraint firstItem="5ha-Yn-D8d" firstAttribute="top" secondItem="7lV-iA-NbI" secondAttribute="bottom" constant="10" id="syE-NO-kvO"/>
+                <constraint firstAttribute="centerX" secondItem="umG-vP-0fv" secondAttribute="centerX" id="ulb-f3-WJg"/>
+                <constraint firstAttribute="centerX" secondItem="qhE-gl-cHu" secondAttribute="centerX" id="v9z-aa-gFd"/>
+                <constraint firstAttribute="trailing" secondItem="Swn-kL-Vgt" secondAttribute="trailing" constant="20" id="z2J-kI-QFC"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="dKt-gU-ijW"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

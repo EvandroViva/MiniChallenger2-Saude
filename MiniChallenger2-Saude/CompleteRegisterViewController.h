@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Medico.h"
 
 @interface CompleteRegisterViewController : UIViewController
+
+- (IBAction)FinishRegisterButton:(UIButton *)sender;
+- (IBAction)RememberLaterClick:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *NameTextFiled;
+@property (weak, nonatomic) IBOutlet UITextField *docTextFiled;
+
 
 @end

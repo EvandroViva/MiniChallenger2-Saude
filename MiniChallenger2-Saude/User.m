@@ -12,5 +12,4 @@
 
 @synthesize username, email;
 
-
 @end
