@@ -26,7 +26,19 @@ static ResultPesqTableViewController *SINGLETON = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    ArrayTeste = @[@"Clinica X", @"Clinica Y", @"Clinica Z", @"Clinica W"];
+    NSString* especialidade = [[[ViewController sharedInstance]LEspecialidade]text];
+    NSLog(@"especialidade %@", especialidade);
+    NSString* regiao = [[[ViewController sharedInstance]LRegiao]text];
+    NSLog(@"regiao %@", regiao);
+    
+    _medicos = [[NSMutableArray alloc]init];
+    
+    [[MedicoController sharedInstance]buscarMedicos:especialidade andRegiao:regiao AndComplete:^{
+        [self.tableView reloadData];
+        NSLog(@"Terminou");
+        NSLog(@"quantidade que deve ser apresentado %lu", (unsigned long)_medicos.count);
+    }];
+    
      SINGLETON = self;
 }
 
