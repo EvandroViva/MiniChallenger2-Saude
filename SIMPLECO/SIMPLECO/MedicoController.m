@@ -107,7 +107,7 @@ static bool isFirstAccess = YES;
                 // Do something with the found objects
                 for (PFObject *object in objects)
                 {
-                    [especialidade addObject:object[@"regiao"]];
+                    [especialidade addObject:object[@"especialidade"]];
                 }
             }
             else {
