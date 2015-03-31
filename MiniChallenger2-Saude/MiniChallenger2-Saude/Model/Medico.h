@@ -10,16 +10,19 @@
 #import <Parse/Parse.h>
 #import "User.h"
 
-@interface Medico : User
+@interface Medico : NSObject
+
++(instancetype) sharedDoctor;
 
 -(instancetype)initWithPFObject: (PFObject*) object;
+-(void)setWithPFObject: (PFObject*) object;
 
 @property NSString* id_medico;
 @property NSString* nome;
-@property NSString* email;
 @property NSString* codTrabalho;
 @property NSString* especialidade;
 @property NSString* id_tipoConsulta;
 @property NSString* id_Endereco;
+@property bool remember_later;
 
 @end

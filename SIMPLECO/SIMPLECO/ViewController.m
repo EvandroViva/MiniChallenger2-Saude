@@ -107,17 +107,12 @@ static ViewController *SINGLETON = nil;
         [Bespecialidade.layer setBorderColor:[UIColor redColor].CGColor];
         bit = true;
         [self Animacao:Bespecialidade];
- 
     }
-    
     if (nomeRegiao.bairro == nil)
     {
         [Bregiao.layer setBorderColor:[UIColor redColor].CGColor];
         bit = true;
         [self Animacao:Bregiao];
-        
-        
-
     }
     if(NomeEspecialidade.especialidade != nil && nomeRegiao.bairro != nil)
     {

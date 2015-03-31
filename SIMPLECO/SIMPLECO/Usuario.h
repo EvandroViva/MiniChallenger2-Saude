@@ -10,6 +10,10 @@
 
 @interface Usuario : NSObject
 
+// ID
+@property NSString* objectID;
+
+// atributos
 @property NSString* usuario;
 @property NSString* email;
 @property NSString* senha;

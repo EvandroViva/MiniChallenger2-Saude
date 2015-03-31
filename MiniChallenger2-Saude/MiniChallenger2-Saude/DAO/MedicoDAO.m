@@ -40,19 +40,35 @@ static bool isFirstAccess = YES;
 
 #pragma mark GET
 
-+(void)getMedicoByPFUser:(PFUser*) pfuser AndComplete: (void(^)(Medico*, NSError*)) callback;
++(void)getMedicoByPFUser:(PFUser*) pfuser AndComplete: (void(^)(NSError*)) callback;
 {
     PFRelation *relation = [pfuser relationForKey:@"doctor"];
     [[relation query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSLog(@"%lu", (unsigned long)[objects count]);
-        Medico *medico = nil;
         if ([objects count] > 0) {
-            medico = [[Medico alloc] initWithPFObject:objects[0]];
+            Medico *medico = [Medico sharedDoctor];
+            [medico setWithPFObject:pfuser];
         }
         
-        callback(medico, error);
+        callback(error);
     }];
 }
+
+//+(void)getMedicoByEspecializacao:(NSString *) pfuser AndRegiao:(NSString*) AndComplete: (void(^)(Medico*, NSError*)) callback{
+//    PFRelation *relation = [pfuser relationForKey:@"doctor"];
+//    [[relation query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        NSLog(@"%lu", (unsigned long)[objects count]);
+//        Medico *medico = nil;
+//        if ([objects count] > 0) {
+//            medico = [[Medico alloc] initWithPFObject:objects[0]];
+//        }
+//        NSString* especi=medico.especialidade;
+//        NSString* endere=medico.id_Endereco;
+//        
+//        
+//        callback(medico, error);
+//    }];
+//}
 
 #pragma mark UPDATE
 +(void)updateMedico:(Medico*)med

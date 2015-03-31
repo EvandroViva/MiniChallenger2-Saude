@@ -15,7 +15,6 @@
 
 @implementation ResultPesqTableViewController
 @synthesize index;
-@synthesize ArrayTeste;
 
 static ResultPesqTableViewController *SINGLETON = nil;
 
@@ -43,7 +42,7 @@ static ResultPesqTableViewController *SINGLETON = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return ArrayTeste.count;
+    return _medicos.count;
 }
 
 
@@ -56,11 +55,9 @@ static ResultPesqTableViewController *SINGLETON = nil;
         cell = [[ResultPesqTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaResultPesq"];
     }
     
-    cell.LabelMedico.text = ArrayTeste[indexPath.row];
-    cell.LabelEndereco.text = @"Rua Itambé";
-    cell.LabelDetalhes.text = @"Clinica no ramo a 5 anos ";
-    
-    // Configure the cell...
+    cell.LabelMedico.text = [_medicos[indexPath.row]nome];
+    cell.LabelEndereco.text = [_medicos[indexPath.row]endereco];
+    cell.LabelDetalhes.text = [_medicos[indexPath.row]bairro];
     
     return cell;
 }
@@ -70,43 +67,6 @@ static ResultPesqTableViewController *SINGLETON = nil;
     index = indexPath.row;
     [self performSegueWithIdentifier:@"showConsulta" sender:self] ;
 }
-
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 
