@@ -29,14 +29,20 @@ static ResultPesqTableViewController *SINGLETON = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
  
-    _medicos = @[@"Clinica X", @"Clinica Y", @"Clinica Z", @"Clinica W"];
+    NSString* especialidade = [[[ViewController sharedInstance]LEspecialidade]text];
+    NSLog(@"especialidade %@", especialidade);
+    NSString* regiao = [[[ViewController sharedInstance]LRegiao]text];
+    NSLog(@"regiao %@", regiao);
+    
+    _medicos = [[NSMutableArray alloc]init];
+    
+    [[MedicoController sharedInstance]buscarMedicos:especialidade andRegiao:regiao AndComplete:^{
+        [self.tableView reloadData];
+        NSLog(@"Terminou");
+        NSLog(@"quantidade que deve ser apresentado %lu", (unsigned long)_medicos.count);
+    }];
+    
      SINGLETON = self;
 }
 
@@ -65,11 +71,9 @@ static ResultPesqTableViewController *SINGLETON = nil;
         cell = [[ResultPesqTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaResultPesq"];
     }
     
-    cell.LabelMedico.text = _medicos[indexPath.row];
-    cell.LabelEndereco.text = @"Rua Itambé";
-    cell.LabelDetalhes.text = @"Clinica no ramo a 5 anos ";
-    
-    // Configure the cell...
+    cell.LabelMedico.text = [_medicos[indexPath.row]nome];
+    cell.LabelEndereco.text = [_medicos[indexPath.row]endereco];
+    cell.LabelDetalhes.text = [_medicos[indexPath.row]bairro];
     
     return cell;
 }
@@ -79,43 +83,6 @@ static ResultPesqTableViewController *SINGLETON = nil;
     index = indexPath.row;
     [self performSegueWithIdentifier:@"showConsulta" sender:self] ;
 }
-
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 

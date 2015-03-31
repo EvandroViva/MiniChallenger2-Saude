@@ -30,10 +30,8 @@ static bool isFirstAccess = YES;
 
 #pragma mark - Buscar Medicos
 //========================================================
--(NSMutableArray*)buscarMedicos:(NSString*)especialidade andRegiao:(NSString*)regiao
-{
-    NSMutableArray* medicos = [[NSMutableArray alloc]init];
-    
+-(void)buscarMedicos:(NSString*)especialidade andRegiao:(NSString*)regiao AndComplete: (void(^)(void)) callback;
+{    
     PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
     [query whereKey:@"especialidade" equalTo:especialidade];
     [query whereKey:@"regiao" equalTo:regiao];
@@ -45,6 +43,7 @@ static bool isFirstAccess = YES;
             for (PFObject *object in objects) {
                 Medico* medico = [[Medico alloc]init];
                 medico.objectID = object[@"objectId"];
+                medico.nome = object[@"nome"];
                 medico.codTrabalho = object[@"codTrabalho"];
                 medico.especialidade = object[@"especialidade"];
                 medico.endereco = object[@"endereco"];
@@ -55,22 +54,19 @@ static bool isFirstAccess = YES;
                 // estrangeira
                 medico.id_tipoConsulta = object[@"id_tipoConsulta"];
                 
-                NSLog(@"NOME PARSE: %@", object[@"nome"]);
-                NSLog(@"NOME OBJETO: %@", medico.nome);
-                NSLog(@"ESPECIALIDADE PARSE: %@", object[@"especialidade"]);
-                NSLog(@"ESPECIALIDADE OBJETO: %@", medico.especialidade);
-                NSLog(@"BAIRRO PARSE: %@", object[@"bairro"]);
-                NSLog(@"BAIRRO OBJETO: %@", medico.bairro);
-                [medicos addObject:medico];
+                NSLog(@"nome: %@", medico.nome);
+                NSLog(@"endereco: %@", medico.endereco);
+                NSLog(@"bairro: %@", medico.bairro);
+                
+                [[[ResultPesqTableViewController sharedInstance]medicos] addObject:medico];
+                NSLog(@"Qtd : %lu",(unsigned long)[[[ResultPesqTableViewController sharedInstance]medicos]count]);
             }
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-    }];
-    NSLog(@"MEDICOS : %lu", (unsigned long)medicos.count);
-    return medicos;
-    
+        callback();
+    }];    
 }
 
 //========================================================

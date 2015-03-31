@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 #import "Medico.h"
+#import "ResultPesqTableViewController.h"
 
 @interface MedicoController : NSObject
 
@@ -16,7 +17,7 @@
 + (MedicoController*)sharedInstance;
 
 #pragma mark - Buscar Medicos
--(NSMutableArray*)buscarMedicos:(NSString*)especialidade andRegiao:(NSString*)regiao;
+-(void)buscarMedicos:(NSString*)especialidade andRegiao:(NSString*)regiao AndComplete: (void(^)(void)) callback;
 
 
 @end

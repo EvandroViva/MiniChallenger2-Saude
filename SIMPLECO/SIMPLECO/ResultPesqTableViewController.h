@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ResultPesqTableViewCell.h"
+#import "MedicoController.h"
+#import "ViewController.h"
 
 
 @interface ResultPesqTableViewController : UITableViewController
