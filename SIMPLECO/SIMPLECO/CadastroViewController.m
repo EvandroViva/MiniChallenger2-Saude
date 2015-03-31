@@ -46,7 +46,7 @@
     [UsuarioDAO signinWithUser:usuario AndComplete: ^(bool succeeded, NSError* error){
         
         if (succeeded) {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popViewControllerAnimated:YES];
         } else {
             NSString *errorString = [error userInfo][@"error"];
             [[[UIAlertView alloc] initWithTitle:@"Erro" message: errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
@@ -54,7 +54,7 @@
         
     }];
     
-   [self.navigationController popViewControllerAnimated:YES];
+   
 }
 
 

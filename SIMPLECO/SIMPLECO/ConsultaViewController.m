@@ -17,6 +17,8 @@
 @implementation ConsultaViewController
 @synthesize index;
 @synthesize dataSelecionada;
+@synthesize hora;
+@synthesize minuto;
 
 static ConsultaViewController *SINGLETON = nil;
 
@@ -26,17 +28,18 @@ static ConsultaViewController *SINGLETON = nil;
     return SINGLETON;
     
 }
-//@synthesize tableView;
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+//---------------------------------------------------------------------------------------------------
+//                      INICIALIZANDO O CALENDÁRIO
+//---------------------------------------------------------------------------------------------------
     self.calendar = [JTCalendar new];
-    
-    // All modifications on calendarAppearance have to be done before setMenuMonthsView and setContentView
-    // Or you will have to call reloadAppearance
     {
-        self.calendar.calendarAppearance.calendar.firstWeekday = 2; // Sunday == 1, Saturday == 7
+        self.calendar.calendarAppearance.calendar.firstWeekday = 2;
         self.calendar.calendarAppearance.dayCircleRatio = 9. / 10.;
         self.calendar.calendarAppearance.ratioContentMenu = 1.;
     }
@@ -45,37 +48,39 @@ static ConsultaViewController *SINGLETON = nil;
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
     [self.calendar reloadData];
-    [self replace_BackButtonNavigationController];
+    [self BackButtonNavigationController];
     
+    
+//---------------------------------------------------------------------------------------------------
+//                      SINGLETON
+//---------------------------------------------------------------------------------------------------
     singleton = [ResultPesqTableViewController sharedInstance];
     index = singleton.index;
-    NSLog(@"index= %ld",(long)index);
     SINGLETON = self;
+    hora = (NSInteger*) 9;
+    minuto = (NSInteger*) 00;
    
 }
 
-#pragma mark ReplaceBackButtonNavigation
+#pragma mark Botao de Navegation de voltar
 
-- (void)replace_BackButtonNavigationController {
+- (void)BackButtonNavigationController {
     
     UIBarButtonItem *btnBack = [[UIBarButtonItem alloc]
                                 initWithBarButtonSystemItem:
                                 UIBarButtonSystemItemRewind
                                 target:self
-                                action:@selector(OnClick_btnBack:)];
+                                action:@selector(voltar:)];
     self.navigationItem.leftBarButtonItem = btnBack;
     
 }
 
--(IBAction)OnClick_btnBack:(id)sender  {
-    
+-(void)voltar:(id)sender  {
     [self.navigationController popViewControllerAnimated:NO];
-    
 }
 
 
-
-
+#pragma mark - Inicializar a view
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -83,15 +88,12 @@ static ConsultaViewController *SINGLETON = nil;
     [self.view addSubview:self.calendarContentView];
     [self.view addSubview:self.calendarMenuView];
     [self.view reloadInputViews];
-    [self.calendar reloadData]; // Must be call in viewDidAppear
+    [self.calendar reloadData];
     [self.view setNeedsDisplay];
-    
-    
-
 }
 
 
-#pragma mark - Buttons callback
+#pragma mark - Botoes
 
 - (IBAction)didGoTodayTouch
 {
@@ -112,10 +114,23 @@ static ConsultaViewController *SINGLETON = nil;
     return (rand() % 10) == 1;
 }
 
+#pragma mark - Selecionar um dia
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
     dataSelecionada = date;
+    dataSelecionada = [self dateByAddingHours:9 andMinute:0];
+   
     NSLog(@"Date: %@", date);
+}
+
+#pragma mark - Salvar Horário
+-(NSDate*)dateByAddingHours:(NSInteger)hours andMinute:(NSInteger)minute
+{
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setHour:hours];
+    [components setMinute:minute];
+    
+    return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:dataSelecionada options:0];
 }
 
 #pragma mark - Transition examples
@@ -148,16 +163,15 @@ static ConsultaViewController *SINGLETON = nil;
     
 }
 
+#pragma mark - Tabela
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     return 1;
 }
 
@@ -186,14 +200,6 @@ static ConsultaViewController *SINGLETON = nil;
     [self performSegueWithIdentifier:@"showLogin" sender:self] ;
 
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

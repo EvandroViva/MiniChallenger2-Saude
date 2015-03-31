@@ -11,6 +11,6 @@
 
 @interface MinhasConsultasTableViewController : UITableViewController
 
-
+@property NSArray* teste;
 
 @end

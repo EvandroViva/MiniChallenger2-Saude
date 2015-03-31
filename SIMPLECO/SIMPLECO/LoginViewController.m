@@ -12,6 +12,8 @@
 {
     ViewController *viewController;
     ConsultaViewController *dataConsulta;
+    TabBarController *tabbar;
+    NSUserDefaults *defaults;
 }
 
 @end
@@ -22,11 +24,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"login");
-    // Do any additional setup after loading the view.
+    [self.Carregando setHidden:YES];
+
+    [self Default];
+
+
 }
 
+#pragma mark - Usar Default
+-(void)Default
+{
+    defaults = [[NSUserDefaults alloc]init];
+    
+    if ([[defaults objectForKey:@"SalvarDados"]isEqual:@""])
+        [_TFLogin setText:@""];
+    else
+        [_TFLogin setText:[defaults objectForKey:@"SalvarDados"]];
+    
+    if ([[defaults objectForKey:@"SalvarSenha"]isEqual:@""])
+        [_TFSenha setText:@""];
+    else
+        [_TFSenha setText:[defaults objectForKey:@"SalvarSenha"]];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -52,29 +72,47 @@
 
 - (IBAction)BConfirma:(id)sender {
     
+    //[self.Carregando
     
     
     //Confirmação de Login
-
+    [self.Carregando setHidden:NO];
+    
     [PFUser logInWithUsernameInBackground:[self.TFLogin text] password:[self.TFSenha text]
-                                    block:^(PFUser *user, NSError *error) {
+                                    block:^(PFUser *user, NSError *error)
+    {
+                                       
                                         if (user) {
-                                            NSString *message = @"Sim";
-                                            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Sucesso" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
-                                            [alertView show];
+                                            [self.Carregando setHidden:YES];
+                                            
+                                            
+                                            if ([[user objectForKey:@"emailVerification"] boolValue] == NO) {
+                                                
+                                                NSString *message = @"Por Favor olhar sua caixa de email!";
+                                                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Email não Confirmado." message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+                                                [alertView show];
+                                            }
+                                            else{
+                                             _UltimoCadastro = [self.TFLogin text];
+                                            [defaults setObject:_UltimoCadastro forKey:@"SalvarDados"];
+                                            
+                                            _UltimaSenha =[self.TFSenha text];
+                                            [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
                                             
                                             //Criar Evento no Calendário
-                                            
                                             viewController = [ViewController sharedInstance];
                                             dataConsulta = [ConsultaViewController sharedInstance];
                                             [self PermissaoEvento];
                                             [self CriarEvento:viewController.eventStore];
+                                            [self.tabBarController setSelectedIndex:1];
+                                            [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
+                                            }
                                             
-                                            
-                                            // Do stuff after successful login.
                                         } else {
-                                            NSString *message = @"Não ";
-                                            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Erro" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+                                            [self.Carregando setAlpha:1];
+                                            [self.Carregando setHidden:YES];
+                                            NSString *message = @"E-mail e/ou senha estão inválidos.";
+                                            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Usuário Inválido" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
                                             [alertView show];
                                             // The login failed. Check error to see why.
                                         }
@@ -97,7 +135,7 @@
 
     else{
         NSString *message = @"Compromisso salvo no calendário";
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Atenção" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Sucesso" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
         [alertView show];
         }
 }
@@ -108,7 +146,8 @@
 -(BOOL)CriarEvento:(EKEventStore*)eventStore
 {
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-    event.title = @"Eu fiz o evento dia 31!";
+    event.title = @"Eu fiz o evento!";
+    
     event.startDate = dataConsulta.dataSelecionada;
     NSLog(@"Data = %@",dataConsulta.dataSelecionada);
     event.endDate = [event.startDate dateByAddingTimeInterval:3600];

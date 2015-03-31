@@ -27,6 +27,8 @@
 @property NSDate *dataSelecionada;
 
 + (ConsultaViewController*)sharedInstance;
+@property NSInteger *hora;
+@property NSInteger *minuto;
 
 
 @end

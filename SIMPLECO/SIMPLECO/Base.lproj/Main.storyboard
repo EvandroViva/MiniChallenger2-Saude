@@ -345,7 +345,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzh-LZ-LhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="1073"/>
+            <point key="canvasLocation" x="1416" y="1827"/>
         </scene>
         <!--Result Pesq Table View Controller-->
         <scene sceneID="AdP-xG-wpg">
@@ -490,12 +490,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira seu Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MeG-N6-Ud0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira seu Login" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MeG-N6-Ud0">
                                 <rect key="frame" x="80" y="165" width="435" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bre-6c-DgC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bre-6c-DgC">
                                 <rect key="frame" x="80" y="129" width="43" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3re-Jp-CVo"/>
@@ -504,7 +504,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Senha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFT-8c-28e">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFT-8c-28e">
                                 <rect key="frame" x="80" y="236" width="49" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="kxo-hJ-poB"/>
@@ -513,18 +513,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira sua senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hBn-IV-nBx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira sua senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hBn-IV-nBx">
                                 <rect key="frame" x="80" y="297" width="435" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khp-Qm-rPn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khp-Qm-rPn">
                                 <rect key="frame" x="81" y="357" width="142" height="30"/>
                                 <state key="normal" title="Entre pelo Facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxV-kW-BOl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxV-kW-BOl">
                                 <rect key="frame" x="80" y="395" width="114" height="30"/>
                                 <state key="normal" title="Entre pelo Gmail">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -554,6 +554,13 @@
                                     <segue destination="FBl-Aa-g1w" kind="push" id="47Z-cC-vXu"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ubw-r7-vgh">
+                                <rect key="frame" x="451" y="457" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="190" y="506" width="37" height="37"/>
+                                </variation>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.54121967589999997" green="0.81675797510000003" blue="0.97395658490000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -603,14 +610,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="sZ5-Zb-Rft"/>
                     <connections>
+                        <outlet property="Carregando" destination="Ubw-r7-vgh" id="DRa-da-jQu"/>
                         <outlet property="TFLogin" destination="MeG-N6-Ud0" id="Uc0-MU-Aha"/>
                         <outlet property="TFSenha" destination="hBn-IV-nBx" id="cSs-Be-u3H"/>
                         <outlet property="login" destination="bre-6c-DgC" id="gd5-V9-PzT"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showMinhasConsultas" id="Obm-fu-heD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puG-rk-abo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4777" y="216"/>
+            <point key="canvasLocation" x="3888" y="1052"/>
         </scene>
         <!--Cadastro View Controller-->
         <scene sceneID="cee-WF-weu">
@@ -666,7 +675,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira uma senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z9j-s2-dZR">
                                 <rect key="frame" x="51" y="387" width="265" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Usuário" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njO-45-NFz">
                                 <rect key="frame" x="51" y="250" width="60" height="21"/>
@@ -697,7 +706,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKH-Vg-V2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4307" y="934"/>
+            <point key="canvasLocation" x="5026.5" y="1068"/>
         </scene>
         <!--Regiao Table View Controller-->
         <scene sceneID="dUt-uf-1s4">
@@ -738,7 +747,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3S-oN-jLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2463" y="1041"/>
+            <point key="canvasLocation" x="2139" y="993"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xK6-MX-4Ll">
@@ -796,7 +805,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgU-XB-GvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="1073"/>
+            <point key="canvasLocation" x="489" y="1827"/>
         </scene>
         <!--Consulta View Controller-->
         <scene sceneID="6mv-8w-c06">
@@ -810,14 +819,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lc5-Ia-zkQ" customClass="JTCalendarMenuView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lc5-Ia-zkQ" customClass="JTCalendarMenuView">
                                 <rect key="frame" x="0.0" y="64" width="600" height="50"/>
                                 <color key="backgroundColor" red="0.91464532259999998" green="0.99245641650000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XRe-eZ-l0J"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFR-Cs-4Bx" customClass="JTCalendarContentView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFR-Cs-4Bx" customClass="JTCalendarContentView">
                                 <rect key="frame" x="0.0" y="114" width="600" height="300"/>
                                 <color key="backgroundColor" red="0.91464532259999998" green="0.99245641650000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -827,7 +836,7 @@
                                     <rect key="frame" x="0.0" y="114" width="400" height="209"/>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuY-mL-afO">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vuY-mL-afO">
                                 <rect key="frame" x="46" y="444" width="32" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="nUv-RK-bda"/>
@@ -839,7 +848,7 @@
                                     <action selector="didGoTodayTouch" destination="yUu-N9-haX" eventType="touchUpInside" id="hur-9R-jJ8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EU-6W-cQ2">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EU-6W-cQ2">
                                 <rect key="frame" x="469" y="444" width="85" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8Ia-09-8b8"/>
@@ -851,7 +860,7 @@
                                     <action selector="didChangeModeTouch" destination="yUu-N9-haX" eventType="touchUpInside" id="szt-y1-GLb"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YHA-ij-YM6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YHA-ij-YM6">
                                 <rect key="frame" x="16" y="474" width="568" height="77"/>
                                 <color key="backgroundColor" red="0.91464532259999998" green="0.99245641650000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -962,4 +971,7 @@
             <point key="canvasLocation" x="3924" y="194"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Obm-fu-heD"/>
+    </inferredMetricsTieBreakers>
 </document>

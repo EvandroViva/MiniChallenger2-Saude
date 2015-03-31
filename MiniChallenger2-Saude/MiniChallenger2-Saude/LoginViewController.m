@@ -51,6 +51,7 @@
    [self.loginActivityIndicator setHidden:NO];
     
     MainTabBarController *main = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+    
     [UserDAO loginWithUsername:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(PFUser *pfuser, NSError *error){
         if (!error) {
             [self.loginActivityIndicator setHidden:YES];
