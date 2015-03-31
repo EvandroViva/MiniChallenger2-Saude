@@ -55,7 +55,7 @@ static ConsultaViewController *SINGLETON = nil;
 //                      SINGLETON
 //---------------------------------------------------------------------------------------------------
     singleton = [ResultPesqTableViewController sharedInstance];
-    index = singleton.index;
+    //index = singleton.index;
     SINGLETON = self;
     hora = (NSInteger*) 9;
     minuto = (NSInteger*) 00;
