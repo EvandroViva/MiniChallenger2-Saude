@@ -46,5 +46,9 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 - (IBAction)InsertSpecialtyClick:(UIButton *)sender {
+    SpecialtyTableViewController *stvc = [[SpecialtyTableViewController alloc] initWithNibName:@"SpecialtyTableViewController" bundle:nil];
+    [self presentViewController: stvc animated:TRUE completion:nil];
+}
+- (IBAction)InsertAddressClick:(UIButton *)sender {
 }
 @end

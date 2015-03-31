@@ -1,18 +1,20 @@
 //
-//  MoreTableViewController.m
+//  SpecialtyTableViewController.m
 //  MiniChallenger2-Saude
 //
-//  Created by Evandro Remon Pulz Viva on 28/03/15.
+//  Created by Evandro Remon Pulz Viva on 31/03/15.
 //  Copyright (c) 2015 Evandro Remon Pulz Viva. All rights reserved.
 //
 
-#import "MoreTableViewController.h"
+#import "SpecialtyTableViewController.h"
 
-@interface MoreTableViewController ()
+@interface SpecialtyTableViewController ()
 
 @end
 
-@implementation MoreTableViewController
+static NSString *especialidades[] = {@"a", @"b", @"c"};
+
+@implementation SpecialtyTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +24,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.view setBounds:CGRectMake(0, 400, [self.view.window bounds].size.width, [self.view.window bounds].size.height - 400)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,22 +37,31 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 3;
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-//    
-//    // Configure the cell...
-//    
-//    return cell;
-//}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SpecialtyTableViewCell"];
+    
+    if (cell==nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SpecialtyTableViewCell"];
+        
+    }
+    
+    cell.textLabel.text = especialidades[indexPath.row];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
 
 /*
 // Override to support conditional editing of the table view.

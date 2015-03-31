@@ -19,7 +19,9 @@
     NotificationNavigationController *navNotif = [[NotificationNavigationController alloc] init];
     MoreNavigationController *navMore = [[MoreNavigationController alloc] init];
     
-    [self setViewControllers:@[navNotif,navMore]];
+    CalendarNavigationViewController *navCalendar = [[CalendarNavigationViewController alloc] init];
+    
+    [self setViewControllers:@[navCalendar,navNotif,navMore]];
     
     
 //    UITabBarItem* patientItem = [self.tabBar.items objectAtIndex:1];
@@ -43,15 +45,15 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     
-    [MedicoDAO getMedicoByPFUser:[PFUser currentUser] AndComplete:^(NSError *error){
-        Medico *m = [Medico sharedDoctor];
-        if ([m nome] == nil) {
-        
-                CompleteRegisterViewController *completeregister = [[CompleteRegisterViewController alloc] initWithNibName:@"CompleteRegisterViewController" bundle:nil];
-//                completeregister set
-                [self presentViewController:completeregister animated:true completion:nil];
-        }
-    }];
+//    [MedicoDAO getMedicoByPFUser:[PFUser currentUser] AndComplete:^(NSError *error){
+//        Medico *m = [Medico sharedDoctor];
+//        if ([m nome] == nil) {
+//        
+//                CompleteRegisterViewController *completeregister = [[CompleteRegisterViewController alloc] initWithNibName:@"CompleteRegisterViewController" bundle:nil];
+////                completeregister set
+//                [self presentViewController:completeregister animated:true completion:nil];
+//        }
+//    }];
 
 }
 
