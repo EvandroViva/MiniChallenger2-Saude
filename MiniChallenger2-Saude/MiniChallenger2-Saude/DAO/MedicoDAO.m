@@ -47,7 +47,8 @@ static bool isFirstAccess = YES;
         NSLog(@"%lu", (unsigned long)[objects count]);
         if ([objects count] > 0) {
             Medico *medico = [Medico sharedDoctor];
-            [medico setWithPFObject:pfuser];
+            [medico setWithPFUser:pfuser];
+            [medico setWithPFObject:objects[0]];
         }
         
         callback(error);

@@ -29,26 +29,21 @@ static Medico* vSharedDoctor = nil;
     return self;
 }
 
--(instancetype)initWithPFObject: (PFObject*) object
-{
-    self = [self init];
-    if (self) {
-        self.id_medico          = object[@"nome"];
-        self.especialidade      = object[@"especialidade"];
-        self.id_Endereco        = object[@"id_Edereco"];
-        self.id_tipoConsulta    = object[@"id_tipoConsulta"];
-        self.codTrabalho        = object[@"codTrabalho"];
-    }
-    return self;
-}
-
 -(void)setWithPFObject: (PFObject*) object
 {
-    self.id_medico          = object[@"nome"];
+    self.parseObject        = object;
+    self.nome               = object[@"nome"];
     self.especialidade      = object[@"especialidade"];
     self.id_Endereco        = object[@"id_Edereco"];
     self.id_tipoConsulta    = object[@"id_tipoConsulta"];
     self.codTrabalho        = object[@"codTrabalho"];
+}
+
+-(void)setWithPFUser: (PFUser*) user
+{
+    self.parseUser          = user;
+    self.email              = user.email;
+    self.username           = user.username;
 }
 
 @end

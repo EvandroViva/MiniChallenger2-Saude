@@ -14,15 +14,20 @@
 
 +(instancetype) sharedDoctor;
 
--(instancetype)initWithPFObject: (PFObject*) object;
 -(void)setWithPFObject: (PFObject*) object;
+-(void)setWithPFUser: (PFUser*) object;
 
+@property PFObject* parseObject;
+@property PFUser*   parseUser;
 @property NSString* id_medico;
 @property NSString* nome;
 @property NSString* codTrabalho;
 @property NSString* especialidade;
 @property NSString* id_tipoConsulta;
 @property NSString* id_Endereco;
+@property NSString* email;
+@property NSString* username;
+
 @property bool remember_later;
 
 @end
