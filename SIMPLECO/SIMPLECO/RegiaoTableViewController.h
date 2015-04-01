@@ -21,6 +21,7 @@
 
 @property NSString* bairro;
 
+@property NSMutableArray* exibir;
 
 
 @end

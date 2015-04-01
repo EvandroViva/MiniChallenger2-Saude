@@ -20,5 +20,6 @@
 @property NSArray *listaEspecialidade;
 @property NSString *especialidade;
 @property NSArray *especialidades;
+@property NSMutableArray *exibir;
 
 @end

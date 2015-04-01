@@ -39,11 +39,23 @@ static EspecialidadesTableViewController *SINGLETON = nil;
     
     regiao = [RegiaoTableViewController sharedInstance];
     _especialidades = [[NSArray alloc]init];
+    _exibir = [[NSMutableArray alloc]init];
     
     [[MedicoController sharedInstance]buscarEspecialidade:regiao.bairro AndComplete:^(NSArray *array){
   
         _especialidades = array;
         NSLog(@"array%@",array);
+        NSString* anterior;
+        NSString* atual;
+        for (NSString *especialidade in _especialidades){
+            anterior = atual;
+            atual = especialidade;
+            NSLog(@"Especialidade Anterior %@", anterior);
+            NSLog(@"Especialidade Atual %@\n\n\n", atual);
+            if (anterior != atual){
+                [_exibir addObject:atual];
+            }
+        }
         [self.tableView reloadData];
     }];
 
@@ -70,7 +82,7 @@ static EspecialidadesTableViewController *SINGLETON = nil;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return _especialidades.count;
+    return _exibir.count;
 }
 
 
@@ -78,44 +90,9 @@ static EspecialidadesTableViewController *SINGLETON = nil;
     EspecialidadesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaEspecialidades" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.Label_Especialidades.text =(NSString*) _especialidades[indexPath.row];
+    cell.Label_Especialidades.text =(NSString*) _exibir[indexPath.row];
     return cell;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 //Configurações para passar os dados para a proxima view
@@ -135,16 +112,10 @@ static EspecialidadesTableViewController *SINGLETON = nil;
     // Pass the selected object to the new view controller.
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     self.especialidade =_especialidades[indexPath.row];
-    
-    
     [self.navigationController popViewControllerAnimated:YES];
-    
-    
 }
 
 

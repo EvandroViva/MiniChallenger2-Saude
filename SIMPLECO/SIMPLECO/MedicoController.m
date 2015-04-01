@@ -37,9 +37,7 @@ static bool isFirstAccess = YES;
     [query whereKey:@"regiao" equalTo:regiao];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
             NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 Medico* medico = [[Medico alloc]init];
                 medico.objectID = object[@"objectId"];
@@ -51,18 +49,13 @@ static bool isFirstAccess = YES;
                 medico.CEP = object[@"CEP"];
                 medico.bairro = object[@"bairro"];
                 medico.regiao = object[@"regiao"];
-                // estrangeira
-                medico.id_tipoConsulta = object[@"id_tipoConsulta"];
                 
-                NSLog(@"nome: %@", medico.nome);
-                NSLog(@"endereco: %@", medico.endereco);
-                NSLog(@"bairro: %@", medico.bairro);
+                // estrangeira
+                //medico.id_tipoConsulta = object[@"id_tipoConsulta"];
                 
                 [[[ResultPesqTableViewController sharedInstance]medicos] addObject:medico];
-                NSLog(@"Qtd : %lu",(unsigned long)[[[ResultPesqTableViewController sharedInstance]medicos]count]);
             }
         } else {
-            // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
         callback();
@@ -78,6 +71,7 @@ static bool isFirstAccess = YES;
     PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
     if (bairro == nil)
     {
+        [query orderByAscending:@"especialidade"];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             NSMutableArray *especialidade = [[NSMutableArray alloc]init];
             if (!error) {
@@ -95,10 +89,10 @@ static bool isFirstAccess = YES;
             callback(especialidade);
         }];
     }
-    
     else
     {
         [query whereKey:@"regiao" equalTo:bairro];
+        [query orderByAscending:@"regiao"];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             NSMutableArray *especialidade = [[NSMutableArray alloc]init];
             if (!error) {
@@ -126,6 +120,7 @@ static bool isFirstAccess = YES;
     PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
     if (especialidade == nil)
     {
+        [query orderByAscending:@"regiao"];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             NSMutableArray *bairros = [[NSMutableArray alloc]init];
             if (!error) {
@@ -143,10 +138,10 @@ static bool isFirstAccess = YES;
             callback(bairros);
         }];
     }
-    
     else
     {
       [query whereKey:@"especialidade" equalTo:especialidade];
+        [query orderByAscending:@"especialidade"];
       [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *bairros = [[NSMutableArray alloc]init];
         if (!error) {
