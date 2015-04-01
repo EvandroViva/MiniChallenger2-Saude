@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Usuario.h"
+#import <Parse/Parse.h>
 
 @interface Medico : NSObject
 
@@ -27,5 +29,14 @@
 
 // estrangeira
 @property NSString* id_tipoConsulta;
+
+//Parse
+@property PFObject* parseObject;
+@property PFUser*   parseUser;
+
++(instancetype) shared;
+
+-(void)setWithPFObject: (PFObject*) object;
+-(void)setWithPFUser: (PFUser*) object;
 
 @end

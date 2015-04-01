@@ -59,6 +59,17 @@ static ConsultaViewController *SINGLETON = nil;
     SINGLETON = self;
     hora = (NSInteger*) 9;
     minuto = (NSInteger*) 00;
+    
+//---------------------------------------------------------------------------------------------------
+//                      PARSE
+//---------------------------------------------------------------------------------------------------
+  
+    
+    [[MedicoController sharedInstance]buscarAgenda: singleton.medicoSelecionado.parseObject AndComplete:^()
+    {
+        
+    }];
+    
    
 }
 
