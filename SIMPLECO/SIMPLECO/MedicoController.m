@@ -34,7 +34,7 @@ static bool isFirstAccess = YES;
 {    
     PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
     [query whereKey:@"especialidade" equalTo:especialidade];
-    [query whereKey:@"regiao" equalTo:regiao];
+    [query whereKey:@"bairro" equalTo:regiao];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
