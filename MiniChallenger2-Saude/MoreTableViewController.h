@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MoreTableViewController.h"
+#import "MoreTableViewCell.h"
+#import <Parse/Parse.h>
 
 @interface MoreTableViewController : UITableViewController
 

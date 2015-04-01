@@ -7,7 +7,8 @@
 //
 
 #import "MoreTableViewController.h"
-#import "MoreTableViewCell.h"
+#import "MainTabBarController.h"
+
 
 @interface MoreTableViewController ()
 
@@ -17,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UINib *nib = [UINib nibWithNibName:@"MoreTableViewCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
+//    UINib *nib = [UINib nibWithNibName:@"MoreTableViewCell" bundle:nil];
+//    [self.tableView registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -49,8 +50,19 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Mais" forIndexPath:indexPath];
-    cell.sair.text=@"SAIR";
+    MoreTableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:@"MoreTableViewCell"];
+    
+    if(cell == nil)
+    {
+//        [[NSBundle mainBundle] loadNibNamed:@"MoreTableViewCell" owner:self options:nil];
+        //cell = [[MoreTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:@"MoreTableViewCell"];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MoreTableViewCell" owner:self options:nil] objectAtIndex:0];
+    }
+    [[cell TitleLabel] setText:@"Sair"];
+    
+//    cell.sair.text=@"SAIR";
     
     // Configure the cell...
     
@@ -93,21 +105,27 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+//    DetailViewController *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
     
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+//    [self.navigationController pushViewController:detailViewController animated:YES];
+    NSLog(@"Saindo");
+    [PFUser logOut];
+    MainTabBarController *main = [MainTabBarController sharedInstance];
+    [Medico resetSharedDoctor];
+    [main dismissViewControllerAnimated:true completion:nil];
+    [MainTabBarController resetSharedInstance];
 }
-*/
+
 
 /*
 #pragma mark - Navigation

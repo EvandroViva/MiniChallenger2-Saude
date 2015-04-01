@@ -17,10 +17,15 @@
 // SINGLETON
 + (RegiaoTableViewController*)sharedInstance;
 
-@property NSArray* bairros;
-
+// ATRIBUTOS
 @property NSString* bairro;
+@property NSString* regiao;
 
-
+@property NSArray* bairros;
+@property NSMutableArray* exibir;
+@property NSMutableArray* bairrosNorte;
+@property NSMutableArray* bairrosSul;
+@property NSMutableArray* bairrosLeste;
+@property NSMutableArray* bairrosOeste;
 
 @end

@@ -16,6 +16,7 @@
 }
 
 +(instancetype) sharedDoctor;
++(void) resetSharedDoctor;
 
 -(void)setWithPFObject: (PFObject*) object;
 -(void)setWithPFUser: (PFUser*) object;

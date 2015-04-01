@@ -13,11 +13,13 @@
 
 
 @interface ResultPesqTableViewController : UITableViewController
+
+// ATRIBUTOS DA CLASSE
 @property NSMutableArray *medicos;
 @property Medico *medicoSelecionado;
 @property NSMutableArray *index;
 
-
+// SINGLETON
 + (ResultPesqTableViewController*)sharedInstance;
 
 @end

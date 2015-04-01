@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import "Medico.h"
 #import "ResultPesqTableViewController.h"
+#import "Consulta.h"
+#import "RegiaoTableViewController.h"
 
 @interface MedicoController : NSObject
 
@@ -24,5 +26,7 @@
 
 #pragma mark - Buscar Bairro
 -(void)buscarBairro:(NSString*)especialidade AndComplete:(void(^)(NSArray*)) callback;
+
+
 
 @end

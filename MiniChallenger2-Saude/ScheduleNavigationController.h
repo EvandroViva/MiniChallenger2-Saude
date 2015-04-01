@@ -1,5 +1,5 @@
 //
-//  MoreTableViewCell.h
+//  ScheduleNavigationController.h
 //  MiniChallenger2-Saude
 //
 //  Created by Evandro Remon Pulz Viva on 01/04/15.
@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarViewController.h"
 
-@interface MoreTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *TitleLabel;
+@interface ScheduleNavigationController : UINavigationController
 
 @end

@@ -9,6 +9,10 @@
 #import "ViewController.h"
 #import "RegiaoTableViewController.h"
 
+//============================================================
+#pragma mark - Atributos da Classe
+//============================================================
+
 @interface ViewController ()
 {
     NSString *nome;
@@ -35,8 +39,11 @@ static ViewController *SINGLETON = nil;
 + (id)sharedInstance
 {
     return SINGLETON;
-    
 }
+
+//============================================================
+#pragma mark - DidLoad
+//============================================================
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,11 +51,16 @@ static ViewController *SINGLETON = nil;
     bit = false;
     [self Evento];
     SINGLETON = self;
-
-    
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+//============================================================
 #pragma mark - Layout dos Botões
+//============================================================
 
 -(void)Bordas
 {
@@ -69,14 +81,16 @@ static ViewController *SINGLETON = nil;
     
 }
 
+//============================================================
 #pragma mark - Labels de pesquisa
+//============================================================
 
 -(void)viewWillAppear:(BOOL)animated
 {
     
     nomeRegiao = [RegiaoTableViewController sharedInstance];
     _LRegiao.text = nomeRegiao.bairro;
-    _LRegiao.text = [[RegiaoTableViewController sharedInstance]bairro];
+//    _LRegiao.text = [[RegiaoTableViewController sharedInstance]bairro];
     
     NomeEspecialidade  = [EspecialidadesTableViewController sharedInstance];
     _LEspecialidade.text = NomeEspecialidade.especialidade;
@@ -92,18 +106,16 @@ static ViewController *SINGLETON = nil;
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+//============================================================
 #pragma mark - Botao Buscar/ verificacao de preenchimento
-
+//============================================================
 - (IBAction)BotaoBuscar:(id)sender {
     
     if (NomeEspecialidade.especialidade == nil)
     {
-        NSLog(@"Erro");
+        NSLog(@"=====================================");
+        NSLog(@" #BUSCA - Erro! (sem parametros)");
+        NSLog(@"=====================================\n\n\n");
         [Bespecialidade.layer setBorderColor:[UIColor redColor].CGColor];
         bit = true;
         [self Animacao:Bespecialidade];
@@ -123,7 +135,9 @@ static ViewController *SINGLETON = nil;
     }
 }
 
+//============================================================
 #pragma mark - Animacao
+//============================================================
 -(void)Animacao:(UIButton *)button
 {
     [UIView animateWithDuration:0.1
@@ -154,7 +168,6 @@ static ViewController *SINGLETON = nil;
                          button.transform =CGAffineTransformMakeTranslation(0, 0);
                      }completion:^(BOOL finished){
                      }];
-    
 }
 
 -(void)Evento

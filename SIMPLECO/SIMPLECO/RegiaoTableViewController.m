@@ -12,15 +12,16 @@
 
 @end
 
+//============================================================
+#pragma mark - Atributos da Classe
+//============================================================
+
 @implementation RegiaoTableViewController
 {
     EspecialidadesTableViewController *especialidade;
 }
 
-#pragma mark - SINGLETON
-//============================================================
 static RegiaoTableViewController *SINGLETON = nil;
-
 
 + (id)sharedInstance
 {
@@ -29,16 +30,27 @@ static RegiaoTableViewController *SINGLETON = nil;
 //============================================================
 
 
+//============================================================
 #pragma mark - didLoad
 //============================================================
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _bairros = [[NSArray alloc]init];
+    _exibir = [[NSMutableArray alloc]init];
+    _bairrosNorte = [[NSMutableArray alloc]init];
+    _bairrosSul = [[NSMutableArray alloc]init];
+    _bairrosLeste = [[NSMutableArray alloc]init];
+    _bairrosOeste = [[NSMutableArray alloc]init];
+    
     especialidade = [EspecialidadesTableViewController sharedInstance];
+    
     [[MedicoController sharedInstance]buscarBairro:especialidade.especialidade AndComplete:^(NSArray* array){
         _bairros = array;
-        NSLog(@"array%@",array);
+        NSLog(@"#BAIRROS NORTE %@",_bairrosNorte);
+        NSLog(@"#BAIRROS SUL %@",_bairrosSul);
+        NSLog(@"#BAIRROS LESTE %@",_bairrosLeste);
+        NSLog(@"#BAIRROS OESTE %@\n\n\n\n",_bairrosOeste);
         [self.tableView reloadData];
     }];
         SINGLETON = self;
@@ -53,53 +65,137 @@ static RegiaoTableViewController *SINGLETON = nil;
 {
     return YES;
 }
-//============================================================
 
 
-#pragma mark - SECOES
 //============================================================
-// numero de secoes
+#pragma mark - Configuracao da Table e Secoes
+//============================================================
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 4;
 }
 
-// numero de celulas por secao
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _bairros.count;
+    int count;
+    switch (section) {
+        case 0:
+            count = _bairrosNorte.count;
+            break;
+            
+        case 1:
+            count = _bairrosSul.count;
+            break;
+            
+        case 2:
+            count = _bairrosLeste.count;
+            break;
+            
+        case 3:
+            count = _bairrosOeste.count;
+            break;
+            
+        default:
+            break;
+    }
+    return count;
 }
 
-// titulo das secoes
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Regiões";
+    NSString* regiao;
+    switch (section) {
+        case 0:
+            regiao = @"Norte";
+            break;
+            
+        case 1:
+            regiao = @"Sul";
+            break;
+            
+        case 2:
+            regiao = @"Leste";
+            break;
+            
+        case 3:
+            regiao = @"Oeste";
+            break;
+            
+        default:
+            break;
+    }
+    return regiao;
 }
-//============================================================
 
-
-#pragma mark - PREENCHER TABLE
-//============================================================
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegiaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaRegiaoo" forIndexPath:indexPath];
-    cell.textLabel.text = [_bairros objectAtIndex:indexPath.row];
+    
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = [_bairrosNorte objectAtIndex:indexPath.row];
+            break;
+    
+        case 1:
+            cell.textLabel.text = [_bairrosSul objectAtIndex:indexPath.row];
+            break;
+            
+        case 2:
+            cell.textLabel.text = [_bairrosLeste objectAtIndex:indexPath.row];
+            break;
+            
+        case 3:
+            cell.textLabel.text = [_bairrosOeste objectAtIndex:indexPath.row];
+            break;
+            
+            default:
+            break;
+    }
     return cell;
 }
+
+
 //============================================================
-
-
+#pragma mark - Passando Valor da Celula Selecionada
+//============================================================
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
 }
 
-
-#pragma mark - CELULA SELECIONADA
-//============================================================
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _bairro = [_bairros objectAtIndex:indexPath.row];
+    switch (indexPath.section) {
+        case 0:
+            _bairro = [_bairrosNorte objectAtIndex:indexPath.row];
+            _regiao = @"Norte";
+            NSLog(@"#BAIRRO SELECIONADO: %@\n\n\n",
+                  _bairro = [_bairrosNorte objectAtIndex:indexPath.row]);
+            break;
+            
+        case 1:
+            _bairro = [_bairrosSul objectAtIndex:indexPath.row];
+            _regiao = @"Sul";
+            NSLog(@"#BAIRRO SELECIONADO: %@\n\n\n",
+                  _bairro = [_bairrosSul objectAtIndex:indexPath.row]);
+            break;
+            
+        case 2:
+            _bairro = [_bairrosLeste objectAtIndex:indexPath.row];
+            _regiao = @"Leste";
+            NSLog(@"#BAIRRO SELECIONADO: %@\n\n\n",
+                  _bairro = [_bairrosLeste objectAtIndex:indexPath.row]);
+            break;
+            
+        case 3:
+            _bairro = [_bairrosOeste objectAtIndex:indexPath.row];
+            _regiao = @"Oeste";
+            NSLog(@"#BAIRRO SELECIONADO: %@\n\n\n",
+                  _bairro = [_bairrosOeste objectAtIndex:indexPath.row]);
+            break;
+            
+        default:
+            break;
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
-//============================================================
 
 
 @end

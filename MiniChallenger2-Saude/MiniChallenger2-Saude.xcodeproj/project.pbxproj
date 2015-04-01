@@ -52,6 +52,8 @@
 		90016F2E1AC1A928002D8BF6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F2D1AC1A928002D8BF6 /* LoginViewController.m */; };
 		90016F341AC1FD88002D8BF6 /* PacientesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F331AC1FD88002D8BF6 /* PacientesTableViewController.m */; };
 		90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */; };
+		905818BB1ACC2B7A00B9A42E /* MoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 905818B91ACC2B7A00B9A42E /* MoreTableViewCell.m */; };
+		905818BC1ACC2B7A00B9A42E /* MoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 905818BA1ACC2B7A00B9A42E /* MoreTableViewCell.xib */; };
 		908883E71AC7645E006E7BE9 /* Medico.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883E61AC7645E006E7BE9 /* Medico.m */; };
 		908883EB1AC764E4006E7BE9 /* MedicoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883EA1AC764E4006E7BE9 /* MedicoDAO.m */; };
 		908883F31AC78748006E7BE9 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883F11AC78748006E7BE9 /* MainTabBarController.m */; };
@@ -62,6 +64,7 @@
 		9088840D1AC7923D006E7BE9 /* MoreNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088840C1AC7923D006E7BE9 /* MoreNavigationController.m */; };
 		908884151AC793B5006E7BE9 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908884131AC793B5006E7BE9 /* MoreTableViewController.m */; };
 		908884161AC793B5006E7BE9 /* MoreTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908884141AC793B5006E7BE9 /* MoreTableViewController.xib */; };
+		90BB5F021ACC179800588D2C /* ScheduleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BB5F011ACC179800588D2C /* ScheduleNavigationController.m */; };
 		90BD96D11ACAC78A0053ED27 /* SpecialtyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BD96CF1ACAC78A0053ED27 /* SpecialtyTableViewCell.m */; };
 		90BD96D21ACAC78A0053ED27 /* SpecialtyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BD96D01ACAC78A0053ED27 /* SpecialtyTableViewCell.xib */; };
 		90BD96D91ACAC7B60053ED27 /* SpecialtyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BD96D71ACAC7B60053ED27 /* SpecialtyTableViewController.m */; };
@@ -153,6 +156,9 @@
 		90016F331AC1FD88002D8BF6 /* PacientesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacientesTableViewController.m; sourceTree = "<group>"; };
 		90016F351AC1FDA6002D8BF6 /* PacientesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacientesTableViewCell.h; sourceTree = "<group>"; };
 		90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PacientesTableViewCell.m; sourceTree = "<group>"; };
+		905818B81ACC2B7A00B9A42E /* MoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewCell.h; sourceTree = "<group>"; };
+		905818B91ACC2B7A00B9A42E /* MoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewCell.m; sourceTree = "<group>"; };
+		905818BA1ACC2B7A00B9A42E /* MoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreTableViewCell.xib; sourceTree = "<group>"; };
 		908883E51AC7645E006E7BE9 /* Medico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Medico.h; path = "MiniChallenger2-Saude/Model/Medico.h"; sourceTree = "<group>"; };
 		908883E61AC7645E006E7BE9 /* Medico.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Medico.m; path = "MiniChallenger2-Saude/Model/Medico.m"; sourceTree = "<group>"; };
 		908883E91AC764E4006E7BE9 /* MedicoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MedicoDAO.h; path = "MiniChallenger2-Saude/DAO/MedicoDAO.h"; sourceTree = "<group>"; };
@@ -170,6 +176,8 @@
 		908884121AC793B5006E7BE9 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		908884131AC793B5006E7BE9 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		908884141AC793B5006E7BE9 /* MoreTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreTableViewController.xib; sourceTree = "<group>"; };
+		90BB5F001ACC179800588D2C /* ScheduleNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleNavigationController.h; sourceTree = "<group>"; };
+		90BB5F011ACC179800588D2C /* ScheduleNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleNavigationController.m; sourceTree = "<group>"; };
 		90BD96CE1ACAC78A0053ED27 /* SpecialtyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialtyTableViewCell.h; sourceTree = "<group>"; };
 		90BD96CF1ACAC78A0053ED27 /* SpecialtyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialtyTableViewCell.m; sourceTree = "<group>"; };
 		90BD96D01ACAC78A0053ED27 /* SpecialtyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialtyTableViewCell.xib; sourceTree = "<group>"; };
@@ -386,6 +394,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		905818BD1ACC2B8A00B9A42E /* More */ = {
+			isa = PBXGroup;
+			children = (
+				905818B81ACC2B7A00B9A42E /* MoreTableViewCell.h */,
+				905818B91ACC2B7A00B9A42E /* MoreTableViewCell.m */,
+				905818BA1ACC2B7A00B9A42E /* MoreTableViewCell.xib */,
+			);
+			name = More;
+			sourceTree = "<group>";
+		};
 		908883E41AC763DE006E7BE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +487,7 @@
 		908883FF1AC78A68006E7BE9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				90BB5F031ACC17AA00588D2C /* Schedule */,
 				90BD96E41ACAE7A80053ED27 /* Calendar */,
 				9088840A1AC79213006E7BE9 /* More */,
 				908884091AC78B32006E7BE9 /* Notification */,
@@ -540,6 +559,25 @@
 			name = More;
 			sourceTree = "<group>";
 		};
+		90BB5F031ACC17AA00588D2C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				90BB5F001ACC179800588D2C /* ScheduleNavigationController.h */,
+				90BB5F011ACC179800588D2C /* ScheduleNavigationController.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		90BB5F041ACC28E800588D2C /* Specialty */ = {
+			isa = PBXGroup;
+			children = (
+				90BD96CE1ACAC78A0053ED27 /* SpecialtyTableViewCell.h */,
+				90BD96CF1ACAC78A0053ED27 /* SpecialtyTableViewCell.m */,
+				90BD96D01ACAC78A0053ED27 /* SpecialtyTableViewCell.xib */,
+			);
+			name = Specialty;
+			sourceTree = "<group>";
+		};
 		90BD96BB1ACABF370053ED27 /* Specialty */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,9 +591,8 @@
 		90BD96C81ACAC2140053ED27 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				90BD96CE1ACAC78A0053ED27 /* SpecialtyTableViewCell.h */,
-				90BD96CF1ACAC78A0053ED27 /* SpecialtyTableViewCell.m */,
-				90BD96D01ACAC78A0053ED27 /* SpecialtyTableViewCell.xib */,
+				905818BD1ACC2B8A00B9A42E /* More */,
+				90BB5F041ACC28E800588D2C /* Specialty */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -670,6 +707,7 @@
 				90BD96DA1ACAC7B60053ED27 /* SpecialtyTableViewController.xib in Resources */,
 				11BB75371ACB1D7300B2EF34 /* Pods.debug.xcconfig in Resources */,
 				90014A721AC858BD00AD7292 /* SignInViewController.xib in Resources */,
+				905818BC1ACC2B7A00B9A42E /* MoreTableViewCell.xib in Resources */,
 				908884161AC793B5006E7BE9 /* MoreTableViewController.xib in Resources */,
 				11BB75361ACB1D7300B2EF34 /* Pods-resources.sh in Resources */,
 				90016F141AC176BC002D8BF6 /* Images.xcassets in Resources */,
@@ -692,7 +730,9 @@
 			files = (
 				908883EB1AC764E4006E7BE9 /* MedicoDAO.m in Sources */,
 				90016F2E1AC1A928002D8BF6 /* LoginViewController.m in Sources */,
+				90BB5F021ACC179800588D2C /* ScheduleNavigationController.m in Sources */,
 				908883F91AC78A2C006E7BE9 /* NotificationNavigationController.m in Sources */,
+				905818BB1ACC2B7A00B9A42E /* MoreTableViewCell.m in Sources */,
 				908883F31AC78748006E7BE9 /* MainTabBarController.m in Sources */,
 				11BB75351ACB1D7300B2EF34 /* Pods-dummy.m in Sources */,
 				90BD96E31ACAE7A00053ED27 /* CalendarNavigationViewController.m in Sources */,

@@ -12,29 +12,32 @@
 
 @end
 
+static MainTabBarController *sharedMainTabBarController = nil;
+
 @implementation MainTabBarController
+
++(instancetype) sharedInstance
+{
+    if (sharedMainTabBarController == nil) {
+        sharedMainTabBarController = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+    }
+    return sharedMainTabBarController;
+}
+
++(void) resetSharedInstance
+{
+    sharedMainTabBarController = nil;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     NotificationNavigationController *navNotif = [[NotificationNavigationController alloc] init];
     MoreNavigationController *navMore = [[MoreNavigationController alloc] init];
+    ScheduleNavigationController *navSchedule = [[ScheduleNavigationController alloc] init];
     
     CalendarNavigationViewController *navCalendar = [[CalendarNavigationViewController alloc] init];
     
-    [self setViewControllers:@[navCalendar,navNotif,navMore]];
-    
-    
-    UITabBarItem* patientItem = [self.tabBar.items objectAtIndex:0];
-    
-    [patientItem setSelectedImage:[UIImage imageNamed:@"notification"]];
-    [patientItem setImage:[UIImage imageNamed:@"notification"]];
-    [patientItem setTitle:@"Notificações"];
-    
-    UITabBarItem* HorariotItem = [self.tabBar.items objectAtIndex:1];
-    
-    [HorariotItem setSelectedImage:[UIImage imageNamed:@"doctor"]];
-    [HorariotItem setImage:[UIImage imageNamed:@"doctor"]];
-    [HorariotItem setTitle:@"Horarios"];
+    [self setViewControllers:@[navCalendar, navSchedule,navNotif,navMore]];
 }
 
 - (void)didReceiveMemoryWarning {

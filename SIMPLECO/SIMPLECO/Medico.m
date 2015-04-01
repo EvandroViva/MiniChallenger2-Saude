@@ -10,4 +10,25 @@
 
 @implementation Medico
 
+static Medico* singleton;
+static bool isFirstAccess = YES;
+
++ (instancetype)shared
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess = NO;
+        singleton = [[Medico alloc]init];
+    });
+    
+    return singleton;
+}
+
+-(void)setWithPFObject: (PFObject*) object
+{
+    self.parseObject = object;
+}
+
+
+
 @end
