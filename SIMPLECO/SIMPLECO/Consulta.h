@@ -21,4 +21,8 @@
 @property NSString* id_medico;
 @property NSString* id_paciente;
 
+@property NSString* diaSemana;
+@property NSInteger* horarioFinal;
+@property NSInteger* horarioInicial;
 @end
+

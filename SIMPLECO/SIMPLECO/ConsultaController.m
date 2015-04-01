@@ -10,4 +10,50 @@
 
 @implementation ConsultaController
 
+// SINGLETON
+//==========================================================
+static ConsultaController *SINGLETON = nil;
+static bool isFirstAccess = YES;
+
++ (id)sharedInstance
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess = NO;
+        SINGLETON = [[super allocWithZone:NULL] init];
+    });
+    
+    return SINGLETON;
+}
+//==========================================================
+
+
+-(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback
+{
+    PFRelation* relation = [object relationForKey:@"id_tipoConsulta"];
+    [[relation query]findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"asdasdasdsa");
+        if (!error) {
+            // The find succeeded.
+            
+            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects)
+            {
+                Consulta *consulta = [[Consulta alloc]init];
+                consulta.diaSemana = object[@"diaSemana"];
+                consulta.data = object[@"diaSemana"];
+                NSLog(@"DIA ? =%@",consulta.diaSemana);
+                
+            }
+            
+        }
+        
+        else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        callback();
+    }];
+}
+
 @end
