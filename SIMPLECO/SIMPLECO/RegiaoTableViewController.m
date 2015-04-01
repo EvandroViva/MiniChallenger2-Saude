@@ -35,10 +35,24 @@ static RegiaoTableViewController *SINGLETON = nil;
     [super viewDidLoad];
     
     _bairros = [[NSArray alloc]init];
+    _exibir = [[NSMutableArray alloc]init];
+    
     especialidade = [EspecialidadesTableViewController sharedInstance];
+    
     [[MedicoController sharedInstance]buscarBairro:especialidade.especialidade AndComplete:^(NSArray* array){
         _bairros = array;
         NSLog(@"array%@",array);
+        NSString* anterior;
+        NSString* atual;
+        for (NSString *bairro in _bairros){
+            anterior = atual;
+            atual = bairro;
+            NSLog(@"Bairro Anterior %@", anterior);
+            NSLog(@"Bairro Atual %@\n\n\n", atual);
+            if (anterior != atual){
+                [_exibir addObject:atual];
+            }
+        }
         [self.tableView reloadData];
     }];
         SINGLETON = self;
@@ -66,7 +80,7 @@ static RegiaoTableViewController *SINGLETON = nil;
 
 // numero de celulas por secao
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _bairros.count;
+    return _exibir.count;
 }
 
 // titulo das secoes
@@ -81,7 +95,7 @@ static RegiaoTableViewController *SINGLETON = nil;
 //============================================================
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegiaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaRegiaoo" forIndexPath:indexPath];
-    cell.textLabel.text = [_bairros objectAtIndex:indexPath.row];
+    cell.textLabel.text = [_exibir objectAtIndex:indexPath.row];
     return cell;
 }
 //============================================================
@@ -96,7 +110,7 @@ static RegiaoTableViewController *SINGLETON = nil;
 //============================================================
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _bairro = [_bairros objectAtIndex:indexPath.row];
+    _bairro = [_exibir objectAtIndex:indexPath.row];
     [self.navigationController popViewControllerAnimated:YES];
 }
 //============================================================
