@@ -65,7 +65,7 @@ static ConsultaViewController *SINGLETON = nil;
 //---------------------------------------------------------------------------------------------------
   
     
-    [[MedicoController sharedInstance]buscarAgenda: singleton.medicoSelecionado.parseObject AndComplete:^()
+    [[ConsultaController sharedInstance]buscarAgenda: singleton.medicoSelecionado.parseObject AndComplete:^()
     {
         
     }];

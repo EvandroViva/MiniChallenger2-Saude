@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "ConsultaTableViewCell.h"
 #import "ResultPesqTableViewController.h"
+#import "ConsultaController.h"
 
 
 @interface ConsultaViewController : UIViewController <JTCalendarDataSource,UITableViewDataSource,UITableViewDelegate>

@@ -26,7 +26,6 @@
 #pragma mark - Buscar Bairro
 -(void)buscarBairro:(NSString*)especialidade AndComplete:(void(^)(NSArray*)) callback;
 
-#pragma mark - Buscar Consultas
--(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback;
+
 
 @end
