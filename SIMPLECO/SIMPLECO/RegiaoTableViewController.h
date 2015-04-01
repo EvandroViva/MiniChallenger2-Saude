@@ -20,8 +20,14 @@
 @property NSArray* bairros;
 
 @property NSString* bairro;
+@property NSString* regiao;
 
 @property NSMutableArray* exibir;
+
+@property NSMutableArray* bairrosNorte;
+@property NSMutableArray* bairrosSul;
+@property NSMutableArray* bairrosLeste;
+@property NSMutableArray* bairrosOeste;
 
 
 @end

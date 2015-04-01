@@ -30,13 +30,13 @@ static ResultPesqTableViewController *SINGLETON = nil;
     [super viewDidLoad];
     medicoSelecionado = [[Medico alloc]init];
     NSString* especialidade = [[[ViewController sharedInstance]LEspecialidade]text];
-    NSLog(@"especialidade %@", especialidade);
-    NSString* regiao = [[[ViewController sharedInstance]LRegiao]text];
-    NSLog(@"regiao %@", regiao);
+    NSLog(@"\n\n\nespecialidade PASSADA %@", especialidade);
+    NSString* bairro = [[[ViewController sharedInstance]LRegiao]text];
+    NSLog(@"regiao PASSADA %@", bairro);
     
     _medicos = [[NSMutableArray alloc]init];
     
-    [[MedicoController sharedInstance]buscarMedicos:especialidade andRegiao:regiao AndComplete:^{
+    [[MedicoController sharedInstance]buscarMedicos:especialidade andRegiao:bairro AndComplete:^{
         [self.tableView reloadData];
         NSLog(@"Terminou");
         NSLog(@"quantidade que deve ser apresentado %lu", (unsigned long)_medicos.count);

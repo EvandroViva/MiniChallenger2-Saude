@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "Medico.h"
 #import "ResultPesqTableViewController.h"
+#import "RegiaoTableViewController.h"
 
 @interface MedicoController : NSObject
 

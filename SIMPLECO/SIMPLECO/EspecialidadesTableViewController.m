@@ -114,7 +114,7 @@ static EspecialidadesTableViewController *SINGLETON = nil;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.especialidade =_especialidades[indexPath.row];
+    self.especialidade =_exibir[indexPath.row];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
