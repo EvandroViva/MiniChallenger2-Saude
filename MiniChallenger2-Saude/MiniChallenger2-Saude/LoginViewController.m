@@ -50,7 +50,7 @@
 - (IBAction)ButtonLoginClick:(UIButton *)sender {
    [self.loginActivityIndicator setHidden:NO];
 
-    MainTabBarController *main = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+    MainTabBarController *main = [MainTabBarController sharedInstance];
     
     [UserDAO loginWithUsername:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(PFUser *pfuser, NSError *error){
         if (!error) {

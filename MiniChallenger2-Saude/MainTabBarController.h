@@ -16,4 +16,7 @@
 
 @interface MainTabBarController : UITabBarController
 
++(instancetype) sharedInstance;
++(void) resetSharedInstance;
+
 @end

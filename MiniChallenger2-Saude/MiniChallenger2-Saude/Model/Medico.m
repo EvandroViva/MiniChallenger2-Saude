@@ -20,6 +20,11 @@ static Medico* vSharedDoctor = nil;
     return vSharedDoctor;
 }
 
++(void) resetSharedDoctor
+{
+    vSharedDoctor = nil;
+}
+
 -(instancetype)init
 {
     self = [super init];

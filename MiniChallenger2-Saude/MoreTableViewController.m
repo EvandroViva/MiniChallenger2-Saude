@@ -7,6 +7,7 @@
 //
 
 #import "MoreTableViewController.h"
+#import "MainTabBarController.h"
 
 
 @interface MoreTableViewController ()
@@ -119,6 +120,10 @@
 //    [self.navigationController pushViewController:detailViewController animated:YES];
     NSLog(@"Saindo");
     [PFUser logOut];
+    MainTabBarController *main = [MainTabBarController sharedInstance];
+    [Medico resetSharedDoctor];
+    [main dismissViewControllerAnimated:true completion:nil];
+    [MainTabBarController resetSharedInstance];
 }
 
 

@@ -12,7 +12,22 @@
 
 @end
 
+static MainTabBarController *sharedMainTabBarController = nil;
+
 @implementation MainTabBarController
+
++(instancetype) sharedInstance
+{
+    if (sharedMainTabBarController == nil) {
+        sharedMainTabBarController = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+    }
+    return sharedMainTabBarController;
+}
+
++(void) resetSharedInstance
+{
+    sharedMainTabBarController = nil;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
