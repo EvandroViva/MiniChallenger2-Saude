@@ -17,6 +17,6 @@
 + (ConsultaController*)sharedInstance;
 
 #pragma mark - Buscar Consultas
--(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback;
+-(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(NSArray*)) callback;
 
 @end

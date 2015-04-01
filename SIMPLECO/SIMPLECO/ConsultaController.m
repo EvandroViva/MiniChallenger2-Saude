@@ -28,11 +28,12 @@ static bool isFirstAccess = YES;
 //==========================================================
 
 
--(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback
+-(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(NSArray*)) callback;
 {
     PFRelation* relation = [object relationForKey:@"id_tipoConsulta"];
     [[relation query]findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSLog(@"asdasdasdsa");
+        NSMutableArray *consultas = [[NSMutableArray alloc]init];
         if (!error) {
             // The find succeeded.
             
@@ -42,9 +43,11 @@ static bool isFirstAccess = YES;
             {
                 Consulta *consulta = [[Consulta alloc]init];
                 consulta.diaSemana = object[@"diaSemana"];
-                consulta.data = object[@"diaSemana"];
-                NSLog(@"DIA ? =%@",consulta.diaSemana);
-                
+                consulta.horarioInicial = object[@"horarioInicial"];
+                consulta.horarioFinal = object[@"horarioFinal"];
+                consulta.data = object[@"Date"];
+                NSLog(@"DIA ? =%@",consulta.horarioInicial);
+                [consultas addObject:consulta];
             }
             
         }
@@ -52,7 +55,7 @@ static bool isFirstAccess = YES;
         else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-        callback();
+        callback(consultas);
     }];
 }
 

@@ -12,6 +12,7 @@
 #import "ConsultaTableViewCell.h"
 #import "ResultPesqTableViewController.h"
 #import "ConsultaController.h"
+#import "Consulta.h"
 
 
 @interface ConsultaViewController : UIViewController <JTCalendarDataSource,UITableViewDataSource,UITableViewDelegate>
@@ -30,6 +31,10 @@
 + (ConsultaViewController*)sharedInstance;
 @property NSInteger *hora;
 @property NSInteger *minuto;
+@property NSArray* consultas;
+@property NSString* diaSemanaSelecionada;
+@property NSString* diaSemanaAgenda;
+@property Consulta* consulta;
 
 
 @end

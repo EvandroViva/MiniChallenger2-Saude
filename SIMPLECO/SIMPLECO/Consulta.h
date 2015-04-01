@@ -22,7 +22,7 @@
 @property NSString* id_paciente;
 
 @property NSString* diaSemana;
-@property NSInteger* horarioFinal;
-@property NSInteger* horarioInicial;
+@property NSNumber* horarioFinal;
+@property NSNumber* horarioInicial;
 @end
 
