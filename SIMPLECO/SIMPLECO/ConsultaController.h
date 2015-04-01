@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RegiaoTableViewController.h"
 
 @interface ConsultaController : NSObject
+
++ (ConsultaController*)sharedInstance;
+-(void)creatingConsultaComData:(NSDate*)data eIdPaciente:(PFObject *)paciente /*AndComplete: (void(^)(void)) callback*/;
 
 @end

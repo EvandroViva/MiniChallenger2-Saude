@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "ConsultaController.h"
 
 static NSMutableArray *EventoSalvo;
 
@@ -18,6 +19,8 @@ static bool isFirstAccess = YES;
     ConsultaViewController *dataConsulta;
     TabBarController *tabbar;
     NSUserDefaults *defaults;
+    ResultPesqTableViewController* med;
+    ConsultaController* personaC;
 }
 
 @end
@@ -53,6 +56,8 @@ static LoginViewController *SINGLETON = nil;
     
     [self Default];
     SINGLETON = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segueShowConsultas) name:@"InformacoesEnviadas" object:nil];
 
 
 }
@@ -123,13 +128,20 @@ static LoginViewController *SINGLETON = nil;
                                                 //Criar Evento no Calendário
                                                 viewController = [ViewController sharedInstance];
                                                 dataConsulta = [ConsultaViewController sharedInstance];
-                                                [self PermissaoEvento];
-                                                [self CriarEvento:viewController.eventStore];
-                                                [self.tabBarController setSelectedIndex:1];
-                                                [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
                                                 
-                                                
-                                            }
+                                                //=======================================
+                                                //      Salvando no Parse
+                                                //=======================================
+//                                                med=[ResultPesqTableViewController sharedInstance];
+
+                                               [ [ConsultaController sharedInstance] creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:user /*AndComplete:^{
+//                                                    [self.tableView reloadData];
+                                                    NSLog(@"Terminou");
+                                                    NSLog(@"quantidade que deve ser apresentado");
+                                                }*/
+                                                 ];
+                                                //[self segueShowConsultas];
+                                                }
                                             else{
                                                  NSString *message = @"Por Favor olhar sua caixa de email!";
                                                  UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Email não Confirmado." message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
@@ -147,6 +159,13 @@ static LoginViewController *SINGLETON = nil;
                                     }];
 }
 
+
+- (void)segueShowConsultas {
+    [self PermissaoEvento];
+    [self CriarEvento:viewController.eventStore];
+    [self.tabBarController setSelectedIndex:1];
+    [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
+}
 
 #pragma mark - Permissao para salvar evento Calendario
 
