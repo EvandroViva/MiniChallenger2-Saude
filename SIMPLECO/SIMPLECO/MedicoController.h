@@ -11,6 +11,7 @@
 #import "Medico.h"
 #import "ResultPesqTableViewController.h"
 #import "Consulta.h"
+#import "RegiaoTableViewController.h"
 
 @interface MedicoController : NSObject
 

@@ -34,7 +34,7 @@ static bool isFirstAccess = YES;
 {    
     PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
     [query whereKey:@"especialidade" equalTo:especialidade];
-    [query whereKey:@"regiao" equalTo:regiao];
+    [query whereKey:@"bairro" equalTo:regiao];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
@@ -92,7 +92,7 @@ static bool isFirstAccess = YES;
     }
     else
     {
-        [query whereKey:@"regiao" equalTo:bairro];
+        [query whereKey:@"bairro" equalTo:bairro];
         [query orderByAscending:@"regiao"];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             NSMutableArray *especialidade = [[NSMutableArray alloc]init];
@@ -126,10 +126,23 @@ static bool isFirstAccess = YES;
             NSMutableArray *bairros = [[NSMutableArray alloc]init];
             if (!error) {
                 // The find succeeded.
-                NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+                NSLog(@"Successfully retrieved %lu BAIRROS.", (unsigned long)objects.count);
                 // Do something with the found objects
                 for (PFObject *object in objects)
                 {
+                    if ([object[@"regiao"] isEqualToString:(@"Norte")])
+                    {
+                        [[[RegiaoTableViewController sharedInstance]bairrosNorte]addObject:object[@"bairro"]];
+                    }else if ([object[@"regiao"] isEqualToString:(@"Sul")])
+                    {
+                        [[[RegiaoTableViewController sharedInstance]bairrosSul]addObject:object[@"bairro"]];
+                    }else if ([object[@"regiao"] isEqualToString:(@"Leste")])
+                    {
+                        [[[RegiaoTableViewController sharedInstance]bairrosLeste]addObject:object[@"bairro"]];
+                    }else if ([object[@"regiao"] isEqualToString:(@"Oeste")])
+                    {
+                        [[[RegiaoTableViewController sharedInstance]bairrosOeste]addObject:object[@"bairro"]];
+                    }
                     [bairros addObject:object[@"regiao"]];
                 }
             }
@@ -142,15 +155,28 @@ static bool isFirstAccess = YES;
     else
     {
       [query whereKey:@"especialidade" equalTo:especialidade];
-        [query orderByAscending:@"especialidade"];
+        [query orderByAscending:@"regiao"];
       [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSMutableArray *bairros = [[NSMutableArray alloc]init];
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+            NSLog(@"Successfully retrieved %lu BAIRROS.", (unsigned long)objects.count);
             // Do something with the found objects
             for (PFObject *object in objects)
             {
+                if ([object[@"regiao"] isEqualToString:(@"Norte")])
+                {
+                    [[[RegiaoTableViewController sharedInstance]bairrosNorte]addObject:object[@"bairro"]];
+                }else if ([object[@"regiao"] isEqualToString:(@"Sul")])
+                {
+                    [[[RegiaoTableViewController sharedInstance]bairrosSul]addObject:object[@"bairro"]];
+                }else if ([object[@"regiao"] isEqualToString:(@"Leste")])
+                {
+                    [[[RegiaoTableViewController sharedInstance]bairrosLeste]addObject:object[@"bairro"]];
+                }else if ([object[@"regiao"] isEqualToString:(@"Oeste")])
+                {
+                    [[[RegiaoTableViewController sharedInstance]bairrosOeste]addObject:object[@"bairro"]];
+                }
                 [bairros addObject:object[@"regiao"]];
             }
         }
