@@ -34,4 +34,36 @@
 }
 */
 
+#pragma mark Salvar dados
+
+- (IBAction)Save:(id)sender {
+    
+    Usuario *usuario = [[Usuario alloc]init];
+    [usuario setUsuario:[self.TextFieldUsuario text]];
+    [usuario setEmail:[self.TextFielEmail text]];
+    [usuario setSenha:[self.TextFieldSenha text]];
+    
+    [UsuarioDAO signinWithUser:usuario AndComplete: ^(bool succeeded, NSError* error){
+        
+        if (succeeded) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            [[[UIAlertView alloc] initWithTitle:@"Erro" message: errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        }
+        
+    }];
+    
+   
+}
+
+
+#pragma mark Clicar na tela e sair teclado
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_TextFieldSenha resignFirstResponder];
+    [_TextFieldUsuario resignFirstResponder];
+    [_TextFielEmail resignFirstResponder];
+}
 @end

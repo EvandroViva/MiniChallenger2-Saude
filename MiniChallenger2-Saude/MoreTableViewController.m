@@ -47,6 +47,7 @@
 }
 
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MoreTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Mais" forIndexPath:indexPath];
     cell.sair.text=@"SAIR";
@@ -55,6 +56,7 @@
     
     return cell;
 }
+
 
 
 /*

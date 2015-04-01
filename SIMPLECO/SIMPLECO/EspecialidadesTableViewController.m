@@ -13,6 +13,9 @@
 @end
 
 @implementation EspecialidadesTableViewController
+{
+    RegiaoTableViewController *regiao;
+}
 
 @synthesize listaEspecialidade;
 @synthesize especialidade;
@@ -30,21 +33,27 @@ static EspecialidadesTableViewController *SINGLETON = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     
     listaEspecialidade = @[@"Cardiologista",@"Clínico Geral",@"Dentista/Ortodentista",@"Dermatologista",@"Endocrionologista",@"Endoscopia",@"Fisioterapeuta",@"Fonoaudiólogista",@"Ginecologista",@"Neurologista",@"Nutricionista",@"Nutrólogo",@"Obstetra",@"Oftamologista",@"Ortopedista",@"Otorrinolaringologista",@"Pediatra",@"Pneumologista",@"Psicólogo",@"Psiquiatra",@"Radiologista",@"Urologista"];
     
+    regiao = [RegiaoTableViewController sharedInstance];
+    _especialidades = [[NSArray alloc]init];
+    
+    [[MedicoController sharedInstance]buscarEspecialidade:regiao.bairro AndComplete:^(NSArray *array){
+  
+        _especialidades = array;
+        NSLog(@"array%@",array);
+        [self.tableView reloadData];
+    }];
 
         SINGLETON = self;
-
-
     
-    
+  
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +70,7 @@ static EspecialidadesTableViewController *SINGLETON = nil;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return listaEspecialidade.count;
+    return _especialidades.count;
 }
 
 
@@ -69,7 +78,7 @@ static EspecialidadesTableViewController *SINGLETON = nil;
     EspecialidadesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaEspecialidades" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.Label_Especialidades.text = listaEspecialidade[indexPath.row];
+    cell.Label_Especialidades.text =(NSString*) _especialidades[indexPath.row];
     return cell;
 }
 
@@ -130,7 +139,7 @@ static EspecialidadesTableViewController *SINGLETON = nil;
     
     
 
-    self.especialidade =listaEspecialidade[indexPath.row];
+    self.especialidade =_especialidades[indexPath.row];
     
     
     [self.navigationController popViewControllerAnimated:YES];

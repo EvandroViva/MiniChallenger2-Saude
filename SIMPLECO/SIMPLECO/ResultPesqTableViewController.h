@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ResultPesqTableViewCell.h"
+#import "MedicoController.h"
+#import "ViewController.h"
 
 
 @interface ResultPesqTableViewController : UITableViewController
-@property NSInteger index;
 @property NSMutableArray *medicos;
+@property Medico *medicoSelecionado;
+@property NSMutableArray *index;
+
 
 + (ResultPesqTableViewController*)sharedInstance;
 

@@ -13,30 +13,35 @@
 
 @end
 
+
 @implementation ResultPesqTableViewController
 @synthesize index;
+@synthesize medicoSelecionado;
 
 static ResultPesqTableViewController *SINGLETON = nil;
 
 
-
-
 + (id)sharedInstance
 {
-
     return SINGLETON;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    medicoSelecionado = [[Medico alloc]init];
+    NSString* especialidade = [[[ViewController sharedInstance]LEspecialidade]text];
+    NSLog(@"especialidade %@", especialidade);
+    NSString* regiao = [[[ViewController sharedInstance]LRegiao]text];
+    NSLog(@"regiao %@", regiao);
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _medicos = [[NSMutableArray alloc]init];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
- 
-    _medicos = @[@"Clinica X", @"Clinica Y", @"Clinica Z", @"Clinica W"];
+    [[MedicoController sharedInstance]buscarMedicos:especialidade andRegiao:regiao AndComplete:^{
+        [self.tableView reloadData];
+        NSLog(@"Terminou");
+        NSLog(@"quantidade que deve ser apresentado %lu", (unsigned long)_medicos.count);
+    }];
+    
      SINGLETON = self;
 }
 
@@ -57,65 +62,48 @@ static ResultPesqTableViewController *SINGLETON = nil;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    ResultPesqTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaResultPesq" forIndexPath:indexPath];
+//    
+//    
+//    
+//    if (cell == nil)
+//    {
+//        cell = [[ResultPesqTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaResultPesq"];
+//    }
     
-    ResultPesqTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaResultPesq" forIndexPath:indexPath];
     
-    if (cell == nil)
-    {
-        cell = [[ResultPesqTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaResultPesq"];
-    }
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Celula"];
+  
+    UIButton *button= [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [button setFrame:CGRectMake(300, 30, 30, 30)];
+    [button addTarget:self action:@selector(buttonPressedAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell addSubview:button];
+    [button setTag:indexPath.row];
+
+    UILabel *LMedico = [[UILabel alloc]init];
+    [LMedico setFrame:CGRectMake(40, 20, 170, 20)];
+    [cell addSubview:LMedico];
     
-    cell.LabelMedico.text = _medicos[indexPath.row];
-    cell.LabelEndereco.text = @"Rua Itambé";
-    cell.LabelDetalhes.text = @"Clinica no ramo a 5 anos ";
+    UILabel *LEndereco = [[UILabel alloc]init];
+    [LEndereco setFrame:CGRectMake(40, 50, 170, 20)];
+    [cell addSubview:LEndereco];
     
-    // Configure the cell...
-    
+    UILabel *LDetalhe = [[UILabel alloc]init];
+    [LDetalhe setFrame:CGRectMake(40, 80, 170, 20)];
+    [cell addSubview:LDetalhe];
+  
+   LMedico.text = [_medicos[indexPath.row]nome];
+    LEndereco.text = [_medicos[indexPath.row]endereco];
+    LDetalhe.text = [_medicos[indexPath.row]bairro];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    index = indexPath.row;
     [self performSegueWithIdentifier:@"showConsulta" sender:self] ;
+    medicoSelecionado = _medicos[indexPath.row];
 }
-
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 
@@ -126,6 +114,15 @@ static ResultPesqTableViewController *SINGLETON = nil;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
+
+- (void)buttonPressedAction:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    medicoSelecionado = _medicos[button.tag];
+    [self performSegueWithIdentifier:@"showInfo" sender:self];
+  
+}
+
 
 
 @end

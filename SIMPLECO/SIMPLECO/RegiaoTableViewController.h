@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "RegiaoTableViewCell.h"
 #import "ViewController.h"
+#import "MedicoController.h"
+#import "EspecialidadesTableViewController.h"
 
 @interface RegiaoTableViewController : UITableViewController
 
@@ -18,5 +20,7 @@
 @property NSArray* bairros;
 
 @property NSString* bairro;
+
+
 
 @end

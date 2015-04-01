@@ -17,26 +17,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
- 
-    
-    
+    UITabBarItem* BuscarItens = [self.tabBar.items objectAtIndex:0];
+    [BuscarItens setSelectedImage:[UIImage imageNamed:@"Buscar"]];
+    [BuscarItens setImage:[UIImage imageNamed:@"Buscar"]];
+    [BuscarItens setTitle:@"Buscar"];
     
     UITabBarItem* MinhasConsultasItens = [self.tabBar.items objectAtIndex:1];
     [MinhasConsultasItens setSelectedImage:[UIImage imageNamed:@"MinhasConsultas"]];
     [MinhasConsultasItens setImage:[UIImage imageNamed:@"MinhasConsultas"]];
     [MinhasConsultasItens setTitle:@"Minhas Consultas"];
     
-    UITabBarItem* BuscarItens = [self.tabBar.items objectAtIndex:0];
-    
-    [BuscarItens setSelectedImage:[UIImage imageNamed:@"Buscar"]];
-    [BuscarItens setImage:[UIImage imageNamed:@"Buscar"]];
-    [BuscarItens setTitle:@"Buscar"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
