@@ -18,7 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     Medico *m1 = [Medico sharedDoctor];
-    [self.NameTextFiled setText:[m1 nome]];
+    [self.NameTextFiled setText:[m1 name]];
+    [self.docTextFiled setText:[m1 cod]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,7 +39,16 @@
 */
 
 - (IBAction)FinishRegisterButton:(UIButton *)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    [self.ActivityIndicator setHidden:false];
+    Medico *m = [Medico sharedDoctor];
+    [m setName:[self.NameTextFiled text] andSave:false];
+    [m setCod:[self.docTextFiled text] andSave:false];
+    [[m parseObject] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if (succeeded) {
+            [self dismissViewControllerAnimated:true completion:nil];
+        }
+        [self.ActivityIndicator setHidden:true];
+    }];
 }
 
 - (IBAction)RememberLaterClick:(UIButton *)sender {

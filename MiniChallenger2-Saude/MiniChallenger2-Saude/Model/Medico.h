@@ -11,6 +11,9 @@
 #import "User.h"
 
 @interface Medico : NSObject
+{
+    NSString *name;
+}
 
 +(instancetype) sharedDoctor;
 
@@ -19,15 +22,21 @@
 
 @property PFObject* parseObject;
 @property PFUser*   parseUser;
-@property NSString* id_medico;
-@property NSString* nome;
-@property NSString* codTrabalho;
-@property NSString* especialidade;
-@property NSString* id_tipoConsulta;
-@property NSString* id_Endereco;
-@property NSString* email;
-@property NSString* username;
+//@property NSString* id_medico;
+//@property NSString* nome;
+//@property NSString* codTrabalho;
+//@property NSString* especialidade;
+//@property NSString* id_tipoConsulta;
+//@property NSString* id_Endereco;
+//@property NSString* email;
+//@property NSString* username;
 
 @property bool remember_later;
 
+-(NSString*)name;
+
+-(NSString*)cod;
+
+-(void)setName:(NSString *)n andSave: (bool) s;
+-(void)setCod:(NSString *)n andSave: (bool) s;
 @end

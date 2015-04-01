@@ -18,6 +18,8 @@
                                         if (user) {
                                             NSString *n = user.username;
                                             NSLog(@"%@", n);
+                                            Medico *medico = [Medico sharedDoctor];
+                                            [medico setWithPFUser:user];
                                         } else {
                                             // Log details of the failure
                                             NSLog(@"Error: %@ %@", error, [error userInfo]);

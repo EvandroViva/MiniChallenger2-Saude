@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *NameTextFiled;
 @property (weak, nonatomic) IBOutlet UITextField *docTextFiled;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *ActivityIndicator;
 
 
 @end

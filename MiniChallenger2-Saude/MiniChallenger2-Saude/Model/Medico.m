@@ -32,18 +32,44 @@ static Medico* vSharedDoctor = nil;
 -(void)setWithPFObject: (PFObject*) object
 {
     self.parseObject        = object;
-    self.nome               = object[@"nome"];
-    self.especialidade      = object[@"especialidade"];
-    self.id_Endereco        = object[@"id_Edereco"];
-    self.id_tipoConsulta    = object[@"id_tipoConsulta"];
-    self.codTrabalho        = object[@"codTrabalho"];
+//    self.nome               = object[@"nome"];
+//    self.especialidade      = object[@"especialidade"];
+//    self.id_Endereco        = object[@"id_Edereco"];
+//    self.id_tipoConsulta    = object[@"id_tipoConsulta"];
+//    self.codTrabalho        = object[@"codTrabalho"];
 }
 
 -(void)setWithPFUser: (PFUser*) user
 {
     self.parseUser          = user;
-    self.email              = user.email;
-    self.username           = user.username;
+//    self.email              = user.email;
+//    self.username           = user.username;
+}
+
+-(NSString*)name
+{
+    return self.parseObject[@"nome"];
+}
+
+-(NSString*)cod
+{
+    return self.parseObject[@"codTrabalho"];
+}
+
+-(void)setName:(NSString *)n andSave: (bool) s
+{
+    self.parseObject[@"nome"] = n;
+    if (s) {
+        [self.parseObject saveInBackground];
+    }
+}
+
+-(void)setCod:(NSString *)n andSave: (bool) s
+{
+    self.parseObject[@"codTrabalho"] = n;
+    if (s) {
+        [self.parseObject saveInBackground];
+    }
 }
 
 @end

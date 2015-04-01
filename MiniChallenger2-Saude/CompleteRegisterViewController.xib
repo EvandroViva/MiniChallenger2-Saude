@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompleteRegisterViewController">
             <connections>
+                <outlet property="ActivityIndicator" destination="bc9-4r-5pi" id="UJA-OJ-Q2w"/>
                 <outlet property="NameTextFiled" destination="Swn-kL-Vgt" id="MVL-kd-XjM"/>
                 <outlet property="docTextFiled" destination="7lV-iA-NbI" id="FAD-WP-Uq7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -62,8 +63,8 @@
                         <action selector="FinishRegisterButton:" destination="-1" eventType="touchUpInside" id="mgw-QV-yUT"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completar Cadastro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhE-gl-cHu">
-                    <rect key="frame" x="211" y="30" width="179" height="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Completar Cadastro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhE-gl-cHu">
+                    <rect key="frame" x="212" y="30" width="179" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -105,6 +106,9 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bc9-4r-5pi">
+                    <rect key="frame" x="511" y="565" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -135,9 +139,11 @@
                 <constraint firstItem="1hR-dO-9CJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="rXK-dk-U0B"/>
                 <constraint firstAttribute="bottom" secondItem="yhD-ef-Ygo" secondAttribute="bottom" constant="10" id="sXo-91-Qdt"/>
                 <constraint firstItem="5ha-Yn-D8d" firstAttribute="top" secondItem="7lV-iA-NbI" secondAttribute="bottom" constant="10" id="syE-NO-kvO"/>
+                <constraint firstItem="yhD-ef-Ygo" firstAttribute="centerY" secondItem="bc9-4r-5pi" secondAttribute="centerY" id="tZp-ku-jl8"/>
                 <constraint firstAttribute="centerX" secondItem="umG-vP-0fv" secondAttribute="centerX" id="ulb-f3-WJg"/>
                 <constraint firstAttribute="centerX" secondItem="qhE-gl-cHu" secondAttribute="centerX" id="v9z-aa-gFd"/>
                 <constraint firstAttribute="trailing" secondItem="Swn-kL-Vgt" secondAttribute="trailing" constant="20" id="z2J-kI-QFC"/>
+                <constraint firstItem="yhD-ef-Ygo" firstAttribute="leading" secondItem="bc9-4r-5pi" secondAttribute="trailing" constant="3" id="z57-4G-OEP"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
