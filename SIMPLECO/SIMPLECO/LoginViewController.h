@@ -22,4 +22,7 @@
 - (IBAction)BConfirma:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *Carregando;
 
++ (NSMutableArray*)sharedEventos;
++ (LoginViewController*)sharedInstance;
+
 @end

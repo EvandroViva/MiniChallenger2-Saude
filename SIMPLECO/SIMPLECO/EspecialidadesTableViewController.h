@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "EspecialidadesTableViewCell.h"
 #import "ViewController.h"
+#import "MedicoController.h"
+#import "RegiaoTableViewController.h"
 
 @interface EspecialidadesTableViewController : UITableViewController
 
@@ -17,5 +19,6 @@
 
 @property NSArray *listaEspecialidade;
 @property NSString *especialidade;
+@property NSArray *especialidades;
 
 @end

@@ -13,10 +13,13 @@
 
 @end
 
+
 @implementation ResultPesqTableViewController
 @synthesize index;
+@synthesize medicoSelecionado;
 
 static ResultPesqTableViewController *SINGLETON = nil;
+
 
 + (id)sharedInstance
 {
@@ -25,7 +28,7 @@ static ResultPesqTableViewController *SINGLETON = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    medicoSelecionado = [[Medico alloc]init];
     NSString* especialidade = [[[ViewController sharedInstance]LEspecialidade]text];
     NSLog(@"especialidade %@", especialidade);
     NSString* regiao = [[[ViewController sharedInstance]LRegiao]text];
@@ -59,25 +62,47 @@ static ResultPesqTableViewController *SINGLETON = nil;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    ResultPesqTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaResultPesq" forIndexPath:indexPath];
+//    
+//    
+//    
+//    if (cell == nil)
+//    {
+//        cell = [[ResultPesqTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaResultPesq"];
+//    }
     
-    ResultPesqTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaResultPesq" forIndexPath:indexPath];
     
-    if (cell == nil)
-    {
-        cell = [[ResultPesqTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaResultPesq"];
-    }
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Celula"];
+  
+    UIButton *button= [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [button setFrame:CGRectMake(300, 30, 30, 30)];
+    [button addTarget:self action:@selector(buttonPressedAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell addSubview:button];
+    [button setTag:indexPath.row];
+
+    UILabel *LMedico = [[UILabel alloc]init];
+    [LMedico setFrame:CGRectMake(40, 20, 170, 20)];
+    [cell addSubview:LMedico];
     
-    cell.LabelMedico.text = [_medicos[indexPath.row]nome];
-    cell.LabelEndereco.text = [_medicos[indexPath.row]endereco];
-    cell.LabelDetalhes.text = [_medicos[indexPath.row]bairro];
+    UILabel *LEndereco = [[UILabel alloc]init];
+    [LEndereco setFrame:CGRectMake(40, 50, 170, 20)];
+    [cell addSubview:LEndereco];
     
+    UILabel *LDetalhe = [[UILabel alloc]init];
+    [LDetalhe setFrame:CGRectMake(40, 80, 170, 20)];
+    [cell addSubview:LDetalhe];
+  
+   LMedico.text = [_medicos[indexPath.row]nome];
+    LEndereco.text = [_medicos[indexPath.row]endereco];
+    LDetalhe.text = [_medicos[indexPath.row]bairro];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    index = indexPath.row;
     [self performSegueWithIdentifier:@"showConsulta" sender:self] ;
+    medicoSelecionado = _medicos[indexPath.row];
 }
 
 #pragma mark - Navigation
@@ -89,6 +114,15 @@ static ResultPesqTableViewController *SINGLETON = nil;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
+
+- (void)buttonPressedAction:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    medicoSelecionado = _medicos[button.tag];
+    [self performSegueWithIdentifier:@"showInfo" sender:self];
+  
+}
+
 
 
 @end

@@ -13,6 +13,9 @@
 @end
 
 @implementation RegiaoTableViewController
+{
+    EspecialidadesTableViewController *especialidade;
+}
 
 #pragma mark - SINGLETON
 //============================================================
@@ -31,9 +34,13 @@ static RegiaoTableViewController *SINGLETON = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // teste
-    _bairros = @[@"Norte", @"Sul", @"Leste", @"Oeste"];
-    
+    _bairros = [[NSArray alloc]init];
+    especialidade = [EspecialidadesTableViewController sharedInstance];
+    [[MedicoController sharedInstance]buscarBairro:especialidade.especialidade AndComplete:^(NSArray* array){
+        _bairros = array;
+        NSLog(@"array%@",array);
+        [self.tableView reloadData];
+    }];
         SINGLETON = self;
 
 }

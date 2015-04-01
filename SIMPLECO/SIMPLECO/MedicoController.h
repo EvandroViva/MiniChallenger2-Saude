@@ -19,5 +19,10 @@
 #pragma mark - Buscar Medicos
 -(void)buscarMedicos:(NSString*)especialidade andRegiao:(NSString*)regiao AndComplete: (void(^)(void)) callback;
 
+#pragma mark - Buscar Especialidade
+-(void)buscarEspecialidade:(NSString*)bairro AndComplete:(void(^)(NSArray*)) callback;
+
+#pragma mark - Buscar Bairro
+-(void)buscarBairro:(NSString*)especialidade AndComplete:(void(^)(NSArray*)) callback;
 
 @end

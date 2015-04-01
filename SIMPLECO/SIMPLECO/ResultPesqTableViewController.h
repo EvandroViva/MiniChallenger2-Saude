@@ -13,8 +13,10 @@
 
 
 @interface ResultPesqTableViewController : UITableViewController
-@property NSInteger index;
 @property NSMutableArray *medicos;
+@property Medico *medicoSelecionado;
+@property NSMutableArray *index;
+
 
 + (ResultPesqTableViewController*)sharedInstance;
 

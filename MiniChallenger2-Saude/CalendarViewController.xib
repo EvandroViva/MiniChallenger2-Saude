@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarViewController">
             <connections>
+                <outlet property="calendarContentView" destination="zLT-S0-HMt" id="gFE-5P-zXJ"/>
+                <outlet property="calendarContentViewHeight" destination="HaX-fa-Cf8" id="Xhu-ie-53W"/>
+                <outlet property="calendarMenuView" destination="YfC-gs-wlV" id="Wsh-Ka-g24"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,20 +17,45 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfC-gs-wlV">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YfC-gs-wlV" customClass="JTCalendarMenuView">
                     <rect key="frame" x="0.0" y="60" width="600" height="50"/>
                     <color key="backgroundColor" red="0.86462358539999995" green="0.98362305120000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="253-9w-ne3"/>
-                    </constraints>
+                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="0.0" y="60" width="400" height="50"/>
+                    </variation>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-S0-HMt">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLT-S0-HMt" customClass="JTCalendarContentView">
                     <rect key="frame" x="0.0" y="110" width="600" height="400"/>
                     <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="400" id="yZU-6K-vTK"/>
+                        <constraint firstAttribute="height" constant="400" id="HaX-fa-Cf8"/>
                     </constraints>
+                    <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="0.0" y="110" width="400" height="400"/>
+                    </variation>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sa-Hs-xFD">
+                    <rect key="frame" x="50" y="518" width="32" height="30"/>
+                    <state key="normal" title="Hoje">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="Hoje:" destination="-1" eventType="touchUpInside" id="G0A-hp-XvV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5R-Af-Bni">
+                    <rect key="frame" x="273" y="518" width="85" height="30"/>
+                    <state key="normal" title="Visualização">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="Visualizacao:" destination="-1" eventType="touchUpInside" id="DJN-Fb-64G"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ALD-wU-ZPn">
+                    <rect key="frame" x="8" y="551" width="578" height="79"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -35,6 +63,8 @@
                 <constraint firstItem="zLT-S0-HMt" firstAttribute="top" secondItem="YfC-gs-wlV" secondAttribute="bottom" id="7C3-Cj-nCo"/>
                 <constraint firstItem="YfC-gs-wlV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="B7B-Gj-Olg"/>
                 <constraint firstItem="YfC-gs-wlV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="G4h-Qx-bV3"/>
+                <constraint firstItem="6Sa-Hs-xFD" firstAttribute="top" secondItem="zLT-S0-HMt" secondAttribute="bottom" constant="8" id="HUh-Nz-1qg"/>
+                <constraint firstItem="l5R-Af-Bni" firstAttribute="top" secondItem="zLT-S0-HMt" secondAttribute="bottom" constant="8" id="MKV-W5-nfX"/>
                 <constraint firstAttribute="trailing" secondItem="zLT-S0-HMt" secondAttribute="trailing" id="V9O-hS-fC7"/>
                 <constraint firstAttribute="trailing" secondItem="YfC-gs-wlV" secondAttribute="trailing" id="YOQ-a6-MHR"/>
             </constraints>

@@ -9,20 +9,25 @@
 #import "MinhasConsultasTableViewController.h"
 
 @interface MinhasConsultasTableViewController ()
+{
+    ViewController *viewC;
+    ResultPesqTableViewController *medSelecionado;
+}
 
 
 @end
 
 @implementation MinhasConsultasTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _teste = @[@"Dentista",@"Medico"];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    viewC = [ViewController sharedInstance];
+     _teste = [NSMutableArray arrayWithObjects:
+               @"Dentista",@"Medico", nil];
+    _evento = [EKEvent eventWithEventStore:viewC.eventStore];
+   
     
 }
 
@@ -42,7 +47,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [_teste count];
+    return [[LoginViewController sharedEventos] count];
 }
 
 
@@ -60,11 +65,23 @@
     }
     
     // Configure the cell...
-
-    cell.LabelData.text= @"24/03";
-    cell.LabelHora.text=@"14:00";
-    cell.LabelConsulta.text = _teste[indexPath.row];
-    cell.LabelDetalhes.text =@"Rua Maria Antonia";
+    
+    _evento = [LoginViewController sharedEventos][indexPath.row];
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@" dd /MM"];
+    NSString *formatoData = [format stringFromDate:_evento.startDate];
+    
+    NSDateFormatter *format2 = [[NSDateFormatter alloc]init];
+    [format2 setDateFormat:@" HH:mm"];
+    NSString *formatoHora = [format2 stringFromDate:_evento.startDate];
+    medSelecionado = [ResultPesqTableViewController sharedInstance];
+    
+    cell.LabelData.text= formatoData;
+    cell.LabelHora.text=formatoHora;
+    
+    NSLog(@"O que mostra??%@",medSelecionado.medicoSelecionado.especialidade);
+    cell.LabelConsulta.text = medSelecionado.medicoSelecionado.especialidade;
+    cell.LabelDetalhes.text =medSelecionado.medicoSelecionado.endereco;
     
     return cell;
 }
@@ -82,8 +99,10 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"Deletei");
+        [[LoginViewController sharedEventos] removeObjectAtIndex:indexPath.row];
+        NSLog(@"Deletei %li, %li",(long)indexPath.row, (long)indexPath.section);
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

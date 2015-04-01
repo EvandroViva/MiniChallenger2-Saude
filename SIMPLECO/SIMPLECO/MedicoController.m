@@ -70,5 +70,99 @@ static bool isFirstAccess = YES;
 }
 
 //========================================================
+//Busca especialidade
+//=======================================================
 
+-(void)buscarEspecialidade:(NSString*)bairro AndComplete:(void(^)(NSArray*)) callback
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
+    if (bairro == nil)
+    {
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            NSMutableArray *especialidade = [[NSMutableArray alloc]init];
+            if (!error) {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+                // Do something with the found objects
+                for (PFObject *object in objects)
+                {
+                    [especialidade addObject:object[@"especialidade"]];
+                }
+            }
+            else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+            callback(especialidade);
+        }];
+    }
+    
+    else
+    {
+        [query whereKey:@"regiao" equalTo:bairro];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            NSMutableArray *especialidade = [[NSMutableArray alloc]init];
+            if (!error) {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+                // Do something with the found objects
+                for (PFObject *object in objects)
+                {
+                    [especialidade addObject:object[@"especialidade"]];
+                }
+            }
+            else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+            callback(especialidade);
+        }];
+    }
+}
+//========================================================
+//Busca Bairro
+//=======================================================
+
+-(void)buscarBairro:(NSString*)especialidade AndComplete:(void(^)(NSArray*)) callback
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Medico"];
+    if (especialidade == nil)
+    {
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            NSMutableArray *bairros = [[NSMutableArray alloc]init];
+            if (!error) {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+                // Do something with the found objects
+                for (PFObject *object in objects)
+                {
+                    [bairros addObject:object[@"regiao"]];
+                }
+            }
+            else {
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+            callback(bairros);
+        }];
+    }
+    
+    else
+    {
+      [query whereKey:@"especialidade" equalTo:especialidade];
+      [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *bairros = [[NSMutableArray alloc]init];
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects)
+            {
+                [bairros addObject:object[@"regiao"]];
+            }
+        }
+        else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+            callback(bairros);
+    }];
+    }
+}
 @end
