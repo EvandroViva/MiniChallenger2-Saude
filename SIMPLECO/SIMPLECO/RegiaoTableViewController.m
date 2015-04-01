@@ -36,23 +36,31 @@ static RegiaoTableViewController *SINGLETON = nil;
     
     _bairros = [[NSArray alloc]init];
     _exibir = [[NSMutableArray alloc]init];
+    _bairrosNorte = [[NSMutableArray alloc]init];
+    _bairrosSul = [[NSMutableArray alloc]init];
+    _bairrosLeste = [[NSMutableArray alloc]init];
+    _bairrosOeste = [[NSMutableArray alloc]init];
     
     especialidade = [EspecialidadesTableViewController sharedInstance];
     
     [[MedicoController sharedInstance]buscarBairro:especialidade.especialidade AndComplete:^(NSArray* array){
         _bairros = array;
         NSLog(@"array%@",array);
-        NSString* anterior;
-        NSString* atual;
-        for (NSString *bairro in _bairros){
-            anterior = atual;
-            atual = bairro;
-            NSLog(@"Bairro Anterior %@", anterior);
-            NSLog(@"Bairro Atual %@\n\n\n", atual);
-            if (anterior != atual){
-                [_exibir addObject:atual];
-            }
-        }
+        NSLog(@"NORTE %@",_bairrosNorte);
+        NSLog(@"SUL %@",_bairrosSul);
+        NSLog(@"LESTE %@",_bairrosLeste);
+        NSLog(@"OESTE %@",_bairrosOeste);
+//        NSString* anterior;
+//        NSString* atual;
+//        for (NSString *bairro in _bairros){
+//            anterior = atual;
+//            atual = bairro;
+//            NSLog(@"Bairro Anterior %@", anterior);
+//            NSLog(@"Bairro Atual %@\n\n\n", atual);
+//            if (anterior != atual){
+//                [_exibir addObject:atual];
+//            }
+//        }
         [self.tableView reloadData];
     }];
         SINGLETON = self;
@@ -75,18 +83,60 @@ static RegiaoTableViewController *SINGLETON = nil;
 // numero de secoes
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 4;
 }
 
 // numero de celulas por secao
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _exibir.count;
+    int count;
+    switch (section) {
+        case 0:
+            count = _bairrosNorte.count;
+            break;
+            
+        case 1:
+            count = _bairrosSul.count;
+            break;
+            
+        case 2:
+            count = _bairrosLeste.count;
+            break;
+            
+        case 3:
+            count = _bairrosOeste.count;
+            break;
+            
+        default:
+            break;
+    }
+    return count;
 }
 
 // titulo das secoes
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Regiões";
+    NSString* regiao;
+    switch (section) {
+        case 0:
+            regiao = @"Norte";
+            break;
+            
+        case 1:
+            regiao = @"Sul";
+            break;
+            
+        case 2:
+            regiao = @"Leste";
+            break;
+            
+        case 3:
+            regiao = @"Oeste";
+            break;
+            
+        default:
+            break;
+    }
+    return regiao;
 }
 //============================================================
 
@@ -95,7 +145,28 @@ static RegiaoTableViewController *SINGLETON = nil;
 //============================================================
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegiaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaRegiaoo" forIndexPath:indexPath];
-    cell.textLabel.text = [_exibir objectAtIndex:indexPath.row];
+//    cell.textLabel.text = [_exibir objectAtIndex:indexPath.row];
+    
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = [_bairrosNorte objectAtIndex:indexPath.row];
+            break;
+    
+        case 1:
+            cell.textLabel.text = [_bairrosSul objectAtIndex:indexPath.row];
+            break;
+            
+        case 2:
+            cell.textLabel.text = [_bairrosLeste objectAtIndex:indexPath.row];
+            break;
+            
+        case 3:
+            cell.textLabel.text = [_bairrosOeste objectAtIndex:indexPath.row];
+            break;
+            
+            default:
+            break;
+    }
     return cell;
 }
 //============================================================
@@ -110,7 +181,31 @@ static RegiaoTableViewController *SINGLETON = nil;
 //============================================================
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _bairro = [_exibir objectAtIndex:indexPath.row];
+//    _bairro = [_exibir objectAtIndex:indexPath.row];
+    switch (indexPath.section) {
+        case 0:
+            _bairro = [_bairrosNorte objectAtIndex:indexPath.row];
+            _regiao = @"Norte";
+            break;
+            
+        case 1:
+            _bairro = [_bairrosSul objectAtIndex:indexPath.row];
+            _regiao = @"Sul";
+            break;
+            
+        case 2:
+            _bairro = [_bairrosLeste objectAtIndex:indexPath.row];
+            _regiao = @"Leste";
+            break;
+            
+        case 3:
+            _bairro = [_bairrosOeste objectAtIndex:indexPath.row];
+            _regiao = @"Oeste";
+            break;
+            
+        default:
+            break;
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 //============================================================
