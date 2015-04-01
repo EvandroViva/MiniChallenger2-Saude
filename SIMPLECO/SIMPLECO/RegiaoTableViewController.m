@@ -12,15 +12,16 @@
 
 @end
 
+//============================================================
+#pragma mark - Atributos da Classe
+//============================================================
+
 @implementation RegiaoTableViewController
 {
     EspecialidadesTableViewController *especialidade;
 }
 
-#pragma mark - SINGLETON
-//============================================================
 static RegiaoTableViewController *SINGLETON = nil;
-
 
 + (id)sharedInstance
 {
@@ -29,6 +30,7 @@ static RegiaoTableViewController *SINGLETON = nil;
 //============================================================
 
 
+//============================================================
 #pragma mark - didLoad
 //============================================================
 - (void)viewDidLoad {
@@ -45,22 +47,10 @@ static RegiaoTableViewController *SINGLETON = nil;
     
     [[MedicoController sharedInstance]buscarBairro:especialidade.especialidade AndComplete:^(NSArray* array){
         _bairros = array;
-        NSLog(@"array%@",array);
-        NSLog(@"NORTE %@",_bairrosNorte);
-        NSLog(@"SUL %@",_bairrosSul);
-        NSLog(@"LESTE %@",_bairrosLeste);
-        NSLog(@"OESTE %@",_bairrosOeste);
-//        NSString* anterior;
-//        NSString* atual;
-//        for (NSString *bairro in _bairros){
-//            anterior = atual;
-//            atual = bairro;
-//            NSLog(@"Bairro Anterior %@", anterior);
-//            NSLog(@"Bairro Atual %@\n\n\n", atual);
-//            if (anterior != atual){
-//                [_exibir addObject:atual];
-//            }
-//        }
+        NSLog(@"#BAIRROS NORTE %@",_bairrosNorte);
+        NSLog(@"#BAIRROS SUL %@",_bairrosSul);
+        NSLog(@"#BAIRROS LESTE %@",_bairrosLeste);
+        NSLog(@"#BAIRROS OESTE %@\n\n\n\n",_bairrosOeste);
         [self.tableView reloadData];
     }];
         SINGLETON = self;
@@ -75,18 +65,16 @@ static RegiaoTableViewController *SINGLETON = nil;
 {
     return YES;
 }
-//============================================================
 
 
-#pragma mark - SECOES
 //============================================================
-// numero de secoes
+#pragma mark - Configuracao da Table e Secoes
+//============================================================
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 4;
 }
 
-// numero de celulas por secao
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int count;
     switch (section) {
@@ -112,7 +100,6 @@ static RegiaoTableViewController *SINGLETON = nil;
     return count;
 }
 
-// titulo das secoes
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString* regiao;
@@ -138,14 +125,9 @@ static RegiaoTableViewController *SINGLETON = nil;
     }
     return regiao;
 }
-//============================================================
 
-
-#pragma mark - PREENCHER TABLE
-//============================================================
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegiaoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaRegiaoo" forIndexPath:indexPath];
-//    cell.textLabel.text = [_exibir objectAtIndex:indexPath.row];
     
     switch (indexPath.section) {
         case 0:
@@ -169,38 +151,44 @@ static RegiaoTableViewController *SINGLETON = nil;
     }
     return cell;
 }
+
+
 //============================================================
-
-
+#pragma mark - Passando Valor da Celula Selecionada
+//============================================================
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
 }
 
-
-#pragma mark - CELULA SELECIONADA
-//============================================================
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    _bairro = [_exibir objectAtIndex:indexPath.row];
     switch (indexPath.section) {
         case 0:
             _bairro = [_bairrosNorte objectAtIndex:indexPath.row];
             _regiao = @"Norte";
+            NSLog(@"#BAIRRO SELECIONADO: %@\n\n\n",
+                  _bairro = [_bairrosNorte objectAtIndex:indexPath.row]);
             break;
             
         case 1:
             _bairro = [_bairrosSul objectAtIndex:indexPath.row];
             _regiao = @"Sul";
+            NSLog(@"#BAIRRO SELECIONADO: %@\n\n\n",
+                  _bairro = [_bairrosSul objectAtIndex:indexPath.row]);
             break;
             
         case 2:
             _bairro = [_bairrosLeste objectAtIndex:indexPath.row];
             _regiao = @"Leste";
+            NSLog(@"#BAIRRO SELECIONADO: %@\n\n\n",
+                  _bairro = [_bairrosLeste objectAtIndex:indexPath.row]);
             break;
             
         case 3:
             _bairro = [_bairrosOeste objectAtIndex:indexPath.row];
             _regiao = @"Oeste";
+            NSLog(@"#BAIRRO SELECIONADO: %@\n\n\n",
+                  _bairro = [_bairrosOeste objectAtIndex:indexPath.row]);
             break;
             
         default:
@@ -208,7 +196,6 @@ static RegiaoTableViewController *SINGLETON = nil;
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
-//============================================================
 
 
 @end

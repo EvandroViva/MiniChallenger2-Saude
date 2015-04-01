@@ -13,6 +13,9 @@
 
 @end
 
+//============================================================
+#pragma mark - Atributos da Classe
+//============================================================
 
 @implementation ResultPesqTableViewController
 @synthesize index;
@@ -20,26 +23,25 @@
 
 static ResultPesqTableViewController *SINGLETON = nil;
 
-
 + (id)sharedInstance
 {
     return SINGLETON;
 }
 
+
+//============================================================
+#pragma mark - DidLoad
+//============================================================
 - (void)viewDidLoad {
     [super viewDidLoad];
     medicoSelecionado = [[Medico alloc]init];
     NSString* especialidade = [[[ViewController sharedInstance]LEspecialidade]text];
-    NSLog(@"\n\n\nespecialidade PASSADA %@", especialidade);
     NSString* bairro = [[[ViewController sharedInstance]LRegiao]text];
-    NSLog(@"regiao PASSADA %@", bairro);
     
     _medicos = [[NSMutableArray alloc]init];
     
     [[MedicoController sharedInstance]buscarMedicos:especialidade andRegiao:bairro AndComplete:^{
         [self.tableView reloadData];
-        NSLog(@"Terminou");
-        NSLog(@"quantidade que deve ser apresentado %lu", (unsigned long)_medicos.count);
     }];
     
      SINGLETON = self;
@@ -47,11 +49,12 @@ static ResultPesqTableViewController *SINGLETON = nil;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
+//============================================================
+#pragma mark - Configuracao da table e sections
+//============================================================
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -61,18 +64,8 @@ static ResultPesqTableViewController *SINGLETON = nil;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    ResultPesqTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaResultPesq" forIndexPath:indexPath];
-//    
-//    
-//    
-//    if (cell == nil)
-//    {
-//        cell = [[ResultPesqTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaResultPesq"];
-//    }
-    
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Celula"];
   
     UIButton *button= [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
@@ -99,20 +92,14 @@ static ResultPesqTableViewController *SINGLETON = nil;
     return cell;
 }
 
+
+//============================================================
+#pragma mark - Passando valores da celula selecionada e Botao de Infos
+//============================================================
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"showConsulta" sender:self] ;
     medicoSelecionado = _medicos[indexPath.row];
-}
-
-#pragma mark - Navigation
-
-//[self.MapView setDelegate:self];
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 - (void)buttonPressedAction:(id)sender
@@ -120,9 +107,11 @@ static ResultPesqTableViewController *SINGLETON = nil;
     UIButton *button = (UIButton *)sender;
     medicoSelecionado = _medicos[button.tag];
     [self performSegueWithIdentifier:@"showInfo" sender:self];
-  
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+}
 
 
 @end
