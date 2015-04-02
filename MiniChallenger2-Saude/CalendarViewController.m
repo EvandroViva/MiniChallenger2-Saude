@@ -34,7 +34,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self transitionExample];
+    self.calendarContentViewHeight.constant = 300;
+    [self.view layoutIfNeeded];
     [self.calendar reloadData];
 }
 

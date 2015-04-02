@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B5CB41E1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */; };
 		11BB75211ACB1D4D00B2EF34 /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB750D1ACB1D4D00B2EF34 /* JTCalendar.m */; };
 		11BB75221ACB1D4D00B2EF34 /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB750F1ACB1D4D00B2EF34 /* JTCalendarAppearance.m */; };
 		11BB75231ACB1D4D00B2EF34 /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB75111ACB1D4D00B2EF34 /* JTCalendarContentView.m */; };
@@ -54,6 +55,8 @@
 		90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90016F361AC1FDA6002D8BF6 /* PacientesTableViewCell.m */; };
 		905818BB1ACC2B7A00B9A42E /* MoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 905818B91ACC2B7A00B9A42E /* MoreTableViewCell.m */; };
 		905818BC1ACC2B7A00B9A42E /* MoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 905818BA1ACC2B7A00B9A42E /* MoreTableViewCell.xib */; };
+		905E812A1ACD565500BDEDF2 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905E81281ACD565500BDEDF2 /* ScheduleTableViewController.m */; };
+		905E812B1ACD565500BDEDF2 /* ScheduleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 905E81291ACD565500BDEDF2 /* ScheduleTableViewController.xib */; };
 		908883E71AC7645E006E7BE9 /* Medico.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883E61AC7645E006E7BE9 /* Medico.m */; };
 		908883EB1AC764E4006E7BE9 /* MedicoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883EA1AC764E4006E7BE9 /* MedicoDAO.m */; };
 		908883F31AC78748006E7BE9 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908883F11AC78748006E7BE9 /* MainTabBarController.m */; };
@@ -86,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B5CB41C1ACD8AC2003CA51D /* SpecialtyNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialtyNavigationViewController.h; sourceTree = "<group>"; };
+		0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialtyNavigationViewController.m; sourceTree = "<group>"; };
 		11BB750C1ACB1D4D00B2EF34 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
 		11BB750D1ACB1D4D00B2EF34 /* JTCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendar.m; sourceTree = "<group>"; };
 		11BB750E1ACB1D4D00B2EF34 /* JTCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarAppearance.h; sourceTree = "<group>"; };
@@ -159,6 +164,9 @@
 		905818B81ACC2B7A00B9A42E /* MoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewCell.h; sourceTree = "<group>"; };
 		905818B91ACC2B7A00B9A42E /* MoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewCell.m; sourceTree = "<group>"; };
 		905818BA1ACC2B7A00B9A42E /* MoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreTableViewCell.xib; sourceTree = "<group>"; };
+		905E81271ACD565500BDEDF2 /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		905E81281ACD565500BDEDF2 /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
+		905E81291ACD565500BDEDF2 /* ScheduleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewController.xib; sourceTree = "<group>"; };
 		908883E51AC7645E006E7BE9 /* Medico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Medico.h; path = "MiniChallenger2-Saude/Model/Medico.h"; sourceTree = "<group>"; };
 		908883E61AC7645E006E7BE9 /* Medico.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Medico.m; path = "MiniChallenger2-Saude/Model/Medico.m"; sourceTree = "<group>"; };
 		908883E91AC764E4006E7BE9 /* MedicoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MedicoDAO.h; path = "MiniChallenger2-Saude/DAO/MedicoDAO.h"; sourceTree = "<group>"; };
@@ -224,6 +232,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B5CB41B1ACD8A75003CA51D /* Specialty */ = {
+			isa = PBXGroup;
+			children = (
+				0B5CB41C1ACD8AC2003CA51D /* SpecialtyNavigationViewController.h */,
+				0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */,
+			);
+			name = Specialty;
+			sourceTree = "<group>";
+		};
 		11BB750B1ACB1D4D00B2EF34 /* JTCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +421,15 @@
 			name = More;
 			sourceTree = "<group>";
 		};
+		905E812C1ACD56A500BDEDF2 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				905E81271ACD565500BDEDF2 /* ScheduleTableViewController.h */,
+				905E81281ACD565500BDEDF2 /* ScheduleTableViewController.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 		908883E41AC763DE006E7BE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +487,8 @@
 				90014A701AC858BD00AD7292 /* SignInViewController.xib */,
 				90014A801AC87A6700AD7292 /* CompleteRegisterViewController.xib */,
 				90BD96DD1ACAE69E0053ED27 /* CalendarViewController.xib */,
+				905E81291ACD565500BDEDF2 /* ScheduleTableViewController.xib */,
+				90BD96D81ACAC7B60053ED27 /* SpecialtyTableViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -487,6 +515,7 @@
 		908883FF1AC78A68006E7BE9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				0B5CB41B1ACD8A75003CA51D /* Specialty */,
 				90BB5F031ACC17AA00588D2C /* Schedule */,
 				90BD96E41ACAE7A80053ED27 /* Calendar */,
 				9088840A1AC79213006E7BE9 /* More */,
@@ -516,6 +545,7 @@
 		908884071AC78B04006E7BE9 /* Table */ = {
 			isa = PBXGroup;
 			children = (
+				905E812C1ACD56A500BDEDF2 /* Schedule */,
 				90BD96BB1ACABF370053ED27 /* Specialty */,
 				9088840E1AC792D4006E7BE9 /* More */,
 				908884061AC78AF1006E7BE9 /* Notification */,
@@ -583,7 +613,6 @@
 			children = (
 				90BD96D61ACAC7B60053ED27 /* SpecialtyTableViewController.h */,
 				90BD96D71ACAC7B60053ED27 /* SpecialtyTableViewController.m */,
-				90BD96D81ACAC7B60053ED27 /* SpecialtyTableViewController.xib */,
 			);
 			name = Specialty;
 			sourceTree = "<group>";
@@ -709,6 +738,7 @@
 				90014A721AC858BD00AD7292 /* SignInViewController.xib in Resources */,
 				905818BC1ACC2B7A00B9A42E /* MoreTableViewCell.xib in Resources */,
 				908884161AC793B5006E7BE9 /* MoreTableViewController.xib in Resources */,
+				905E812B1ACD565500BDEDF2 /* ScheduleTableViewController.xib in Resources */,
 				11BB75361ACB1D7300B2EF34 /* Pods-resources.sh in Resources */,
 				90016F141AC176BC002D8BF6 /* Images.xcassets in Resources */,
 			);
@@ -762,8 +792,10 @@
 				9088840D1AC7923D006E7BE9 /* MoreNavigationController.m in Sources */,
 				908883E71AC7645E006E7BE9 /* Medico.m in Sources */,
 				908884151AC793B5006E7BE9 /* MoreTableViewController.m in Sources */,
+				905E812A1ACD565500BDEDF2 /* ScheduleTableViewController.m in Sources */,
 				11BB75331ACB1D7300B2EF34 /* Pods-acknowledgements.markdown in Sources */,
 				11BB75241ACB1D4D00B2EF34 /* JTCalendarDayView.m in Sources */,
+				0B5CB41E1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

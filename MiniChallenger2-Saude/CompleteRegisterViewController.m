@@ -20,7 +20,6 @@
     Medico *m1 = [Medico sharedDoctor];
     [self.NameTextFiled setText:[m1 name]];
     [self.docTextFiled setText:[m1 cod]];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,5 +60,7 @@
     [self presentViewController: stvc animated:TRUE completion:nil];
 }
 - (IBAction)InsertAddressClick:(UIButton *)sender {
+    ScheduleTableViewController *schTVC = [[ScheduleTableViewController alloc]initWithNibName:@"ScheduleTableViewController" bundle:nil];
+    [self presentViewController: schTVC animated:TRUE completion:nil];
 }
 @end

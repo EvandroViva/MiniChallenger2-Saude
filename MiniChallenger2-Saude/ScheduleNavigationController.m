@@ -29,8 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    CalendarViewController *canledarVC = [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil];
-    [self setViewControllers:@[canledarVC]];
+    ScheduleTableViewController *scheduleVC = [[ScheduleTableViewController alloc] initWithNibName:@"ScheduleTableViewController" bundle:nil];
+    [self setViewControllers:@[scheduleVC]];
 }
 
 - (void)didReceiveMemoryWarning {
