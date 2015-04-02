@@ -28,16 +28,21 @@ static bool isFirstAccess = YES;
 //==========================================================
 
 
--(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback;
+-(void)buscarAgenda:(PFObject*)object andDiaSelec:(NSNumber*)diaSelecionado AndComplete:(void(^)(NSArray*)) callback;
 {
     PFRelation* relation = [object relationForKey:@"id_tipoConsulta"];
-    [[relation query]findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSMutableArray *consultas = [[NSMutableArray alloc]init];
+    PFQuery *query = [relation query];
+    [query whereKey:@"numeroDiaSemana" equalTo:diaSelecionado];
+   
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+         NSMutableArray *dia = [[NSMutableArray alloc]init];
         if (!error) {
+            
             // The find succeeded.
             
             NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
             // Do something with the found objects
+            
             for (PFObject *object in objects)
             {
                 Consulta *consulta = [[Consulta alloc]init];
@@ -47,12 +52,23 @@ static bool isFirstAccess = YES;
                 consulta.horarioFinal = object[@"horarioFinal"];
                 consulta.data = object[@"Date"];
                 NSLog(@"DIA ? =%@",consulta.horarioInicial);
-                if([object[@"numeroDiaSemana"] intValue] == 1)
-                    [[[ConsultaViewController sharedInstance]segunda]addObject:consulta];
-                else
-                    [[[ConsultaViewController sharedInstance]terca]addObject:consulta];
-                    
-               // [consultas addObject:consulta];
+                
+//                if([diaSelecionado intValue] == 1)
+//                    [[[ConsultaViewController sharedInstance]domingo]addObject:consulta];
+//                if([diaSelecionado intValue] == 2)
+//                    [[[ConsultaViewController sharedInstance]segunda]addObject:consulta];
+//                if([diaSelecionado intValue] == 3)
+//                    [[[ConsultaViewController sharedInstance]terca]addObject:consulta];
+//                if([diaSelecionado intValue] == 4)
+//                    [[[ConsultaViewController sharedInstance]quarta]addObject:consulta];
+//                if([diaSelecionado intValue] == 5)
+//                    [[[ConsultaViewController sharedInstance]quinta]addObject:consulta];
+//                if([diaSelecionado intValue] == 6)
+//                    [[[ConsultaViewController sharedInstance]sexta]addObject:consulta];
+//                if([diaSelecionado intValue] == 7)
+//                    [[[ConsultaViewController sharedInstance]sabado]addObject:consulta];
+                
+                [dia addObject:consulta];
             }
             
         }
@@ -60,7 +76,7 @@ static bool isFirstAccess = YES;
         else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-        callback();
+        callback(dia);
     }];
 }
 

@@ -35,7 +35,8 @@
 @property NSString* diaSemanaSelecionada;
 @property NSString* diaSemanaAgenda;
 @property Consulta* consulta;
-@property NSMutableArray* segunda, *terca, *quarta, *quinta, *sexta;
+@property NSMutableArray* segunda, *terca, *quarta, *quinta, *sexta, *sabado, *domingo, *semana;
+@property NSArray *mostrar;
 
 
 @end

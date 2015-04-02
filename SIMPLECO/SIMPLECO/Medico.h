@@ -37,6 +37,5 @@
 +(instancetype) shared;
 
 -(void)setWithPFObject: (PFObject*) object;
--(void)setWithPFUser: (PFUser*) object;
 
 @end
