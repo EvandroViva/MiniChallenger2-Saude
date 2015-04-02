@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CalendarViewController.h"
+#import "ScheduleTableViewController.h"
 
 @interface ScheduleNavigationController : UINavigationController
 
