@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B5CB41E1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */; };
 		11BB75211ACB1D4D00B2EF34 /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB750D1ACB1D4D00B2EF34 /* JTCalendar.m */; };
 		11BB75221ACB1D4D00B2EF34 /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB750F1ACB1D4D00B2EF34 /* JTCalendarAppearance.m */; };
 		11BB75231ACB1D4D00B2EF34 /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB75111ACB1D4D00B2EF34 /* JTCalendarContentView.m */; };
@@ -88,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B5CB41C1ACD8AC2003CA51D /* SpecialtyNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialtyNavigationViewController.h; sourceTree = "<group>"; };
+		0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialtyNavigationViewController.m; sourceTree = "<group>"; };
 		11BB750C1ACB1D4D00B2EF34 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
 		11BB750D1ACB1D4D00B2EF34 /* JTCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendar.m; sourceTree = "<group>"; };
 		11BB750E1ACB1D4D00B2EF34 /* JTCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarAppearance.h; sourceTree = "<group>"; };
@@ -229,6 +232,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B5CB41B1ACD8A75003CA51D /* Specialty */ = {
+			isa = PBXGroup;
+			children = (
+				0B5CB41C1ACD8AC2003CA51D /* SpecialtyNavigationViewController.h */,
+				0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */,
+			);
+			name = Specialty;
+			sourceTree = "<group>";
+		};
 		11BB750B1ACB1D4D00B2EF34 /* JTCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +515,7 @@
 		908883FF1AC78A68006E7BE9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				0B5CB41B1ACD8A75003CA51D /* Specialty */,
 				90BB5F031ACC17AA00588D2C /* Schedule */,
 				90BD96E41ACAE7A80053ED27 /* Calendar */,
 				9088840A1AC79213006E7BE9 /* More */,
@@ -782,6 +795,7 @@
 				905E812A1ACD565500BDEDF2 /* ScheduleTableViewController.m in Sources */,
 				11BB75331ACB1D7300B2EF34 /* Pods-acknowledgements.markdown in Sources */,
 				11BB75241ACB1D4D00B2EF34 /* JTCalendarDayView.m in Sources */,
+				0B5CB41E1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

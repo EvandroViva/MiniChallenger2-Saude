@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CompleteRegisterViewController.h"
+
 
 @interface SpecialtyTableViewController : UITableViewController
+
+@property NSArray* especialidades;
+@property NSString* especialidadeSelecionada;
+
++ (SpecialtyTableViewController*)sharedInstance;
 
 @end

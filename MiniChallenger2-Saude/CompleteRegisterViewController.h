@@ -10,6 +10,7 @@
 #import "Medico.h"
 #import "SpecialtyTableViewController.h"
 #import "SpecialtyTableViewCell.h"
+#import "ScheduleTableViewController.h"
 
 @interface CompleteRegisterViewController : UIViewController
 
