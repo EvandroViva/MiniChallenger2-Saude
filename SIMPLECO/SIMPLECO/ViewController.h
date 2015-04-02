@@ -15,19 +15,24 @@
 
 @interface ViewController : UIViewController
 
+// SINGLETON
 + (ViewController*)sharedInstance;
 
+// OUTLETS - STORYBOARD
 @property (weak, nonatomic) IBOutlet UIButton *BBuscar;
 @property (weak, nonatomic) IBOutlet UIButton *Bregiao;
 @property (weak, nonatomic) IBOutlet UIButton *Bespecialidade;
 @property (weak, nonatomic) IBOutlet UILabel *LEspecialidade;
 @property (weak, nonatomic) IBOutlet UILabel *LRegiao;
-- (IBAction)BotaoBuscar:(id)sender;
 
+// ATRIBUTOS
 @property NSString* regiao;
 @property NSString* especialidade;
 @property BOOL permissaoEvento;
 @property EKEventStore *eventStore;
+
+// METODOS
+- (IBAction)BotaoBuscar:(id)sender;
 
 
 
