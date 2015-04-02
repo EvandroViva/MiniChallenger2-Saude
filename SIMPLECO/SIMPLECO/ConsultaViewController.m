@@ -12,6 +12,7 @@
 {
     ResultPesqTableViewController *singleton;
     int i,x,teste;
+    NSCalendar *gregorian;
 }
 
 @end
@@ -34,6 +35,7 @@ static ConsultaViewController *SINGLETON = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    gregorian = [NSCalendar currentCalendar];
     
 //---------------------------------------------------------------------------------------------------
 //                      INICIALIZANDO O CALENDÁRIO
@@ -65,15 +67,67 @@ static ConsultaViewController *SINGLETON = nil;
 //                      PARSE
 //---------------------------------------------------------------------------------------------------
   
-    _consultas = [[NSArray alloc]init];
+  //  _consultas = [[NSArray alloc]init];
+    _segunda = [[NSMutableArray alloc]init];
+    _terca = [[NSMutableArray alloc]init];
+    _quarta = [[NSMutableArray alloc]init];
+    _quinta = [[NSMutableArray alloc]init];
+    _sexta = [[NSMutableArray alloc]init];
     
-    [[ConsultaController sharedInstance]buscarAgenda: singleton.medicoSelecionado.parseObject AndComplete:^(NSArray* array)
+    [[ConsultaController sharedInstance]buscarAgenda: singleton.medicoSelecionado.parseObject AndComplete:^()
     {
-        _consultas = array;
+      //  _consultas = array;
     }];
     x=0;
+
+    
+    
+    
+    
+    //================
+    
+    NSDate *today = [NSDate date];
+    today = [self diasemana:today];
+    NSLog(@"hj?%@",today);
+    [self weekCalculation];
+    [self teste];
+    
     
    
+}
+
+- (void)weekCalculation
+{
+//    NSCalendar* calendar = [NSCalendar currentCalendar];
+//    NSDateComponents* comps = [calendar components:NSYearForWeekOfYearCalendarUnit |NSYearCalendarUnit|NSMonthCalendarUnit|NSWeekCalendarUnit|NSWeekdayCalendarUnit fromDate:[NSDate date]];
+//    
+//    [comps setWeekday:1]; // 1: Sunday
+//    firstDateOfTheWeek = [[calendar dateFromComponents:comps] retain];
+//    [comps setWeekday:7]; // 7: Saturday
+//    lastDateOfTheWeek = [[calendar dateFromComponents:comps] retain];
+//    
+//    NSLog(@" first date of week =%@", firstDateOfTheWeek);
+//    NSLog(@" last date of week =%@", lastDateOfTheWeek);
+//    
+//   // firstDateOfWeek = [dateFormatter stringFromDate:firstDateOfTheWeek];
+//    lastDateOfWeek = [dateFormatter stringFromDate:lastDateOfTheWeek];
+    
+   // NSCalendar* gregorian = [NSCalendar currentCalendar];
+    
+   // NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+   // [gregorian setFirstWeekday:2]; // Sunday == 1, Saturday == 7
+//    NSUInteger adjustedWeekdayOrdinal = [gregorian ordinalityOfUnit:NSWeekdayCalendarUnit inUnit:NSWeekCalendarUnit forDate:[NSDate date]];
+//    NSLog(@"Adjusted weekday ordinal: %lu", (unsigned long)adjustedWeekdayOrdinal);
+
+//
+}
+
+-(NSDate*)diasemana:(NSDate*)today
+{
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp = [calendar components:NSYearForWeekOfYearCalendarUnit |NSYearCalendarUnit|NSMonthCalendarUnit|NSWeekCalendarUnit|NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    [comp setWeekday:1 ];
+    return [[NSCalendar currentCalendar] dateByAddingComponents:comp toDate:today options:0];
 }
 
 #pragma mark Botao de Navegation de voltar
@@ -215,6 +269,11 @@ static ConsultaViewController *SINGLETON = nil;
     int num = [_consulta.horarioInicial intValue];
     dataSelecionada = [self dateByAddingHours:num andMinute:0 andData:date];
     teste =1;
+    
+    
+   // NSUInteger testando = [gregorian ordinalityOfUnit:self.calendar inUnit:NSWeekCalendarUnit forDate:date];
+    NSUInteger adjustedWeekdayOrdinal = [gregorian ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:date];
+    NSLog(@"Adjusted weekday ordinal: %lu", (unsigned long)adjustedWeekdayOrdinal);
     [self.tableView reloadData];
     
 
@@ -229,10 +288,27 @@ static ConsultaViewController *SINGLETON = nil;
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setHour:hours];
     [components setMinute:minute];
+  
     
     return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
 }
 
+-(void)teste
+{
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:6];
+    [comps setMonth:5];
+    [comps setYear:2004];
+//    NSCalendar *gregorian = [[NSCalendar alloc]init];
+                            // initWithCalendarIdentifier:[@"NSGregorianCalendar" ];
+                           //  initWithCalendarIdentifier:NSGregorianCalendar];
+  //  NSDate *date = [gregorian dateFromComponents:comps];
+   // [comps release];
+   // NSDateComponents *weekdayComponents =
+    //[gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    //int weekday =(int) [weekdayComponents weekday] ;
+    
+}
 #pragma mark - Transition examples
 
 - (void)transitionExample

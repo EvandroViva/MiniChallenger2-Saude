@@ -24,5 +24,6 @@
 @property NSString* diaSemana;
 @property NSNumber* horarioFinal;
 @property NSNumber* horarioInicial;
+@property NSNumber* numeroDiaSemana;
 @end
 

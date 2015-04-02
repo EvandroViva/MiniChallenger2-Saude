@@ -11,12 +11,14 @@
 #import "Medico.h"
 #import "ResultPesqTableViewController.h"
 #import "Consulta.h"
+#import "ConsultaViewController.h"
+#import "RegiaoTableViewController.h"
 
 @interface ConsultaController : NSObject
 
 + (ConsultaController*)sharedInstance;
 
 #pragma mark - Buscar Consultas
--(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(NSArray*)) callback;
+-(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback;
 
 @end
