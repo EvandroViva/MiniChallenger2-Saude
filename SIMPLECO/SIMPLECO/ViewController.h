@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *Bespecialidade;
 @property (weak, nonatomic) IBOutlet UILabel *LEspecialidade;
 @property (weak, nonatomic) IBOutlet UILabel *LRegiao;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *Carregando;
 
 // ATRIBUTOS
 @property NSString* regiao;

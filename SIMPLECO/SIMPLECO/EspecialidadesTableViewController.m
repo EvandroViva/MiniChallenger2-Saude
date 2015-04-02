@@ -42,9 +42,9 @@ static EspecialidadesTableViewController *SINGLETON = nil;
     regiao = [RegiaoTableViewController sharedInstance];
     _especialidades = [[NSArray alloc]init];
     _exibir = [[NSMutableArray alloc]init];
-    
+    [self.Carregando setHidden:NO];
     [[MedicoController sharedInstance]buscarEspecialidade:regiao.bairro AndComplete:^(NSArray *array){
-  
+  [self.Carregando setHidden:YES];
         _especialidades = array;
         NSString* anterior;
         NSString* atual;
@@ -62,8 +62,9 @@ static EspecialidadesTableViewController *SINGLETON = nil;
         SINGLETON = self;
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)viewDidAppear:(BOOL)animated
 {
+    
 }
 
 - (void)didReceiveMemoryWarning {
