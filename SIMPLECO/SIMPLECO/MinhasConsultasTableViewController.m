@@ -137,6 +137,8 @@
     NSInteger interval = [date timeIntervalSinceReferenceDate];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"calshow:%ld", interval]];
     [[UIApplication sharedApplication] openURL:url];
+    
+    
 }
 
 /*
