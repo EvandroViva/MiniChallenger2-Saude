@@ -28,23 +28,31 @@ static bool isFirstAccess = YES;
 //==========================================================
 
 
--(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback
+-(void)buscarAgenda:(PFObject*)object andDiaSelec:(NSNumber*)diaSelecionado AndComplete:(void(^)(NSArray*)) callback;
 {
     PFRelation* relation = [object relationForKey:@"id_tipoConsulta"];
-    [[relation query]findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"asdasdasdsa");
+    PFQuery *query = [relation query];
+    [query whereKey:@"numeroDiaSemana" equalTo:diaSelecionado];
+    [query addAscendingOrder:@"horarioInicial"];
+   
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+         NSMutableArray *dia = [[NSMutableArray alloc]init];
         if (!error) {
+            
             // The find succeeded.
             
             NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
             // Do something with the found objects
+            
             for (PFObject *object in objects)
             {
                 Consulta *consulta = [[Consulta alloc]init];
+                consulta.numeroDiaSemana = object[@"numeroDiaSemana"];
                 consulta.diaSemana = object[@"diaSemana"];
-                consulta.data = object[@"diaSemana"];
-                NSLog(@"DIA ? =%@",consulta.diaSemana);
-                
+                consulta.horarioInicial = object[@"horarioInicial"];
+                consulta.horarioFinal = object[@"horarioFinal"];
+                consulta.data = object[@"Date"];
+                [dia addObject:consulta];
             }
             
         }
@@ -52,7 +60,7 @@ static bool isFirstAccess = YES;
         else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-        callback();
+        callback(dia);
     }];
 }
 

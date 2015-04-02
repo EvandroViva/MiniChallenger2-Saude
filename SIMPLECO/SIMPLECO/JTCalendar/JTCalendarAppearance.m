@@ -66,7 +66,7 @@
     static dispatch_once_t once;
     
     dispatch_once(&once, ^{
-        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         calendar.timeZone = [NSTimeZone localTimeZone];
     });
     
