@@ -66,30 +66,11 @@ static ConsultaViewController *SINGLETON = nil;
 //---------------------------------------------------------------------------------------------------
 //                      PARSE
 //---------------------------------------------------------------------------------------------------
-  
-  //  _consultas = [[NSArray alloc]init];
-    _segunda = [[NSMutableArray alloc]init];
-    _terca = [[NSMutableArray alloc]init];
-    _quarta = [[NSMutableArray alloc]init];
-    _quinta = [[NSMutableArray alloc]init];
-    _sexta = [[NSMutableArray alloc]init];
     _mostrar = [[NSArray alloc]init];
-    _semana = [[NSMutableArray alloc]initWithObjects:_domingo, _sabado, _segunda,_terca,_quarta,_quinta,_sexta, nil];
     
     
     
     x=0;
-
-    
-    
-    
-    
-    //================
-    
-    NSDate *today = [NSDate date];
-    today = [self diasemana:today];
-    NSLog(@"hj?%@",today);
- 
    
 }
 
@@ -132,16 +113,6 @@ static ConsultaViewController *SINGLETON = nil;
     [self.calendar reloadData];
     [self.view setNeedsDisplay];
     teste=0;
-    
-    
-    
-    
-    
-    //NSLog(@"Data no banco = %@",_consulta.diaSemana);
-//    //if ([_consulta.diaSemana isEqualToString: formatoData]) {
-//        NSLog(@"Sao iguais");
-//    }
-    
 }
 
 
@@ -150,40 +121,6 @@ static ConsultaViewController *SINGLETON = nil;
 - (IBAction)didGoTodayTouch
 {
     [self.calendar setCurrentDate:[NSDate date]];
-    
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
-    
-    [components setHour:-[components hour]];
-    [components setMinute:-[components minute]];
-    [components setSecond:-[components second]];
-    NSDate *today = [cal dateByAddingComponents:components toDate:[[NSDate alloc] init] options:0]; //This variable should now be pointing at a date object that is the start of today (midnight);
-    
-    [components setHour:-24];
-    [components setMinute:0];
-    [components setSecond:0];
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate: today options:0];
-    
-    components = [cal components:NSWeekdayCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:[[NSDate alloc] init]];
-    
-    [components setDay:([components day] - ([components weekday] - 1))];
-    NSDate *thisWeek  = [cal dateFromComponents:components];
-    
-    [components setDay:([components day] - 7)];
-    NSDate *lastWeek  = [cal dateFromComponents:components];
-    
-    [components setDay:([components day] - ([components day] -1))];
-    NSDate *thisMonth = [cal dateFromComponents:components];
-    
-    [components setMonth:([components month] - 1)];
-    NSDate *lastMonth = [cal dateFromComponents:components];
-    
-    NSLog(@"today=%@",today);
-    NSLog(@"yesterday=%@",yesterday);
-    NSLog(@"thisWeek=%@",thisWeek);
-    NSLog(@"lastWeek=%@",lastWeek);
-    NSLog(@"thisMonth=%@",thisMonth);
-    NSLog(@"lastMonth=%@",lastMonth);
 }
 
 - (IBAction)didChangeModeTouch
@@ -197,55 +134,7 @@ static ConsultaViewController *SINGLETON = nil;
 
 - (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
 {
-    
-//    int a;
-//    a =0;
-//    DiaSemana = (int)[self NumeroDiaSemana:date];
-//    NSString *formatoData = [self ConverteDia:date];
-//    NSString *formatoDataMont = [self ConverteDiaSemana:date];
-//
-//    NSLog(@"Que mostra ?%@",formatoDataMont);
-//    NSLog(@"Que dia e hj? %@",formatoData);
-//  
-//    
-//    switch (DiaSemana) {
-//        case 1:
-//            if (_domingo.count != 0)
-//            a = 1;
-//            break;
-//        case 2:
-//            if (_segunda.count != 0)
-//            a=1;
-//            break;
-//        case 3:
-//            if (_terca.count != 0)
-//            a=1;
-//            break;
-//        case 4:
-//            if (_quarta.count != 0)
-//            a=1;
-//            break;
-//        case 5:
-//            if (_quinta.count != 0)
-//            a=1;
-//            break;
-//        case 6:
-//            if (_sexta.count != 0)
-//            a=1;
-//            break;
-//        case 7:
-//            if (_sabado.count != 0)
-//            a=1;
-//            break;
-//            
-//        default:
-//            a=0;
-//            break;
-//    }
-//
-//    
-//    return a;
-    
+
     return 0;
 }
 
@@ -289,45 +178,7 @@ static ConsultaViewController *SINGLETON = nil;
          _mostrar = array;
          [self.tableView reloadData];
      }];
-//   
-//    switch (DiaSemanaSelecionado) {
-//        case 1:
-//            _mostrar = _domingo;
-//            break;
-//        case 2:
-//            _mostrar = _segunda;
-//            break;
-//        case 3:
-//            _mostrar = _terca;
-//            break;
-//        case 4:
-//            _mostrar = _quarta;
-//            break;
-//        case 5:
-//            _mostrar = _quinta;
-//            break;
-//        case 6:
-//            _mostrar = _sexta;
-//            break;
-//        case 7:
-//            _mostrar = _sabado;
-//            break;
-//            
-//        default:
-//            _mostrar = nil;
-//            break;
-//    }
-    
-    dataSelecionada = date;
-    teste =1;
-    
-    
-    
-    
-  
-   NSLog(@"Date: %@", date);
-     NSLog(@"Date: %@", dataSelecionada);
-    NSLog(@"Mostart %@",_mostrar);
+  dataSelecionada = date;
 }
 
 #pragma mark - Salvar Horário
