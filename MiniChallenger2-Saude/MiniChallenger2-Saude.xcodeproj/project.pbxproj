@@ -74,6 +74,8 @@
 		90BD96DE1ACAE69E0053ED27 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BD96DC1ACAE69E0053ED27 /* CalendarViewController.m */; };
 		90BD96DF1ACAE69E0053ED27 /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BD96DD1ACAE69E0053ED27 /* CalendarViewController.xib */; };
 		90BD96E31ACAE7A00053ED27 /* CalendarNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BD96E21ACAE7A00053ED27 /* CalendarNavigationViewController.m */; };
+		90C464211ACD760700F49E63 /* AddScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C4641F1ACD760700F49E63 /* AddScheduleTableViewController.m */; };
+		90C464221ACD760700F49E63 /* AddScheduleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90C464201ACD760700F49E63 /* AddScheduleTableViewController.xib */; };
 		90DD5F7F1AC4396B00791FAF /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DD5F7E1AC4396B00791FAF /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +196,9 @@
 		90BD96DD1ACAE69E0053ED27 /* CalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
 		90BD96E11ACAE7A00053ED27 /* CalendarNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarNavigationViewController.h; sourceTree = "<group>"; };
 		90BD96E21ACAE7A00053ED27 /* CalendarNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarNavigationViewController.m; sourceTree = "<group>"; };
+		90C4641E1ACD760700F49E63 /* AddScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddScheduleTableViewController.h; sourceTree = "<group>"; };
+		90C4641F1ACD760700F49E63 /* AddScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddScheduleTableViewController.m; sourceTree = "<group>"; };
+		90C464201ACD760700F49E63 /* AddScheduleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddScheduleTableViewController.xib; sourceTree = "<group>"; };
 		90DD5F7D1AC4396B00791FAF /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		90DD5F7E1AC4396B00791FAF /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -418,6 +423,15 @@
 			name = Schedule;
 			sourceTree = "<group>";
 		};
+		905E81321ACD5C9B00BDEDF2 /* AddSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				90C4641E1ACD760700F49E63 /* AddScheduleTableViewController.h */,
+				90C4641F1ACD760700F49E63 /* AddScheduleTableViewController.m */,
+			);
+			name = AddSchedule;
+			sourceTree = "<group>";
+		};
 		908883E41AC763DE006E7BE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +491,7 @@
 				90BD96DD1ACAE69E0053ED27 /* CalendarViewController.xib */,
 				905E81291ACD565500BDEDF2 /* ScheduleTableViewController.xib */,
 				90BD96D81ACAC7B60053ED27 /* SpecialtyTableViewController.xib */,
+				90C464201ACD760700F49E63 /* AddScheduleTableViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -532,6 +547,7 @@
 		908884071AC78B04006E7BE9 /* Table */ = {
 			isa = PBXGroup;
 			children = (
+				905E81321ACD5C9B00BDEDF2 /* AddSchedule */,
 				905E812C1ACD56A500BDEDF2 /* Schedule */,
 				90BD96BB1ACABF370053ED27 /* Specialty */,
 				9088840E1AC792D4006E7BE9 /* More */,
@@ -725,6 +741,7 @@
 				90014A721AC858BD00AD7292 /* SignInViewController.xib in Resources */,
 				905818BC1ACC2B7A00B9A42E /* MoreTableViewCell.xib in Resources */,
 				908884161AC793B5006E7BE9 /* MoreTableViewController.xib in Resources */,
+				90C464221ACD760700F49E63 /* AddScheduleTableViewController.xib in Resources */,
 				905E812B1ACD565500BDEDF2 /* ScheduleTableViewController.xib in Resources */,
 				11BB75361ACB1D7300B2EF34 /* Pods-resources.sh in Resources */,
 				90016F141AC176BC002D8BF6 /* Images.xcassets in Resources */,
@@ -771,6 +788,7 @@
 				11BB752A1ACB1D4D00B2EF34 /* JTCircleView.m in Sources */,
 				90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */,
 				11BB75221ACB1D4D00B2EF34 /* JTCalendarAppearance.m in Sources */,
+				90C464211ACD760700F49E63 /* AddScheduleTableViewController.m in Sources */,
 				90BD96D11ACAC78A0053ED27 /* SpecialtyTableViewCell.m in Sources */,
 				90014A811AC87A6700AD7292 /* CompleteRegisterViewController.m in Sources */,
 				11BB75251ACB1D4D00B2EF34 /* JTCalendarMenuMonthView.m in Sources */,

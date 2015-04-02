@@ -1,31 +1,31 @@
 //
-//  MoreTableViewController.m
+//  AddScheduleTableViewController.m
 //  MiniChallenger2-Saude
 //
-//  Created by Evandro Remon Pulz Viva on 28/03/15.
+//  Created by Evandro Remon Pulz Viva on 02/04/15.
 //  Copyright (c) 2015 Evandro Remon Pulz Viva. All rights reserved.
 //
 
-#import "MoreTableViewController.h"
-#import "MainTabBarController.h"
+#import "AddScheduleTableViewController.h"
 
 
-@interface MoreTableViewController ()
+
+@interface AddScheduleTableViewController ()
 
 @end
 
-@implementation MoreTableViewController
+@implementation AddScheduleTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UINib *nib = [UINib nibWithNibName:@"MoreTableViewCell" bundle:nil];
-//    [self.tableView registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(DoneClick:)];
+    [self.navigationItem setRightBarButtonItem:done];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,38 +38,36 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 4;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 3;
+    return 5;
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MoreTableViewCell *cell = nil;
+
     
-    cell = [tableView dequeueReusableCellWithIdentifier:@"MoreTableViewCell"];
+    SpecialtyTableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:@"SpecialtyTableViewCell"];
     
     if(cell == nil)
     {
-//        [[NSBundle mainBundle] loadNibNamed:@"MoreTableViewCell" owner:self options:nil];
+        //        [[NSBundle mainBundle] loadNibNamed:@"MoreTableViewCell" owner:self options:nil];
         //cell = [[MoreTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:@"MoreTableViewCell"];
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"MoreTableViewCell" owner:self options:nil] objectAtIndex:0];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"SpecialtyTableViewCell" owner:self options:nil] objectAtIndex:0];
     }
-    [[cell TitleLabel] setText:@"Sair"];
+    [cell.TitleLabel setText:@"giusbfe"];
+    [cell.ValueLabel setText:@"fdsfsdf"];
+    //    [celula.detailTextLabel setText: [dic.palavras objectAtIndex:row]];
+    //    [celula.imageView setImage:[dic.imagens objectAtIndex:row]];
     
-//    cell.sair.text=@"SAIR";
-    
-    // Configure the cell...
     
     return cell;
 }
-
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -105,6 +103,16 @@
 }
 */
 
+- (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row){
+        case 0:
+            if(indexPath.section==0)
+                return 123.0; // first row is 123pt high
+        default:
+            return 40.0; // all other rows are 40pt high
+    }
+}
+
 
 #pragma mark - Table view delegate
 
@@ -112,18 +120,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-//    DetailViewController *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+//    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
     
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
 //    [self.navigationController pushViewController:detailViewController animated:YES];
-    NSLog(@"Saindo");
-    [PFUser logOut];
-    MainTabBarController *main = [MainTabBarController sharedInstance];
-    [Medico resetSharedDoctor];
-    [main dismissViewControllerAnimated:true completion:nil];
-    [MainTabBarController resetSharedInstance];
+
 }
 
 
@@ -136,5 +139,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)DoneClick:(id)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:true];
+}
 
 @end

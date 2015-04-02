@@ -1,5 +1,5 @@
 //
-//  ScheduleTableViewController.h
+//  AddScheduleTableViewController.h
 //  MiniChallenger2-Saude
 //
 //  Created by Evandro Remon Pulz Viva on 02/04/15.
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AddScheduleTableViewController.h"
+#import "SpecialtyTableViewCell.h"
 
-@interface ScheduleTableViewController : UITableViewController
+@interface AddScheduleTableViewController : UITableViewController
 
--(IBAction)addButtonClick;
+- (void)DoneClick:(id)sender;
 
 @end

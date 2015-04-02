@@ -31,6 +31,7 @@
     // Do any additional setup after loading the view.
     ScheduleTableViewController *scheduleVC = [[ScheduleTableViewController alloc] initWithNibName:@"ScheduleTableViewController" bundle:nil];
     [self setViewControllers:@[scheduleVC]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,5 +48,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end
