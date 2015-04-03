@@ -11,7 +11,7 @@
 @interface ConsultaViewController ()
 {
     ResultPesqTableViewController *singleton;
-    int i,x,teste,DiaSemana,DiaSemanaSelecionado;
+    int i,x,teste,DiaSemana;
     NSCalendar *gregorian;
 }
 
@@ -21,6 +21,9 @@
 @synthesize dataSelecionada;
 @synthesize hora;
 @synthesize minuto;
+@synthesize DiaSemanaSelecionado;
+@synthesize horario;
+@synthesize DiaSelecionado;
 
 static ConsultaViewController *SINGLETON = nil;
 
@@ -66,7 +69,9 @@ static ConsultaViewController *SINGLETON = nil;
 //---------------------------------------------------------------------------------------------------
 //                      PARSE
 //---------------------------------------------------------------------------------------------------
-    _mostrar = [[NSArray alloc]init];
+    _mostrar = [[NSMutableArray alloc]init];
+    _excecoes = [[NSMutableArray alloc]init];
+    _vagas = [[NSMutableArray alloc]init];
     
     
     
@@ -172,13 +177,55 @@ static ConsultaViewController *SINGLETON = nil;
 #pragma mark - Selecionar um dia
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
+    NSLog(@"Dia = %@",date);
      DiaSemanaSelecionado = (int)[self NumeroDiaSemana:date];
-    [[ConsultaController sharedInstance]buscarAgenda:singleton.medicoSelecionado.parseObject andDiaSelec:[NSNumber numberWithInt:DiaSemanaSelecionado] AndComplete:^(NSArray *array)
+    DiaSelecionado = [NSNumber numberWithInt:DiaSemanaSelecionado];
+    [[ConsultaController sharedInstance]buscarExcecao:singleton.medicoSelecionado.parseObject andIndex:DiaSelecionado andDiaSelec:date andComplete:^(NSMutableArray *array)
+    {
+        NSLog(@"excessao = %@",array);
+        _excecoes = array;
+        [self TirandoExcecao];
+        
+    }];
+    
+    [[ConsultaController sharedInstance]buscarAgenda:singleton.medicoSelecionado.parseObject andDiaSelec:[NSNumber numberWithInt:DiaSemanaSelecionado] AndComplete:^(NSMutableArray *array)
      {
          _mostrar = array;
+         [self TirandoExcecao];
          [self.tableView reloadData];
+         
      }];
   dataSelecionada = date;
+    
+}
+
+-(void)Juntando
+{
+    [_vagas addObjectsFromArray:_mostrar];
+}
+
+-(void)TirandoExcecao
+{
+    for (int e=0; e<_excecoes.count; e++) {
+        for (int f=0; f<_mostrar.count; f++) {
+        _consulta2 = _mostrar[e];
+        _excecao = _excecoes[e];
+        
+        if (_consulta2.horarioInicial != _excecao.horarioInicial)
+        {
+            if (_consulta2.horarioInicial < _excecao.horarioInicial)
+            {
+                
+                [_vagas addObject:_consulta2];
+                [_mostrar removeObject:_consulta2];
+            }
+        }
+        else
+             [_mostrar removeObject:_consulta2];
+            
+        }
+    }
+    [self Juntando];
 }
 
 #pragma mark - Salvar Horário
@@ -232,7 +279,7 @@ static ConsultaViewController *SINGLETON = nil;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _mostrar.count;
+    return _vagas.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -245,12 +292,12 @@ static ConsultaViewController *SINGLETON = nil;
     {
         cell = [[ConsultaTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaMConsulta"];
     }
-    if (_mostrar.count == 0)
+    if (_vagas.count == 0)
         _consulta.horarioInicial = 0;
     
     else
     {
-    _consulta = _mostrar[indexPath.row];
+    _consulta = _vagas[indexPath.row];
    // NSNumber* n = _consulta.horarioInicial;
     NSLog(@"singleton =%ld", (long)index);
     NSString *ok = [_consulta.horarioInicial stringValue];
@@ -265,7 +312,8 @@ static ConsultaViewController *SINGLETON = nil;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _consulta = _mostrar[indexPath.row];
+    _consulta = _vagas[indexPath.row];
+    horario = _consulta.horarioInicial;
     int num = [_consulta.horarioInicial intValue];
     dataSelecionada = [self dateByAddingHours:num andMinute:0 andData:dataSelecionada];
     

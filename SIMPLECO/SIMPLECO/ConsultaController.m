@@ -27,8 +27,11 @@ static bool isFirstAccess = YES;
 }
 //==========================================================
 
+//========================================================
+//Buscar Agenda
+//=======================================================
 
--(void)buscarAgenda:(PFObject*)object andDiaSelec:(NSNumber*)diaSelecionado AndComplete:(void(^)(NSArray*)) callback;
+-(void)buscarAgenda:(PFObject*)object andDiaSelec:(NSNumber*)diaSelecionado AndComplete:(void(^)(NSMutableArray*)) callback;
 {
     PFRelation* relation = [object relationForKey:@"id_tipoConsulta"];
     PFQuery *query = [relation query];
@@ -62,6 +65,64 @@ static bool isFirstAccess = YES;
         }
         callback(dia);
     }];
+}
+
+
+
+//========================================================
+//Buscar Excessao
+//=======================================================
+-(void)buscarExcecao:(PFObject*)object andIndex:(NSNumber*)index andDiaSelec:(NSDate*)data andComplete:(void(^)(NSMutableArray*)) callback
+{
+    PFRelation* relation = [object relationForKey:@"excecao"];
+    PFQuery *query = [relation query];
+    [query whereKey:@"Data" equalTo:data];
+    [query addAscendingOrder:@"horarioInicial"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *excecao = [[NSMutableArray alloc]init];
+        if (!error) {
+               NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+            for (PFObject *object in objects)
+            {
+                Consulta *consulta = [[Consulta alloc]init];
+                consulta.horarioInicial = object[@"horarioInicial"];
+                consulta.data = object[@"Data"];
+                [excecao addObject:consulta];
+            }
+        }
+        else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        callback(excecao);
+    }];
+    
+    
+}
+
+
+
+-(void)MarcouConsultaRetirarVagaParese:(PFObject*)object AndDiaSelec:(NSNumber*)diaSelecionado AndHoraInicial:(NSNumber*)horario AndComplete:(void(^)(void))callback
+{
+//    PFRelation* relation = [object relationForKey:@"id_tipoConsulta"];
+//    PFQuery *query = [relation query];
+//    [query whereKey:@"numeroDiaSemana" equalTo:diaSelecionado];
+//    [query whereKey:@"horarioInicial" equalTo:horario];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//
+//            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+//            for (PFObject *object in objects)
+//            {
+//                NSLog(@"Quem ta aqui?%@",object);
+//                [object deleteEventually];
+//            }
+//            
+//        }
+//        else {
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//        callback();
+//        }];
 }
 
 @end

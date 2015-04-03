@@ -44,11 +44,10 @@ static EspecialidadesTableViewController *SINGLETON = nil;
     _exibir = [[NSMutableArray alloc]init];
     [self.Carregando setHidden:NO];
     [[MedicoController sharedInstance]buscarEspecialidade:regiao.bairro AndComplete:^(NSArray *array){
-  [self.Carregando setHidden:YES];
         _especialidades = array;
         NSString* anterior;
         NSString* atual;
-        for (NSString *especialidade in _especialidades){
+        for (NSString* especialidade in _especialidades){
             anterior = atual;
             atual = especialidade;
             if (anterior != atual){
@@ -58,6 +57,7 @@ static EspecialidadesTableViewController *SINGLETON = nil;
         [self.tableView reloadData];
         NSLog(@"#ESPECIALIDADES ENCONTRADAS SEM REPETICAO: %@\n\n\n\n", _exibir);
     }];
+    [self.tableView reloadData];
 
         SINGLETON = self;
 }
@@ -81,6 +81,7 @@ static EspecialidadesTableViewController *SINGLETON = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+   
     return _exibir.count;
 }
 
@@ -88,6 +89,7 @@ static EspecialidadesTableViewController *SINGLETON = nil;
     EspecialidadesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaEspecialidades" forIndexPath:indexPath];
     
     cell.Label_Especialidades.text =(NSString*) _exibir[indexPath.row];
+    
     return cell;
 }
 

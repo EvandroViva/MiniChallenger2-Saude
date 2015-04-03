@@ -130,6 +130,12 @@ static LoginViewController *SINGLETON = nil;
                [self CriarEvento:viewController.eventStore];
                [self.tabBarController setSelectedIndex:1];
                [self.navigationController popToRootViewControllerAnimated:YES];
+               
+               
+//               [[ConsultaController sharedInstance]MarcouConsultaRetirarVagaParese:medSelecionado.medicoSelecionado.parseObject AndDiaSelec:dataConsulta.DiaSelecionado AndHoraInicial:dataConsulta.horario AndComplete:^{
+//               }];
+               
+//               
             }
             else{
                   NSString *message = @"Por Favor olhar sua caixa de email!";
