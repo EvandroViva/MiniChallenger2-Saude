@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "ConsultaController.h"
 
 static NSMutableArray *EventoSalvo;
 
@@ -18,7 +19,12 @@ static bool isFirstAccess = YES;
     ConsultaViewController *dataConsulta;
     TabBarController *tabbar;
     NSUserDefaults *defaults;
+
+    ResultPesqTableViewController* med;
+    ConsultaController* personaC;
+
     ResultPesqTableViewController *medSelecionado;
+
 
 }
 
@@ -55,8 +61,10 @@ static LoginViewController *SINGLETON = nil;
     
     [self Default];
     SINGLETON = self;
-    medSelecionado = [ResultPesqTableViewController sharedInstance];
 
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segueShowConsultas) name:@"InformacoesEnviadas" object:nil];
+    medSelecionado = [ResultPesqTableViewController sharedInstance];
 
 
 }
@@ -111,16 +119,65 @@ static LoginViewController *SINGLETON = nil;
                                     block:^(PFUser *user, NSError *error)
     {
                                        
-       if (user) {
-           [self.Carregando setHidden:YES];
-           NSLog(@"Resp?%@",[user objectForKey:@"emailVerified"]);
-           if ([[user objectForKey:@"emailVerified"] boolValue])
-           {
-              _UltimoCadastro = [self.TFLogin text];
-              [defaults setObject:_UltimoCadastro forKey:@"SalvarDados"];
-              _UltimaSenha =[self.TFSenha text];
-              [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
-               
+
+                                        if (user) {
+                                            [self.Carregando setHidden:YES];
+                                            
+                                            NSLog(@"Resp?%@",[user objectForKey:@"emailVerified"]);
+                                            if ([[user objectForKey:@"emailVerified"] boolValue]) {
+                                               
+                                                _UltimoCadastro = [self.TFLogin text];
+                                                [defaults setObject:_UltimoCadastro forKey:@"SalvarDados"];
+                                                
+                                                _UltimaSenha =[self.TFSenha text];
+                                                [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
+                                                
+                                                //Criar Evento no Calendário
+                                                viewController = [ViewController sharedInstance];
+                                                dataConsulta = [ConsultaViewController sharedInstance];
+                                                
+//                                                ========================================
+//                                                |           Salvando no Parse          |
+//                                                ========================================
+                                                //========================================
+                                                //        CRIAR EVENTO NO CALENDÁRIO
+                                                //========================================
+//                                                med=[ResultPesqTableViewController sharedInstance];
+
+                                                [ [ConsultaController sharedInstance] creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:[user objectForKey:@"paciente"]];
+                                                viewController = [ViewController sharedInstance];
+                                                dataConsulta = [ConsultaViewController sharedInstance];
+                                                [self PermissaoEvento];
+                                                [self CriarEvento:viewController.eventStore];
+                                                [self.tabBarController setSelectedIndex:1];
+                                                [self.navigationController popToRootViewControllerAnimated:YES];
+                                                }
+                                            
+                                            else{
+                                                 NSString *message = @"Por Favor olhar sua caixa de email!";
+                                                 UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Email não Confirmado." message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+                                                [alertView show];
+                                            }
+                                        }
+                                        else {
+                                            [self.Carregando setAlpha:1];
+                                            [self.Carregando setHidden:YES];
+                                            NSString *message = @"E-mail e/ou senha estão inválidos.";
+                                            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Usuário Inválido" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+                                            [alertView show];
+                                        }
+    }];
+//===
+//       if (user) {
+//           [self.Carregando setHidden:YES];
+//           NSLog(@"Resp?%@",[user objectForKey:@"emailVerified"]);
+//           if ([[user objectForKey:@"emailVerified"] boolValue])
+//           {
+//              _UltimoCadastro = [self.TFLogin text];
+//              [defaults setObject:_UltimoCadastro forKey:@"SalvarDados"];
+//              _UltimaSenha =[self.TFSenha text];
+//              [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
+    
 //=========================================================================================
 //                      CRIAR EVENTO NO CALENDÁRIO
 //=========================================================================================
@@ -157,6 +214,13 @@ static LoginViewController *SINGLETON = nil;
     
 }
 
+
+- (void)segueShowConsultas {
+    [self PermissaoEvento];
+    [self CriarEvento:viewController.eventStore];
+    [self.tabBarController setSelectedIndex:1];
+    [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
+}
 
 #pragma mark - Permissao para salvar evento Calendario
 

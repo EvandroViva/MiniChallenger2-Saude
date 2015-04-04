@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldUsuario;
 @property (weak, nonatomic) IBOutlet UITextField *TextFieldSenha;
 - (IBAction)Save:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *TextFieldNome;
 
 @end

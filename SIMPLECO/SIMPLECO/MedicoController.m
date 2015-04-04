@@ -49,6 +49,7 @@ static bool isFirstAccess = YES;
                 medico.CEP = object[@"CEP"];
                 medico.bairro = object[@"bairro"];
                 medico.regiao = object[@"regiao"];
+                medico.id_tipoConsulta= object[@"id_tipoConsulta"];
                 medico.parseObject = object;
                 
                 // estrangeira
