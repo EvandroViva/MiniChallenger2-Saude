@@ -22,5 +22,6 @@
 @property NSString *especialidade;
 @property NSArray *especialidades;
 @property NSMutableArray *exibir;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *Carregando;
 
 @end

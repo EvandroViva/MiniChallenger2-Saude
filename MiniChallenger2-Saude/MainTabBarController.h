@@ -13,6 +13,7 @@
 #import "CompleteRegisterViewController.h"
 #import "CalendarNavigationViewController.h"
 #import "ScheduleNavigationController.h"
+#import "SpecialtyNavigationViewController.h"
 
 @interface MainTabBarController : UITabBarController
 

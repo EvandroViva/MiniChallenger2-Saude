@@ -11,6 +11,8 @@
 #import "Medico.h"
 #import "ResultPesqTableViewController.h"
 #import "Consulta.h"
+#import "ConsultaViewController.h"
+#import "RegiaoTableViewController.h"
 
 @interface ConsultaController : NSObject
 
@@ -18,6 +20,6 @@
 -(void)creatingConsultaComData:(NSDate*)data eIdPaciente:(PFObject *)paciente ;//AndComplete: (void(^)(void)) callback;
 
 #pragma mark - Buscar Consultas
--(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback;
+-(void)buscarAgenda:(PFObject*)object andDiaSelec:(NSNumber*)diaSelecionado AndComplete:(void(^)(NSArray*)) callback;
 
 @end

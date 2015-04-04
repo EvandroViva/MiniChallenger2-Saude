@@ -11,6 +11,8 @@
 @interface ConsultaViewController ()
 {
     ResultPesqTableViewController *singleton;
+    int i,x,teste,DiaSemana,DiaSemanaSelecionado;
+    NSCalendar *gregorian;
 }
 
 @end
@@ -33,6 +35,7 @@ static ConsultaViewController *SINGLETON = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    gregorian = [NSCalendar currentCalendar];
     
 //---------------------------------------------------------------------------------------------------
 //                      INICIALIZANDO O CALENDÁRIO
@@ -63,14 +66,22 @@ static ConsultaViewController *SINGLETON = nil;
 //---------------------------------------------------------------------------------------------------
 //                      PARSE
 //---------------------------------------------------------------------------------------------------
-  
+    _mostrar = [[NSArray alloc]init];
     
-    [[ConsultaController sharedInstance]buscarAgenda: singleton.medicoSelecionado.parseObject AndComplete:^()
-    {
-        
-    }];
     
+    
+    x=0;
    
+}
+
+
+
+-(NSDate*)diasemana:(NSDate*)today
+{
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* comp = [calendar components:NSYearForWeekOfYearCalendarUnit |NSYearCalendarUnit|NSMonthCalendarUnit|NSWeekCalendarUnit|NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    [comp setWeekday:1 ];
+    return [[NSCalendar currentCalendar] dateByAddingComponents:comp toDate:today options:0];
 }
 
 #pragma mark Botao de Navegation de voltar
@@ -101,6 +112,7 @@ static ConsultaViewController *SINGLETON = nil;
     [self.view reloadInputViews];
     [self.calendar reloadData];
     [self.view setNeedsDisplay];
+    teste=0;
 }
 
 
@@ -122,27 +134,64 @@ static ConsultaViewController *SINGLETON = nil;
 
 - (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
 {
-    return (rand() % 10) == 1;
+
+    return 0;
+}
+
+
+#pragma mark - Converte NSDate em diaSemana e Dia
+-(NSString*)ConverteDiaSemana:(NSDate*)date
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@"EEEE"];
+    NSString *formatoData = [format stringFromDate:date];
+    //NSLog(@"Data Atual = %@",formatoData);
+    
+    return formatoData;
+}
+
+-(NSString*)ConverteDia:(NSDate*)date
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@" dd /MM/yyyy"];
+    NSString *formatoData = [format stringFromDate:date];
+    
+    return formatoData;
+    
+}
+
+#pragma mark - Numero correspondente ao dia da semana
+-(NSUInteger)NumeroDiaSemana: (NSDate*)date
+{
+    NSUInteger valor = [gregorian ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:date];
+    NSLog(@"Adjusted weekday ordinal: %lu", (unsigned long)valor);
+    return valor;
+    
 }
 
 #pragma mark - Selecionar um dia
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
-    dataSelecionada = date;
-    dataSelecionada = [self dateByAddingHours:9 andMinute:0];
-   
-    NSLog(@"Date: %@", date);
+     DiaSemanaSelecionado = (int)[self NumeroDiaSemana:date];
+    [[ConsultaController sharedInstance]buscarAgenda:singleton.medicoSelecionado.parseObject andDiaSelec:[NSNumber numberWithInt:DiaSemanaSelecionado] AndComplete:^(NSArray *array)
+     {
+         _mostrar = array;
+         [self.tableView reloadData];
+     }];
+  dataSelecionada = date;
 }
 
 #pragma mark - Salvar Horário
--(NSDate*)dateByAddingHours:(NSInteger)hours andMinute:(NSInteger)minute
+-(NSDate*)dateByAddingHours:(NSInteger)hours andMinute:(NSInteger)minute andData:(NSDate*)date
 {
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setHour:hours];
     [components setMinute:minute];
+  
     
-    return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:dataSelecionada options:0];
+    return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
 }
+
 
 #pragma mark - Transition examples
 
@@ -183,22 +232,31 @@ static ConsultaViewController *SINGLETON = nil;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return _mostrar.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     ConsultaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaMConsulta" forIndexPath:indexPath];
     
     if (cell == nil)
     {
         cell = [[ConsultaTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaMConsulta"];
     }
-
-    NSLog(@"singleton =%ld", (long)index);
-    cell.LData.text = @"09:00";
-    cell.LConteudo.text = @"Consulta";
+    if (_mostrar.count == 0)
+        _consulta.horarioInicial = 0;
     
+    else
+    {
+    _consulta = _mostrar[indexPath.row];
+   // NSNumber* n = _consulta.horarioInicial;
+    NSLog(@"singleton =%ld", (long)index);
+    NSString *ok = [_consulta.horarioInicial stringValue];
+    cell.LData.text = ok;
+    cell.LConteudo.text = @"Consulta";
+    }
     
     
     
@@ -207,6 +265,9 @@ static ConsultaViewController *SINGLETON = nil;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _consulta = _mostrar[indexPath.row];
+    int num = [_consulta.horarioInicial intValue];
+    dataSelecionada = [self dateByAddingHours:num andMinute:0 andData:dataSelecionada];
     
     [self performSegueWithIdentifier:@"showLogin" sender:self] ;
 

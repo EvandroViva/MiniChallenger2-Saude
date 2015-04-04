@@ -51,8 +51,8 @@ static MainTabBarController *sharedMainTabBarController = nil;
     [MedicoDAO getMedicoByPFUser:[PFUser currentUser] AndComplete:^(NSError *error){
         Medico *m = [Medico sharedDoctor];
         if ([[m name] isEqualToString:@""] || [m name] == nil || [[m cod] isEqualToString:@""] || [m cod] == nil) {
-        
-                CompleteRegisterViewController *completeregister = [[CompleteRegisterViewController alloc] initWithNibName:@"CompleteRegisterViewController" bundle:nil];
+            
+            CompleteRegisterViewController *completeregister = [[CompleteRegisterViewController alloc] initWithNibName:@"CompleteRegisterViewController" bundle:nil];
 //                completeregister set
                 [self presentViewController:completeregister animated:true completion:nil];
         }

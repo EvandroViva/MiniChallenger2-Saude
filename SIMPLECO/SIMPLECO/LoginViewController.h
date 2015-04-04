@@ -11,6 +11,7 @@
 #import "ConsultaViewController.h"
 #import "UsuarioDAO.h"
 #import "TabBarController.h"
+#import "ResultPesqTableViewController.h"
 
 @interface LoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *login;

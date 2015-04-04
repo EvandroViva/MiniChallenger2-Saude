@@ -123,6 +123,23 @@
     return YES;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [self showCalendarOnDate:_evento.startDate];
+    
+}
+
+#pragma mark - Chama o Calendário do Iphone
+- (void)showCalendarOnDate:(NSDate *)date
+{
+    // calc time interval since 1 January 2001, GMT
+    NSInteger interval = [date timeIntervalSinceReferenceDate];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"calshow:%ld", interval]];
+    [[UIApplication sharedApplication] openURL:url];
+    
+    
+}
 
 /*
 #pragma mark - Navigation
