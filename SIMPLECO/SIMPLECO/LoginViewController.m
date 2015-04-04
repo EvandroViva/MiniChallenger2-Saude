@@ -211,10 +211,16 @@ static LoginViewController *SINGLETON = nil;
 
 
 - (void)segueShowConsultas {
-    [self PermissaoEvento];
-    [self CriarEvento:viewController.eventStore];
-    [self.tabBarController setSelectedIndex:1];
-    [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
+//    =========
+//[self PermissaoEvento];
+//[self CriarEvento:viewController.eventStore];
+//[self.tabBarController setSelectedIndex:1];
+//[self.navigationController popToRootViewControllerAnimated:YES];
+//    =========
+//    [self PermissaoEvento];
+//    [self CriarEvento:viewController.eventStore];
+//    [self.tabBarController setSelectedIndex:1];
+//    [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
 }
 
 #pragma mark - Permissao para salvar evento Calendario
