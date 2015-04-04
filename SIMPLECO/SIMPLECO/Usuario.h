@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface Usuario : NSObject
 
@@ -17,5 +18,6 @@
 @property NSString* usuario;
 @property NSString* email;
 @property NSString* senha;
+@property PFObject* paciente;
 
 @end

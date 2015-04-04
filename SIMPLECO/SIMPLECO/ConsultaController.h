@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RegiaoTableViewController.h"
+#import <Parse/Parse.h>
+#import "Medico.h"
+#import "ResultPesqTableViewController.h"
+#import "Consulta.h"
 
 @interface ConsultaController : NSObject
 
 + (ConsultaController*)sharedInstance;
--(void)creatingConsultaComData:(NSDate*)data eIdPaciente:(PFObject *)paciente /*AndComplete: (void(^)(void)) callback*/;
+-(void)creatingConsultaComData:(NSDate*)data eIdPaciente:(PFObject *)paciente ;//AndComplete: (void(^)(void)) callback;
+
+#pragma mark - Buscar Consultas
+-(void)buscarAgenda:(PFObject*)object AndComplete:(void(^)(void)) callback;
 
 @end

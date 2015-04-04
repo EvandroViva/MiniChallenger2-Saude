@@ -129,18 +129,12 @@ static LoginViewController *SINGLETON = nil;
                                                 viewController = [ViewController sharedInstance];
                                                 dataConsulta = [ConsultaViewController sharedInstance];
                                                 
-                                                //=======================================
-                                                //      Salvando no Parse
-                                                //=======================================
+//                                                ========================================
+//                                                |           Salvando no Parse          |
+//                                                ========================================
 //                                                med=[ResultPesqTableViewController sharedInstance];
 
-                                               [ [ConsultaController sharedInstance] creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:user /*AndComplete:^{
-//                                                    [self.tableView reloadData];
-                                                    NSLog(@"Terminou");
-                                                    NSLog(@"quantidade que deve ser apresentado");
-                                                }*/
-                                                 ];
-                                                //[self segueShowConsultas];
+                                                [ [ConsultaController sharedInstance] creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:[user objectForKey:@"paciente"]];
                                                 }
                                             else{
                                                  NSString *message = @"Por Favor olhar sua caixa de email!";
