@@ -24,8 +24,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(DoneClick:)];
-    [self.navigationItem setRightBarButtonItem:done];
+//    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(DoneClick:)];
+//    [self.navigationItem setRightBarButtonItem:done];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,41 +33,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 5;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 5;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    
-    SpecialtyTableViewCell *cell = nil;
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:@"SpecialtyTableViewCell"];
-    
-    if(cell == nil)
-    {
-        //        [[NSBundle mainBundle] loadNibNamed:@"MoreTableViewCell" owner:self options:nil];
-        //cell = [[MoreTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:@"MoreTableViewCell"];
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"SpecialtyTableViewCell" owner:self options:nil] objectAtIndex:0];
-    }
-    [cell.TitleLabel setText:@"giusbfe"];
-    [cell.ValueLabel setText:@"fdsfsdf"];
-    //    [celula.detailTextLabel setText: [dic.palavras objectAtIndex:row]];
-    //    [celula.imageView setImage:[dic.imagens objectAtIndex:row]];
-    
-    
-    return cell;
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -103,18 +68,11 @@
 }
 */
 
-- (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row){
-        case 0:
-            if(indexPath.section==0)
-                return 123.0; // first row is 123pt high
-        default:
-            return 40.0; // all other rows are 40pt high
-    }
-}
+
 
 
 #pragma mark - Table view delegate
+
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,19 +88,27 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"showPopover"]) {
+        UINavigationController *destNav = segue.destinationViewController;
+//        UIViewController *vc = destNav.viewControllers.firstObject;
+        
+        // This is the important part
+        UIPopoverPresentationController *popPC = destNav.popoverPresentationController;
+        popPC.delegate = self;
+    }
 }
-*/
 
-- (void)DoneClick:(id)sender
-{
-    [self.navigationController popToRootViewControllerAnimated:true];
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
 }
+
+
+
 
 @end
