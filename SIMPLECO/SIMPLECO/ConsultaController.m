@@ -75,7 +75,7 @@ static bool isFirstAccess = YES;
 }
      
      
--(void)creatingConsultaComData:(NSDate*)data eIdPaciente:(id)user {//AndComplete: (void(^)(void)) callback;{
+-(void)creatingConsultaComData:(NSDate*)data eIdPaciente:(id)user AndComplete: (void(^)(void)) callback;{
     NSLog(@"A DE AZARADO");
     med=[ResultPesqTableViewController sharedInstance];
     
@@ -104,7 +104,7 @@ static bool isFirstAccess = YES;
             NSLog(@"!passou");
             // There was a problem, check error.description
         }
-        
+        callback();
     }];
 }
 
@@ -150,11 +150,11 @@ static bool isFirstAccess = YES;
 -(void)MarcouConsultaRetirarVagaParese:(PFObject*)object AndDiaSelec:(NSNumber*)diaSelecionado AndHoraInicial:(NSNumber*)horario AndComplete:(void(^)(void))callback
 {
     
-   // PFUser *user = [PFUser currentUser];
-    PFRelation *relation = [object relationForKey:@"exceto"];
-    PFObject *post = [PFObject objectWithClassName:@"Excecao"];
-    post[@"horarioInicial"] = horario;
-    object[@"exceto"] = post;
+//   // PFUser *user = [PFUser currentUser];
+//    PFRelation *relation = [object relationForKey:@"exceto"];
+//    PFObject *post = [PFObject objectWithClassName:@"Excecao"];
+//    post[@"horarioInicial"] = horario;
+//    object[@"exceto"] = post;
     //relation = post;
     
     //[relation addObject:post];
@@ -169,13 +169,30 @@ static bool isFirstAccess = YES;
 //    
 ////    [object setObject:consMarcada forKey:@"exceto"];
 ////    consMarcada[@"horarioInicial"] = diaSelecionado;
-    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//    PFRelation*relation = [object relationForKey:@"excecao"];
+//    PFObject *post = [PFObject objectWithClassName:@"Excecao"];
+//    post[@"horarioInicial"] = horario;
+//    [relation addObject:post];
+//    
+   PFUser* user = [PFUser objectWithClassName:@"Medico"];
+    [user objectForKey:@"exceto"];
+    PFObject *excecao = [PFObject objectWithClassName:@"Excecao"];
+    [excecao setObject:horario forKey:@"horarioInicial"];
+    [user setObject:excecao forKey:@"exceto"];
+//    
+//    
+//    PFRelation *relation = [object relationForKey:@"Excecoes"];
+//    [relation addObject:excecao];
+    
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"sucesso");
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+
+    
     
    
 }

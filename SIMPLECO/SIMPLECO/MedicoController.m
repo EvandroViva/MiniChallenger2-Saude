@@ -52,6 +52,7 @@ static bool isFirstAccess = YES;
                 medico.id_tipoConsulta= object[@"id_tipoConsulta"];
                 medico.parseObject = object;
                 
+                
                 // estrangeira
                 //medico.id_tipoConsulta = object[@"id_tipoConsulta"];
                 
