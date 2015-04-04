@@ -83,17 +83,23 @@ static bool isFirstAccess = YES;
     
     //persona[@"data"]=data;
 //    NSString *a=[med.medicoSelecionado objectID];
-    persona[@"p_medico"] = [med.medicoSelecionado parseObject];
+    persona[@"p_medico"] = [[med.medicoSelecionado parseObject] objectId];
 //    a=[paciente objectId];
 
     PFRelation* pac=[user relationForKey:@"paciente"];
     [[pac query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSLog(@"@lu", (unsigned long)[objects count]);
         if([objects count]>0){
-            persona[@"p_paciente"]=objects[0];
+            persona[@"p_paciente"]=[user username];
         }
     }];
-    
+//    PFQuery* tConsul=[PFQuery queryWithClassName:tipoConsulta];
+//    [[pac query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        NSLog(@"@lu", (unsigned long)[objects count]);
+//        if([objects count]>0){
+//            persona[@"p_paciente"]=[objects[0] objectId];
+//        }
+//    }];
 //    a=med.medicoSelecionado.id_tipoConsulta;
 //    persona[@"p_tipoConsulta"]=med.medicoSelecionado.id_tipoConsulta;
     [persona saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
