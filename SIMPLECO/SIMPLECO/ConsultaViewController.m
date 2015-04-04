@@ -13,6 +13,7 @@
     ResultPesqTableViewController *singleton;
     int i,x,teste,DiaSemana;
     NSCalendar *gregorian;
+    BOOL verifexcecao, verficabusca;
 }
 
 @end
@@ -72,7 +73,8 @@ static ConsultaViewController *SINGLETON = nil;
     _mostrar = [[NSMutableArray alloc]init];
     _excecoes = [[NSMutableArray alloc]init];
     _vagas = [[NSMutableArray alloc]init];
-    
+    verficabusca = FALSE;
+    verifexcecao = FALSE;
     
     
     x=0;
@@ -178,24 +180,41 @@ static ConsultaViewController *SINGLETON = nil;
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
     NSLog(@"Dia = %@",date);
+    verifexcecao = FALSE;
+    verficabusca = FALSE;
+    [_vagas removeAllObjects];
      DiaSemanaSelecionado = (int)[self NumeroDiaSemana:date];
     DiaSelecionado = [NSNumber numberWithInt:DiaSemanaSelecionado];
     [[ConsultaController sharedInstance]buscarExcecao:singleton.medicoSelecionado.parseObject andIndex:DiaSelecionado andDiaSelec:date andComplete:^(NSMutableArray *array)
     {
         NSLog(@"excessao = %@",array);
         _excecoes = array;
-        [self TirandoExcecao];
+       // [self TirandoExcecao];
+        verifexcecao = TRUE;
+        if (verficabusca == TRUE && verifexcecao == TRUE)
+            [self TirandoExcecao];
+
         
     }];
     
     [[ConsultaController sharedInstance]buscarAgenda:singleton.medicoSelecionado.parseObject andDiaSelec:[NSNumber numberWithInt:DiaSemanaSelecionado] AndComplete:^(NSMutableArray *array)
      {
          _mostrar = array;
-         [self TirandoExcecao];
-         [self.tableView reloadData];
+         //[self TirandoExcecao];
+         verficabusca = TRUE;
+         if (verficabusca == TRUE && verifexcecao == TRUE)
+             [self TirandoExcecao];
+
+          [self.tableView reloadData];
+         
+         
+         
          
      }];
   dataSelecionada = date;
+    
+    
+    
     
 }
 
@@ -225,7 +244,8 @@ static ConsultaViewController *SINGLETON = nil;
             
         }
     }
-    [self Juntando];
+    if (_excecoes.count !=0)
+       [self Juntando];
 }
 
 #pragma mark - Salvar Horário
@@ -279,7 +299,14 @@ static ConsultaViewController *SINGLETON = nil;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _vagas.count;
+    if (_excecoes.count == 0)
+        return _mostrar.count;
+
+    else
+    {
+        _mostrar = _vagas;
+      return _mostrar.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -292,12 +319,12 @@ static ConsultaViewController *SINGLETON = nil;
     {
         cell = [[ConsultaTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaMConsulta"];
     }
-    if (_vagas.count == 0)
+    if (_mostrar.count == 0)
         _consulta.horarioInicial = 0;
     
     else
     {
-    _consulta = _vagas[indexPath.row];
+    _consulta = _mostrar[indexPath.row];
    // NSNumber* n = _consulta.horarioInicial;
     NSLog(@"singleton =%ld", (long)index);
     NSString *ok = [_consulta.horarioInicial stringValue];
@@ -312,7 +339,7 @@ static ConsultaViewController *SINGLETON = nil;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _consulta = _vagas[indexPath.row];
+    _consulta = _mostrar[indexPath.row];
     horario = _consulta.horarioInicial;
     int num = [_consulta.horarioInicial intValue];
     dataSelecionada = [self dateByAddingHours:num andMinute:0 andData:dataSelecionada];
