@@ -11,7 +11,7 @@
 @interface ConsultaViewController ()
 {
     ResultPesqTableViewController *singleton;
-    int i,x,teste,DiaSemana;
+    int i,x,teste,DiaSemana,bit;
     NSCalendar *gregorian;
     BOOL verifexcecao, verficabusca;
 }
@@ -179,23 +179,49 @@ static ConsultaViewController *SINGLETON = nil;
 #pragma mark - Selecionar um dia
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
+//    UIView *novaview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+//    [novaview setBackgroundColor:[UIColor blackColor]];
+//    [novaview setAlpha:0.4];
+//    [self.view addSubview:novaview];
+    bit = 0;
+    
+    [_vagas removeAllObjects];
+    [_mostrar removeAllObjects];
+  // [self.tableView reloadData];
+    
     NSLog(@"Dia = %@",date);
     verifexcecao = FALSE;
     verficabusca = FALSE;
-    [_vagas removeAllObjects];
      DiaSemanaSelecionado = (int)[self NumeroDiaSemana:date];
     DiaSelecionado = [NSNumber numberWithInt:DiaSemanaSelecionado];
-    [[ConsultaController sharedInstance]buscarExcecao:singleton.medicoSelecionado.parseObject andIndex:DiaSelecionado andDiaSelec:date andComplete:^(NSMutableArray *array)
-    {
-        NSLog(@"excessao = %@",array);
-        _excecoes = array;
-       // [self TirandoExcecao];
-        verifexcecao = TRUE;
-        if (verficabusca == TRUE && verifexcecao == TRUE)
-            [self TirandoExcecao];
+  dataSelecionada = date;
+    [self Buscas];
+    
+    
+    
+    
+}
 
-        
-    }];
+-(void)Buscas
+{
+    
+    [[ConsultaController sharedInstance]buscarExcecao:singleton.medicoSelecionado.parseObject andIndex:DiaSelecionado andDiaSelec:dataSelecionada andComplete:^(NSMutableArray *array)
+     {
+         [self.tableView reloadData];
+         NSLog(@"excessao = %@",array);
+         _excecoes = array;
+        // [novaview removeFromSuperview];
+         // [self TirandoExcecao];
+         
+         verifexcecao = TRUE;
+         if (verficabusca == TRUE && verifexcecao == TRUE)
+         {
+             [self TirandoExcecao];
+             bit =1;
+         }
+         
+         
+     }];
     
     [[ConsultaController sharedInstance]buscarAgenda:singleton.medicoSelecionado.parseObject andDiaSelec:[NSNumber numberWithInt:DiaSemanaSelecionado] AndComplete:^(NSMutableArray *array)
      {
@@ -203,20 +229,16 @@ static ConsultaViewController *SINGLETON = nil;
          //[self TirandoExcecao];
          verficabusca = TRUE;
          if (verficabusca == TRUE && verifexcecao == TRUE)
+         {
              [self TirandoExcecao];
-
-          [self.tableView reloadData];
-         
-         
+             bit =1;
+             [self.tableView reloadData];
+         }
          
          
      }];
-  dataSelecionada = date;
-    
-    
-    
-    
 }
+
 
 -(void)Juntando
 {
@@ -299,6 +321,8 @@ static ConsultaViewController *SINGLETON = nil;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (bit == 1) {
+        
     if (_excecoes.count == 0)
         return _mostrar.count;
 
@@ -307,6 +331,12 @@ static ConsultaViewController *SINGLETON = nil;
         _mostrar = _vagas;
       return _mostrar.count;
     }
+    }
+    else
+        if (_mostrar.count != 0)
+            [self Buscas];
+        
+        return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

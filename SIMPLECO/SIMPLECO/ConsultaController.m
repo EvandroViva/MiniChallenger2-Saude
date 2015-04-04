@@ -62,6 +62,9 @@ static bool isFirstAccess = YES;
         
         else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            NSString *message = @"Busca";
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Erro Conexao" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+            [alertView show];
         }
         callback(dia);
     }];
@@ -92,6 +95,9 @@ static bool isFirstAccess = YES;
         }
         else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+            NSString *message = @"Excecao";
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Erro Conexao" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+            [alertView show];
         }
         callback(excecao);
     }];
