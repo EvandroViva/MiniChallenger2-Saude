@@ -77,7 +77,8 @@ static bool isFirstAccess = YES;
 //=======================================================
 -(void)buscarExcecao:(PFObject*)object andIndex:(NSNumber*)index andDiaSelec:(NSDate*)data andComplete:(void(^)(NSMutableArray*)) callback
 {
-    PFRelation* relation = [object relationForKey:@"excecao"];
+    
+    PFRelation* relation = [object relationForKey:@"exceto"];
     PFQuery *query = [relation query];
     [query whereKey:@"Data" equalTo:data];
     [query addAscendingOrder:@"horarioInicial"];
@@ -109,26 +110,41 @@ static bool isFirstAccess = YES;
 
 -(void)MarcouConsultaRetirarVagaParese:(PFObject*)object AndDiaSelec:(NSNumber*)diaSelecionado AndHoraInicial:(NSNumber*)horario AndComplete:(void(^)(void))callback
 {
-//    PFRelation* relation = [object relationForKey:@"id_tipoConsulta"];
-//    PFQuery *query = [relation query];
-//    [query whereKey:@"numeroDiaSemana" equalTo:diaSelecionado];
-//    [query whereKey:@"horarioInicial" equalTo:horario];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//
-//            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
-//            for (PFObject *object in objects)
-//            {
-//                NSLog(@"Quem ta aqui?%@",object);
-//                [object deleteEventually];
-//            }
-//            
-//        }
-//        else {
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//        callback();
-//        }];
+    
+   // PFUser *user = [PFUser currentUser];
+    PFRelation *relation = [object relationForKey:@"exceto"];
+    PFObject *post = [PFObject objectWithClassName:@"Excecao"];
+    post[@"horarioInicial"] = horario;
+    object[@"exceto"] = post;
+    //relation = post;
+    
+    //[relation addObject:post];
+    
+   // [object saveInBackground];
+    
+//      PFRelation* relation = [object relationForKey:@"excecao"];
+//    PFObject *consMarcada = [PFObject objectWithClassName:@"Medico"];
+//    consMarcada[@"horarioInicial"] = horario;
+//    [relation addObject:consMarcada];
+//    //[object saveInBackground];
+//    
+////    [object setObject:consMarcada forKey:@"exceto"];
+////    consMarcada[@"horarioInicial"] = diaSelecionado;
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"sucesso");
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+   
+}
+
+-(void)Marcou:(void(^)(void))callback
+{
+
+    
 }
 
 @end

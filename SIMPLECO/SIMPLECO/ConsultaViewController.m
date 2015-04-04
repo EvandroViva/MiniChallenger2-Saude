@@ -334,6 +334,7 @@ static ConsultaViewController *SINGLETON = nil;
     }
     else
         if (_mostrar.count != 0)
+
             [self Buscas];
         
         return 0;

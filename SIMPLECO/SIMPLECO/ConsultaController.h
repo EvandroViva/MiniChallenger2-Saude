@@ -25,5 +25,6 @@
 
 -(void)MarcouConsultaRetirarVagaParese:(PFObject*)object AndDiaSelec:(NSNumber*)diaSelecionado AndHoraInicial:(NSNumber*)horario AndComplete:(void(^)(void))callback;
 
+-(void)Marcou:(void(^)(void))callback;
 
 @end

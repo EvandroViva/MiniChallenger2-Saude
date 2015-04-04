@@ -132,8 +132,8 @@ static LoginViewController *SINGLETON = nil;
                [self.navigationController popToRootViewControllerAnimated:YES];
                
                
-//               [[ConsultaController sharedInstance]MarcouConsultaRetirarVagaParese:medSelecionado.medicoSelecionado.parseObject AndDiaSelec:dataConsulta.DiaSelecionado AndHoraInicial:dataConsulta.horario AndComplete:^{
-//               }];
+               [[ConsultaController sharedInstance]MarcouConsultaRetirarVagaParese:medSelecionado.medicoSelecionado.parseObject AndDiaSelec:dataConsulta.DiaSelecionado AndHoraInicial:dataConsulta.horario AndComplete:^{
+               }];
                
 //               
             }
