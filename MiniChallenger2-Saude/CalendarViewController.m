@@ -186,78 +186,80 @@
 //    return 1;
 //}
 //
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
 //    return consultass.count;
-//}
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CalendarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellCalendar" forIndexPath:indexPath];
+
+    
+    if (cell == nil)
+    {
+        cell = [[CalendarTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellCalendar"];
+    }
+    
+//    consult = consultass[indexPath.row];
+//    [self BuscarPaciente:consult.ID andComplete:^(Patient *paciente){
+//        NSLog(@"Paciente =%@",paciente);
+//    }];
 //    
-//    CalendarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-//
-//    
-//    if (cell == nil)
-//    {
-//        cell = [[CalendarTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-//    }
-//    
-////    consult = consultass[indexPath.row];
-////    [self BuscarPaciente:consult.ID andComplete:^(Patient *paciente){
-////        NSLog(@"Paciente =%@",paciente);
-////    }];
-////    
 //    cell.LabelNome.text = @"Teste";
-//     return cell;
-//
-//    
-//    
-////    else
-////        
-////    {
-////        
-////        _consulta = _mostrar[indexPath.row];
-////        
-////        // NSNumber* n = _consulta.horarioInicial;
-////        
-////        NSLog(@"singleton =%ld", (long)index);
-////        
-////        // NSString *ok = [self ConverteHora:dataSelecionada];
-////        
-////        NSString *ok = _consulta.HoraInicio;
-////        
-////        NSString *ok1 = @":";
-////        
-////        NSString *ok2 = _consulta.MinInicio;
-////        
-////        ok = [ok stringByAppendingString:ok1];
-////        
-////        ok = [ok stringByAppendingString:ok2];
-////        
-////        
-////        
-////        NSString *e = _consulta.HoraFinal;
-////        
-////        NSString *e1 = @":";
-////        
-////        NSString *e2= _consulta.MinFinal;
-////        
-////        e = [e stringByAppendingString:e1];
-////        
-////        e = [e stringByAppendingString:e2];
-////        
-////        
-////        
-////        cell.LData.text = ok;
-////        cell.LDataFinal.text = e;
-////        
-////        // cell.LFim.text = e;
-////        
-////        cell.LConteudo.text = @"Consulta";
-////        
-////    }
-//    
-//   
-//    
+     return cell;
+
+    
+    
+//    else
+//        
+//    {
+//        
+//        _consulta = _mostrar[indexPath.row];
+//        
+//        // NSNumber* n = _consulta.horarioInicial;
+//        
+//        NSLog(@"singleton =%ld", (long)index);
+//        
+//        // NSString *ok = [self ConverteHora:dataSelecionada];
+//        
+//        NSString *ok = _consulta.HoraInicio;
+//        
+//        NSString *ok1 = @":";
+//        
+//        NSString *ok2 = _consulta.MinInicio;
+//        
+//        ok = [ok stringByAppendingString:ok1];
+//        
+//        ok = [ok stringByAppendingString:ok2];
+//        
+//        
+//        
+//        NSString *e = _consulta.HoraFinal;
+//        
+//        NSString *e1 = @":";
+//        
+//        NSString *e2= _consulta.MinFinal;
+//        
+//        e = [e stringByAppendingString:e1];
+//        
+//        e = [e stringByAppendingString:e2];
+//        
+//        
+//        
+//        cell.LData.text = ok;
+//        cell.LDataFinal.text = e;
+//        
+//        // cell.LFim.text = e;
+//        
+//        cell.LConteudo.text = @"Consulta";
+//        
+    }
+
+   
+    
 
 
 

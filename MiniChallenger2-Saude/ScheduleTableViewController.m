@@ -22,10 +22,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self.navigationItem setTitle:@"Horários de Consulta"];
-    
-    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(addButtonClick)];
-    [self.navigationItem setRightBarButtonItem:add];
+//    [self.navigationItem setTitle:@"Horários de Consulta"];
+//    
+//    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(addButtonClick)];
+//    [self.navigationItem setRightBarButtonItem:add];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,11 +122,11 @@
 }
 */
 
--(IBAction)addButtonClick
-{
-    AddScheduleTableViewController *addScheduleTVC = [[AddScheduleTableViewController alloc] initWithNibName:@"AddScheduleTableViewController" bundle:nil];
-    [self.navigationController pushViewController:addScheduleTVC animated:true];
-}
+//-(IBAction)addButtonClick
+//{
+//    AddScheduleTableViewController *addScheduleTVC = [[AddScheduleTableViewController alloc] initWithNibName:@"AddScheduleTableViewController" bundle:nil];
+//    [self.navigationController pushViewController:addScheduleTVC animated:true];
+//}
 
 
 @end

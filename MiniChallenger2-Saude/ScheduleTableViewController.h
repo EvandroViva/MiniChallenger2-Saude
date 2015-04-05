@@ -11,6 +11,6 @@
 
 @interface ScheduleTableViewController : UITableViewController
 
--(IBAction)addButtonClick;
+//-(IBAction)addButtonClick;
 
 @end
