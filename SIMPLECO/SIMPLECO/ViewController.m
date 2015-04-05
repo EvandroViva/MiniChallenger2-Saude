@@ -51,6 +51,13 @@ static ViewController *SINGLETON = nil;
     bit = false;
     [self Evento];
     SINGLETON = self;
+    
+    CAGradientLayer *background = [CAGradientLayer layer];
+    background.colors = @[(id)[UIColor colorWithRed:0 green:201/255.0 blue:255/255.0 alpha:1.0].CGColor, (id)[UIColor colorWithRed:0/255.0 green:70/255.0 blue:163/255.0 alpha:1.0].CGColor];
+    background.locations = @[@0.2,@1.0];
+    background.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view.layer insertSublayer:background atIndex:0];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,17 +71,17 @@ static ViewController *SINGLETON = nil;
 
 -(void)Bordas
 {
-    [Bregiao.layer setCornerRadius:5];
+    [Bregiao.layer setCornerRadius:2];
     [Bregiao.layer setBorderWidth:2];
     [Bregiao.layer setBorderColor:[UIColor blackColor].CGColor];
     [Bregiao setBackgroundColor:[UIColor whiteColor]];
     
-    [Bespecialidade.layer setCornerRadius:5];
+    [Bespecialidade.layer setCornerRadius:2];
     [Bespecialidade.layer setBorderWidth:2];
     [Bespecialidade.layer setBorderColor:[UIColor blackColor].CGColor];
     [Bespecialidade setBackgroundColor:[UIColor whiteColor]];
     
-    [BBuscar.layer setCornerRadius:5];
+    [BBuscar.layer setCornerRadius:2];
     [BBuscar.layer setBorderWidth:2];
     [BBuscar.layer setBorderColor:[UIColor blackColor].CGColor];
     [BBuscar setBackgroundColor:[UIColor whiteColor]];
@@ -89,11 +96,23 @@ static ViewController *SINGLETON = nil;
 {
     
     nomeRegiao = [RegiaoTableViewController sharedInstance];
-    _LRegiao.text = nomeRegiao.bairro;
+    if ([nomeRegiao.bairro isEqualToString:@""] || nomeRegiao.bairro == nil) {
+        [Bregiao setTitle: @"Seleciona uma região" forState: UIControlStateNormal];
+    } else {
+        [Bregiao setTitle:nomeRegiao.bairro forState:UIControlStateNormal];
+    }
+    
 //    _LRegiao.text = [[RegiaoTableViewController sharedInstance]bairro];
     
     NomeEspecialidade  = [EspecialidadesTableViewController sharedInstance];
-    _LEspecialidade.text = NomeEspecialidade.especialidade;
+    
+    if ([NomeEspecialidade.especialidade isEqualToString:@""] || NomeEspecialidade.especialidade == nil) {
+        [Bespecialidade setTitle:@"Seleciona uma especialidade" forState:UIControlStateNormal];
+    } else {
+        [Bespecialidade setTitle:NomeEspecialidade.especialidade forState:UIControlStateNormal];
+    }
+    
+    
     
     if (bit == true && NomeEspecialidade.especialidade != nil) {
         [Bespecialidade.layer setBorderColor:[UIColor blackColor].CGColor];

@@ -35,8 +35,8 @@ static ResultPesqTableViewController *SINGLETON = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     medicoSelecionado = [[Medico alloc]init];
-    NSString* especialidade = [[[ViewController sharedInstance]LEspecialidade]text];
-    NSString* bairro = [[[ViewController sharedInstance]LRegiao]text];
+    NSString* especialidade = [[[ViewController sharedInstance]Bespecialidade] titleForState:UIControlStateNormal];
+    NSString* bairro = [[[ViewController sharedInstance]Bregiao] titleForState:UIControlStateNormal];
     
     _medicos = [[NSMutableArray alloc]init];
     
@@ -45,6 +45,13 @@ static ResultPesqTableViewController *SINGLETON = nil;
     }];
     
      SINGLETON = self;
+    
+    
+    CAGradientLayer *background = [CAGradientLayer layer];
+    background.colors = @[(id)[UIColor colorWithRed:228/255.0 green:255/255.0 blue:255/255.0 alpha:1.0].CGColor, (id)[UIColor colorWithRed:148/255.0 green:238/255.0 blue:255/255.0 alpha:1.0].CGColor];
+    background.locations = @[@0.2,@1.0];
+    background.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view.layer insertSublayer:background atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +96,7 @@ static ResultPesqTableViewController *SINGLETON = nil;
    LMedico.text = [_medicos[indexPath.row]nome];
     LEndereco.text = [_medicos[indexPath.row]endereco];
     LDetalhe.text = [_medicos[indexPath.row]bairro];
+    [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
 }
 
