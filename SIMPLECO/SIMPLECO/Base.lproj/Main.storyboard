@@ -782,7 +782,7 @@
                     <navigationItem key="navigationItem" id="bax-fS-bJb">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="MKF-k7-eyd">
                             <connections>
-                                <action selector="Save:" destination="FBl-Aa-g1w" id="XYm-3T-S6A"/>
+                                <action selector="Save:" destination="FBl-Aa-g1w" id="jMm-NJ-DmY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -790,6 +790,7 @@
                         <outlet property="TextFielEmail" destination="cgc-Lc-j5B" id="luv-il-isr"/>
                         <outlet property="TextFieldNome" destination="Tno-Uy-iSH" id="Byz-Ph-MsQ"/>
                         <outlet property="TextFieldSenha" destination="Z9j-s2-dZR" id="zd6-zC-yW3"/>
+                        <outlet property="TextFieldTelefone" destination="BsG-Ht-vHT" id="Hhx-ji-crN"/>
                         <outlet property="TextFieldUsuario" destination="CzA-qk-uT3" id="4nT-re-P0a"/>
                     </connections>
                 </viewController>
@@ -869,6 +870,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="amH-Qo-7Vu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="e27-10-QZr"/>
                     </connections>
@@ -1071,6 +1075,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Obm-fu-heD"/>
+        <segue reference="e27-10-QZr"/>
     </inferredMetricsTieBreakers>
 </document>

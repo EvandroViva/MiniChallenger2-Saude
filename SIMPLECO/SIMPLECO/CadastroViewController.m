@@ -49,6 +49,8 @@
     nada[@"nome"]=self.TextFieldNome.text;
     nada[@"email"] = [self.TextFielEmail text];
     nada[@"UserName"] = self.TextFieldUsuario.text;
+    nada[@"telefone"] = self.TextFieldTelefone.text;
+    
     
     [nada saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -84,4 +86,5 @@
     [_TextFieldUsuario resignFirstResponder];
     [_TextFielEmail resignFirstResponder];
 }
+
 @end
