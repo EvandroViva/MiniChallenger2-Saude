@@ -59,7 +59,7 @@
 
 - (void)transitionExample
 {
-    CGFloat newHeight = 300;
+    CGFloat newHeight = 200;
     if(self.calendar.calendarAppearance.isWeekMode){
         newHeight = 75.;
     }
@@ -96,4 +96,5 @@
     
     [self transitionExample];
 }
+
 @end

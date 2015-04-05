@@ -17,6 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.SignInButton.layer setCornerRadius:5];
+    [self.SignInButton.layer setBorderWidth:1];
+    [self.SignInButton.layer setBorderColor:[UIColor blackColor].CGColor];
+    [self.SignInButton setBackgroundColor:[UIColor whiteColor]];
+    
+    [self.CancelButton.layer setCornerRadius:5];
+    [self.CancelButton.layer setBorderWidth:1];
+    [self.CancelButton.layer setBorderColor:[UIColor blackColor].CGColor];
+    [self.CancelButton setBackgroundColor:[UIColor whiteColor]];
+    
     CAGradientLayer *background = [CAGradientLayer layer];
     background.colors = @[(id)[UIColor colorWithRed:0 green:201/255.0 blue:255/255.0 alpha:1.0].CGColor, (id)[UIColor colorWithRed:0/255.0 green:70/255.0 blue:163/255.0 alpha:1.0].CGColor];
     background.locations = @[@0.2,@1.0];

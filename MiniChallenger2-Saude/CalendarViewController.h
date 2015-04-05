@@ -24,7 +24,8 @@
 @property (weak, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic) JTCalendar *calendar;
-//- (IBAction)Hoje:(id)sender;
-//- (IBAction)Visualizacao:(id)sender;
+- (IBAction)Hoje:(id)sender;
+- (IBAction)Visualizacao:(id)sender;
+
 
 @end
