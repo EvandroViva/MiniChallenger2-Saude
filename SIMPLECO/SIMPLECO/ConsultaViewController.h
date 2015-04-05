@@ -29,8 +29,6 @@
 @property NSDate *dataSelecionada;
 
 + (ConsultaViewController*)sharedInstance;
-@property NSInteger *hora;
-@property NSInteger *minuto;
 @property NSArray* consultas;
 @property NSString* diaSemanaSelecionada;
 @property NSString* diaSemanaAgenda;
@@ -40,6 +38,8 @@
 @property int DiaSemanaSelecionado;
 @property NSNumber *horario;
 @property NSNumber *DiaSelecionado;
+@property NSString *Hora,*Minuto;
+
 
 
 @end

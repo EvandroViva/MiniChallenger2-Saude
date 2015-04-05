@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "ConsultaController.h"
+#import "Paciente.h"
 
 static NSMutableArray *EventoSalvo;
 
@@ -25,6 +26,12 @@ static bool isFirstAccess = YES;
 
     ResultPesqTableViewController *medSelecionado;
     BOOL salvaEvento,permiEvento;
+    
+    Paciente *paciente;
+    PFUser* usuario;
+    NSArray *pacientes;
+    
+    
 
 
 }
@@ -64,7 +71,9 @@ static LoginViewController *SINGLETON = nil;
     SINGLETON = self;
     permiEvento = FALSE;
     salvaEvento = FALSE;
-
+    pacientes = [[NSArray alloc]init];
+    paciente = [[Paciente alloc]init];
+    usuario = [[PFUser alloc]init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segueShowConsultas) name:@"InformacoesEnviadas" object:nil];
     medSelecionado = [ResultPesqTableViewController sharedInstance];
@@ -123,6 +132,7 @@ static LoginViewController *SINGLETON = nil;
                                     block:^(PFUser *user, NSError *error)
      {
          if (user) {
+             NSLog(@"Object =%@", user.objectId);
              [self.Carregando setHidden:YES];
              NSLog(@"Resp?%@",[user objectForKey:@"emailVerified"]);
              if ([[user objectForKey:@"emailVerified"] boolValue])
@@ -133,34 +143,25 @@ static LoginViewController *SINGLETON = nil;
                  _UltimaSenha =[self.TFSenha text];
                  [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
                  
+                 [[ConsultaController sharedInstance]BuscarPaciente:user.email andUser:user.username AndComplete:^(NSArray* array)
+                  {
+                      paciente = array[0];
+                      
+                      viewController = [ViewController sharedInstance];
+                      dataConsulta = [ConsultaViewController sharedInstance];
+                      [self PermissaoEvento];
+                      if (salvaEvento == FALSE)
+                          [self CriarEvento:viewController.eventStore];
+                      [self.tabBarController setSelectedIndex:1];
+                      [self.navigationController popToRootViewControllerAnimated:YES];
+                  }];
+                // usuario = user;
+                 
 //======================================================================================
 //                   CRIAR EVENTO NO CALENDÁRIO
 //======================================================================================
 
-                 viewController = [ViewController sharedInstance];
-                 dataConsulta = [ConsultaViewController sharedInstance];
-                 [self PermissaoEvento];
-                 if (salvaEvento == FALSE)
-                 [self CriarEvento:viewController.eventStore];
-                 [self.tabBarController setSelectedIndex:1];
-                 [self.navigationController popToRootViewControllerAnimated:YES];
-                 
-//======================================================================================
-//                      SALVAR PARSE
-//======================================================================================
-                 
-                 [[ConsultaController sharedInstance]MarcouConsultaRetirarVagaParese:medSelecionado.medicoSelecionado.parseObject AndDiaSelec:dataConsulta.DiaSelecionado AndHoraInicial:dataConsulta.horario AndComplete:^{
-                 }];
-                 
-                 
-//
-//
-//                 [[ConsultaController sharedInstance]creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:[user objectForKey:@"paciente"] AndComplete:^{
-//                     
-//                 }];
-//
-//                 [ [ConsultaController sharedInstance] creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:[user objectForKey:@"paciente"]];
-       
+               
 
              }
              else
@@ -188,16 +189,9 @@ static LoginViewController *SINGLETON = nil;
 
 
 - (void)segueShowConsultas {
-//    =========
-//[self PermissaoEvento];
-//[self CriarEvento:viewController.eventStore];
-//[self.tabBarController setSelectedIndex:1];
-//[self.navigationController popToRootViewControllerAnimated:YES];
-//    =========
-//    [self PermissaoEvento];
-//    [self CriarEvento:viewController.eventStore];
-//    [self.tabBarController setSelectedIndex:1];
-//    [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
+    [self PermissaoEvento];
+    [self CriarEvento:viewController.eventStore];
+   
 }
 
 #pragma mark - Permissao para salvar evento Calendario
@@ -211,6 +205,7 @@ static LoginViewController *SINGLETON = nil;
         NSString *message = @"Não será Possivel Gravar evento no Calendário, pois a permissão esta negada";
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Atenção" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
             [alertView show];
+       
         }
 
     else{
@@ -241,6 +236,9 @@ static LoginViewController *SINGLETON = nil;
     event.endDate = [event.startDate dateByAddingTimeInterval:3600];
     event.calendar = [eventStore defaultCalendarForNewEvents];
     salvaEvento = TRUE;
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@" dd/MM/yyyy"];
+    NSString *formatoData = [format stringFromDate:dataConsulta.dataSelecionada];
     
     [[LoginViewController sharedEventos] addObject:event];
     NSError *error;
@@ -251,6 +249,15 @@ static LoginViewController *SINGLETON = nil;
         return NO;
     }else{
         
+        
+        
+        [[ConsultaController sharedInstance]MarcouConsultaRetirarVagaParese:formatoData andHora:dataConsulta.Hora andMin:dataConsulta.Minuto andID:medSelecionado.medicoSelecionado.objectID andIDP:paciente.objectID AndComplete:^{
+            [self.tabBarController setSelectedIndex:1];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            
+       }];
+       
+
         return YES;
     }
 }

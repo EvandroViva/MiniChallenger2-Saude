@@ -12,6 +12,7 @@
 {
     ViewController *viewC;
     ResultPesqTableViewController *medSelecionado;
+    ConsultaViewController *dataConsulta;
 }
 
 
@@ -27,6 +28,8 @@
      _teste = [NSMutableArray arrayWithObjects:
                @"Dentista",@"Medico", nil];
     _evento = [EKEvent eventWithEventStore:viewC.eventStore];
+    
+
    
     
 }
@@ -93,6 +96,9 @@
     
 //    ==============FIM================
     _evento = [LoginViewController sharedEventos][indexPath.row];
+    
+    
+    
     NSDateFormatter *format = [[NSDateFormatter alloc]init];
     [format setDateFormat:@" dd /MM"];
     NSString *formatoData = [format stringFromDate:_evento.startDate];

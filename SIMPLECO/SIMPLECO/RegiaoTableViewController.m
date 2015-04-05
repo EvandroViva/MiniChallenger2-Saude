@@ -61,11 +61,6 @@ static RegiaoTableViewController *SINGLETON = nil;
     [super didReceiveMemoryWarning];
 }
 
--(BOOL) prefersStatusBarHidden
-{
-    return YES;
-}
-
 
 //============================================================
 #pragma mark - Configuracao da Table e Secoes
