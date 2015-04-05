@@ -26,6 +26,7 @@
 {
     
     ResultPesqTableViewController* med;
+    ConsultaViewController* con;
     
 }
 
@@ -92,7 +93,14 @@ static bool isFirstAccess = YES;
             NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
             for (PFObject *object in objects)
             {
+                con=[ConsultaViewController sharedInstance];
                 Consulta *consulta = [[Consulta alloc]init];
+                consulta.nomeMedico = med.medicoSelecionado.nome;
+                
+                NSDateFormatter *format = [[NSDateFormatter alloc]init];
+                [format setDateFormat:@" dd /MM"];
+                consulta.dataMark = [format stringFromDate:con.dataSelecionada];
+                
                 consulta.numeroDiaSemana = object[@"numeroDiaSemana"];
                 consulta.HoraInicio = object[@"HoraInicio"];
                 consulta.MinInicio = object[@"MinInicio"];
