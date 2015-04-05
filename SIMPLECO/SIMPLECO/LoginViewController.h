@@ -26,6 +26,8 @@
 
 - (IBAction)BConfirma:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *Carregando;
+@property (weak, nonatomic) IBOutlet UIButton *LoginButton;
+@property (weak, nonatomic) IBOutlet UIButton *SignButton;
 
 + (NSMutableArray*)sharedEventos;
 + (LoginViewController*)sharedInstance;

@@ -77,8 +77,23 @@ static LoginViewController *SINGLETON = nil;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segueShowConsultas) name:@"InformacoesEnviadas" object:nil];
     medSelecionado = [ResultPesqTableViewController sharedInstance];
+    
+    [self.LoginButton.layer setCornerRadius:5];
+    [self.LoginButton.layer setBorderWidth:1];
+    [self.LoginButton.layer setBorderColor:[UIColor blackColor].CGColor];
+    [self.LoginButton.layer setBackgroundColor:[UIColor whiteColor].CGColor];
+    
+    [self.SignButton.layer setCornerRadius:5];
+    [self.SignButton.layer setBorderWidth:1];
+    [self.SignButton.layer setBorderColor:[UIColor blackColor].CGColor];
+    [self.SignButton.layer setBackgroundColor:[UIColor whiteColor].CGColor];
 
 
+    CAGradientLayer *background = [CAGradientLayer layer];
+    background.colors = @[(id)[UIColor colorWithRed:0 green:201/255.0 blue:255/255.0 alpha:1.0].CGColor, (id)[UIColor colorWithRed:0/255.0 green:70/255.0 blue:163/255.0 alpha:1.0].CGColor];
+    background.locations = @[@0.2,@1.0];
+    background.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view.layer insertSublayer:background atIndex:0];
 }
 
 #pragma mark - Usar Default
