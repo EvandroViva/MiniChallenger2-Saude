@@ -61,6 +61,36 @@ static Medico* vSharedDoctor = nil;
     return self.parseObject[@"codTrabalho"];
 }
 
+-(NSString*)specialty
+{
+    return self.parseObject[@"especialidade"];
+}
+
+-(NSString*)street
+{
+    return self.parseObject[@"endereco"];
+}
+
+-(NSString*)number
+{
+    return self.parseObject[@"numero"];
+}
+
+-(NSString*)district
+{
+    return self.parseObject[@"regiao"];
+}
+
+-(NSString*)burgh
+{
+    return self.parseObject[@"bairro"];
+}
+
+-(NSString*)cep
+{
+    return self.parseObject[@"CEP"];
+}
+
 -(void)setName:(NSString *)n andSave: (bool) s
 {
     self.parseObject[@"nome"] = n;
@@ -72,6 +102,54 @@ static Medico* vSharedDoctor = nil;
 -(void)setCod:(NSString *)n andSave: (bool) s
 {
     self.parseObject[@"codTrabalho"] = n;
+    if (s) {
+        [self.parseObject saveInBackground];
+    }
+}
+
+-(void)setSpecialty:(NSString *)n andSave: (bool) s
+{
+    self.parseObject[@"especialidade"] = n;
+    if (s) {
+        [self.parseObject saveInBackground];
+    }
+}
+
+-(void)setStreet:(NSString *)n andSave: (bool) s
+{
+    self.parseObject[@"endereco"] = n;
+    if (s) {
+        [self.parseObject saveInBackground];
+    }
+}
+
+-(void)setNumber:(NSString *)n andSave: (bool) s
+{
+    self.parseObject[@"numero"] = n;
+    if (s) {
+        [self.parseObject saveInBackground];
+    }
+}
+
+-(void)setDistrict:(NSString *)n andSave: (bool) s
+{
+    self.parseObject[@"regiao"] = n;
+    if (s) {
+        [self.parseObject saveInBackground];
+    }
+}
+
+-(void)setBurgh:(NSString *)n andSave: (bool) s
+{
+    self.parseObject[@"bairro"] = n;
+    if (s) {
+        [self.parseObject saveInBackground];
+    }
+}
+
+-(void)setCep:(NSString *)n andSave: (bool) s
+{
+    self.parseObject[@"CEP"] = n;
     if (s) {
         [self.parseObject saveInBackground];
     }

@@ -4,10 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompleteRegisterViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="ActivityIndicator" destination="bc9-4r-5pi" id="UJA-OJ-Q2w"/>
+                <outlet property="AddressButton" destination="yeK-vi-NvH" id="Whr-NL-hmp"/>
                 <outlet property="NameTextFiled" destination="Swn-kL-Vgt" id="MVL-kd-XjM"/>
+                <outlet property="SpecialtyButton" destination="1hR-dO-9CJ" id="1aO-Rr-JoS"/>
                 <outlet property="docTextFiled" destination="7lV-iA-NbI" id="FAD-WP-Uq7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

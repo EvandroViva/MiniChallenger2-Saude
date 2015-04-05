@@ -14,24 +14,13 @@
 
 @implementation NotificationNavigationController
 
--(instancetype)init
-{
-    self = [super init];
-    if (self) {
-        //Configurações do Botão do tabBar
-        NSString *title = @"Notificações";
-        UITabBarItem* tBItem = [[UITabBarItem alloc] initWithTitle:title image:[UIImage imageNamed:@"notification"] selectedImage:[UIImage imageNamed:@"notification"]];
-        self.tabBarItem = tBItem;
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //Configurações da RootViewControler
-    NotificationTableViewController *tableVC = [[NotificationTableViewController alloc] initWithNibName:@"NotificationTableViewController" bundle:nil];
-    [self setViewControllers:@[tableVC]];
+//    NotificationTableViewController *tableVC = [[NotificationTableViewController alloc] initWithNibName:@"NotificationTableViewController" bundle:nil];
+//    [self setViewControllers:@[tableVC]];
 }
 
 

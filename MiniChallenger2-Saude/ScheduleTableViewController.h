@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddScheduleTableViewController.h"
 
 @interface ScheduleTableViewController : UITableViewController
+
+-(IBAction)addButtonClick;
 
 @end

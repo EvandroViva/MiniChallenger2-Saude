@@ -33,6 +33,9 @@
    
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -69,6 +72,29 @@
     
     // Configure the cell...
     
+//    =================================
+//    |      Consultas via Parse      |
+//    =================================
+    PFUser*user=[PFUser currentUser];
+    PFQuery *query = [PFQuery queryWithClassName:@"Consulta"];
+//    [query whereKey:@"p_paciente" equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"inicio dados");
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %lu consults.", (unsigned long)objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.parseClassName);
+                NSLog(@"%@", object.allKeys);
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+//    ==============FIM================
     _evento = [LoginViewController sharedEventos][indexPath.row];
     
     

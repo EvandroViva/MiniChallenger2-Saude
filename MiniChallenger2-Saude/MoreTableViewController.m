@@ -35,41 +35,6 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
-}
-
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MoreTableViewCell *cell = nil;
-    
-    cell = [tableView dequeueReusableCellWithIdentifier:@"MoreTableViewCell"];
-    
-    if(cell == nil)
-    {
-//        [[NSBundle mainBundle] loadNibNamed:@"MoreTableViewCell" owner:self options:nil];
-        //cell = [[MoreTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:@"MoreTableViewCell"];
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"MoreTableViewCell" owner:self options:nil] objectAtIndex:0];
-    }
-    [[cell TitleLabel] setText:@"Sair"];
-    
-//    cell.sair.text=@"SAIR";
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -110,20 +75,16 @@
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-//    DetailViewController *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-//    [self.navigationController pushViewController:detailViewController animated:YES];
-    NSLog(@"Saindo");
+    if ([[cell reuseIdentifier] isEqualToString:@"logout"]) {
     [PFUser logOut];
     MainTabBarController *main = [MainTabBarController sharedInstance];
     [Medico resetSharedDoctor];
     [main dismissViewControllerAnimated:true completion:nil];
     [MainTabBarController resetSharedInstance];
+        [self.tabBarController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 

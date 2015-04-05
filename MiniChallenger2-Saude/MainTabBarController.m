@@ -19,7 +19,7 @@ static MainTabBarController *sharedMainTabBarController = nil;
 +(instancetype) sharedInstance
 {
     if (sharedMainTabBarController == nil) {
-        sharedMainTabBarController = [[MainTabBarController alloc] initWithNibName:@"MainTabBarController" bundle:nil];
+
     }
     return sharedMainTabBarController;
 }
@@ -30,14 +30,25 @@ static MainTabBarController *sharedMainTabBarController = nil;
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    NotificationNavigationController *navNotif = [[NotificationNavigationController alloc] init];
-    MoreNavigationController *navMore = [[MoreNavigationController alloc] init];
-    ScheduleNavigationController *navSchedule = [[ScheduleNavigationController alloc] init];
     
-    CalendarNavigationViewController *navCalendar = [[CalendarNavigationViewController alloc] init];
+    UITabBarItem* horarioItem = [self.tabBar.items objectAtIndex:0];
     
-    [self setViewControllers:@[navCalendar, navSchedule,navNotif,navMore]];
+    [horarioItem setSelectedImage:[UIImage imageNamed:@"schedule"]];
+    [horarioItem setImage:[UIImage imageNamed:@"schedule"]];
+    [horarioItem setTitle:@"Horários"];
+    
+    UITabBarItem* calendarItem = [self.tabBar.items objectAtIndex:1];
+    
+    [calendarItem setSelectedImage:[UIImage imageNamed:@"calendar"]];
+    [calendarItem setImage:[UIImage imageNamed:@"calendar"]];
+    [calendarItem setTitle:@"Calendário"];
+    
+    UITabBarItem* notificaooesItem = [self.tabBar.items objectAtIndex:2];
+    
+    [notificaooesItem setSelectedImage:[UIImage imageNamed:@"notifications"]];
+    [notificaooesItem setImage:[UIImage imageNamed:@"notifications"]];
+    [notificaooesItem setTitle:@"Notificações"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,17 +58,13 @@ static MainTabBarController *sharedMainTabBarController = nil;
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
-    [MedicoDAO getMedicoByPFUser:[PFUser currentUser] AndComplete:^(NSError *error){
-        Medico *m = [Medico sharedDoctor];
-        if ([[m name] isEqualToString:@""] || [m name] == nil || [[m cod] isEqualToString:@""] || [m cod] == nil) {
-            
-            CompleteRegisterViewController *completeregister = [[CompleteRegisterViewController alloc] initWithNibName:@"CompleteRegisterViewController" bundle:nil];
-//                completeregister set
-                [self presentViewController:completeregister animated:true completion:nil];
-        }
-    }];
 
+       Medico *m = [Medico sharedDoctor];
+    if (![m remember_later])
+    if ([[m name] isEqualToString:@""] || [m name] == nil || [[m cod] isEqualToString:@""] || [m cod] == nil) {
+        
+        [self performSegueWithIdentifier:@"CompleteRegister" sender:self];
+    }
 }
 
 /*

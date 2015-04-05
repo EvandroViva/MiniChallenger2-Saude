@@ -16,26 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UITabBarItem *item = [[UITabBarItem alloc] init];
-//    [item setImage:[UIImage imageNamed:@"Image"]];
+
+    UITabBarItem* horarioItem = [self.tabBar.items objectAtIndex:0];
     
-    UITabBarItem* doctorItem = [self.tabBar.items objectAtIndex:0];
+    [horarioItem setSelectedImage:[UIImage imageNamed:@"schedule"]];
+    [horarioItem setImage:[UIImage imageNamed:@"schedule"]];
+    [horarioItem setTitle:@"Horários"];
     
-    [doctorItem setSelectedImage:[UIImage imageNamed:@"calendar"]];
-    [doctorItem setImage:[UIImage imageNamed:@"calendar"]];
-    [doctorItem setTitle:@"Calendário"];
+    UITabBarItem* calendarItem = [self.tabBar.items objectAtIndex:1];
     
-    UITabBarItem* patientItem = [self.tabBar.items objectAtIndex:1];
+    [calendarItem setSelectedImage:[UIImage imageNamed:@"calendar"]];
+    [calendarItem setImage:[UIImage imageNamed:@"calendar"]];
+    [calendarItem setTitle:@"Calendário"];
     
-    [patientItem setSelectedImage:[UIImage imageNamed:@"notification"]];
-    [patientItem setImage:[UIImage imageNamed:@"notification"]];
-    [patientItem setTitle:@"Notificações"];
+    UITabBarItem* notificaooesItem = [self.tabBar.items objectAtIndex:2];
     
-    UITabBarItem* HorariotItem = [self.tabBar.items objectAtIndex:2];
-    
-    [HorariotItem setSelectedImage:[UIImage imageNamed:@"doctor"]];
-    [HorariotItem setImage:[UIImage imageNamed:@"doctor"]];
-    [HorariotItem setTitle:@"Horarios"];
+    [notificaooesItem setSelectedImage:[UIImage imageNamed:@"notifications"]];
+    [notificaooesItem setImage:[UIImage imageNamed:@"notifications"]];
+    [notificaooesItem setTitle:@"Notificações"];
     
     
 }

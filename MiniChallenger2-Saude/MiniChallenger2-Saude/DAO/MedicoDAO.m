@@ -42,16 +42,7 @@ static bool isFirstAccess = YES;
 
 +(void)getMedicoByPFUser:(PFUser*) pfuser AndComplete: (void(^)(NSError*)) callback;
 {
-    PFRelation *relation = [pfuser relationForKey:@"doctor"];
-    [[relation query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"%lu", (unsigned long)[objects count]);
-        if ([objects count] > 0) {
-            Medico *medico = [Medico sharedDoctor];
-            [medico setWithPFObject:objects[0]];
-        }
-        
-        callback(error);
-    }];
+    
 }
 
 //+(void)getMedicoByEspecializacao:(NSString *) pfuser AndRegiao:(NSString*) AndComplete: (void(^)(Medico*, NSError*)) callback{
