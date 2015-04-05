@@ -14,6 +14,7 @@
 #import "CalendarTableViewCell.h"
 
 @interface CalendarViewController : UIViewController<JTCalendarDataSource,UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *TableView;
 
 //XIB
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
@@ -29,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic) JTCalendar *calendar;
-@property NSMutableArray *consultas;
+@property NSMutableArray *consultass;
 //- (IBAction)Hoje:(id)sender;
 //- (IBAction)Visualizacao:(id)sender;
 

@@ -158,15 +158,15 @@ static bool isFirstAccess = YES;
 
 
 
--(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD andIDP:(NSString*)nomePaciente andTel:(NSString*)TelPaciente AndComplete:(void(^)(void))callback
+-(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD andIDP:(NSString*)ID  AndComplete:(void(^)(void))callback
 {
     PFObject *gameScore = [PFObject objectWithClassName:@"Excecao"];
     gameScore[@"objectIDM"] = objectIDD;
     gameScore[@"Date"] = data;
     gameScore[@"HoraInicio"] = horario;
     gameScore[@"MinInicial"] = min;
-    gameScore[@"NomePaciente"] = nomePaciente;
-    gameScore[@"TelPaciente"] = TelPaciente;
+    gameScore[@"objectIDP"] = ID;
+
     [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"Sucesso");

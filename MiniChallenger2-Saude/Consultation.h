@@ -14,7 +14,6 @@
 @property NSString *MinInicio;
 @property NSString *MinFinal;
 @property NSString *Data;
-@property NSString *NomePaciente;
-@property NSString *TelPaciente;
+@property NSString *ID;
 
 @end

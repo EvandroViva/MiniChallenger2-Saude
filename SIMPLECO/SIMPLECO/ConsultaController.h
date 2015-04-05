@@ -25,7 +25,7 @@
 
 -(void)buscarExcecao:(NSString*)data andID:(NSString*)objectIDD andComplete:(void(^)(NSMutableArray*)) callback;
 
--(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD andIDP:(NSString*)nomePaciente andTel:(NSString*)TelPaciente AndComplete:(void(^)(void))callback;
+-(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD andIDP:(NSString*)ID  AndComplete:(void(^)(void))callback;
 
 -(void)BuscarPaciente:(NSString*)email andUser:(NSString*)user AndComplete:(void(^)(NSArray*))callback;
 
