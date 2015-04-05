@@ -123,6 +123,7 @@ static LoginViewController *SINGLETON = nil;
                                     block:^(PFUser *user, NSError *error)
      {
          if (user) {
+             
              [self.Carregando setHidden:YES];
              NSLog(@"Resp?%@",[user objectForKey:@"emailVerified"]);
              if ([[user objectForKey:@"emailVerified"] boolValue])
@@ -144,23 +145,6 @@ static LoginViewController *SINGLETON = nil;
                  [self CriarEvento:viewController.eventStore];
                  [self.tabBarController setSelectedIndex:1];
                  [self.navigationController popToRootViewControllerAnimated:YES];
-                 
-//======================================================================================
-//                      SALVAR PARSE
-//======================================================================================
-                 
-                 [[ConsultaController sharedInstance]MarcouConsultaRetirarVagaParese:medSelecionado.medicoSelecionado.parseObject AndDiaSelec:dataConsulta.DiaSelecionado AndHoraInicial:dataConsulta.horario AndComplete:^{
-                 }];
-                 
-                 
-//
-//
-//                 [[ConsultaController sharedInstance]creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:[user objectForKey:@"paciente"] AndComplete:^{
-//                     
-//                 }];
-//
-//                 [ [ConsultaController sharedInstance] creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:[user objectForKey:@"paciente"]];
-       
 
              }
              else
@@ -235,6 +219,9 @@ static LoginViewController *SINGLETON = nil;
     event.endDate = [event.startDate dateByAddingTimeInterval:3600];
     event.calendar = [eventStore defaultCalendarForNewEvents];
     salvaEvento = TRUE;
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@" dd/MM/yyyy"];
+    NSString *formatoData = [format stringFromDate:dataConsulta.dataSelecionada];
     
     [[LoginViewController sharedEventos] addObject:event];
     NSError *error;
@@ -244,7 +231,10 @@ static LoginViewController *SINGLETON = nil;
         NSLog(@"Event Store Error: %@",[error localizedDescription]);
         return NO;
     }else{
-        
+        [[ConsultaController sharedInstance]MarcouConsultaRetirarVagaParese:formatoData andHora:dataConsulta.Hora andMin:dataConsulta.Minuto andID:medSelecionado.medicoSelecionado.objectID AndComplete:^{
+            
+        }];
+
         return YES;
     }
 }

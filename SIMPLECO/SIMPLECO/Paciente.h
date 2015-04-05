@@ -20,4 +20,12 @@
 // estrangeira
 @property NSString* id_consulta;
 
+//Parse
+@property PFObject* parseObject;
+@property PFUser*   parseUser;
+
++(instancetype) shared;
+
+-(void)setWithPFObject: (PFObject*) object;
+
 @end

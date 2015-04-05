@@ -20,6 +20,8 @@
 @property NSString* id_tipoConsulta;
 @property NSString* id_medico;
 @property NSString* id_paciente;
+@property NSString *HoraInicio,*HoraFinal, *MinInicio, *MinFinal;
+
 
 @property NSString* diaSemana;
 @property NSNumber* horarioFinal;

@@ -8,6 +8,26 @@
 
 #import "Paciente.h"
 
+
 @implementation Paciente
+
+static Paciente* singleton;
+static bool isFirstAccess = YES;
+
++ (instancetype)shared
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess = NO;
+        singleton = [[Paciente alloc]init];
+    });
+    
+    return singleton;
+}
+
+-(void)setWithPFObject: (PFObject*) object
+{
+    self.parseObject = object;
+}
 
 @end

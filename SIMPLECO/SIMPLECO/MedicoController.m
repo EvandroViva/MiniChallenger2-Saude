@@ -40,7 +40,8 @@ static bool isFirstAccess = YES;
             NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
             for (PFObject *object in objects) {
                 Medico* medico = [[Medico alloc]init];
-                medico.objectID = object[@"objectId"];
+                //medico.objectID = object[@"objectId"];
+                medico.objectID = [object objectId];
                 medico.nome = object[@"nome"];
                 medico.codTrabalho = object[@"codTrabalho"];
                 medico.especialidade = object[@"especialidade"];

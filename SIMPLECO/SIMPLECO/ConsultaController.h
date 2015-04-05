@@ -20,11 +20,11 @@
 -(void)creatingConsultaComData:(NSDate*)data eIdPaciente:(PFObject *)paciente AndComplete: (void(^)(void)) callback;
 
 #pragma mark - Buscar Consultas
--(void)buscarAgenda:(PFObject*)object andDiaSelec:(NSNumber*)diaSelecionado AndComplete:(void(^)(NSMutableArray*)) callback;
+-(void)buscarAgenda:(NSNumber*)index andObjectID:(NSString*)ObjectIDD AndComplete:(void(^)(NSMutableArray*)) callback;
 
--(void)buscarExcecao:(PFObject*)object andIndex:(NSNumber*)index andDiaSelec:(NSDate*)data andComplete:(void(^)(NSMutableArray*)) callback;
+-(void)buscarExcecao:(NSString*)data andID:(NSString*)objectIDD andComplete:(void(^)(NSMutableArray*)) callback;
 
--(void)MarcouConsultaRetirarVagaParese:(PFObject*)object AndDiaSelec:(NSNumber*)diaSelecionado AndHoraInicial:(NSNumber*)horario AndComplete:(void(^)(void))callback;
+-(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD AndComplete:(void(^)(void))callback;
 
 -(void)Marcou:(void(^)(void))callback;
 

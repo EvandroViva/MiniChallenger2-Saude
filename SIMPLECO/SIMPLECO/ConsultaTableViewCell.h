@@ -11,5 +11,6 @@
 @interface ConsultaTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *LData;
 @property (weak, nonatomic) IBOutlet UILabel *LConteudo;
+@property (weak, nonatomic) IBOutlet UILabel *LDataFinal;
 
 @end
