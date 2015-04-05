@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "ConsultaController.h"
 
 static NSMutableArray *EventoSalvo;
 
@@ -18,7 +19,13 @@ static bool isFirstAccess = YES;
     ConsultaViewController *dataConsulta;
     TabBarController *tabbar;
     NSUserDefaults *defaults;
+
+    ResultPesqTableViewController* med;
+    ConsultaController* personaC;
+
     ResultPesqTableViewController *medSelecionado;
+    BOOL salvaEvento,permiEvento;
+
 
 }
 
@@ -55,8 +62,12 @@ static LoginViewController *SINGLETON = nil;
     
     [self Default];
     SINGLETON = self;
-    medSelecionado = [ResultPesqTableViewController sharedInstance];
+    permiEvento = FALSE;
+    salvaEvento = FALSE;
 
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(segueShowConsultas) name:@"InformacoesEnviadas" object:nil];
+    medSelecionado = [ResultPesqTableViewController sharedInstance];
 
 
 }
@@ -102,55 +113,92 @@ static LoginViewController *SINGLETON = nil;
 
 - (IBAction)BConfirma:(id)sender {
     
-//=========================================================================================
+// ================================================================================
 //                      CONFIRMAÇÃO DO LOGIN
-//=========================================================================================
-       [self.Carregando setHidden:NO];
+//=================================================================================
+    
+    [self.Carregando setHidden:NO];
     
     [PFUser logInWithUsernameInBackground:[self.TFLogin text] password:[self.TFSenha text]
                                     block:^(PFUser *user, NSError *error)
-    {
-                                       
-       if (user) {
-           [self.Carregando setHidden:YES];
-           NSLog(@"Resp?%@",[user objectForKey:@"emailVerified"]);
-           if ([[user objectForKey:@"emailVerified"] boolValue])
-           {
-              _UltimoCadastro = [self.TFLogin text];
-              [defaults setObject:_UltimoCadastro forKey:@"SalvarDados"];
-              _UltimaSenha =[self.TFSenha text];
-              [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
-               
-//=========================================================================================
-//                      CRIAR EVENTO NO CALENDÁRIO
-//=========================================================================================
-               viewController = [ViewController sharedInstance];
-               dataConsulta = [ConsultaViewController sharedInstance];
-               [self PermissaoEvento];
-               [self CriarEvento:viewController.eventStore];
-               [self.tabBarController setSelectedIndex:1];
-               [self.navigationController popToRootViewControllerAnimated:YES];
-            }
-            else{
-                  NSString *message = @"Por Favor olhar sua caixa de email!";
-                  UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Email não Confirmado." message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+     {
+         if (user) {
+             [self.Carregando setHidden:YES];
+             NSLog(@"Resp?%@",[user objectForKey:@"emailVerified"]);
+             if ([[user objectForKey:@"emailVerified"] boolValue])
+             {
+                 _UltimoCadastro = [self.TFLogin text];
+                 [defaults setObject:_UltimoCadastro forKey:@"SalvarDados"];
+                 
+                 _UltimaSenha =[self.TFSenha text];
+                 [defaults setObject:_UltimaSenha forKey:@"SalvarSenha"];
+                 
+//======================================================================================
+//                   CRIAR EVENTO NO CALENDÁRIO
+//======================================================================================
+
+                 viewController = [ViewController sharedInstance];
+                 dataConsulta = [ConsultaViewController sharedInstance];
+                 [self PermissaoEvento];
+                 if (salvaEvento == FALSE)
+                 [self CriarEvento:viewController.eventStore];
+                 [self.tabBarController setSelectedIndex:1];
+                 [self.navigationController popToRootViewControllerAnimated:YES];
+                 
+//======================================================================================
+//                      SALVAR PARSE
+//======================================================================================
+                 
+                 [[ConsultaController sharedInstance]MarcouConsultaRetirarVagaParese:medSelecionado.medicoSelecionado.parseObject AndDiaSelec:dataConsulta.DiaSelecionado AndHoraInicial:dataConsulta.horario AndComplete:^{
+                 }];
+                 
+                 
+//
+//
+//                 [[ConsultaController sharedInstance]creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:[user objectForKey:@"paciente"] AndComplete:^{
+//                     
+//                 }];
+//
+//                 [ [ConsultaController sharedInstance] creatingConsultaComData:dataConsulta.dataSelecionada eIdPaciente:[user objectForKey:@"paciente"]];
+       
+
+             }
+             else
+             {
+                 NSString *message = @"Por Favor olhar sua caixa de email!";
+                 UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Email não Confirmado." message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
                  [alertView show];
-                }
-                                            
-                 }
-            else {
-                   [self.Carregando setAlpha:1];
-                   [self.Carregando setHidden:YES];
-                   NSString *message = @"E-mail e/ou senha estão inválidos.";
-                   UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Usuário Inválido" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
-                   [alertView show];
-               }
-        }];
-    
-    
-    
+
+             }
+         }
+         
+         else{
+             [self.Carregando setAlpha:1];
+             [self.Carregando setHidden:YES];
+             NSString *message = @"E-mail e/ou senha estão inválidos.";
+             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Usuário Inválido" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+             [alertView show];
+
+             
+         }
+         
+     }];
+
 }
 
+
+- (void)segueShowConsultas {
+//    =========
+//[self PermissaoEvento];
+//[self CriarEvento:viewController.eventStore];
+//[self.tabBarController setSelectedIndex:1];
+//[self.navigationController popToRootViewControllerAnimated:YES];
+//    =========
+//    [self PermissaoEvento];
+//    [self CriarEvento:viewController.eventStore];
+//    [self.tabBarController setSelectedIndex:1];
+//    [self performSegueWithIdentifier:@"showMinhasConsultas" sender:self] ;
+}
 
 #pragma mark - Permissao para salvar evento Calendario
 
@@ -166,9 +214,15 @@ static LoginViewController *SINGLETON = nil;
         }
 
     else{
+        if (permiEvento == FALSE)
+        {
+            
+        
         NSString *message = @"Compromisso salvo no calendário";
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Sucesso" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
         [alertView show];
+            permiEvento = TRUE;
+        }
         }
 }
 
@@ -177,6 +231,7 @@ static LoginViewController *SINGLETON = nil;
 
 -(BOOL)CriarEvento:(EKEventStore*)eventStore
 {
+    
     NSString *titulo = medSelecionado.medicoSelecionado.especialidade;
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
    // event.title = medSelecionado.medicoSelecionado.especialidade;
@@ -185,6 +240,7 @@ static LoginViewController *SINGLETON = nil;
     NSLog(@"Data = %@",dataConsulta.dataSelecionada);
     event.endDate = [event.startDate dateByAddingTimeInterval:3600];
     event.calendar = [eventStore defaultCalendarForNewEvents];
+    salvaEvento = TRUE;
     
     [[LoginViewController sharedEventos] addObject:event];
     NSError *error;
@@ -194,6 +250,7 @@ static LoginViewController *SINGLETON = nil;
         NSLog(@"Event Store Error: %@",[error localizedDescription]);
         return NO;
     }else{
+        
         return YES;
     }
 }

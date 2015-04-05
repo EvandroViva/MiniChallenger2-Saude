@@ -806,6 +806,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="TextFielEmail" destination="cgc-Lc-j5B" id="luv-il-isr"/>
+                        <outlet property="TextFieldNome" destination="Tno-Uy-iSH" id="Byz-Ph-MsQ"/>
                         <outlet property="TextFieldSenha" destination="Z9j-s2-dZR" id="zd6-zC-yW3"/>
                         <outlet property="TextFieldUsuario" destination="CzA-qk-uT3" id="4nT-re-P0a"/>
                     </connections>

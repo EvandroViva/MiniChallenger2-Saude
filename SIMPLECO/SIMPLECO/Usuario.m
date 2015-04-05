@@ -10,6 +10,6 @@
 
 @implementation Usuario
 
-@synthesize usuario,email;
+@synthesize usuario,email,paciente;
 
 @end

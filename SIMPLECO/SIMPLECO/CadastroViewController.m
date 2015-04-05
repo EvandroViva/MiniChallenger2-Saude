@@ -7,6 +7,7 @@
 //
 
 #import "CadastroViewController.h"
+#import <Parse/Parse.h>
 
 @interface CadastroViewController ()
 
@@ -42,6 +43,19 @@
     [usuario setUsuario:[self.TextFieldUsuario text]];
     [usuario setEmail:[self.TextFielEmail text]];
     [usuario setSenha:[self.TextFieldSenha text]];
+    
+    PFObject*nada=[PFObject objectWithClassName:@"Paciente"];
+    nada[@"nome"]=self.TextFieldNome.text;
+    [nada saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+        } else {
+            // There was a problem, check error.description
+        }
+    }];
+    
+    [usuario setPaciente:nada];
+    
     
     [UsuarioDAO signinWithUser:usuario AndComplete: ^(bool succeeded, NSError* error){
         

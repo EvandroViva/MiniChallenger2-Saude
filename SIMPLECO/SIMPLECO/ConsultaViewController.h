@@ -34,8 +34,12 @@
 @property NSArray* consultas;
 @property NSString* diaSemanaSelecionada;
 @property NSString* diaSemanaAgenda;
-@property Consulta* consulta;
-@property NSArray *mostrar;
+@property Consulta* consulta,*excecao, *consulta2;
+@property NSMutableArray *mostrar,*excecoes;
+@property NSMutableArray *vagas;
+@property int DiaSemanaSelecionado;
+@property NSNumber *horario;
+@property NSNumber *DiaSelecionado;
 
 
 @end

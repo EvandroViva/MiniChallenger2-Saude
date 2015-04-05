@@ -49,7 +49,9 @@ static bool isFirstAccess = YES;
                 medico.CEP = object[@"CEP"];
                 medico.bairro = object[@"bairro"];
                 medico.regiao = object[@"regiao"];
+                medico.id_tipoConsulta= object[@"id_tipoConsulta"];
                 medico.parseObject = object;
+                
                 
                 // estrangeira
                 //medico.id_tipoConsulta = object[@"id_tipoConsulta"];
@@ -75,19 +77,24 @@ static bool isFirstAccess = YES;
         [query orderByAscending:@"especialidade"];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             NSMutableArray *especialidade = [[NSMutableArray alloc]init];
+            NSMutableArray *teste = [[NSMutableArray alloc]init];
             if (!error) {
                 // The find succeeded.
-                NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+                NSLog(@"Successfully retrieved %lu especialidade.", (unsigned long)objects.count);
                 // Do something with the found objects
+
                 for (PFObject *object in objects)
                 {
-                    [especialidade addObject:object[@"especialidade"]];
+                    
+                    [teste addObject:object[@"especialidade"]];
+                    NSLog(@"Add%@",object);
                 }
             }
+            
             else {
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-            callback(especialidade);
+                   }
+            callback(teste);
         }];
     }
     else
@@ -104,6 +111,7 @@ static bool isFirstAccess = YES;
                 {
                     [especialidade addObject:object[@"especialidade"]];
                 }
+                NSLog(@"Chega aki ?");
             }
             else {
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
