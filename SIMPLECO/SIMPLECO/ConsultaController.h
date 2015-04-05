@@ -29,6 +29,6 @@
 
 -(void)BuscarPaciente:(NSString*)email andUser:(NSString*)user AndComplete:(void(^)(NSArray*))callback;
 
--(void)Marcou:(void(^)(void))callback;
+//-(void)DeletouConsulta:(NSString*)IDMedi andData:(NSString*)Data an
 
 @end

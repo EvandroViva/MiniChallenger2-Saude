@@ -30,6 +30,11 @@ static NSString* daysWeek[] = {@"Dom",@"Seg",@"Ter",@"Qua",@"Qui",@"Sex",@"Sáb"
     [self.navigationItem setRightBarButtonItem:done];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"AKI");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

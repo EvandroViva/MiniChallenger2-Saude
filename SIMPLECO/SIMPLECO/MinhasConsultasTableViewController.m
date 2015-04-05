@@ -45,13 +45,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [[LoginViewController sharedEventos] count];
 }
@@ -78,7 +76,6 @@
     
 //    Adicionar inclusão de nome String na criação de consulta.
     medSelecionado = [ResultPesqTableViewController sharedInstance];
-    PFUser*user=[PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"TipoConsulta"];
     [query whereKey:@"ObjectID" equalTo:medSelecionado.medicoSelecionado.objectID];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
