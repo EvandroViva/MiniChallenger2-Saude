@@ -22,10 +22,11 @@
 @property NSString* id_paciente;
 @property NSString *HoraInicio,*HoraFinal, *MinInicio, *MinFinal;
 
-
+@property NSString* dataMark;
 @property NSString* diaSemana;
 @property NSNumber* horarioFinal;
 @property NSNumber* horarioInicial;
 @property NSNumber* numeroDiaSemana;
+@property NSString* nomeMedico;
 @end
 
