@@ -7,7 +7,7 @@
 //
 
 #import "MoreTableViewController.h"
-#import "MainTabBarController.h"
+
 
 
 @interface MoreTableViewController ()
@@ -18,14 +18,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UINib *nib = [UINib nibWithNibName:@"MoreTableViewCell" bundle:nil];
-//    [self.tableView registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
+
+    Medico *m = [Medico sharedDoctor];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    if (m.name == nil || [m.name isEqualToString: @""]) {
+        [self.NameLabel setText:@"Não informado"];
+    } else {
+        [self.NameLabel setText:m.name];
+    }
+    if (m.cod == nil || [m.cod isEqualToString: @""]) {
+        [self.DocLabel setText:@"Não informado"];
+    } else {
+        [self.DocLabel setText:m.cod];
+    }
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning {

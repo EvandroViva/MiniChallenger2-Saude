@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainTabBarController.h"
 #import "MoreTableViewController.h"
 #import "MoreTableViewCell.h"
 #import <Parse/Parse.h>
+#import "Medico.h"
 
 @interface MoreTableViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UILabel *NameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *DocLabel;
 
 @end
