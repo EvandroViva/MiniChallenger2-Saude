@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CompleteRegisterViewController.h"
+
+#import "Medico.h"
+
+@protocol DismissPopoverDelegate
+- (void) dismissPopover;
+@end
 
 
-@interface SpecialtyTableViewController : UITableViewController
+@interface SpecialtyTableViewController : UITableViewController <UIPopoverControllerDelegate>
+{
+    id<DismissPopoverDelegate> delegate;
+}
+
+@property (nonatomic, assign) id<DismissPopoverDelegate> delegate;
 
 @property NSArray* especialidades;
 @property NSString* especialidadeSelecionada;

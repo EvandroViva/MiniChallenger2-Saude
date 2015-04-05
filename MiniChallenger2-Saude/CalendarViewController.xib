@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="calendarContentView" destination="zLT-S0-HMt" id="gFE-5P-zXJ"/>
                 <outlet property="calendarContentViewHeight" destination="HaX-fa-Cf8" id="Xhu-ie-53W"/>

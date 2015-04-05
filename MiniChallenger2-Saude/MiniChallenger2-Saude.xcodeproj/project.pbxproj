@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B5CB41E1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */; };
+		0B5CB41E1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5CB41D1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m */; };
 		11BB75211ACB1D4D00B2EF34 /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB750D1ACB1D4D00B2EF34 /* JTCalendar.m */; };
 		11BB75221ACB1D4D00B2EF34 /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB750F1ACB1D4D00B2EF34 /* JTCalendarAppearance.m */; };
 		11BB75231ACB1D4D00B2EF34 /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB75111ACB1D4D00B2EF34 /* JTCalendarContentView.m */; };
@@ -67,6 +67,14 @@
 		9088840D1AC7923D006E7BE9 /* MoreNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9088840C1AC7923D006E7BE9 /* MoreNavigationController.m */; };
 		908884151AC793B5006E7BE9 /* MoreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908884131AC793B5006E7BE9 /* MoreTableViewController.m */; };
 		908884161AC793B5006E7BE9 /* MoreTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908884141AC793B5006E7BE9 /* MoreTableViewController.xib */; };
+		909716221AD0CEB500F9DC8D /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 909716211AD0CEB500F9DC8D /* AddressViewController.m */; };
+		90B54B621ACF9D6D00BE6507 /* WeeklyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B54B611ACF9D6D00BE6507 /* WeeklyTableViewController.m */; };
+		90B54B671ACFA2B600BE6507 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B54B661ACFA2B600BE6507 /* Schedule.m */; };
+		90B54B6B1ACFA98600BE6507 /* DateTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B54B6A1ACFA98600BE6507 /* DateTimeViewController.m */; };
+		90B54B6F1ACFA9A900BE6507 /* TimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B54B6E1ACFA9A900BE6507 /* TimeViewController.m */; };
+		90B54B731ACFA9C200BE6507 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B54B721ACFA9C200BE6507 /* DateViewController.m */; };
+		90B54B771ACFAB2300BE6507 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B54B761ACFAB2300BE6507 /* ScheduleTableViewCell.m */; };
+		90B54B7B1ACFAB4700BE6507 /* AddScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B54B7A1ACFAB4700BE6507 /* AddScheduleTableViewCell.m */; };
 		90BB5F021ACC179800588D2C /* ScheduleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BB5F011ACC179800588D2C /* ScheduleNavigationController.m */; };
 		90BD96D11ACAC78A0053ED27 /* SpecialtyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BD96CF1ACAC78A0053ED27 /* SpecialtyTableViewCell.m */; };
 		90BD96D21ACAC78A0053ED27 /* SpecialtyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BD96D01ACAC78A0053ED27 /* SpecialtyTableViewCell.xib */; };
@@ -91,8 +99,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B5CB41C1ACD8AC2003CA51D /* SpecialtyNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialtyNavigationViewController.h; sourceTree = "<group>"; };
-		0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialtyNavigationViewController.m; sourceTree = "<group>"; };
+		0B5CB41C1ACD8AC2003CA51D /* CompleteRegisterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteRegisterNavigationController.h; sourceTree = "<group>"; };
+		0B5CB41D1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteRegisterNavigationController.m; sourceTree = "<group>"; };
 		11BB750C1ACB1D4D00B2EF34 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
 		11BB750D1ACB1D4D00B2EF34 /* JTCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendar.m; sourceTree = "<group>"; };
 		11BB750E1ACB1D4D00B2EF34 /* JTCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarAppearance.h; sourceTree = "<group>"; };
@@ -144,7 +152,7 @@
 		90014A7E1AC87A6700AD7292 /* CompleteRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteRegisterViewController.h; sourceTree = "<group>"; };
 		90014A7F1AC87A6700AD7292 /* CompleteRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteRegisterViewController.m; sourceTree = "<group>"; };
 		90014A801AC87A6700AD7292 /* CompleteRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompleteRegisterViewController.xib; sourceTree = "<group>"; };
-		90016F031AC176BC002D8BF6 /* MiniChallenger2-Saude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiniChallenger2-Saude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90016F031AC176BC002D8BF6 /* SIMPLECO M.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SIMPLECO M.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90016F071AC176BC002D8BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90016F081AC176BC002D8BF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		90016F0A1AC176BC002D8BF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -186,6 +194,22 @@
 		908884121AC793B5006E7BE9 /* MoreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewController.h; sourceTree = "<group>"; };
 		908884131AC793B5006E7BE9 /* MoreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewController.m; sourceTree = "<group>"; };
 		908884141AC793B5006E7BE9 /* MoreTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreTableViewController.xib; sourceTree = "<group>"; };
+		909716201AD0CEB500F9DC8D /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
+		909716211AD0CEB500F9DC8D /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
+		90B54B601ACF9D6D00BE6507 /* WeeklyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeeklyTableViewController.h; path = "MiniChallenger2-Saude/WeeklyTableViewController.h"; sourceTree = "<group>"; };
+		90B54B611ACF9D6D00BE6507 /* WeeklyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeeklyTableViewController.m; path = "MiniChallenger2-Saude/WeeklyTableViewController.m"; sourceTree = "<group>"; };
+		90B54B651ACFA2B600BE6507 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		90B54B661ACFA2B600BE6507 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		90B54B691ACFA98600BE6507 /* DateTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeViewController.h; sourceTree = "<group>"; };
+		90B54B6A1ACFA98600BE6507 /* DateTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeViewController.m; sourceTree = "<group>"; };
+		90B54B6D1ACFA9A900BE6507 /* TimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeViewController.h; sourceTree = "<group>"; };
+		90B54B6E1ACFA9A900BE6507 /* TimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeViewController.m; sourceTree = "<group>"; };
+		90B54B711ACFA9C200BE6507 /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
+		90B54B721ACFA9C200BE6507 /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
+		90B54B751ACFAB2300BE6507 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
+		90B54B761ACFAB2300BE6507 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
+		90B54B791ACFAB4700BE6507 /* AddScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddScheduleTableViewCell.h; sourceTree = "<group>"; };
+		90B54B7A1ACFAB4700BE6507 /* AddScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddScheduleTableViewCell.m; sourceTree = "<group>"; };
 		90BB5F001ACC179800588D2C /* ScheduleNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleNavigationController.h; sourceTree = "<group>"; };
 		90BB5F011ACC179800588D2C /* ScheduleNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleNavigationController.m; sourceTree = "<group>"; };
 		90BD96CE1ACAC78A0053ED27 /* SpecialtyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialtyTableViewCell.h; sourceTree = "<group>"; };
@@ -237,13 +261,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B5CB41B1ACD8A75003CA51D /* Specialty */ = {
+		0B5CB41B1ACD8A75003CA51D /* CompleteRegister */ = {
 			isa = PBXGroup;
 			children = (
-				0B5CB41C1ACD8AC2003CA51D /* SpecialtyNavigationViewController.h */,
-				0B5CB41D1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m */,
+				0B5CB41C1ACD8AC2003CA51D /* CompleteRegisterNavigationController.h */,
+				0B5CB41D1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m */,
 			);
-			name = Specialty;
+			name = CompleteRegister;
 			sourceTree = "<group>";
 		};
 		11BB750B1ACB1D4D00B2EF34 /* JTCalendar */ = {
@@ -363,7 +387,7 @@
 		90016F041AC176BC002D8BF6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				90016F031AC176BC002D8BF6 /* MiniChallenger2-Saude.app */,
+				90016F031AC176BC002D8BF6 /* SIMPLECO M.app */,
 				90016F1C1AC176BC002D8BF6 /* MiniChallenger2-SaudeTests.xctest */,
 			);
 			name = Products;
@@ -449,6 +473,7 @@
 			children = (
 				90014A771AC86ABD00AD7292 /* User */,
 				908883EE1AC7650C006E7BE9 /* Medico */,
+				90B54B681ACFA2BA00BE6507 /* Schedule */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -483,6 +508,7 @@
 		908883EF1AC7852D006E7BE9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				90B54B631ACF9D8D00BE6507 /* Popovers */,
 				90BD96C81ACAC2140053ED27 /* Cell */,
 				908884071AC78B04006E7BE9 /* Table */,
 				908883FC1AC78A50006E7BE9 /* View */,
@@ -530,7 +556,7 @@
 		908883FF1AC78A68006E7BE9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				0B5CB41B1ACD8A75003CA51D /* Specialty */,
+				0B5CB41B1ACD8A75003CA51D /* CompleteRegister */,
 				90BB5F031ACC17AA00588D2C /* Schedule */,
 				90BD96E41ACAE7A80053ED27 /* Calendar */,
 				9088840A1AC79213006E7BE9 /* More */,
@@ -560,9 +586,8 @@
 		908884071AC78B04006E7BE9 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				905E81321ACD5C9B00BDEDF2 /* AddSchedule */,
 				905E812C1ACD56A500BDEDF2 /* Schedule */,
-				90BD96BB1ACABF370053ED27 /* Specialty */,
+				905E81321ACD5C9B00BDEDF2 /* AddSchedule */,
 				9088840E1AC792D4006E7BE9 /* More */,
 				908884061AC78AF1006E7BE9 /* Notification */,
 			);
@@ -605,6 +630,91 @@
 			name = More;
 			sourceTree = "<group>";
 		};
+		909716231AD0CEBE00F9DC8D /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				909716201AD0CEB500F9DC8D /* AddressViewController.h */,
+				909716211AD0CEB500F9DC8D /* AddressViewController.m */,
+			);
+			name = Address;
+			sourceTree = "<group>";
+		};
+		90B54B631ACF9D8D00BE6507 /* Popovers */ = {
+			isa = PBXGroup;
+			children = (
+				90BD96BB1ACABF370053ED27 /* Specialty */,
+				90B54B741ACFA9CD00BE6507 /* Date */,
+				90B54B6C1ACFA98E00BE6507 /* DateTime */,
+				90B54B641ACF9D9600BE6507 /* Weekly */,
+				90B54B701ACFA9AD00BE6507 /* Time */,
+				909716231AD0CEBE00F9DC8D /* Address */,
+			);
+			name = Popovers;
+			sourceTree = "<group>";
+		};
+		90B54B641ACF9D9600BE6507 /* Weekly */ = {
+			isa = PBXGroup;
+			children = (
+				90B54B601ACF9D6D00BE6507 /* WeeklyTableViewController.h */,
+				90B54B611ACF9D6D00BE6507 /* WeeklyTableViewController.m */,
+			);
+			name = Weekly;
+			sourceTree = "<group>";
+		};
+		90B54B681ACFA2BA00BE6507 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				90B54B651ACFA2B600BE6507 /* Schedule.h */,
+				90B54B661ACFA2B600BE6507 /* Schedule.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		90B54B6C1ACFA98E00BE6507 /* DateTime */ = {
+			isa = PBXGroup;
+			children = (
+				90B54B691ACFA98600BE6507 /* DateTimeViewController.h */,
+				90B54B6A1ACFA98600BE6507 /* DateTimeViewController.m */,
+			);
+			name = DateTime;
+			sourceTree = "<group>";
+		};
+		90B54B701ACFA9AD00BE6507 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				90B54B6D1ACFA9A900BE6507 /* TimeViewController.h */,
+				90B54B6E1ACFA9A900BE6507 /* TimeViewController.m */,
+			);
+			name = Time;
+			sourceTree = "<group>";
+		};
+		90B54B741ACFA9CD00BE6507 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				90B54B711ACFA9C200BE6507 /* DateViewController.h */,
+				90B54B721ACFA9C200BE6507 /* DateViewController.m */,
+			);
+			name = Date;
+			sourceTree = "<group>";
+		};
+		90B54B781ACFAB2D00BE6507 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				90B54B751ACFAB2300BE6507 /* ScheduleTableViewCell.h */,
+				90B54B761ACFAB2300BE6507 /* ScheduleTableViewCell.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		90B54B7C1ACFAB4A00BE6507 /* AddSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				90B54B791ACFAB4700BE6507 /* AddScheduleTableViewCell.h */,
+				90B54B7A1ACFAB4700BE6507 /* AddScheduleTableViewCell.m */,
+			);
+			name = AddSchedule;
+			sourceTree = "<group>";
+		};
 		90BB5F031ACC17AA00588D2C /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +748,8 @@
 			children = (
 				905818BD1ACC2B8A00B9A42E /* More */,
 				90BB5F041ACC28E800588D2C /* Specialty */,
+				90B54B781ACFAB2D00BE6507 /* Schedule */,
+				90B54B7C1ACFAB4A00BE6507 /* AddSchedule */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -677,7 +789,7 @@
 			);
 			name = "MiniChallenger2-Saude";
 			productName = "MiniChallenger2-Saude";
-			productReference = 90016F031AC176BC002D8BF6 /* MiniChallenger2-Saude.app */;
+			productReference = 90016F031AC176BC002D8BF6 /* SIMPLECO M.app */;
 			productType = "com.apple.product-type.application";
 		};
 		90016F1B1AC176BC002D8BF6 /* MiniChallenger2-SaudeTests */ = {
@@ -777,6 +889,7 @@
 			files = (
 				908883EB1AC764E4006E7BE9 /* MedicoDAO.m in Sources */,
 				90016F2E1AC1A928002D8BF6 /* LoginViewController.m in Sources */,
+				90B54B7B1ACFAB4700BE6507 /* AddScheduleTableViewCell.m in Sources */,
 				90BB5F021ACC179800588D2C /* ScheduleNavigationController.m in Sources */,
 				908883F91AC78A2C006E7BE9 /* NotificationNavigationController.m in Sources */,
 				905818BB1ACC2B7A00B9A42E /* MoreTableViewCell.m in Sources */,
@@ -789,6 +902,7 @@
 				90BD96D91ACAC7B60053ED27 /* SpecialtyTableViewController.m in Sources */,
 				90016F0C1AC176BC002D8BF6 /* AppDelegate.m in Sources */,
 				908884031AC78AD5006E7BE9 /* NotificationTableViewController.m in Sources */,
+				90B54B621ACF9D6D00BE6507 /* WeeklyTableViewController.m in Sources */,
 				90014A761AC865F900AD7292 /* UserDAO.m in Sources */,
 				90016F091AC176BC002D8BF6 /* main.m in Sources */,
 				90016F341AC1FD88002D8BF6 /* PacientesTableViewController.m in Sources */,
@@ -798,22 +912,28 @@
 				11BB75291ACB1D4D00B2EF34 /* JTCalendarWeekView.m in Sources */,
 				90014A711AC858BD00AD7292 /* SignInViewController.m in Sources */,
 				11BB75231ACB1D4D00B2EF34 /* JTCalendarContentView.m in Sources */,
+				90B54B731ACFA9C200BE6507 /* DateViewController.m in Sources */,
 				11BB752A1ACB1D4D00B2EF34 /* JTCircleView.m in Sources */,
 				90016F371AC1FDA6002D8BF6 /* PacientesTableViewCell.m in Sources */,
+				90B54B6F1ACFA9A900BE6507 /* TimeViewController.m in Sources */,
+				90B54B671ACFA2B600BE6507 /* Schedule.m in Sources */,
 				11BB75221ACB1D4D00B2EF34 /* JTCalendarAppearance.m in Sources */,
 				90C464211ACD760700F49E63 /* AddScheduleTableViewController.m in Sources */,
 				90BD96D11ACAC78A0053ED27 /* SpecialtyTableViewCell.m in Sources */,
 				90014A811AC87A6700AD7292 /* CompleteRegisterViewController.m in Sources */,
+				909716221AD0CEB500F9DC8D /* AddressViewController.m in Sources */,
 				11BB75251ACB1D4D00B2EF34 /* JTCalendarMenuMonthView.m in Sources */,
 				11BB75281ACB1D4D00B2EF34 /* JTCalendarMonthWeekDaysView.m in Sources */,
 				11BB75211ACB1D4D00B2EF34 /* JTCalendar.m in Sources */,
 				9088840D1AC7923D006E7BE9 /* MoreNavigationController.m in Sources */,
+				90B54B771ACFAB2300BE6507 /* ScheduleTableViewCell.m in Sources */,
 				908883E71AC7645E006E7BE9 /* Medico.m in Sources */,
 				908884151AC793B5006E7BE9 /* MoreTableViewController.m in Sources */,
 				905E812A1ACD565500BDEDF2 /* ScheduleTableViewController.m in Sources */,
 				11BB75331ACB1D7300B2EF34 /* Pods-acknowledgements.markdown in Sources */,
+				90B54B6B1ACFA98600BE6507 /* DateTimeViewController.m in Sources */,
 				11BB75241ACB1D4D00B2EF34 /* JTCalendarDayView.m in Sources */,
-				0B5CB41E1ACD8AC2003CA51D /* SpecialtyNavigationViewController.m in Sources */,
+				0B5CB41E1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,7 +1063,7 @@
 				);
 				INFOPLIST_FILE = "MiniChallenger2-Saude/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SIMPLECO M";
 			};
 			name = Debug;
 		};
@@ -957,7 +1077,7 @@
 				);
 				INFOPLIST_FILE = "MiniChallenger2-Saude/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SIMPLECO M";
 			};
 			name = Release;
 		};

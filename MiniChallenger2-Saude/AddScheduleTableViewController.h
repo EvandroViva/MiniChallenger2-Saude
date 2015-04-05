@@ -8,9 +8,26 @@
 
 #import <UIKit/UIKit.h>
 #import "SpecialtyTableViewCell.h"
+#import "Schedule.h"
+#import "WeeklyTableViewController.h"
+#import "DateTimeViewController.h"
+#import "DateViewController.h"
+#import "TimeViewController.h"
+#import <Parse/Parse.h>
+#import "Medico.h"
 
-@interface AddScheduleTableViewController : UITableViewController
+@interface AddScheduleTableViewController : UITableViewController<UIPopoverPresentationControllerDelegate>
 
-- (void)DoneClick:(id)sender;
+@property Schedule* schedule;
+@property NSMutableArray* consultations;
+
+@property (weak, nonatomic) IBOutlet UILabel *startsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endsRepeatLabel;
+
+
+-(IBAction)DoneClick:(id)sender;
+
 
 @end

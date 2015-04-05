@@ -10,10 +10,9 @@
 #import "NotificationNavigationController.h"
 #import "MoreNavigationController.h"
 #import "MedicoDAO.h"
-#import "CompleteRegisterViewController.h"
+#import "CompleteRegisterNavigationController.h"
 #import "CalendarNavigationViewController.h"
 #import "ScheduleNavigationController.h"
-#import "SpecialtyNavigationViewController.h"
 
 @interface MainTabBarController : UITabBarController
 

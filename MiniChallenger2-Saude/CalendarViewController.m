@@ -30,13 +30,17 @@
     [self.calendar setMenuMonthsView:self.calendarMenuView];
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
+    [self.calendar reloadData];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    self.calendarContentViewHeight.constant = 300;
-    [self.view layoutIfNeeded];
+    [super viewDidAppear:animated];
+    [self.view addSubview:self.calendarContentView];
+    [self.view addSubview:self.calendarMenuView];
+    [self.view reloadInputViews];
     [self.calendar reloadData];
+    [self.view setNeedsDisplay];
 }
 
 #pragma mark - JTCalendarDataSource

@@ -27,7 +27,7 @@ static SpecialtyTableViewController *SINGLETON = nil;
     // ESPECIALIDADES
     _especialidades = @[@"Cardiologista",@"Clínico Geral",@"Dentista/Ortodentista",@"Dermatologista",@"Endocrionologista",@"Endoscopia", @"Fisioterapeuta",@"Fonoaudiólogista",@"Ginecologista",@"Neurologista",@"Nutricionista", @"Nutrólogo", @"Obstetra", @"Oftamologista", @"Ortopedista", @"Otorrinolaringologista", @"Pediatra",@"Pneumologista",@"Psicólogo", @"Psiquiatra",@"Radiologista",@"Urologista"];
     
-     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     [self.view setBounds:CGRectMake(0, 400, [self.view.window bounds].size.width, [self.view.window bounds].size.height - 400)];
 }
 
@@ -71,7 +71,12 @@ static SpecialtyTableViewController *SINGLETON = nil;
 {
     _especialidadeSelecionada = _especialidades[indexPath.row];
     NSLog(@"ESPECIALIDADE SELECIONADA: %@",_especialidadeSelecionada);
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    [[Medico sharedDoctor] setSpecialty:_especialidades[indexPath.row] andSave:NO];
+//    [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate dismissPopover];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

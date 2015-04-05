@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SpecialtyTableViewController.h"
+#import "CompleteRegisterViewController.h"
 
-@interface SpecialtyNavigationViewController : UINavigationController
+@interface CompleteRegisterNavigationController : UINavigationController
 
 @end

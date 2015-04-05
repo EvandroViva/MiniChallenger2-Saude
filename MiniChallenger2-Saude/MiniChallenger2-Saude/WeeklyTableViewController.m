@@ -1,25 +1,23 @@
 //
-//  MoreTableViewController.m
+//  WeeklyTableViewController.m
 //  MiniChallenger2-Saude
 //
-//  Created by Evandro Remon Pulz Viva on 28/03/15.
+//  Created by Evandro Remon Pulz Viva on 04/04/15.
 //  Copyright (c) 2015 Evandro Remon Pulz Viva. All rights reserved.
 //
 
-#import "MoreTableViewController.h"
-#import "MainTabBarController.h"
+#import "WeeklyTableViewController.h"
 
-
-@interface MoreTableViewController ()
+@interface WeeklyTableViewController ()
 
 @end
 
-@implementation MoreTableViewController
+@implementation WeeklyTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    UINib *nib = [UINib nibWithNibName:@"MoreTableViewCell" bundle:nil];
-//    [self.tableView registerNib:nib forCellReuseIdentifier:@"celulaPadrao"];
+    
+    self.days = [[NSMutableArray alloc] initWithArray: @[@0,@0,@0,@0,@0,@0,@0]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -35,6 +33,16 @@
 
 #pragma mark - Table view data source
 
+
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -70,24 +78,6 @@
 }
 */
 
-
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if ([[cell reuseIdentifier] isEqualToString:@"logout"]) {
-    [PFUser logOut];
-    MainTabBarController *main = [MainTabBarController sharedInstance];
-    [Medico resetSharedDoctor];
-    [main dismissViewControllerAnimated:true completion:nil];
-    [MainTabBarController resetSharedInstance];
-        [self.tabBarController dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-
 /*
 #pragma mark - Navigation
 
@@ -97,5 +87,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView
+                                    cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        self.days[indexPath.row] = @0;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.days[indexPath.row] = @1;
+    }
+    [cell setSelected:false animated:true];
+}
 
 @end

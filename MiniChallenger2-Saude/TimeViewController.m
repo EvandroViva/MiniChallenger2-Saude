@@ -1,28 +1,23 @@
 //
-//  NotificationNavigationController.m
+//  TimeViewController.m
 //  MiniChallenger2-Saude
 //
-//  Created by Evandro Remon Pulz Viva on 28/03/15.
+//  Created by Evandro Remon Pulz Viva on 04/04/15.
 //  Copyright (c) 2015 Evandro Remon Pulz Viva. All rights reserved.
 //
 
-#import "NotificationNavigationController.h"
+#import "TimeViewController.h"
 
-@interface NotificationNavigationController ()
+@interface TimeViewController ()
 
 @end
 
-@implementation NotificationNavigationController
-
+@implementation TimeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //Configurações da RootViewControler
-//    NotificationTableViewController *tableVC = [[NotificationTableViewController alloc] initWithNibName:@"NotificationTableViewController" bundle:nil];
-//    [self setViewControllers:@[tableVC]];
+    // Do any additional setup after loading the view.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

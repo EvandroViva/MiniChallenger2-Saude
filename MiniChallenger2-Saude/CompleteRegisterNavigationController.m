@@ -6,19 +6,19 @@
 //  Copyright (c) 2015 Evandro Remon Pulz Viva. All rights reserved.
 //
 
-#import "SpecialtyNavigationViewController.h"
+#import "CompleteRegisterNavigationController.h"
 
-@interface SpecialtyNavigationViewController ()
+@interface CompleteRegisterNavigationController ()
 
 @end
 
-@implementation SpecialtyNavigationViewController
+@implementation CompleteRegisterNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    SpecialtyTableViewController *specialtyVC = [[SpecialtyTableViewController alloc]initWithNibName:@"SpecialtyTableViewController" bundle:nil];
-    [self setViewControllers:@[specialtyVC]];
+    CompleteRegisterViewController *completeregisterVC = [[CompleteRegisterViewController alloc]initWithNibName:@"CompleteRegisterViewController" bundle:nil];
+    [self setViewControllers:@[completeregisterVC]];
 }
 
 - (void)didReceiveMemoryWarning {

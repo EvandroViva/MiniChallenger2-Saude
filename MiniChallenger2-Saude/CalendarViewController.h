@@ -10,11 +10,21 @@
 
 @interface CalendarViewController : UIViewController<JTCalendarDataSource>
 
+//XIB
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
+//@property (weak, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
+//@property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
+//@property (strong, nonatomic) JTCalendar *calendar;
+//- (IBAction)Hoje:(id)sender;
+//- (IBAction)Visualizacao:(id)sender;
+
+
+//STORYBOARD
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarContentViewHeight;
 @property (weak, nonatomic) IBOutlet JTCalendarContentView *calendarContentView;
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
 @property (strong, nonatomic) JTCalendar *calendar;
-- (IBAction)Hoje:(id)sender;
-- (IBAction)Visualizacao:(id)sender;
+//- (IBAction)Hoje:(id)sender;
+//- (IBAction)Visualizacao:(id)sender;
 
 @end
