@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AddScheduleTableViewController.h"
+#import "ScheduleTableViewCell.h"
+#import "Consultation.h"
 
 @interface ScheduleTableViewController : UITableViewController
 

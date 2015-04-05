@@ -15,5 +15,6 @@
 @property NSString *MinFinal;
 @property NSString *Data;
 @property NSString *ID;
+@property int indexSemana;
 
 @end

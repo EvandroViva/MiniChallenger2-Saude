@@ -13,8 +13,10 @@
 #import "DateTimeViewController.h"
 #import "DateViewController.h"
 #import "TimeViewController.h"
+#import "Consultation.h"
 #import <Parse/Parse.h>
 #import "Medico.h"
+
 
 @interface AddScheduleTableViewController : UITableViewController<UIPopoverPresentationControllerDelegate>
 
@@ -26,7 +28,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *repeatLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endsRepeatLabel;
 
-
++ (NSMutableArray*)sharedSegunda;
++ (NSMutableArray*)sharedTerca;
++ (NSMutableArray*)sharedQuarta;
++ (NSMutableArray*)sharedQuinta;
++ (NSMutableArray*)sharedSexta;
++ (NSMutableArray*)sharedSabado;
++ (NSMutableArray*)sharedSDomingo;
 -(IBAction)DoneClick:(id)sender;
 
 

@@ -9,6 +9,10 @@
 #import "ScheduleTableViewController.h"
 
 @interface ScheduleTableViewController ()
+{
+    Consultation *consulta;
+    int bit;
+}
 
 @end
 
@@ -16,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    bit =0;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -28,6 +33,7 @@
 //    [self.navigationItem setRightBarButtonItem:add];
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -38,29 +44,163 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 3;
+    return 7;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Title";
+   
+        
+    if (section == 0 && [AddScheduleTableViewController sharedSegunda].count !=0)
+        return @"Segunda";
+  else if (section == 1 && [AddScheduleTableViewController sharedTerca].count !=0)
+        return @"Terça";
+   else if (section == 2 && [AddScheduleTableViewController sharedQuarta].count !=0)
+        return @"Quarta";
+  else if (section == 3 && [AddScheduleTableViewController sharedQuinta].count !=0)
+        return @"Quinta";
+  else if (section == 4 && [AddScheduleTableViewController sharedSexta].count !=0)
+        return @"Sexta";
+  else if (section == 5 && [AddScheduleTableViewController sharedSabado].count !=0)
+        return @"Sabado";
+  else if (section == 6 && [AddScheduleTableViewController sharedSDomingo].count !=0)
+        return @"Domingo";
+    else
+        return @"";
+    
+    
+   
+
+    
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    
+   // return 1;
+    //return [AddScheduleTableViewController sharedHorarios].count;
+    
+    int count;
+    switch (section) {
+        case 0:
+            count = (int)[AddScheduleTableViewController sharedSegunda].count;
+            break;
+            
+        case 1:
+            count =(int)[AddScheduleTableViewController sharedTerca].count;
+            break;
+            
+        case 2:
+            count = (int)[AddScheduleTableViewController sharedQuarta].count;
+            break;
+            
+        case 3:
+            count = (int)[AddScheduleTableViewController sharedQuinta].count;
+            break;
+            
+        case 4:
+            count = (int)[AddScheduleTableViewController sharedSexta].count;
+            break;
+            
+        case 5:
+            count = (int)[AddScheduleTableViewController sharedSabado].count;
+            break;
+            
+        case 6:
+            count = (int)[AddScheduleTableViewController sharedSDomingo].count;
+            break;
+            
+        default:
+            break;
+    }
+    return count;
+    
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellSchedule" forIndexPath:indexPath];
+    
+    
+    
+    if (cell == nil)
+    {
+        cell = [[ScheduleTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellSchedule"];
+    }
+    
+    switch (indexPath.section) {
+        case 0:
+            consulta = [AddScheduleTableViewController sharedSegunda][indexPath.row];
+            //cell.LHora.text = consulta.HoraInicio;
+            break;
+            
+        case 1:
+            consulta = [AddScheduleTableViewController sharedTerca][indexPath.row];
+            //cell.LHora.text = consulta.HoraInicio;
+            break;
+            
+        case 2:
+            consulta = [AddScheduleTableViewController sharedQuarta][indexPath.row];
+            //cell.LHora.text = consulta.HoraInicio;
+            break;
+            
+        case 3:
+            consulta = [AddScheduleTableViewController sharedQuinta][indexPath.row];
+            //cell.LHora.text = consulta.HoraInicio;
+            break;
+            
+        case 4:
+            consulta = [AddScheduleTableViewController sharedSexta][indexPath.row];
+            //cell.LHora.text = consulta.HoraInicio;
+            break;
+            
+        case 5:
+            consulta = [AddScheduleTableViewController sharedSabado][indexPath.row];
+           // cell.LHora.text = consulta.HoraInicio;
+            break;
+            
+        case 6:
+            consulta = [AddScheduleTableViewController sharedSDomingo][indexPath.row];
+            //cell.LHora.text = consulta.HoraInicio;
+            break;
+            
+        default:
+            break;
+    }
+
+    NSString *junt1 =consulta.HoraInicio;
+    NSString *junt2 = @":";
+    NSString *junt3 = consulta.MinInicio;
+    
+    NSString *junt11 =consulta.HoraFinal;
+    NSString *junt21 = @":";
+    NSString *junt31 = consulta.MinFinal;
+    
+    junt1 = [junt1 stringByAppendingString:junt2];
+    junt1 = [junt1 stringByAppendingString:junt3];
+    
+    junt11 = [junt11 stringByAppendingString:junt21];
+    junt11 = [junt11 stringByAppendingString:junt31];
+    
+    
+    cell.LHora.text = junt1;
+    cell.LHoraFinal.text = junt11;
+    
+    
+    
+    //consulta= [AddScheduleTableViewController sharedHorarios][indexPath.row];
+
+//[AddScheduleTableViewController sharedHorarios]
+    
+    
+    
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

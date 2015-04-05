@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ScheduleTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *LHora;
+@property (weak, nonatomic) IBOutlet UILabel *LHoraFinal;
 
 @end

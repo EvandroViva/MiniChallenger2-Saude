@@ -9,12 +9,107 @@
 #import "AddScheduleTableViewController.h"
 
 static NSString* daysWeek[] = {@"Dom",@"Seg",@"Ter",@"Qua",@"Qui",@"Sex",@"Sáb"};
+static NSMutableArray *HorarioSegunda;
+static NSMutableArray *HorarioTerca;
+static NSMutableArray *HorarioQuarta;
+static NSMutableArray *HorarioQuinta;
+static NSMutableArray *HorarioSexta;
+static NSMutableArray *HorarioSabado;
+static NSMutableArray *HorarioDomingo;
+
+static bool isFirstAccess1 = YES;
+static bool isFirstAccess2 = YES;
+static bool isFirstAccess3 = YES;
+static bool isFirstAccess4 = YES;
+static bool isFirstAccess5 = YES;
+static bool isFirstAccess6 = YES;
+static bool isFirstAccess7 = YES;
 
 @interface AddScheduleTableViewController ()
+{
+    Consultation *consultaa;
+}
 
 @end
 
 @implementation AddScheduleTableViewController
+
++ (NSMutableArray*)sharedSegunda
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess1 = NO;
+        HorarioSegunda = [[NSMutableArray alloc]init];
+    });
+    
+    return HorarioSegunda;
+}
+
++ (NSMutableArray*)sharedTerca
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess2 = NO;
+        HorarioTerca = [[NSMutableArray alloc]init];
+    });
+    
+    return HorarioTerca;
+}
+
++ (NSMutableArray*)sharedQuarta
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess3 = NO;
+        HorarioQuarta = [[NSMutableArray alloc]init];
+    });
+    
+    return HorarioQuarta;
+}
+
++ (NSMutableArray*)sharedQuinta
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess4 = NO;
+        HorarioQuinta = [[NSMutableArray alloc]init];
+    });
+    
+    return HorarioQuinta;
+}
+
++ (NSMutableArray*)sharedSexta
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess5 = NO;
+        HorarioSexta = [[NSMutableArray alloc]init];
+    });
+    
+    return HorarioSexta;
+}
+
++ (NSMutableArray*)sharedSabado
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess6 = NO;
+        HorarioSabado = [[NSMutableArray alloc]init];
+    });
+    
+    return HorarioSabado;
+}
+
++ (NSMutableArray*)sharedSDomingo
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isFirstAccess7 = NO;
+        HorarioDomingo = [[NSMutableArray alloc]init];
+    });
+    
+    return HorarioDomingo;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -196,10 +291,30 @@ static NSString* daysWeek[] = {@"Dom",@"Seg",@"Ter",@"Qua",@"Qui",@"Sex",@"Sáb"
             consulta[@"MinInicio"] = MinutoInicio;
             consulta[@"MinFinal"] = MinutoFinal;
             consulta[@"ObjectID"] = [Medico sharedDoctor].parseObject.objectId;
-            
-            
             [consultas1 addObject:consulta];
-        }
+            
+            consultaa = [[Consultation alloc]init];
+            consultaa.HoraInicio = HoraInicio;
+            consultaa.MinInicio = MinutoInicio;
+            consultaa.HoraFinal = HoraFinal;
+            consultaa.MinFinal = MinutoFinal;
+            consultaa.indexSemana =i+1;
+            
+            if ((int)consultaa.indexSemana == 1)
+                [[AddScheduleTableViewController sharedSDomingo]addObject:consultaa];
+            if ((int)consultaa.indexSemana == 2)
+                [[AddScheduleTableViewController sharedSegunda]addObject:consultaa];
+            if ((int)consultaa.indexSemana == 3)
+                [[AddScheduleTableViewController sharedTerca]addObject:consultaa];
+            if ((int)consultaa.indexSemana == 4)
+                [[AddScheduleTableViewController sharedQuarta]addObject:consultaa];
+            if ((int)consultaa.indexSemana == 5)
+                [[AddScheduleTableViewController sharedQuinta]addObject:consultaa];
+            if ((int)consultaa.indexSemana == 6)
+                [[AddScheduleTableViewController sharedSexta]addObject:consultaa];
+            if ((int)consultaa.indexSemana == 7)
+                [[AddScheduleTableViewController sharedSabado]addObject:consultaa];
+            }
     }
     
 //    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
