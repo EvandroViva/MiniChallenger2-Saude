@@ -66,6 +66,7 @@
             
                 [[Medico sharedDoctor] setParseUser:pfuser];
                 
+                
                 PFRelation *relation = [pfuser relationForKey:@"doctor"];
                 [[relation query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     
@@ -78,6 +79,7 @@
                         
                         [relation addObject:doctor];
                         [m setParseObject:doctor];
+                        
 ;
                         [doctor saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             [pfuser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

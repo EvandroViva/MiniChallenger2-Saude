@@ -21,6 +21,7 @@
 -(void)setWithPFObject: (PFObject*) object;
 -(void)setWithPFUser: (PFUser*) object;
 
+@property NSString* ID;
 @property PFObject* parseObject;
 @property PFUser*   parseUser;
 //@property NSString* id_medico;

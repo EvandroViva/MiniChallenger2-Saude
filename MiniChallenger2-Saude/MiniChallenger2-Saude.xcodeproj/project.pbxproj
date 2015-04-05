@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0B5CB41E1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5CB41D1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m */; };
+		116290691AD0F21700A0D35B /* Consultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 116290681AD0F21700A0D35B /* Consultation.m */; };
+		1162906D1AD0F25400A0D35B /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1162906C1AD0F25400A0D35B /* Patient.m */; };
+		116290711AD0FE0600A0D35B /* CalendarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116290701AD0FE0600A0D35B /* CalendarTableViewCell.m */; };
 		11BB75211ACB1D4D00B2EF34 /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB750D1ACB1D4D00B2EF34 /* JTCalendar.m */; };
 		11BB75221ACB1D4D00B2EF34 /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB750F1ACB1D4D00B2EF34 /* JTCalendarAppearance.m */; };
 		11BB75231ACB1D4D00B2EF34 /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB75111ACB1D4D00B2EF34 /* JTCalendarContentView.m */; };
@@ -101,6 +104,12 @@
 /* Begin PBXFileReference section */
 		0B5CB41C1ACD8AC2003CA51D /* CompleteRegisterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteRegisterNavigationController.h; sourceTree = "<group>"; };
 		0B5CB41D1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteRegisterNavigationController.m; sourceTree = "<group>"; };
+		116290671AD0F21700A0D35B /* Consultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consultation.h; sourceTree = "<group>"; };
+		116290681AD0F21700A0D35B /* Consultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consultation.m; sourceTree = "<group>"; };
+		1162906B1AD0F25400A0D35B /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		1162906C1AD0F25400A0D35B /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		1162906F1AD0FE0600A0D35B /* CalendarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTableViewCell.h; sourceTree = "<group>"; };
+		116290701AD0FE0600A0D35B /* CalendarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTableViewCell.m; sourceTree = "<group>"; };
 		11BB750C1ACB1D4D00B2EF34 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
 		11BB750D1ACB1D4D00B2EF34 /* JTCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendar.m; sourceTree = "<group>"; };
 		11BB750E1ACB1D4D00B2EF34 /* JTCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarAppearance.h; sourceTree = "<group>"; };
@@ -268,6 +277,24 @@
 				0B5CB41D1ACD8AC2003CA51D /* CompleteRegisterNavigationController.m */,
 			);
 			name = CompleteRegister;
+			sourceTree = "<group>";
+		};
+		1162906A1AD0F21C00A0D35B /* Consultation */ = {
+			isa = PBXGroup;
+			children = (
+				116290671AD0F21700A0D35B /* Consultation.h */,
+				116290681AD0F21700A0D35B /* Consultation.m */,
+			);
+			name = Consultation;
+			sourceTree = "<group>";
+		};
+		1162906E1AD0F25800A0D35B /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				1162906B1AD0F25400A0D35B /* Patient.h */,
+				1162906C1AD0F25400A0D35B /* Patient.m */,
+			);
+			name = Patient;
 			sourceTree = "<group>";
 		};
 		11BB750B1ACB1D4D00B2EF34 /* JTCalendar */ = {
@@ -471,6 +498,8 @@
 		908883E41AC763DE006E7BE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1162906E1AD0F25800A0D35B /* Patient */,
+				1162906A1AD0F21C00A0D35B /* Consultation */,
 				90014A771AC86ABD00AD7292 /* User */,
 				908883EE1AC7650C006E7BE9 /* Medico */,
 				90B54B681ACFA2BA00BE6507 /* Schedule */,
@@ -759,6 +788,8 @@
 			children = (
 				90BD96DB1ACAE69E0053ED27 /* CalendarViewController.h */,
 				90BD96DC1ACAE69E0053ED27 /* CalendarViewController.m */,
+				1162906F1AD0FE0600A0D35B /* CalendarTableViewCell.h */,
+				116290701AD0FE0600A0D35B /* CalendarTableViewCell.m */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -899,9 +930,11 @@
 				90014A7A1AC86AD100AD7292 /* User.m in Sources */,
 				90016F0F1AC176BC002D8BF6 /* ViewController.m in Sources */,
 				11BB75261ACB1D4D00B2EF34 /* JTCalendarMenuView.m in Sources */,
+				116290691AD0F21700A0D35B /* Consultation.m in Sources */,
 				90BD96D91ACAC7B60053ED27 /* SpecialtyTableViewController.m in Sources */,
 				90016F0C1AC176BC002D8BF6 /* AppDelegate.m in Sources */,
 				908884031AC78AD5006E7BE9 /* NotificationTableViewController.m in Sources */,
+				1162906D1AD0F25400A0D35B /* Patient.m in Sources */,
 				90B54B621ACF9D6D00BE6507 /* WeeklyTableViewController.m in Sources */,
 				90014A761AC865F900AD7292 /* UserDAO.m in Sources */,
 				90016F091AC176BC002D8BF6 /* main.m in Sources */,
@@ -918,6 +951,7 @@
 				90B54B6F1ACFA9A900BE6507 /* TimeViewController.m in Sources */,
 				90B54B671ACFA2B600BE6507 /* Schedule.m in Sources */,
 				11BB75221ACB1D4D00B2EF34 /* JTCalendarAppearance.m in Sources */,
+				116290711AD0FE0600A0D35B /* CalendarTableViewCell.m in Sources */,
 				90C464211ACD760700F49E63 /* AddScheduleTableViewController.m in Sources */,
 				90BD96D11ACAC78A0053ED27 /* SpecialtyTableViewCell.m in Sources */,
 				90014A811AC87A6700AD7292 /* CompleteRegisterViewController.m in Sources */,

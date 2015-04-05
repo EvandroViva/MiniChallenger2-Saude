@@ -15,6 +15,7 @@
 @end
 
 @implementation CalendarViewController
+@synthesize consultas;
 
 - (void)viewDidLoad
 {
@@ -31,6 +32,7 @@
     [self.calendar setContentView:self.calendarContentView];
     [self.calendar setDataSource:self];
     [self.calendar reloadData];
+    consultas = [[NSMutableArray alloc]init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -47,13 +49,88 @@
 
 - (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
 {
-    return (rand() % 10) == 1;
+    return 0;
 }
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
     NSLog(@"Date: %@", date);
+    
+    
+    [self buscarConsultaAgendada:[self ConverteDia:date] andIDMedico:[Medico sharedDoctor].parseObject.objectId andComplete:^(NSMutableArray *array)
+    {
+        consultas = array;
+    }];
+    
+
+
+    
 }
+
+
+-(void)buscarConsultaAgendada:(NSString*)data andIDMedico:(NSString*)IDMedico andComplete:(void(^)(NSMutableArray*)) callback
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Excecao"];
+    [query whereKey:@"objectIDM" equalTo:IDMedico];
+    [query whereKey:@"Date" equalTo:data];
+    [query orderByAscending:@"HoraInicio"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *consultas = [[NSMutableArray alloc]init];
+        if (!error) {
+            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+            for (PFObject *object in objects)
+            {
+                Consultation *consulta = [[Consultation alloc]init];
+                consulta.HoraInicio = object[@"HoraInicio"];
+                consulta.MinInicio = object[@"MinInicial"];
+                consulta.Data = object[@"Data"];
+                consulta.NomePaciente = object[@"NomePaciente"];
+                consulta.TelPaciente = object[@"TelPaciente"];
+                [consultas addObject:consulta];
+            }
+        }
+        else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+
+        }
+        callback(consultas);
+    }];
+
+    
+}
+//
+//-(void)BuscarPaciente:(NSString*)ID andComplete:(void(^)(Patient *)) callback
+//{
+//    PFQuery *query = [PFQuery queryWithClassName:@"Paciente"];
+//    [query whereKey:@"objectID" equalTo:ID];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        Patient *paciente = [[Patient alloc]init];
+//        if (!error) {
+//            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+//            for (PFObject *object in objects)
+//            {
+//                paciente.nome = object[@"nome"];
+//                paciente.telefone = object[@"telefone"];
+//            }
+//        }
+//        else {
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//            
+//        }
+//        callback(paciente);
+//    }];
+//
+//}
+
+-(NSString*)ConverteDia:(NSDate*)date
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateFormat:@" dd/MM/yyyy"];
+    NSString *formatoData = [format stringFromDate:date];
+    return formatoData;
+}
+
 
 #pragma mark - Transition examples
 
@@ -96,4 +173,81 @@
     
     [self transitionExample];
 }
+
+
+#pragma mark - Table
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return consultas.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CalendarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaCalendar" forIndexPath:indexPath];
+
+    
+    if (cell == nil)
+    {
+        cell = [[CalendarTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaCalendar"];
+    }
+    
+
+    
+    
+//    else
+//        
+//    {
+//        
+//        _consulta = _mostrar[indexPath.row];
+//        
+//        // NSNumber* n = _consulta.horarioInicial;
+//        
+//        NSLog(@"singleton =%ld", (long)index);
+//        
+//        // NSString *ok = [self ConverteHora:dataSelecionada];
+//        
+//        NSString *ok = _consulta.HoraInicio;
+//        
+//        NSString *ok1 = @":";
+//        
+//        NSString *ok2 = _consulta.MinInicio;
+//        
+//        ok = [ok stringByAppendingString:ok1];
+//        
+//        ok = [ok stringByAppendingString:ok2];
+//        
+//        
+//        
+//        NSString *e = _consulta.HoraFinal;
+//        
+//        NSString *e1 = @":";
+//        
+//        NSString *e2= _consulta.MinFinal;
+//        
+//        e = [e stringByAppendingString:e1];
+//        
+//        e = [e stringByAppendingString:e2];
+//        
+//        
+//        
+//        cell.LData.text = ok;
+//        cell.LDataFinal.text = e;
+//        
+//        // cell.LFim.text = e;
+//        
+//        cell.LConteudo.text = @"Consulta";
+//        
+//    }
+    
+    return cell;
+    
+}
+
+
 @end
