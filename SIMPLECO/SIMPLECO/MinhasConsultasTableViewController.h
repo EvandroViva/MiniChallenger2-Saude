@@ -11,6 +11,8 @@
 #import "LoginViewController.h"
 #import "ViewController.h"
 #import "ResultPesqTableViewController.h"
+#import "ConsultaController.h"
+#import "ConsultaViewController.h"
 
 @interface MinhasConsultasTableViewController : UITableViewController
 

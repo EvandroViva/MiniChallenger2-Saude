@@ -13,6 +13,7 @@
 #import "Consulta.h"
 #import "ConsultaViewController.h"
 #import "RegiaoTableViewController.h"
+#import "Paciente.h"
 
 @interface ConsultaController : NSObject
 
@@ -24,7 +25,9 @@
 
 -(void)buscarExcecao:(NSString*)data andID:(NSString*)objectIDD andComplete:(void(^)(NSMutableArray*)) callback;
 
--(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD AndComplete:(void(^)(void))callback;
+-(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD andIDP:(NSString*)objectIDP AndComplete:(void(^)(void))callback;
+
+-(void)BuscarPaciente:(NSString*)email andUser:(NSString*)user AndComplete:(void(^)(NSArray*))callback;
 
 -(void)Marcou:(void(^)(void))callback;
 

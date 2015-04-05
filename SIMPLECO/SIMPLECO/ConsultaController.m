@@ -158,13 +158,14 @@ static bool isFirstAccess = YES;
 
 
 
--(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD AndComplete:(void(^)(void))callback
+-(void)MarcouConsultaRetirarVagaParese:(NSString *)data andHora:(NSString*)horario andMin:(NSString*)min andID:(NSString*)objectIDD andIDP:(NSString*)objectIDP AndComplete:(void(^)(void))callback
 {
     PFObject *gameScore = [PFObject objectWithClassName:@"Excecao"];
     gameScore[@"objectIDM"] = objectIDD;
     gameScore[@"Date"] = data;
     gameScore[@"HoraInicio"] = horario;
     gameScore[@"MinInicial"] = min;
+    gameScore[@"objectIDP"] = objectIDP;
     [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"Sucesso");
@@ -172,6 +173,32 @@ static bool isFirstAccess = YES;
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+}
+
+-(void)BuscarPaciente:(NSString*)email andUser:(NSString*)user AndComplete:(void(^)(NSArray*))callback
+{
+     PFQuery *query = [PFQuery queryWithClassName:@"Paciente"];
+    [query whereKey:@"email" equalTo:email];
+    [query whereKey:@"UserName" equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSMutableArray *pacientes = [[NSMutableArray alloc]init];
+        if (!error) {
+            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+            for (PFObject *object in objects)
+            {
+                Paciente *paciente = [[Paciente alloc]init];
+                paciente.objectID = [object objectId];
+                [pacientes addObject:paciente];
+            }
+        }
+        else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+
+        }
+        callback(pacientes);
+    }];
+
+    
 }
 
 -(void)creatingConsultaComData:(NSDate*)data eIdPaciente:(id)user AndComplete: (void(^)(void)) callback;{

@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *TFSenha;
 @property NSString *UltimoCadastro;
 @property NSString *UltimaSenha;
+@property NSString *formatoData;
+  
+@property NSString *IDPaciente;
 
 - (IBAction)BConfirma:(id)sender;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *Carregando;
