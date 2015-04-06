@@ -21,7 +21,8 @@
     [super viewDidLoad];
     medSelecionado = [ResultPesqTableViewController sharedInstance];
     NSLog(@"Nome = %@",medSelecionado.medicoSelecionado.nome);
-    _lblEndereco.text = medSelecionado.medicoSelecionado.endereco;
+    _lblEndereco.text = [NSString stringWithFormat:@"%@, %@", medSelecionado.medicoSelecionado.endereco, medSelecionado.medicoSelecionado.numero];
+//    _lblEndereco.text = medSelecionado.medicoSelecionado.endereco;
     _lblBairro.text = medSelecionado.medicoSelecionado.bairro;
     _lblEspecialidade.text = medSelecionado.medicoSelecionado.especialidade;
     _lblRegiao.text = medSelecionado.medicoSelecionado.regiao;
