@@ -42,6 +42,7 @@
 -(NSString*)number;
 -(NSString*)district;
 -(NSString*)burgh;
+-(NSString*)cep;
 
 -(void)setName:(NSString *)n andSave: (bool) s;
 -(void)setCod:(NSString *)n andSave: (bool) s;

@@ -709,6 +709,13 @@
                     <value key="contentSizeForViewInPopover" type="size" width="280" height="330"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="280" height="350"/>
+                    <connections>
+                        <outlet property="burgh" destination="tX3-PU-4Os" id="B2b-2b-PKO"/>
+                        <outlet property="district" destination="NRP-UF-sR5" id="q8k-LC-Vkj"/>
+                        <outlet property="number" destination="fnb-j6-4iF" id="21I-d6-33K"/>
+                        <outlet property="street" destination="YDX-y7-bd1" id="A9R-vM-v7L"/>
+                        <outlet property="zipcode" destination="SSp-Td-sdH" id="Lfq-fO-nGu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9rn-fO-ZaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

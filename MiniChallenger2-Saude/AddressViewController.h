@@ -16,5 +16,10 @@
 - (IBAction)BurghDidEnd:(UITextField *)sender;
 - (IBAction)CEPDidEnd:(UITextField *)sender;
 - (IBAction)DistrictDidEnd:(UITextField *)sender;
+@property (weak, nonatomic) IBOutlet UITextField *street;
+@property (weak, nonatomic) IBOutlet UITextField *number;
+@property (weak, nonatomic) IBOutlet UITextField *burgh;
+@property (weak, nonatomic) IBOutlet UITextField *zipcode;
+@property (weak, nonatomic) IBOutlet UITextField *district;
 
 @end
