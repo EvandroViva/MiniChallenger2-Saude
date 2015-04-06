@@ -94,7 +94,8 @@ static ResultPesqTableViewController *SINGLETON = nil;
     [cell addSubview:LDetalhe];
   
    LMedico.text = [_medicos[indexPath.row]nome];
-    LEndereco.text = [_medicos[indexPath.row]endereco];
+    LEndereco.text = [NSString stringWithFormat:@"%@, %@", [_medicos[indexPath.row]endereco],[_medicos[indexPath.row]numero]];
+//    LEndereco.text = [_medicos[indexPath.row]endereco];
     LDetalhe.text = [_medicos[indexPath.row]bairro];
     [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
