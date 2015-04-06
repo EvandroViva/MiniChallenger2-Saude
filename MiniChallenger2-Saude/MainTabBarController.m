@@ -69,7 +69,7 @@ static MainTabBarController *sharedMainTabBarController = nil;
 
        Medico *m = [Medico sharedDoctor];
     if (![m remember_later])
-        if ([[m name] isEqualToString:@""] || [m name] == nil || [[m cod] isEqualToString:@""] || [m cod] == nil || [[m specialty] isEqualToString:@""] || [m specialty]==nil || [[m street] isEqualToString:@""] || [m street]==nil || [[m number] isEqualToString:@""] || [m number]==nil || [[m district] isEqualToString:@""] || [m district]==nil || [[m burgh] isEqualToString:@""] || [m burgh]==nil || [[m cep] isEqualToString:@""] || [m cep]==nil) {
+        if ([[m name] isEqualToString:@""] || [m name] == nil || [[m cod] isEqualToString:@""] || [m cod] == nil || [[m specialty] isEqualToString:@""] || [m specialty]==nil || [[m street] isEqualToString:@""] || [m street]==nil || [m number]==nil || [[m district] isEqualToString:@""] || [m district]==nil || [[m burgh] isEqualToString:@""] || [m burgh]==nil || [[m cep] isEqualToString:@""] || [m cep]==nil) {
         
         [self performSegueWithIdentifier:@"CompleteRegister" sender:self];
     }
