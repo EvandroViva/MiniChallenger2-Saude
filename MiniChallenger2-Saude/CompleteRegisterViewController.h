@@ -31,6 +31,9 @@
 - (IBAction)NameDidEnd:(UITextField *)sender;
 - (IBAction)DocDidEnd:(UITextField *)sender;
 
+- (IBAction)NameEditingDidEnd:(UITextField *)sender;
+- (IBAction)DocEditingDidEnd:(UITextField *)sender;
+
 
 
 @end

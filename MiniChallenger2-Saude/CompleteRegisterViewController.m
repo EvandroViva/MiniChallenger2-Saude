@@ -155,5 +155,14 @@
     [sender resignFirstResponder];
 }
 
+- (IBAction)NameEditingDidEnd:(UITextField *)sender {
+    [[Medico sharedDoctor] setName:sender.text andSave:NO];
+}
+
+- (IBAction)DocEditingDidEnd:(UITextField *)sender {
+    [[Medico sharedDoctor] setCod:sender.text andSave:NO];
+}
+
+
 
 @end

@@ -613,6 +613,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="StreetDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEndOnExit" id="QCZ-8p-Zeu"/>
+                                    <action selector="StreetEditingDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEnd" id="GNa-eO-Saq"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Número" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTB-xw-e10">
@@ -627,6 +628,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <connections>
                                     <action selector="NumberDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEndOnExit" id="ViV-ge-iAh"/>
+                                    <action selector="NumberEditingDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEnd" id="oVK-BL-TjX"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bairro" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tX3-PU-4Os">
@@ -635,6 +637,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="BurghDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEndOnExit" id="3Fq-Fr-9VQ"/>
+                                    <action selector="BurghEditingDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEnd" id="o1B-Jd-bvW"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CEP" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSp-Td-sdH">
@@ -643,6 +646,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <connections>
                                     <action selector="ZipCodeDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEndOnExit" id="ChK-eh-mfd"/>
+                                    <action selector="ZipCodeEditingDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEnd" id="naQ-gA-r4f"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CEP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sB7-eU-ZhD">
@@ -669,6 +673,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="DistrictDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEndOnExit" id="fji-Nz-jjI"/>
+                                    <action selector="DistrictEditingDidEnd:" destination="bEt-LP-VCS" eventType="editingDidEnd" id="qOx-b7-Gz8"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -1534,6 +1539,9 @@
                                 <rect key="frame" x="26" y="169" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="NameEditingDidEnd:" destination="vP4-th-PgK" eventType="editingDidEnd" id="EP7-nW-HSP"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Documento de Trabalho" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-bx-fVM">
                                 <rect key="frame" x="21" y="219" width="184" height="21"/>
@@ -1545,6 +1553,9 @@
                                 <rect key="frame" x="26" y="245" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="DocEditingDidEnd:" destination="vP4-th-PgK" eventType="editingDidEnd" id="7NG-my-1Q4"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Especialidade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCE-vh-opB">
                                 <rect key="frame" x="26" y="295" width="107" height="21"/>

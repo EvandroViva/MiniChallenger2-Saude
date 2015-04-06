@@ -25,4 +25,11 @@
 - (IBAction)ZipCodeDidEnd:(UITextField *)sender;
 - (IBAction)DistrictDidEnd:(UITextField *)sender;
 
+- (IBAction)StreetEditingDidEnd:(UITextField *)sender;
+- (IBAction)NumberEditingDidEnd:(UITextField *)sender;
+- (IBAction)BurghEditingDidEnd:(UITextField *)sender;
+- (IBAction)ZipCodeEditingDidEnd:(UITextField *)sender;
+- (IBAction)DistrictEditingDidEnd:(UITextField *)sender;
+
+
 @end

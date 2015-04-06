@@ -69,8 +69,29 @@
     
 }
 
+- (IBAction)StreetEditingDidEnd:(UITextField *)sender {
+    [[Medico sharedDoctor] setStreet:sender.text andSave:NO];
+}
+
+- (IBAction)NumberEditingDidEnd:(UITextField *)sender {
+    [[Medico sharedDoctor] setNumber:[NSNumber numberWithInt:[sender.text intValue]] andSave:NO];
+}
+
+- (IBAction)BurghEditingDidEnd:(UITextField *)sender {
+    [[Medico sharedDoctor] setBurgh:sender.text andSave:NO];
+}
+
+- (IBAction)ZipCodeEditingDidEnd:(UITextField *)sender {
+    [[Medico sharedDoctor] setCep:sender.text andSave:NO];
+}
+
+- (IBAction)DistrictEditingDidEnd:(UITextField *)sender {
+    [[Medico sharedDoctor] setDistrict:sender.text andSave:NO];
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
     [self.view endEditing:true];
 }
 @end
