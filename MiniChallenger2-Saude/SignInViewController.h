@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *SignInButton;
 @property (weak, nonatomic) IBOutlet UIButton *CancelButton;
 
+- (void) signin;
 
+- (IBAction)UsernameDidEnd:(UITextField *)sender;
+- (IBAction)EmailDidEnd:(UITextField *)sender;
+- (IBAction)PasswordDidEnd:(UITextField *)sender;
 
 @end

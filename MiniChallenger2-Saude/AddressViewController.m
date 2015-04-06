@@ -18,6 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    _StreetTextField.text=[[Medico sharedDoctor] street];
+    _NumberTextField.text=[[[Medico sharedDoctor] number] stringValue];
+    _BurghTextField.text=[[Medico sharedDoctor] burgh];
+    _ZipCodeTextField.text=[[Medico sharedDoctor] cep];
+    _DistrictTextField.text=[[Medico sharedDoctor] district];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -38,25 +45,32 @@
 
 - (IBAction)StreetDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setStreet:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.NumberTextField becomeFirstResponder];
 }
 
 - (IBAction)NumberDidEnd:(UITextField *)sender {
-    [[Medico sharedDoctor] setNumber:sender.text andSave:NO];
-    [sender endEditing:true];
+    [[Medico sharedDoctor] setNumber:[NSNumber numberWithInt:[sender.text intValue]] andSave:NO];
+    [self.BurghTextField becomeFirstResponder];
 }
 
 - (IBAction)BurghDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setBurgh:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.ZipCodeTextField becomeFirstResponder];
 }
 
-- (IBAction)CEPDidEnd:(UITextField *)sender {
+- (IBAction)ZipCodeDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setCep:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.DistrictTextField becomeFirstResponder];
 }
 - (IBAction)DistrictDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setDistrict:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.view endEditing:true];
+    [self dismissViewControllerAnimated:true completion:nil];
+    
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:true];
 }
 @end

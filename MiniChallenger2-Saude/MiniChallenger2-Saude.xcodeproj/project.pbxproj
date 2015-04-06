@@ -1130,7 +1130,7 @@
 				INFOPLIST_FILE = "MiniChallenger2-SaudeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniChallenger2-Saude.app/MiniChallenger2-Saude";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SIMPLECO M.app/SIMPLECO M";
 			};
 			name = Debug;
 		};
@@ -1145,7 +1145,7 @@
 				INFOPLIST_FILE = "MiniChallenger2-SaudeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiniChallenger2-Saude.app/MiniChallenger2-Saude";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SIMPLECO M.app/SIMPLECO M";
 			};
 			name = Release;
 		};

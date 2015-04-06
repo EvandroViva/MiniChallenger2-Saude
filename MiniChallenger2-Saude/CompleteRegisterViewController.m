@@ -55,10 +55,6 @@
 
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -144,6 +140,20 @@
     
 }
 
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:true];
+}
+
+- (IBAction)NameDidEnd:(UITextField *)sender
+{
+    [self.docTextFiled becomeFirstResponder];
+}
+- (IBAction)DocDidEnd:(UITextField *)sender
+{
+    [sender resignFirstResponder];
+}
 
 
 @end

@@ -71,7 +71,7 @@ static Medico* vSharedDoctor = nil;
     return self.parseObject[@"endereco"];
 }
 
--(NSString*)number
+-(NSNumber*)number
 {
     return self.parseObject[@"numero"];
 }
@@ -123,7 +123,7 @@ static Medico* vSharedDoctor = nil;
     }
 }
 
--(void)setNumber:(NSString *)n andSave: (bool) s
+-(void)setNumber:(NSNumber *)n andSave: (bool) s
 {
     self.parseObject[@"numero"] = n;
     if (s) {
