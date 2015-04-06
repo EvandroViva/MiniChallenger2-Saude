@@ -10,7 +10,6 @@
 
 @interface CalendarTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *LabelHora;
-@property (weak, nonatomic) IBOutlet UILabel *LabelNome;
-@property (weak, nonatomic) IBOutlet UILabel *LabelTelefone;
+
 
 @end

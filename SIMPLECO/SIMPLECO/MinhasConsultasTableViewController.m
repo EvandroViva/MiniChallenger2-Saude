@@ -74,50 +74,50 @@
     
     // Configure the cell...
     
-//    =================================
-//    |      Consultas via Parse      |
-//    =================================
-    
-//    Adicionar inclusão de nome String na criação de consulta.
-    medSelecionado = [ResultPesqTableViewController sharedInstance];
-    PFQuery *query = [PFQuery queryWithClassName:@"TipoConsulta"];
-    [query whereKey:@"ObjectID" equalTo:medSelecionado.medicoSelecionado.objectID];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"inicio dados");
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu consults.", (unsigned long)objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.parseClassName);
-                NSLog(@"%@", object.allKeys);
-                
-                _evento = [LoginViewController sharedEventos][indexPath.row];
-                
-                NSDateFormatter *format = [[NSDateFormatter alloc]init];
-                [format setDateFormat:@" dd /MM"];
-                NSString *formatoData = [format stringFromDate:_evento.startDate];
-                
-//                NSDateFormatter *format2 = [[NSDateFormatter alloc]init];
-//                [format2 setDateFormat:@" HH:mm"];
-//                NSString *formatoHora = [format2 stringFromDate:_evento.startDate];
-                NSString* valor1=[[NSString alloc] init];
-                valor1=[NSString stringWithFormat:@"%@ :%@",object[@"HoraInicio"],object[@"MinInicio"]];
-                
-                cell.LabelData.text= formatoData;
-                cell.LabelHora.text=valor1;
-                
-                NSLog(@"O que mostra??%@",medSelecionado.medicoSelecionado.especialidade);
-                cell.LabelConsulta.text = medSelecionado.medicoSelecionado.especialidade;
-                cell.LabelDetalhes.text =medSelecionado.medicoSelecionado.endereco;
-                
-            }
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-    
+////    =================================
+////    |      Consultas via Parse      |
+////    =================================
+//    
+////    Adicionar inclusão de nome String na criação de consulta.
+//    medSelecionado = [ResultPesqTableViewController sharedInstance];
+//    PFQuery *query = [PFQuery queryWithClassName:@"TipoConsulta"];
+//    [query whereKey:@"ObjectID" equalTo:medSelecionado.medicoSelecionado.objectID];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        NSLog(@"inicio dados");
+//        if (!error) {
+//            // The find succeeded.
+//            NSLog(@"Successfully retrieved %lu consults.", (unsigned long)objects.count);
+//            // Do something with the found objects
+//            for (PFObject *object in objects) {
+//                NSLog(@"%@", object.parseClassName);
+//                NSLog(@"%@", object.allKeys);
+//                
+//                _evento = [LoginViewController sharedEventos][indexPath.row];
+//                
+//                NSDateFormatter *format = [[NSDateFormatter alloc]init];
+//                [format setDateFormat:@" dd /MM"];
+//                NSString *formatoData = [format stringFromDate:_evento.startDate];
+//                
+////                NSDateFormatter *format2 = [[NSDateFormatter alloc]init];
+////                [format2 setDateFormat:@" HH:mm"];
+////                NSString *formatoHora = [format2 stringFromDate:_evento.startDate];
+//                NSString* valor1=[[NSString alloc] init];
+//                valor1=[NSString stringWithFormat:@"%@ :%@",object[@"HoraInicio"],object[@"MinInicio"]];
+//                
+//                cell.LabelData.text= formatoData;
+//                cell.LabelHora.text=valor1;
+//                
+//                NSLog(@"O que mostra??%@",medSelecionado.medicoSelecionado.especialidade);
+//                cell.LabelConsulta.text = medSelecionado.medicoSelecionado.especialidade;
+//                cell.LabelDetalhes.text =medSelecionado.medicoSelecionado.endereco;
+//                
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
+//    
 //    ==============FIM================
     _evento = [LoginViewController sharedEventos][indexPath.row];
     

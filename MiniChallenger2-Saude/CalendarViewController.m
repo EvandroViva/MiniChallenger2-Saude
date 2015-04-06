@@ -72,20 +72,20 @@
     [self buscarConsultaAgendada:[self ConverteDia:date] andIDMedico:[Medico sharedDoctor].parseObject.objectId andComplete:^(NSMutableArray *array)
     {
         consultass = array;
-        
+        [self.TableView reloadData];
     }];
     
-    for (int t=0; t<consultass.count; t++)
-    {
-        con = consultass[t];
-    [self BuscarPaciente:con.ID andComplete:^(Patient *pat)
-     {
-         pacientee = pat;
-         [self.TableView reloadData];
-         
-     }];
-    }
-    
+//    for (int t=0; t<consultass.count; t++)
+//    {
+//        con = consultass[t];
+//    [self BuscarPaciente:con.ID andComplete:^(Patient *pat)
+//     {
+//         pacientee = pat;
+//         
+//         
+//     }];
+//    }
+//    
     
     
 }
@@ -123,31 +123,31 @@
 
     
 }
+//
+//-(void)BuscarPaciente:(NSString*)ID andComplete:(void(^)(Patient *)) callback
+//{
+//    PFQuery *query = [PFQuery queryWithClassName:@"Paciente"];
+//    [query whereKey:@"objectId" equalTo:ID];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        Patient *paciente = [[Patient alloc]init];
+//        if (!error) {
+//            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+//            for (PFObject *object in objects)
+//            {
+//                paciente.nome = object[@"nome"];
+//                paciente.telefone = object[@"telefone"];
+//            }
+//        }
+//        else {
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//            
+//        }
+//        callback(paciente);
+//    }];
+//    
 
--(void)BuscarPaciente:(NSString*)ID andComplete:(void(^)(Patient *)) callback
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Paciente"];
-    [query whereKey:@"objectId" equalTo:ID];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        Patient *paciente = [[Patient alloc]init];
-        if (!error) {
-            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
-            for (PFObject *object in objects)
-            {
-                paciente.nome = object[@"nome"];
-                paciente.telefone = object[@"telefone"];
-            }
-        }
-        else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-            
-        }
-        callback(paciente);
-    }];
-    
-   
 
-}
+//}
 
 -(NSString*)ConverteDia:(NSDate*)date
 {
@@ -227,7 +227,7 @@
 //     }];
     
     cell.LabelHora.text = [NSString stringWithFormat:@"%@:%@", consult.HoraInicio,consult.MinInicio];
-    cell.LabelNome.text = pacientee.nome;
+
     
      return cell;
 
