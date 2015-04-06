@@ -39,7 +39,7 @@
 -(NSString*)cod;
 -(NSString*)specialty;
 -(NSString*)street;
--(NSString*)number;
+-(NSNumber*)number;
 -(NSString*)district;
 -(NSString*)burgh;
 -(NSString*)cep;
@@ -48,7 +48,7 @@
 -(void)setCod:(NSString *)n andSave: (bool) s;
 -(void)setSpecialty:(NSString *)n andSave: (bool) s;
 -(void)setStreet:(NSString *)n andSave: (bool) s;
--(void)setNumber:(NSString *)n andSave: (bool) s;
+-(void)setNumber:(NSNumber *)n andSave: (bool) s;
 -(void)setDistrict:(NSString *)n andSave: (bool) s;
 -(void)setBurgh:(NSString *)n andSave: (bool) s;
 -(void)setCep:(NSString *)n andSave: (bool) s;

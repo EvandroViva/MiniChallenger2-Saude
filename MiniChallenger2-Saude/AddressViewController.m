@@ -20,7 +20,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     _StreetTextField.text=[[Medico sharedDoctor] street];
-    _NumberTextField.text=[[Medico sharedDoctor] number];
+    _NumberTextField.text=[[[Medico sharedDoctor] number] stringValue];
     _BurghTextField.text=[[Medico sharedDoctor] burgh];
     _ZipCodeTextField.text=[[Medico sharedDoctor] cep];
     _DistrictTextField.text=[[Medico sharedDoctor] district];
@@ -49,7 +49,7 @@
 }
 
 - (IBAction)NumberDidEnd:(UITextField *)sender {
-    [[Medico sharedDoctor] setNumber:sender.text andSave:NO];
+    [[Medico sharedDoctor] setNumber:[NSNumber numberWithInt:[sender.text intValue]] andSave:NO];
     [self.BurghTextField becomeFirstResponder];
 }
 
