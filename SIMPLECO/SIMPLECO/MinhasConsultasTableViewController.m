@@ -12,7 +12,10 @@
 {
     ViewController *viewC;
     ResultPesqTableViewController *medSelecionado;
+    Medico *medicoo;
     ConsultaViewController *dataConsulta;
+    NSMutableArray *listadeEspecialidade;
+    
 }
 
 
@@ -28,6 +31,8 @@
      _teste = [NSMutableArray arrayWithObjects:
                @"Dentista",@"Medico", nil];
     _evento = [EKEvent eventWithEventStore:viewC.eventStore];
+    listadeEspecialidade = [[NSMutableArray alloc]init];
+    medicoo = [[Medico alloc]init];
     
 
     CAGradientLayer *background = [CAGradientLayer layer];
@@ -131,13 +136,15 @@
     [format2 setDateFormat:@" HH:mm"];
     NSString *formatoHora = [format2 stringFromDate:_evento.startDate];
     medSelecionado = [ResultPesqTableViewController sharedInstance];
+    [listadeEspecialidade addObject:medSelecionado.medicoSelecionado];
     
     cell.LabelData.text= formatoData;
     cell.LabelHora.text=formatoHora;
     
     NSLog(@"O que mostra??%@",medSelecionado.medicoSelecionado.especialidade);
-    cell.LabelConsulta.text = medSelecionado.medicoSelecionado.especialidade;
-    cell.LabelDetalhes.text =medSelecionado.medicoSelecionado.endereco;
+    medicoo = listadeEspecialidade[indexPath.row];
+    cell.LabelConsulta.text = medicoo.especialidade;
+    cell.LabelDetalhes.text =medicoo.endereco;
     
     return cell;
 }
