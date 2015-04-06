@@ -18,6 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    _StreetTextField.text=[[Medico sharedDoctor] street];
+    _NumberTextField.text=[[Medico sharedDoctor] number];
+    _BurghTextField.text=[[Medico sharedDoctor] burgh];
+    _ZipCodeTextField.text=[[Medico sharedDoctor] cep];
+    _DistrictTextField.text=[[Medico sharedDoctor] district];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
