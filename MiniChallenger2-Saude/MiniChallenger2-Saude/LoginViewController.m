@@ -83,7 +83,7 @@
         if (!error) {
             [self.loginActivityIndicator setHidden:YES];
             
-            if (![[pfuser objectForKey:@"emailVerified"] boolValue]) {
+            if ([[pfuser objectForKey:@"emailVerified"] boolValue]) {
                 
                 [[Medico sharedDoctor] setParseUser:pfuser];
                 
