@@ -22,16 +22,9 @@
     [super viewDidLoad];
     bit =0;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    [self.navigationItem setTitle:@"Horários de Consulta"];
-//    
-//    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(addButtonClick)];
-//    [self.navigationItem setRightBarButtonItem:add];
+
 }
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -67,11 +60,6 @@
         return @"Domingo";
     else
         return @"";
-    
-    
-   
-
-    
     
 }
 
@@ -201,6 +189,11 @@
     return cell;
 }
 
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return true;
+}
 
 /*
 // Override to support conditional editing of the table view.

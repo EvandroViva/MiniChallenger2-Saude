@@ -51,23 +51,28 @@
 
 - (IBAction)SignInButtonClick:(UIButton *)sender {
     
+    [self signin];
+    
+    
+}
+
+-(void) signin
+{
     User *user = [[User alloc] init];
     [user setUsername: [self.UserNameTextField text]];
     [user setPassword: [self.PasswordTextField text]];
     [user setEmail: [self.EmailTextField text]];
     
     [UserDAO signinWithUser:user AndComplete: ^(bool succeeded, NSError* error){
-    
+        
         if (succeeded) {
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             NSString *errorString = [error userInfo][@"error"];
             [[[UIAlertView alloc] initWithTitle:@"Erro" message: errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
         }
-    
+        
     }];
-    
-    
 }
 
 
@@ -76,5 +81,22 @@
 }
 
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:true];
+}
 
+
+- (IBAction)UsernameDidEnd:(UITextField *)sender
+{
+    [self.EmailTextField becomeFirstResponder];
+}
+- (IBAction)EmailDidEnd:(UITextField *)sender
+{
+    [self.PasswordTextField becomeFirstResponder];
+}
+- (IBAction)PasswordDidEnd:(UITextField *)sender
+{
+    [self signin];
+}
 @end

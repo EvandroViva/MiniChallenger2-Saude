@@ -11,10 +11,18 @@
 
 @interface AddressViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *StreetTextField;
+@property (weak, nonatomic) IBOutlet UITextField *NumberTextField;
+@property (weak, nonatomic) IBOutlet UITextField *BurghTextField;
+@property (weak, nonatomic) IBOutlet UITextField *ZipCodeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *DistrictTextField;
+
+
+
 - (IBAction)StreetDidEnd:(UITextField *)sender;
 - (IBAction)NumberDidEnd:(UITextField *)sender;
 - (IBAction)BurghDidEnd:(UITextField *)sender;
-- (IBAction)CEPDidEnd:(UITextField *)sender;
+- (IBAction)ZipCodeDidEnd:(UITextField *)sender;
 - (IBAction)DistrictDidEnd:(UITextField *)sender;
 
 @end

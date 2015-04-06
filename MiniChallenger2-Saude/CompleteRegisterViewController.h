@@ -28,5 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *RememberLaterButton;
 @property (weak, nonatomic) IBOutlet UIButton *FinishRegisterButton;
 
+- (IBAction)NameDidEnd:(UITextField *)sender;
+- (IBAction)DocDidEnd:(UITextField *)sender;
+
+
 
 @end

@@ -21,4 +21,10 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loginActivityIndicator;
 
 
+- (IBAction)UsernameDidEnd:(UITextField *)sender;
+- (IBAction)PasswordDidEnd:(UITextField *)sender;
+
+-(void) login;
+
+
 @end

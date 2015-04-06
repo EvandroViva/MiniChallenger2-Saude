@@ -38,25 +38,32 @@
 
 - (IBAction)StreetDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setStreet:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.NumberTextField becomeFirstResponder];
 }
 
 - (IBAction)NumberDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setNumber:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.BurghTextField becomeFirstResponder];
 }
 
 - (IBAction)BurghDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setBurgh:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.ZipCodeTextField becomeFirstResponder];
 }
 
-- (IBAction)CEPDidEnd:(UITextField *)sender {
+- (IBAction)ZipCodeDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setCep:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.DistrictTextField becomeFirstResponder];
 }
 - (IBAction)DistrictDidEnd:(UITextField *)sender {
     [[Medico sharedDoctor] setDistrict:sender.text andSave:NO];
-    [sender endEditing:true];
+    [self.view endEditing:true];
+    [self dismissViewControllerAnimated:true completion:nil];
+    
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:true];
 }
 @end

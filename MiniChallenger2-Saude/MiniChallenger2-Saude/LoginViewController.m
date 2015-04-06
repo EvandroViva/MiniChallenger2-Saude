@@ -54,16 +54,37 @@
 
 
 - (IBAction)ButtonLoginClick:(UIButton *)sender {
-   [self.loginActivityIndicator setHidden:NO];
+    [self login];
+   }
 
-//    MainTabBarController *main = [MainTabBarController sharedInstance];
+
+
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:true];
+}
+- (IBAction)UsernameDidEnd:(UITextField *)sender {
+    [self.TextFieldPassword becomeFirstResponder];
+}
+
+- (IBAction)PasswordDidEnd:(UITextField *)sender {
+    [self.view endEditing:true];
+    [self login];
+}
+
+-(void) login
+{
+    [self.loginActivityIndicator setHidden:NO];
+    
+    //    MainTabBarController *main = [MainTabBarController sharedInstance];
     
     [UserDAO loginWithUsername:[self.TextFieldEmail text] AndPassword:[self.TextFieldPassword text] AndComplete:^(PFUser *pfuser, NSError *error){
         if (!error) {
             [self.loginActivityIndicator setHidden:YES];
             
             if (![[pfuser objectForKey:@"emailVerified"] boolValue]) {
-            
+                
                 [[Medico sharedDoctor] setParseUser:pfuser];
                 
                 
@@ -80,7 +101,7 @@
                         [relation addObject:doctor];
                         [m setParseObject:doctor];
                         
-;
+                        ;
                         [doctor saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             [pfuser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                 [self performSegueWithIdentifier:@"login" sender:self];
@@ -88,10 +109,10 @@
                             
                         }];
                     }
-
+                    
                     
                 }];
-            
+                
             }else{
                 [[[UIAlertView alloc] initWithTitle:@"Email Não Verificado" message:@"Por favor, verifique seu email." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
             }
@@ -99,9 +120,9 @@
             [self.loginActivityIndicator setHidden:YES];
             [[[UIAlertView alloc] initWithTitle:@"Usuário Inválido" message:@"E-mail e/ou senha estão inválidos." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
         }
-            
+        
     }];
-}
 
+}
 
 @end
