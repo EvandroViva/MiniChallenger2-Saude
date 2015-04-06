@@ -10,7 +10,7 @@
 
 @interface ScheduleTableViewController ()
 {
-    Consultation *consulta;
+    Consultation *consulta, *consultaa;
     int bit;
 }
 
@@ -22,15 +22,64 @@
     [super viewDidLoad];
     bit =0;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self BuscarInformacaoParse:[Medico sharedDoctor].parseObject.objectId AndComplete:^{
+        
+    }];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
+-(void)BuscarInformacaoParse:(NSString*)ID AndComplete:(void(^)(void))callback
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"TipoConsulta"];
+    [query whereKey:@"ObjectID" equalTo:ID];
+    [query orderByAscending:@"HoraInicio"];
+   // [query orderByAscending:@"MinInicio"];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    [self.navigationItem setTitle:@"Horários de Consulta"];
-//    
-//    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(addButtonClick)];
-//    [self.navigationItem setRightBarButtonItem:add];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully retrieved %lu MEDICOS.", (unsigned long)objects.count);
+            for (PFObject *object in objects)
+            {
+                NSNumber *aux;
+                consultaa = [[Consultation alloc]init];
+                consultaa.HoraInicio = object[@"HoraInicio"];
+                consultaa.MinInicio = object[@"MinInicio"];
+                consultaa.HoraFinal = object[@"HoraFinal"];
+                consultaa.MinFinal = object[@"MinFinal"];
+                aux =object[@"numeroDiaSemana"];
+                consultaa.indexSemana = [aux intValue];
+                
+                if ((int)consultaa.indexSemana == 1)
+                    [[AddScheduleTableViewController sharedSDomingo]addObject:consultaa];
+                if ((int)consultaa.indexSemana == 2)
+                    [[AddScheduleTableViewController sharedSegunda]addObject:consultaa];
+                if ((int)consultaa.indexSemana == 3)
+                    [[AddScheduleTableViewController sharedTerca]addObject:consultaa];
+                if ((int)consultaa.indexSemana == 4)
+                    [[AddScheduleTableViewController sharedQuarta]addObject:consultaa];
+                if ((int)consultaa.indexSemana == 5)
+                    [[AddScheduleTableViewController sharedQuinta]addObject:consultaa];
+                if ((int)consultaa.indexSemana == 6)
+                    [[AddScheduleTableViewController sharedSexta]addObject:consultaa];
+                if ((int)consultaa.indexSemana == 7)
+                    [[AddScheduleTableViewController sharedSabado]addObject:consultaa];
+             }
+            
+        }
+        else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+
+        }
+        callback();
+        
+    }];
+
+    
+    
 }
 
 
@@ -67,11 +116,6 @@
         return @"Domingo";
     else
         return @"";
-    
-    
-   
-
-    
     
 }
 

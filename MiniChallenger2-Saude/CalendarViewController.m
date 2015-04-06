@@ -13,6 +13,8 @@
 @interface CalendarViewController ()
 {
     Consultation *consult;
+    BOOL boole;
+    Patient *pacientee;
     
 }
 
@@ -38,6 +40,7 @@
     [self.calendar reloadData];
     consultass = [[NSMutableArray alloc]init];
     consult = [[Consultation alloc]init];
+    pacientee = [[Patient alloc]init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -54,21 +57,26 @@
 
 - (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
 {
-    return 0;
+     return 0;
 }
 
 - (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
 {
     NSLog(@"Date: %@", date);
-   // [self.TableView reloadData];
+    //consultass = nil;
+    [self.TableView reloadData];
     
     
-//    [self buscarConsultaAgendada:[self ConverteDia:date] andIDMedico:[Medico sharedDoctor].parseObject.objectId andComplete:^(NSMutableArray *array)
-//    {
-//        consultass = array;
-//    }];
+    
+    [self buscarConsultaAgendada:[self ConverteDia:date] andIDMedico:[Medico sharedDoctor].parseObject.objectId andComplete:^(NSMutableArray *array)
+    {
+        consultass = array;
+        [self.TableView reloadData];
+    }];
     
 }
+
+
 
 
 -(void)buscarConsultaAgendada:(NSString*)data andIDMedico:(NSString*)IDMedico andComplete:(void(^)(NSMutableArray*)) callback
@@ -178,18 +186,10 @@
     [self transitionExample];
 }
 
-//
-//#pragma mark - Table
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 1;
-//}
-//
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
-//    return consultass.count;
+    return consultass.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -202,60 +202,20 @@
     {
         cell = [[CalendarTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellCalendar"];
     }
+
+    consult = consultass[indexPath.row];
     
-//    consult = consultass[indexPath.row];
-//    [self BuscarPaciente:consult.ID andComplete:^(Patient *paciente){
-//        NSLog(@"Paciente =%@",paciente);
-//    }];
-//    
-//    cell.LabelNome.text = @"Teste";
+    [self BuscarPaciente:consult.ID andComplete:^(Patient *pat)
+     {
+         pacientee = pat;
+         
+     }];
+    
+    cell.LabelHora.text = [NSString stringWithFormat:@"%@:%@", consult.HoraInicio,consult.MinInicio];
+    cell.LabelNome.text = pacientee.nome;
+    
      return cell;
 
-    
-    
-//    else
-//        
-//    {
-//        
-//        _consulta = _mostrar[indexPath.row];
-//        
-//        // NSNumber* n = _consulta.horarioInicial;
-//        
-//        NSLog(@"singleton =%ld", (long)index);
-//        
-//        // NSString *ok = [self ConverteHora:dataSelecionada];
-//        
-//        NSString *ok = _consulta.HoraInicio;
-//        
-//        NSString *ok1 = @":";
-//        
-//        NSString *ok2 = _consulta.MinInicio;
-//        
-//        ok = [ok stringByAppendingString:ok1];
-//        
-//        ok = [ok stringByAppendingString:ok2];
-//        
-//        
-//        
-//        NSString *e = _consulta.HoraFinal;
-//        
-//        NSString *e1 = @":";
-//        
-//        NSString *e2= _consulta.MinFinal;
-//        
-//        e = [e stringByAppendingString:e1];
-//        
-//        e = [e stringByAppendingString:e2];
-//        
-//        
-//        
-//        cell.LData.text = ok;
-//        cell.LDataFinal.text = e;
-//        
-//        // cell.LFim.text = e;
-//        
-//        cell.LConteudo.text = @"Consulta";
-//        
     }
 
    
