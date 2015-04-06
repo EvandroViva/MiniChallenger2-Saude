@@ -12,7 +12,7 @@
 
 @interface CalendarViewController ()
 {
-    Consultation *consult;
+    Consultation *consult,*con;
     BOOL boole;
     Patient *pacientee;
     
@@ -41,6 +41,7 @@
     consultass = [[NSMutableArray alloc]init];
     consult = [[Consultation alloc]init];
     pacientee = [[Patient alloc]init];
+    con = [[Consultation alloc]init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -71,8 +72,21 @@
     [self buscarConsultaAgendada:[self ConverteDia:date] andIDMedico:[Medico sharedDoctor].parseObject.objectId andComplete:^(NSMutableArray *array)
     {
         consultass = array;
-        [self.TableView reloadData];
+        
     }];
+    
+    for (int t=0; t<consultass.count; t++)
+    {
+        con = consultass[t];
+    [self BuscarPaciente:con.ID andComplete:^(Patient *pat)
+     {
+         pacientee = pat;
+         [self.TableView reloadData];
+         
+     }];
+    }
+    
+    
     
 }
 
@@ -113,7 +127,7 @@
 -(void)BuscarPaciente:(NSString*)ID andComplete:(void(^)(Patient *)) callback
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Paciente"];
-    [query whereKey:@"objectID" equalTo:ID];
+    [query whereKey:@"objectId" equalTo:ID];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         Patient *paciente = [[Patient alloc]init];
         if (!error) {
@@ -205,11 +219,12 @@
 
     consult = consultass[indexPath.row];
     
-    [self BuscarPaciente:consult.ID andComplete:^(Patient *pat)
-     {
-         pacientee = pat;
-         
-     }];
+//    [self BuscarPaciente:consult.ID andComplete:^(Patient *pat)
+//     {
+//         pacientee = pat;
+//         [self.TableView reloadData];
+//         
+//     }];
     
     cell.LabelHora.text = [NSString stringWithFormat:@"%@:%@", consult.HoraInicio,consult.MinInicio];
     cell.LabelNome.text = pacientee.nome;
